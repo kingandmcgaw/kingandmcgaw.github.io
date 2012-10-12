@@ -11,11 +11,11 @@ Sublime Text 2 has been my text editor of choice for almost a year now but as I 
 
 To begin with, we need to ensure that the bin directory is specified in our path. Just paste the following into Terminal:
 
-[GIST]
+    $ echo "export PATH=~/bin:$PATH" >> ~/.profile
 
 Next up, we need to create the subl command. To do that just paste the following into Terminal:
 
-[GIST]
+    $ ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
 To make sure this is working, just type subl into Terminal and press enter. If you’ve followed the steps above then that should open up Sublime.
 
@@ -25,11 +25,11 @@ We’ve already seen how the subl command can be used to open Sublime itself, ho
 
 This command opens a directory called mySite:
 
-[GIST]
+    $ subl ~/Documents/mySite
 
 This command opens a file from the above directory called index.html:
 
-[GIST]
+    $ subl ~/Documents/mySite/index.html
 
 ### Taking it further
 

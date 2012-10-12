@@ -42,13 +42,27 @@
 
 <p>An example would be nesting. LESS allows you to nest selectors like so:</p>
 
-<p>[GIST]</p>
+<pre><code>#header {
+  overflow: hidden;
+
+  h1 {
+    font-size: 3em;
+  }
+}
+</code></pre>
 
 <p>As someone who doesn’t have a background in programming, I did find this initially confusing, but it soon begins to make sense and once you start working this way you will probably never want to go back.</p>
 
 <p>This code will output as follows:</p>
 
-<p>[GIST]</p>
+<pre><code>#header {
+  overflow: hidden;
+}
+
+#header h1 {
+  font-size: 3em;
+}
+</code></pre>
 
 <p>Something else you will notice in the above snippet is that there is a blank line before the descendent selector, an no blank lines after the closing brakets. This is something we agreed upon as a standard because it makes code more readable.</p>
 
@@ -105,9 +119,9 @@
             
             <li><a href="/2012/04/19/codekit-tip-export-project-settings">Codekit tip: Export project settings</a></li>
             
-            <li><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></li>
+            <li><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Deploying static assets to S3 using s3cmd</a></li>
             
-            <li><a href="/2012/04/13/front-end-development-requirement">Front-end development requirements</a></li>
+            <li><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></li>
             
           </ol>
         </div>

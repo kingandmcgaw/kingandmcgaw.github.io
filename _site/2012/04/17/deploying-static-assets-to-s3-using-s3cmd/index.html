@@ -7,7 +7,7 @@
 <meta name="author" content="Easyart">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>On source control | Easyart Developers</title>
+<title>Deploying static assets to S3 using s3cmd | Easyart Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -31,22 +31,23 @@
 
         <article class="hentry">
           <header>
-            <h2>On source control</h2>
-            <p class="updated">Posted on 05 April 2012 by Steve Rydz</p>
+            <h2>Deploying static assets to S3 using s3cmd</h2>
+            <p class="updated">Posted on 17 April 2012 by Nick Boyce</p>
           </header>
-          <p>Source control is fairly commonplace these days. Most people use the likes of <a href="http://git-scm.com/">GIT</a> or <a href="http://subversion.tigris.org/">SVN</a> as part of their process, however there are still plenty of people out there who don’t use version control because they either don’t see a reason to or they don’t know where to start.</p>
+          <p>I&rsquo;ve been looking at ways to deploy our static assets to S3 as part of our Git workflow.</p>
 
-<p>Until mid-way through last year, I fell into the latter category. I worked alone as a freelancer and made good use of <a href="http://dropbox.com/">Dropbox</a>. The thing is, I was really missing out. It wasn’t until I started working as part of a team that I saw the real benefits.</p>
+<p>I want to be able to push to the master branch of a remote repo and have the changes deployed to S3, with predefined HTTP headers. Much like I&rsquo;m used to pushing to Heroku with git push heroku master.</p>
 
-<p>I had tried to used these tools a few times, but quickly became overwhelmed by the magnitude of documentation that was presented to me. It all seemed to complicated and still, I couldn’t understand how I would benefit from this extra step in my workflow.</p>
+<p>There are probably plenty of ways to do it &ndash; mounting S3 through Fuse, running Webdav servers, using Capistrano etc &ndash; but I found them too overkill for our needs.</p>
 
-<p>The thing is, once someone sat down with me and took me through what I needed to know about these systems, it almost became second nature. I have now got experience using both SVN and GIT and would highly recommend GIT over SVN to anyone, especially with the use of <a href="http://github.com/">Github</a>.</p>
+<p>So I&rsquo;ve ended up writing a simple deploy script which lives at the root of the repo which uses <a href="http://s3tools.org/s3cmd">s3cmd</a> to sync between the local file system and our S3 bucket. It&rsquo;s a snap to set up, and the result is a command that looks like this:</p>
 
-<p>These days, particularly if you use a Mac (which I assume most developers do), there are some great, simple user interfaces for both GIT and SVN which will help you to get started and give you an understanding as to how these technologies work. Once you understand this, its really easy to learn the terminal commands.</p>
+<script src="https://gist.github.com/2404535.js"> </script>
 
-<p>The apps I would recommend are <a href="http://versionsapp.com/">Versions</a> for SVN and <a href="http://mac.github.com/">Github:Mac</a> for GIT. Both are relatively self-explanatory but also have good documentation available.</p>
 
-<p>Stick with it and you will wonder how you ever worked without this stuff. Personally, I would never start a project without using GIT now, even when working solo.</p>
+<p>I store this file in the repo, so that each of us developers can execute it by just calling ./deploy.sh. As this process is outside of the Git workflow, I have to exclude the .git directory. Conveniently, s3cmd&rsquo;s format for excluding files is the same as Git&rsquo;s so you can pass in a .gitignore if you&rsquo;re using one.</p>
+
+<p>It&rsquo;s not a true Git deploy (though it could be called via a <a href="http://progit.org/book/ch7-3.html">Git Hook</a>), but still a pretty neat solution.</p>
 
         </article>
 

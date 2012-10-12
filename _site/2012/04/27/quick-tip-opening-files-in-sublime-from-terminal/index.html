@@ -40,11 +40,13 @@
 
 <p>To begin with, we need to ensure that the bin directory is specified in our path. Just paste the following into Terminal:</p>
 
-<p>[GIST]</p>
+<pre><code>$ echo "export PATH=~/bin:$PATH" &gt;&gt; ~/.profile
+</code></pre>
 
 <p>Next up, we need to create the subl command. To do that just paste the following into Terminal:</p>
 
-<p>[GIST]</p>
+<pre><code>$ ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+</code></pre>
 
 <p>To make sure this is working, just type subl into Terminal and press enter. If you’ve followed the steps above then that should open up Sublime.</p>
 
@@ -54,11 +56,13 @@
 
 <p>This command opens a directory called mySite:</p>
 
-<p>[GIST]</p>
+<pre><code>$ subl ~/Documents/mySite
+</code></pre>
 
 <p>This command opens a file from the above directory called index.html:</p>
 
-<p>[GIST]</p>
+<pre><code>$ subl ~/Documents/mySite/index.html
+</code></pre>
 
 <h3>Taking it further</h3>
 
@@ -115,9 +119,9 @@
             
             <li><a href="/2012/04/19/codekit-tip-export-project-settings">Codekit tip: Export project settings</a></li>
             
-            <li><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></li>
+            <li><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Deploying static assets to S3 using s3cmd</a></li>
             
-            <li><a href="/2012/04/13/front-end-development-requirement">Front-end development requirements</a></li>
+            <li><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></li>
             
           </ol>
         </div>

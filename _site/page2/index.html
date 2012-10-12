@@ -40,7 +40,8 @@
 
 <p>Here&rsquo;s a sample test:</p>
 
-<p>[GIST]</p>
+<script src="https://gist.github.com/2566740.js"> </script>
+
 
 <p>The Selenium::WebDriver object makes writing these tests pretty simple. These are the main methods we use:</p>
 
@@ -62,16 +63,19 @@
 
 <p>Here&rsquo;s an example which makes use of these:</p>
 
-<p>[GIST]</p>
+<script src="https://gist.github.com/2566849.js"> </script>
+
 
 <p>One thing that took some getting used to was using the Selenium::WebDriver::Wait object. When you do a click, you have to tell Selenium you want to wait for a certain condition to be true before moving on to the next live of code.</p>
 
 <p>In this example, I&rsquo;m waiting until the H1 tag contains the word &ldquo;cart&rdquo;:</p>
 
-<p>[GIST]</p>
+<script src="https://gist.github.com/2567891.js"> </script>
+
 
 <p>I&rsquo;m used Rspec for unit and request specs, but it&rsquo;s advantageous to use a visible browser for this type of testing, as sometimes you can spot things with your eye that your tests won&rsquo;t. Then you write the test to catch it.</p>
 
+    <p><a href="/2012/05/01/using-selenium-and-rspec-for-behaviour-testing#disqus_thead"></a></p>
   </article>
   
   <article class="hentry">
@@ -85,11 +89,13 @@
 
 <p>To begin with, we need to ensure that the bin directory is specified in our path. Just paste the following into Terminal:</p>
 
-<p>[GIST]</p>
+<pre><code>$ echo "export PATH=~/bin:$PATH" &gt;&gt; ~/.profile
+</code></pre>
 
 <p>Next up, we need to create the subl command. To do that just paste the following into Terminal:</p>
 
-<p>[GIST]</p>
+<pre><code>$ ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+</code></pre>
 
 <p>To make sure this is working, just type subl into Terminal and press enter. If you’ve followed the steps above then that should open up Sublime.</p>
 
@@ -99,11 +105,13 @@
 
 <p>This command opens a directory called mySite:</p>
 
-<p>[GIST]</p>
+<pre><code>$ subl ~/Documents/mySite
+</code></pre>
 
 <p>This command opens a file from the above directory called index.html:</p>
 
-<p>[GIST]</p>
+<pre><code>$ subl ~/Documents/mySite/index.html
+</code></pre>
 
 <h3>Taking it further</h3>
 
@@ -113,6 +121,7 @@
 
 <p><a href="http://steverydz.com/2012/04/27/sublime-text-2-opening-files-and-folders-from-the-command-line/">http://steverydz.com/2012/04/27/sublime-text-2-opening-files-and-folders-from-the-command-line/</a></p>
 
+    <p><a href="/2012/04/27/quick-tip-opening-files-in-sublime-from-terminal#disqus_thead"></a></p>
   </article>
   
   <article class="hentry">
@@ -138,6 +147,30 @@
 
 <p><strong>Note:</strong> According to the CodeKit website, the free, BETA version of the app expires tomorrow (20th April, 2012), and I have heard rumours that it will be on sale via the app store for around $20. This app is more than worth that amount and if this is the case, I will certainly be purchasing a license first thing.</p>
 
+    <p><a href="/2012/04/19/codekit-tip-export-project-settings#disqus_thead"></a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Deploying static assets to S3 using s3cmd</a></h2>
+      <p class="updated">Posted on 17 April 2012 by Nick Boyce</p>
+    </header>
+    <p>I&rsquo;ve been looking at ways to deploy our static assets to S3 as part of our Git workflow.</p>
+
+<p>I want to be able to push to the master branch of a remote repo and have the changes deployed to S3, with predefined HTTP headers. Much like I&rsquo;m used to pushing to Heroku with git push heroku master.</p>
+
+<p>There are probably plenty of ways to do it &ndash; mounting S3 through Fuse, running Webdav servers, using Capistrano etc &ndash; but I found them too overkill for our needs.</p>
+
+<p>So I&rsquo;ve ended up writing a simple deploy script which lives at the root of the repo which uses <a href="http://s3tools.org/s3cmd">s3cmd</a> to sync between the local file system and our S3 bucket. It&rsquo;s a snap to set up, and the result is a command that looks like this:</p>
+
+<script src="https://gist.github.com/2404535.js"> </script>
+
+
+<p>I store this file in the repo, so that each of us developers can execute it by just calling ./deploy.sh. As this process is outside of the Git workflow, I have to exclude the .git directory. Conveniently, s3cmd&rsquo;s format for excluding files is the same as Git&rsquo;s so you can pass in a .gitignore if you&rsquo;re using one.</p>
+
+<p>It&rsquo;s not a true Git deploy (though it could be called via a <a href="http://progit.org/book/ch7-3.html">Git Hook</a>), but still a pretty neat solution.</p>
+
+    <p><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd#disqus_thead"></a></p>
   </article>
   
   <article class="hentry">
@@ -155,17 +188,7 @@
 
 <p>High Scalability is a blog that exposes the architecture of some very well-known and highly trafficked  websites. The posts are often written by the developers of those systems. So if you&rsquo;ve ever wondered how <a href="http://highscalability.com/blog/2011/12/19/how-twitter-stores-250-million-tweets-a-day-using-mysql.html">Twitter stores 250,000,000 tweets a day</a> using MySql (no NoSql here), then H.S. is the blog for you.</p>
 
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/04/13/front-end-development-requirement">Front-end development requirements</a></h2>
-      <p class="updated">Posted on 13 April 2012 by Steve Rydz</p>
-    </header>
-    <p>It wasn’t that long ago when front-end development was considered to be nothing more than knowing HTML, CSS and jQuery. There wasn’t a great deal more to it, but the role has really developed over the past two years or so.</p>
-
-<p>Yesterday I came across an article that does a great job of outlining what should be required of a front-end developer today. <a href="http://rmurphey.com/blog/2012/04/12/a-baseline-for-front-end-developers/">Go read it&hellip;</a></p>
-
+    <p><a href="/2012/04/17/cheating-isnt-always-a-bad-thing#disqus_thead"></a></p>
   </article>
   
 
@@ -215,6 +238,20 @@
 
 </div>
 
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'easyartdevelopers'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+        
+
       </div>
     </section>
 
@@ -246,9 +283,9 @@
             
             <li><a href="/2012/04/19/codekit-tip-export-project-settings">Codekit tip: Export project settings</a></li>
             
-            <li><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></li>
+            <li><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Deploying static assets to S3 using s3cmd</a></li>
             
-            <li><a href="/2012/04/13/front-end-development-requirement">Front-end development requirements</a></li>
+            <li><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></li>
             
           </ol>
         </div>

@@ -13,13 +13,25 @@ One tool we have been using to help us acheive this is LESS. Combining LESS with
 
 An example would be nesting. LESS allows you to nest selectors like so:
 
-[GIST]
+    #header {
+      overflow: hidden;
+
+      h1 {
+        font-size: 3em;
+      }
+    }
 
 As someone who doesn’t have a background in programming, I did find this initially confusing, but it soon begins to make sense and once you start working this way you will probably never want to go back.
 
 This code will output as follows:
 
-[GIST]
+    #header {
+      overflow: hidden;
+    }
+
+    #header h1 {
+      font-size: 3em;
+    }
 
 Something else you will notice in the above snippet is that there is a blank line before the descendent selector, an no blank lines after the closing brakets. This is something we agreed upon as a standard because it makes code more readable.
 

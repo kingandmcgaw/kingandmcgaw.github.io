@@ -31,6 +31,18 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/04/13/front-end-development-requirement">Front-end development requirements</a></h2>
+      <p class="updated">Posted on 13 April 2012 by Steve Rydz</p>
+    </header>
+    <p>It wasn’t that long ago when front-end development was considered to be nothing more than knowing HTML, CSS and jQuery. There wasn’t a great deal more to it, but the role has really developed over the past two years or so.</p>
+
+<p>Yesterday I came across an article that does a great job of outlining what should be required of a front-end developer today. <a href="http://rmurphey.com/blog/2012/04/12/a-baseline-for-front-end-developers/">Go read it&hellip;</a></p>
+
+    <p><a href="/2012/04/13/front-end-development-requirement#disqus_thead"></a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/04/12/a-unified-coding-style">A unified coding style</a></h2>
       <p class="updated">Posted on 12 April 2012 by Steve Rydz</p>
     </header>
@@ -42,13 +54,27 @@
 
 <p>An example would be nesting. LESS allows you to nest selectors like so:</p>
 
-<p>[GIST]</p>
+<pre><code>#header {
+  overflow: hidden;
+
+  h1 {
+    font-size: 3em;
+  }
+}
+</code></pre>
 
 <p>As someone who doesn’t have a background in programming, I did find this initially confusing, but it soon begins to make sense and once you start working this way you will probably never want to go back.</p>
 
 <p>This code will output as follows:</p>
 
-<p>[GIST]</p>
+<pre><code>#header {
+  overflow: hidden;
+}
+
+#header h1 {
+  font-size: 3em;
+}
+</code></pre>
 
 <p>Something else you will notice in the above snippet is that there is a blank line before the descendent selector, an no blank lines after the closing brakets. This is something we agreed upon as a standard because it makes code more readable.</p>
 
@@ -58,6 +84,7 @@
 
 <p>The key thing to remember is that whatever you come up with, it needs to be something that your team can all get on board with, as the aim is to increase productivity and make things easier to maintain.</p>
 
+    <p><a href="/2012/04/12/a-unified-coding-style#disqus_thead"></a></p>
   </article>
   
   <article class="hentry">
@@ -95,6 +122,7 @@
 <p><a href="http://diveintohtml5.info/history.html">http://diveintohtml5.info/history.html</a>
 <a href="https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history">https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history</a></p>
 
+    <p><a href="/2012/04/11/history-state-and-the-back-button#disqus_thead"></a></p>
   </article>
   
   <article class="hentry">
@@ -131,6 +159,7 @@
 
 <p>Update: <a href="http://37signals.com/svn/posts/3159-testing-like-the-tsa">An interesting post by DHH about over-testing.</a></p>
 
+    <p><a href="/2012/04/10/testing-rails-json-apis-with-rspec#disqus_thead"></a></p>
   </article>
   
   <article class="hentry">
@@ -152,37 +181,7 @@
 
 <p>Stick with it and you will wonder how you ever worked without this stuff. Personally, I would never start a project without using GIT now, even when working solo.</p>
 
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/03/26/the-importance-of-less">The importance of LESS</a></h2>
-      <p class="updated">Posted on 26 March 2012 by Steve Rydz</p>
-    </header>
-    <p>I recently <a href="/2012/03/23/getting-to-know-codekit/">wrote about CodeKit</a> and how it has improved our workflow when using pre-processors, but at the time I didn’t allude to the reason that we would use such things. Whilst LESS and SASS are certainly gaining traction, there are many developers out there who just don’t see the point in using something like that.</p>
-
-<p>I must admit, I too was sceptical when I started reading about this new-fangled way to write CSS. I was confident that my code was of a high standard, efficient and maintainable, and I also loved the hand-crafted feeling you get from hand-coding everything (including vendor pre-fixes). The thing is, I just could see how pre-processors could make my code any better.</p>
-
-<p>Of course I was missing the point. In order to really get the most out of these tools, you need to be writing good quality code anyway. LESS will not make you a better developer, but it can make you more efficient.</p>
-
-<p>The first thing that normally wins people over is the use of variables. How many times have you scrolled up and down that stylesheet, looking for that colour value? Well, not with LESS. Here’s another one. You want your box-shadows to be consistent, and you can’t remember the exact code you used. Again, you could spend a few minutes searching through your stylesheet, or you could just use LESS.</p>
-
-<p>The point is, LESS is great for enabling you to work faster and it can really eliminate the tedious parts of the job too. Really, there is no reason to repeat ourselves in code, time after time. Why not use a tool that takes care of the repetitive tasks for you.</p>
-
-<p>Now, what I have just talked about only scratches the surface of what LESS is capable of, and there is much of it that you might not find useful, and that»s fine. Take what you need from it, but don’t write it off until you have taken the time to see how it can really benefit your workflow.</p>
-
-<h3>Links and resources</h3>
-
-<p>Here are a few links and resources that will help you learn more about LESS:</p>
-
-<ul>
-<li><a href="http://lesscss.org/">The official LESS website</a></li>
-<li><a href="http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/">An introduction to LESS and comparison to SASS – Smashing Magazine</a></li>
-<li><a href="http://www.stuffandnonsense.co.uk/blog/about/less">LESS – Stuff and Nonsense</a></li>
-<li><a href="http://steverydz.com/2012/02/13/colour-theory-with-less/">Colour theory with LESS – Steve Rydz (me)</a></li>
-</ul>
-
-
+    <p><a href="/2012/04/05/on-source-control#disqus_thead"></a></p>
   </article>
   
 
@@ -232,6 +231,20 @@
 
 </div>
 
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'easyartdevelopers'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+        
+
       </div>
     </section>
 
@@ -263,9 +276,9 @@
             
             <li><a href="/2012/04/19/codekit-tip-export-project-settings">Codekit tip: Export project settings</a></li>
             
-            <li><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></li>
+            <li><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Deploying static assets to S3 using s3cmd</a></li>
             
-            <li><a href="/2012/04/13/front-end-development-requirement">Front-end development requirements</a></li>
+            <li><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></li>
             
           </ol>
         </div>
