@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="description" content="{{site.site_description}}">
+<meta name="author" content="{{site.site_author}}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{page.title}} | {{site.site_name}}</title>
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lt IE 9]>
+<script src="/assets/js/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+  <div class="global-header" role="banner">
+    <h1><a href="/"><strong>Easyart</strong>Developers</a></h1>
+  </div>
+
+  <div class="content row">
+
+    <section class="col-7">
+      <div class="content-pri" role="main">
+
+        <article class="hentry">
+          <header>
+            <h2>{{page.title}}</h2>
+            <p class="updated">Posted on {{page.date | date: "%d %B %Y"}} by {{ page.author }}</p>
+          </header>
+          {{content}}
+        </article>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'easyartdevelopers'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>    
+    </section>
+
+    <aside class="col-4 offset-1">
+      <div class="content-sec" role="complementary">
+        
+        <div class="widget">
+          <h3>About this blog</h3>
+          <p>This is the blog of the developers at Easyart. We have a strong focus on user-centered design, test-driven development and emerging technologies.</p>
+        </div>
+
+        <div class="widget">
+          <h3>Recent posts</h3>
+          <ol>
+            {% for post in site.posts limit: 10 %}
+            <li><a href="{{post.url}}">{{post.title}}</a></li>
+            {% endfor %}
+          </ol>
+        </div>
+
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="global-footer" role="contentinfo">
+    <p>&copy; Copyright 2012 Easyart. All rights reserved.</p>
+  </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+site_name: 'Easyart Developers'
+site_description: 'The Easyart Developers Blog'
+site_author: 'Easyart'
+site_url: '/'
+markdown: rdiscount
+rdiscount:
+  extensions: [smart]
+permalink: /:year/:month/:day/:title
+paginate: 5

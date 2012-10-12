@@ -1,0 +1,176 @@
+/* ----------------------------------------------
+  RESET
+---------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, img {
+  display: block;
+}
+
+/* ----------------------------------------------
+  BODY
+---------------------------------------------- */
+body {
+  position: relative;
+  width: $body-width;
+  max-width: $body-max-width;
+  margin: 0 auto;
+  font: 87.5%/1.5 $sans-serif;
+  color: $text-color;
+  background: $body-background;
+}
+
+/* ----------------------------------------------
+  TYPOGRAPHY
+---------------------------------------------- */
+p, 
+ul, 
+ol {
+  margin-bottom: 1.5em;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+.hentry {
+
+  ul,
+  ol {
+    margin-left: 1.5em;
+
+    li {
+      margin-bottom: 0.75em;
+    }
+  }
+}
+
+.widget {
+
+  ul,
+  ol {
+    list-style: none;
+
+    li {
+      margin-bottom: 0.75em;
+    }
+  }
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+blockquote {
+  padding-left: 1.5em;
+  border-left: 3px solid $border-color;
+  font-style: italic;
+  color: $text-color-light;
+}
+
+pre {
+  overflow: auto;
+  margin: 1.5em 0;
+  padding: 1.5em 20px;
+  border: 1px solid $border-color;
+  background: #eee;
+  @include border-radius(5px);
+}
+
+code {
+  font-family: $monospace;
+}
+
+/* ----------------------------------------------
+  HEADINGS
+---------------------------------------------- */
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+  font-weight: normal;
+}
+
+h1 {
+  margin-bottom: 0.5em;
+  font-size: 3em;
+  line-height: 1;
+}
+
+h2 {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+h3 {
+  margin-bottom: 1.2em;
+  font-size: 1.25em;
+  line-height: 1.25;
+}
+
+h4,
+h5, 
+h6 {
+  margin-bottom: 1.5em;
+  font-size: 1.5em;
+}
+
+/* ----------------------------------------------
+  LINKS
+---------------------------------------------- */
+a {
+  
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: $link-color;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline;
+    color: $link-color-hover;
+  }
+}
+
+/* ----------------------------------------------
+  IMAGES
+---------------------------------------------- */
+img {
+  max-width: 100%;
+  padding: 5px;
+  border: 1px solid $border-color;
+  background: #fff;
+  @include box-sizing(border-box);
+  @include box-shadow(1px 1px 6px rgba(0,0,0,0.25));
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="description" content="The Easyart Developers Blog">
+<meta name="author" content="Easyart">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Easyart Developers</title>
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lt IE 9]>
+<script src="/assets/js/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+  <header class="global-header" role="banner">
+    <h1><a href="/"><strong>Easyart</strong>Developers</a></h1>
+  </header>
+
+  <div class="content row">
+
+    <section class="col-7">
+      <div class="content-pri" role="main">
+          
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/04/12/a-unified-coding-style">A unified coding style</a></h2>
+      <p class="updated">Posted on 12 April 2012 by Steve Rydz</p>
+    </header>
+    <p>Something we have been working on recently is finding a unified coding style that we are all comfortable with. The benefits of this are that any one of us can pick up a project and run with it as we are already familiar with the way the project has been set up.</p>
+
+<p>Another aim of ours when authoring code is to be as efficient as possible, not just in terms of file size but in terms of maintainability also.</p>
+
+<p>One tool we have been using to help us acheive this is LESS. Combining LESS with our own coding conventions, each of us can quickly find what we are looking for in our CSS and can also make changes quickly, knowing that what we are doing will be maintainable.</p>
+
+<p>An example would be nesting. LESS allows you to nest selectors like so:</p>
+
+<p>[GIST]</p>
+
+<p>As someone who doesn’t have a background in programming, I did find this initially confusing, but it soon begins to make sense and once you start working this way you will probably never want to go back.</p>
+
+<p>This code will output as follows:</p>
+
+<p>[GIST]</p>
+
+<p>Something else you will notice in the above snippet is that there is a blank line before the descendent selector, an no blank lines after the closing brakets. This is something we agreed upon as a standard because it makes code more readable.</p>
+
+<p>It doesn’t matter what your coding conventions are, as long as they make sense to you and your team, but using them will increase productivity considerably and are worth the investment in time it takes to establish them.</p>
+
+<p>Another thing that is worth doing, and again, something we are working on, is drafting a <a href="https://github.com/styleguide/css">CSS styleguide</a>. This is something that you can add to over time as and when you add new tools and methodologies into your process, such as we have, working with LESS and CodeKit.</p>
+
+<p>The key thing to remember is that whatever you come up with, it needs to be something that your team can all get on board with, as the aim is to increase productivity and make things easier to maintain.</p>
+
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/04/11/history-state-and-the-back-button">History state and the back button</a></h2>
+      <p class="updated">Posted on 11 April 2012 by Nick Boyce</p>
+    </header>
+    <p>I&rsquo;ve been playing around with the HTML5 history API today, in order to make certain parts of our new product page bookmarkable. Here&rsquo;s what we&rsquo;re aiming for:</p>
+
+<ol>
+<li>On page1.html, the user clicks an a tag which has a href value of page2.html</li>
+<li>Instead of refreshing the page with the contents of framing.html, a panel in the page slides across to reveal the contents of page2.html in the current page</li>
+<li>The URL changes to page2.html</li>
+</ol>
+
+
+<p>This is relatively easy to achieve by intercepting these links, and replacing them with Javascript behavior and using the HTML5 History API to push a new URL into the address bar. So, as an example, the following code will find every a on the page and instead of navigating to the href, just push the state into the address bar.</p>
+
+<script src="https://gist.github.com/2359314.js"> </script>
+
+
+<p>So we can quite easily intercept links to page2.html (either based on their href attribute or a CSS class), push the href into the address bar and load the content into the current page in some fancy-pants way.</p>
+
+<p>But say you want the back button to navigate the user from page2.html back to page1.html. This won&rsquo;t work, because unless you tell it to do otherwise, the back button will change the address, but do nothing else.</p>
+
+<p>This is where popstate comes in. Using popstate we can listen for changes in the address, and act upon them accordingly. So my code ended up looking something like this:</p>
+
+<script src="https://gist.github.com/2359401.js"> </script>
+
+
+<p>It&rsquo;s also possible to pass objects and titles through to pushstate, but I won&rsquo;t go into that for now as it&rsquo;s not yet well supported by browsers. Simply finding out the address of the page was good enough to solve the immediate problem.</p>
+
+<p>Resources:</p>
+
+<p><a href="http://diveintohtml5.info/history.html">http://diveintohtml5.info/history.html</a>
+<a href="https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history">https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history</a></p>
+
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/04/10/testing-rails-json-apis-with-rspec">Testing Rails JSON APIs with RSpec</a></h2>
+      <p class="updated">Posted on 10 April 2012 by Nick Boyce</p>
+    </header>
+    <p>I&rsquo;ve spent some time in the last couple of weeks taking the learnings from an early API prototype, and starting a new Rails application from scratch, complete with RSpec tests. Here are some notes on some of our tools and methodologies.</p>
+
+<h3>Model specs</h3>
+
+<p>We&rsquo;re overriding the as_json method in our models and we&rsquo;re using <a href="https://github.com/collectiveidea/json_spec">json_spec</a> to test the documents have the right structure.</p>
+
+<script src="https://gist.github.com/2349770.js"> </script>
+
+
+<h3>Request specs</h3>
+
+<p>We have hundreds of lines of <a href="https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec">request specs</a>, and no controller specs. Here is a simple example:</p>
+
+<script src="https://gist.github.com/2349801.js"> </script>
+
+
+<p>Because we&rsquo;re getting an actual HTTP payload back (in the response variable) we can inspect whatever part of it that&rsquo;s relevant to us. We know the structure of the responses should come back in a known format because we&rsquo;re testing the to_json method in the class specs. So it&rsquo;s just a matter of using JSON.parse on the response.body and testing it as a native Ruby object.</p>
+
+<p>Of course, this means that we are trusting JSON.parse to behave reliably but that&rsquo;s an assumption worth making. If we were really pedantic, we could check that each object in the response array matches the expected structure:</p>
+
+<script src="https://gist.github.com/2349803.js"> </script>
+
+
+<p>Though I&rsquo;m not sure that&rsquo;s actually testing anything meaningful.</p>
+
+<p>Another great advantage is that it makes refactoring simple. As far as the specs are concerned, a request to is the same whether the heavy lifting is done in the model or the controller. This really helped me recently when I moved a bunch of logic from the controller to the model as I could let the specs tell me which parts starting misbehaving.</p>
+
+<p>Update: <a href="http://37signals.com/svn/posts/3159-testing-like-the-tsa">An interesting post by DHH about over-testing.</a></p>
+
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/04/05/on-source-control">On source control</a></h2>
+      <p class="updated">Posted on 05 April 2012 by Steve Rydz</p>
+    </header>
+    <p>Source control is fairly commonplace these days. Most people use the likes of <a href="http://git-scm.com/">GIT</a> or <a href="http://subversion.tigris.org/">SVN</a> as part of their process, however there are still plenty of people out there who don’t use version control because they either don’t see a reason to or they don’t know where to start.</p>
+
+<p>Until mid-way through last year, I fell into the latter category. I worked alone as a freelancer and made good use of <a href="http://dropbox.com/">Dropbox</a>. The thing is, I was really missing out. It wasn’t until I started working as part of a team that I saw the real benefits.</p>
+
+<p>I had tried to used these tools a few times, but quickly became overwhelmed by the magnitude of documentation that was presented to me. It all seemed to complicated and still, I couldn’t understand how I would benefit from this extra step in my workflow.</p>
+
+<p>The thing is, once someone sat down with me and took me through what I needed to know about these systems, it almost became second nature. I have now got experience using both SVN and GIT and would highly recommend GIT over SVN to anyone, especially with the use of <a href="http://github.com/">Github</a>.</p>
+
+<p>These days, particularly if you use a Mac (which I assume most developers do), there are some great, simple user interfaces for both GIT and SVN which will help you to get started and give you an understanding as to how these technologies work. Once you understand this, its really easy to learn the terminal commands.</p>
+
+<p>The apps I would recommend are <a href="http://versionsapp.com/">Versions</a> for SVN and <a href="http://mac.github.com/">Github:Mac</a> for GIT. Both are relatively self-explanatory but also have good documentation available.</p>
+
+<p>Stick with it and you will wonder how you ever worked without this stuff. Personally, I would never start a project without using GIT now, even when working solo.</p>
+
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/03/26/the-importance-of-less">The importance of LESS</a></h2>
+      <p class="updated">Posted on 26 March 2012 by Steve Rydz</p>
+    </header>
+    <p>I recently <a href="/2012/03/23/getting-to-know-codekit/">wrote about CodeKit</a> and how it has improved our workflow when using pre-processors, but at the time I didn’t allude to the reason that we would use such things. Whilst LESS and SASS are certainly gaining traction, there are many developers out there who just don’t see the point in using something like that.</p>
+
+<p>I must admit, I too was sceptical when I started reading about this new-fangled way to write CSS. I was confident that my code was of a high standard, efficient and maintainable, and I also loved the hand-crafted feeling you get from hand-coding everything (including vendor pre-fixes). The thing is, I just could see how pre-processors could make my code any better.</p>
+
+<p>Of course I was missing the point. In order to really get the most out of these tools, you need to be writing good quality code anyway. LESS will not make you a better developer, but it can make you more efficient.</p>
+
+<p>The first thing that normally wins people over is the use of variables. How many times have you scrolled up and down that stylesheet, looking for that colour value? Well, not with LESS. Here’s another one. You want your box-shadows to be consistent, and you can’t remember the exact code you used. Again, you could spend a few minutes searching through your stylesheet, or you could just use LESS.</p>
+
+<p>The point is, LESS is great for enabling you to work faster and it can really eliminate the tedious parts of the job too. Really, there is no reason to repeat ourselves in code, time after time. Why not use a tool that takes care of the repetitive tasks for you.</p>
+
+<p>Now, what I have just talked about only scratches the surface of what LESS is capable of, and there is much of it that you might not find useful, and that»s fine. Take what you need from it, but don’t write it off until you have taken the time to see how it can really benefit your workflow.</p>
+
+<h3>Links and resources</h3>
+
+<p>Here are a few links and resources that will help you learn more about LESS:</p>
+
+<ul>
+<li><a href="http://lesscss.org/">The official LESS website</a></li>
+<li><a href="http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/">An introduction to LESS and comparison to SASS – Smashing Magazine</a></li>
+<li><a href="http://www.stuffandnonsense.co.uk/blog/about/less">LESS – Stuff and Nonsense</a></li>
+<li><a href="http://steverydz.com/2012/02/13/colour-theory-with-less/">Colour theory with LESS – Steve Rydz (me)</a></li>
+</ul>
+
+
+  </article>
+  
+
+  <div class="pagination">
+    
+    
+    <p class="previous">
+      
+      <a href="/page2">Previous</a>
+      
+    </p>
+    
+
+    <ol class="pages">
+      <li class="page">
+        
+        <a href="/">1</a>
+        
+      </li>
+
+      
+      <li class="page">
+        
+        <a href="/page2">2</a>
+        
+      </li>
+      
+      <li class="page">
+        
+        <span class="current-page">3</span>
+        
+      </li>
+      
+      <li class="page">
+        
+        <a href="/page4">4</a>
+        
+      </li>
+      
+    </ul>
+
+    
+    <p class="next">
+      <a href="/page4">Next</a>
+    </p>
+    
+
+</div>
+
+      </div>
+    </section>
+
+    <aside class="col-4 offset-1">
+      <div class="content-sec" role="complementary">
+        
+        <div class="widget">
+          <h3>About this blog</h3>
+          <p>This is the blog of the developers at Easyart. We have a strong focus on user-centered design, test-driven development and emerging technologies.</p>
+        </div>
+
+        <div class="widget">
+          <h3>Recent posts</h3>
+          <ol>
+            
+            <li><a href="/2012/10/05/some-notes-from-webperfdays">Some notes from WebPerfDays</a></li>
+            
+            <li><a href="/2012/08/01/basecamp-at-easyart">Basecamp at Easyart</a></li>
+            
+            <li><a href="/2012/07/31/flickrs-liquid-photo-layout">Flickr's liquid photo layout</a></li>
+            
+            <li><a href="/2012/06/02/the-lesson-of-jam-sandwiches-for-service-developers-and-marketeers">The lesson of jam sandwiches for service developers and marketeers</a></li>
+            
+            <li><a href="/2012/05/21/git-based-deploys">Git-based deploys</a></li>
+            
+            <li><a href="/2012/05/01/using-selenium-and-rspec-for-behaviour-testing">Using Selenium and Rspec for behaviour testing</a></li>
+            
+            <li><a href="/2012/04/27/quick-tip-opening-files-in-sublime-from-terminal">Quick tip: Opening files in Sublime from Terminal</a></li>
+            
+            <li><a href="/2012/04/19/codekit-tip-export-project-settings">Codekit tip: Export project settings</a></li>
+            
+            <li><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></li>
+            
+            <li><a href="/2012/04/13/front-end-development-requirement">Front-end development requirements</a></li>
+            
+          </ol>
+        </div>
+
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="global-footer" role="contentinfo">
+    <p>&copy; Copyright 2012 Easyart. All rights reserved.</p>
+  </footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/assets/js/app.js"></script>
+
+</body>
+</html>

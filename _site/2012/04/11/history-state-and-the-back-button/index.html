@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="description" content="The Easyart Developers Blog">
+<meta name="author" content="Easyart">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>History state and the back button | Easyart Developers</title>
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lt IE 9]>
+<script src="/assets/js/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+  <div class="global-header" role="banner">
+    <h1><a href="/"><strong>Easyart</strong>Developers</a></h1>
+  </div>
+
+  <div class="content row">
+
+    <section class="col-7">
+      <div class="content-pri" role="main">
+
+        <article class="hentry">
+          <header>
+            <h2>History state and the back button</h2>
+            <p class="updated">Posted on 11 April 2012 by Nick Boyce</p>
+          </header>
+          <p>I&rsquo;ve been playing around with the HTML5 history API today, in order to make certain parts of our new product page bookmarkable. Here&rsquo;s what we&rsquo;re aiming for:</p>
+
+<ol>
+<li>On page1.html, the user clicks an a tag which has a href value of page2.html</li>
+<li>Instead of refreshing the page with the contents of framing.html, a panel in the page slides across to reveal the contents of page2.html in the current page</li>
+<li>The URL changes to page2.html</li>
+</ol>
+
+
+<p>This is relatively easy to achieve by intercepting these links, and replacing them with Javascript behavior and using the HTML5 History API to push a new URL into the address bar. So, as an example, the following code will find every a on the page and instead of navigating to the href, just push the state into the address bar.</p>
+
+<script src="https://gist.github.com/2359314.js"> </script>
+
+
+<p>So we can quite easily intercept links to page2.html (either based on their href attribute or a CSS class), push the href into the address bar and load the content into the current page in some fancy-pants way.</p>
+
+<p>But say you want the back button to navigate the user from page2.html back to page1.html. This won&rsquo;t work, because unless you tell it to do otherwise, the back button will change the address, but do nothing else.</p>
+
+<p>This is where popstate comes in. Using popstate we can listen for changes in the address, and act upon them accordingly. So my code ended up looking something like this:</p>
+
+<script src="https://gist.github.com/2359401.js"> </script>
+
+
+<p>It&rsquo;s also possible to pass objects and titles through to pushstate, but I won&rsquo;t go into that for now as it&rsquo;s not yet well supported by browsers. Simply finding out the address of the page was good enough to solve the immediate problem.</p>
+
+<p>Resources:</p>
+
+<p><a href="http://diveintohtml5.info/history.html">http://diveintohtml5.info/history.html</a>
+<a href="https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history">https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history</a></p>
+
+        </article>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'easyartdevelopers'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>    
+    </section>
+
+    <aside class="col-4 offset-1">
+      <div class="content-sec" role="complementary">
+        
+        <div class="widget">
+          <h3>About this blog</h3>
+          <p>This is the blog of the developers at Easyart. We have a strong focus on user-centered design, test-driven development and emerging technologies.</p>
+        </div>
+
+        <div class="widget">
+          <h3>Recent posts</h3>
+          <ol>
+            
+            <li><a href="/2012/10/05/some-notes-from-webperfdays">Some notes from WebPerfDays</a></li>
+            
+            <li><a href="/2012/08/01/basecamp-at-easyart">Basecamp at Easyart</a></li>
+            
+            <li><a href="/2012/07/31/flickrs-liquid-photo-layout">Flickr's liquid photo layout</a></li>
+            
+            <li><a href="/2012/06/02/the-lesson-of-jam-sandwiches-for-service-developers-and-marketeers">The lesson of jam sandwiches for service developers and marketeers</a></li>
+            
+            <li><a href="/2012/05/21/git-based-deploys">Git-based deploys</a></li>
+            
+            <li><a href="/2012/05/01/using-selenium-and-rspec-for-behaviour-testing">Using Selenium and Rspec for behaviour testing</a></li>
+            
+            <li><a href="/2012/04/27/quick-tip-opening-files-in-sublime-from-terminal">Quick tip: Opening files in Sublime from Terminal</a></li>
+            
+            <li><a href="/2012/04/19/codekit-tip-export-project-settings">Codekit tip: Export project settings</a></li>
+            
+            <li><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></li>
+            
+            <li><a href="/2012/04/13/front-end-development-requirement">Front-end development requirements</a></li>
+            
+          </ol>
+        </div>
+
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="global-footer" role="contentinfo">
+    <p>&copy; Copyright 2012 Easyart. All rights reserved.</p>
+  </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/assets/js/app.js"></script>
+
+</body>
+</html>
