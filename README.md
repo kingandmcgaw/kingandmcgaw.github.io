@@ -12,7 +12,7 @@
 
 ### Clone repo
 
-    $ git clone git@github.com:easyart/developers.easyart.git
+    $ git clone git@github.com:easyart/easyart.github.com
 
 ## Write a new post
 
@@ -30,4 +30,4 @@ You will then be able to view the site at localhost:4000
 
 ## Deployment
 
-Coming soon&hellip;
+To deploy the site, just commit the new post and push to the master branch. The changes should be relected at: [http://easyart.github.com](http://easyart.github.com)
