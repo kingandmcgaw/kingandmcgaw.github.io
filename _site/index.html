@@ -31,6 +31,42 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/10/22/the-importance-of-user-testing">The importance of user testing</a></h2>
+      <p class="updated">Posted on 22 October 2012 by Steve Rydz</p>
+    </header>
+    <p>When developing a customer facing site, such as Easyart.com, is it very important to be aware of your users perspective. The recommended way to do this is something known as user testing.</p>
+
+<h3>What is user testing</h3>
+
+<p>User testing is essentially watching how people use your website/application. Traditionally, this is done by arranging a session for people to come and use your site, where they would be given tasks to complete. The process is recorded and then analysed to see what could be improved.</p>
+
+<p>Mostly due to time and budget constraints, this isn&rsquo;t always easy to accomplish, but luckily there is now a whole host of affordable services that help us solve this problem.</p>
+
+<h3>Choosing a service</h3>
+
+<p>When choosing a service for any reason, the important thing is to establish exactly what you need from it. We did some research on user testing and decided that we would need a video of the session along with the audio, and the ability to ask follow-up questions. The service that seemed to be the best fit for us was <a href="http://usertesting.com">usertesting.com</a>.</p>
+
+<h3>Setting up the test</h3>
+
+<p>To kick off the test, we needed a set of tasks. We called this a user journey, and set a list of tasks for the participants of the test to follow, demonstrating the areas we knew we needed to work on.</p>
+
+<h3>Getting the feedback</h3>
+
+<p>Within the hour, all three of the tests we set-up had been completed and we had access to the videos. Over the next couple of days we watched these videos, listened to the commentaries and read the answers to our follow-up questions, taking notes the whole time.</p>
+
+<p>Almost immediately we identified some key areas that we needed to work on and have already started working on solutions to improve our customers experience on our site.</p>
+
+<h3>Going forward</h3>
+
+<p>From now on, we plan to run user tests regularly, as we have found it provides a valuable insight into how our site is used and how it can be improved.</p>
+
+<p>User testing <em>will</em> make your site better and <a href="http://usertesting.com">usertesting.com</a> is a great tool for helping you achieve this.</p>
+
+    <p><a href="/2012/10/22/the-importance-of-user-testing#disqus_thread"></a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/10/05/some-notes-from-webperfdays">Some notes from WebPerfDays</a></h2>
       <p class="updated">Posted on 05 October 2012 by Nick Boyce</p>
     </header>
@@ -142,48 +178,6 @@
     <p><a href="/2012/06/02/the-lesson-of-jam-sandwiches-for-service-developers-and-marketeers#disqus_thread"></a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/05/21/git-based-deploys">Git-based deploys</a></h2>
-      <p class="updated">Posted on 21 May 2012 by Nick Boyce</p>
-    </header>
-    <p>Recently we&rsquo;ve switched from FTP to git to deploy changes to our live sites. Here&rsquo;s what our workflow looks like for functional changes (content amends use steps1,2,5,7,8):</p>
-
-<p><img src="/assets/img/posts/git.jpg" alt="Git-based deploys"></p>
-
-<ol>
-<li>Make changes on VMs on develop branch</li>
-<li>Commit and push develop branch to Github</li>
-<li>Pull develop branch to staging server</li>
-<li>Review changes</li>
-<li>Merge develop into master</li>
-<li>Run Selenium tests</li>
-<li>Push master to Github</li>
-<li>Pull master into live server</li>
-</ol>
-
-
-<p>By using a Git-centric workflow, it&rsquo;s easier to guarantee that each application is running the same code, and we have the added safety of being able to roll back to previous versions.</p>
-
-<p>Pulling changes onto live websites with millions of daily visitors makes me a little nervous, so I&rsquo;ll usually use <em>git fetch</em> rather than <em>git pull</em>, like so:</p>
-
-<pre><code>$ git fetch
-</code></pre>
-
-<p>Pulls the remote master branch into a branch in the local repository called origin/master.</p>
-
-<pre><code>$ git diff --numstat master origin/master
-</code></pre>
-
-<p>Reports the affected files between master and the origin/master branch we pulled in the previous step.</p>
-
-<p>  $ git merge master origin/master</p>
-
-<p>Merges the origin/master branch into master.</p>
-
-    <p><a href="/2012/05/21/git-based-deploys#disqus_thread"></a></p>
-  </article>
-  
 
   <div class="pagination">
     
@@ -242,6 +236,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2012/10/22/the-importance-of-user-testing">The importance of user testing</a></li>
+    
     <li><a href="/2012/10/05/some-notes-from-webperfdays">Some notes from WebPerfDays</a></li>
     
     <li><a href="/2012/08/01/basecamp-at-easyart">Basecamp at Easyart</a></li>
@@ -259,8 +255,6 @@
     <li><a href="/2012/04/19/codekit-tip-export-project-settings">Codekit tip: Export project settings</a></li>
     
     <li><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Deploying static assets to S3 using s3cmd</a></li>
-    
-    <li><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></li>
     
   </ol>
 </div>
