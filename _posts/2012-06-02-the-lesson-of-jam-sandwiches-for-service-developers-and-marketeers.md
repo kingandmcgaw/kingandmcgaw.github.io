@@ -2,7 +2,7 @@
 layout: post
 title: The lesson of jam sandwiches for service developers and marketeers
 date: 2nd June 2012
-author: John Pash
+author: Nick Boyce
 ---
 
 [Colin Strong](https://twitter.com/#!/Colinstrong) from [GfK](http://www.gfk.com/) did a great presentation at [Digital Shoreditch](http://digitalshoreditch.com/) yesterday on behavioural economics called [The lesson of jam sandwiches for service developers and marketeers](http://www.slideshare.net/colinstrong/jam-sandwiches-final) which ties in with a lot of things we've been discussing internally. Here are my takeaways:

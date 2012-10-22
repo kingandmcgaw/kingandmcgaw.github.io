@@ -19,6 +19,10 @@
 Navigate to the project root and use the following command to generate a new post (replacing "post-title" with the title of your post):
 
     $ rake newpost["post-title"]
+    
+Or if you are on ZSH:
+    
+    $ rake 'newpost[post-title]'
 
 ## Run the site locally
 
