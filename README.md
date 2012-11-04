@@ -34,4 +34,4 @@ You will then be able to view the site at localhost:4000
 
 ## Deployment
 
-To deploy the site, just commit the new post and push to the master branch. The changes should be relected at: [http://easyart.github.com](http://easyart.github.com)
+To deploy the site, just commit the new post and push to the master branch. The changes should be reflected at: [http://easyart.github.com](http://easyart.github.com)
