@@ -31,6 +31,81 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/04/11/history-state-and-the-back-button">History state and the back button</a></h2>
+      <p class="updated">Posted on 11 April 2012 by Nick Boyce</p>
+    </header>
+    <p>I&rsquo;ve been playing around with the HTML5 history API today, in order to make certain parts of our new product page bookmarkable. Here&rsquo;s what we&rsquo;re aiming for:</p>
+
+<ol>
+<li>On page1.html, the user clicks an a tag which has a href value of page2.html</li>
+<li>Instead of refreshing the page with the contents of framing.html, a panel in the page slides across to reveal the contents of page2.html in the current page</li>
+<li>The URL changes to page2.html</li>
+</ol>
+
+
+<p>This is relatively easy to achieve by intercepting these links, and replacing them with Javascript behavior and using the HTML5 History API to push a new URL into the address bar. So, as an example, the following code will find every a on the page and instead of navigating to the href, just push the state into the address bar.</p>
+
+<script src="https://gist.github.com/2359314.js"> </script>
+
+
+<p>So we can quite easily intercept links to page2.html (either based on their href attribute or a CSS class), push the href into the address bar and load the content into the current page in some fancy-pants way.</p>
+
+<p>But say you want the back button to navigate the user from page2.html back to page1.html. This won&rsquo;t work, because unless you tell it to do otherwise, the back button will change the address, but do nothing else.</p>
+
+<p>This is where popstate comes in. Using popstate we can listen for changes in the address, and act upon them accordingly. So my code ended up looking something like this:</p>
+
+<script src="https://gist.github.com/2359401.js"> </script>
+
+
+<p>It&rsquo;s also possible to pass objects and titles through to pushstate, but I won&rsquo;t go into that for now as it&rsquo;s not yet well supported by browsers. Simply finding out the address of the page was good enough to solve the immediate problem.</p>
+
+<p>Resources:</p>
+
+<p><a href="http://diveintohtml5.info/history.html">http://diveintohtml5.info/history.html</a>
+<a href="https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history">https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history</a></p>
+
+    <p><a href="/2012/04/11/history-state-and-the-back-button#disqus_thread"></a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/04/10/testing-rails-json-apis-with-rspec">Testing Rails JSON APIs with RSpec</a></h2>
+      <p class="updated">Posted on 10 April 2012 by Nick Boyce</p>
+    </header>
+    <p>I&rsquo;ve spent some time in the last couple of weeks taking the learnings from an early API prototype, and starting a new Rails application from scratch, complete with RSpec tests. Here are some notes on some of our tools and methodologies.</p>
+
+<h3>Model specs</h3>
+
+<p>We&rsquo;re overriding the as_json method in our models and we&rsquo;re using <a href="https://github.com/collectiveidea/json_spec">json_spec</a> to test the documents have the right structure.</p>
+
+<script src="https://gist.github.com/2349770.js"> </script>
+
+
+<h3>Request specs</h3>
+
+<p>We have hundreds of lines of <a href="https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec">request specs</a>, and no controller specs. Here is a simple example:</p>
+
+<script src="https://gist.github.com/2349801.js"> </script>
+
+
+<p>Because we&rsquo;re getting an actual HTTP payload back (in the response variable) we can inspect whatever part of it that&rsquo;s relevant to us. We know the structure of the responses should come back in a known format because we&rsquo;re testing the to_json method in the class specs. So it&rsquo;s just a matter of using JSON.parse on the response.body and testing it as a native Ruby object.</p>
+
+<p>Of course, this means that we are trusting JSON.parse to behave reliably but that&rsquo;s an assumption worth making. If we were really pedantic, we could check that each object in the response array matches the expected structure:</p>
+
+<script src="https://gist.github.com/2349803.js"> </script>
+
+
+<p>Though I&rsquo;m not sure that&rsquo;s actually testing anything meaningful.</p>
+
+<p>Another great advantage is that it makes refactoring simple. As far as the specs are concerned, a request to is the same whether the heavy lifting is done in the model or the controller. This really helped me recently when I moved a bunch of logic from the controller to the model as I could let the specs tell me which parts starting misbehaving.</p>
+
+<p>Update: <a href="http://37signals.com/svn/posts/3159-testing-like-the-tsa">An interesting post by DHH about over-testing.</a></p>
+
+    <p><a href="/2012/04/10/testing-rails-json-apis-with-rspec#disqus_thread"></a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/04/05/on-source-control">On source control</a></h2>
       <p class="updated">Posted on 05 April 2012 by Steve Rydz</p>
     </header>
@@ -104,54 +179,6 @@
     <p><a href="/2012/03/23/on-naming-schemes#disqus_thread"></a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/03/23/getting-to-know-codekit">Getting to know Codekit</a></h2>
-      <p class="updated">Posted on 23 March 2012 by Steve Rydz</p>
-    </header>
-    <p>CSS pre-processors are all the rage these days, or so it would seem, but it can be a little complicated to get up and running with them, unless you’re using the right tools. Enter <a href="http://incident57.com/codekit/">CodeKit</a>. This little app does pretty much everything from compiling LESS, SASS, HAML and CoffeeScript to optimising images and allowing you to import JavaScript files into each other.</p>
-
-<p><img src="/assets/img/posts/codekit.jpeg" alt="Codekit"></p>
-
-<p>Since I started using <a href="http://lesscss.org/">LESS</a> about six months ago I have been on the hunt for an app that can make the process of using it simple. That’s where CodeKit comes into it. Previously I had been using the <a href="http://incident57.com/less/">LESS app</a> and on a surface level found it worked well, but it was lacking a sense of intuitiveness. CodeKit just <em>knows</em> what I’m trying to do and doesn&rsquo;t require much in the way of configuration, at least where LESS is concerned.</p>
-
-<p>I will be writing more about how we use CodeKit at Easyart in the future, but for now I will simply say that if you are at all involved in front-end development then you should check out it out as you will surely find it will improve your workflow and potentially make you more productive.</p>
-
-    <p><a href="/2012/03/23/getting-to-know-codekit#disqus_thread"></a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/03/22/goodbye-campfire-hello-flowdock">Goodbye Campfire, Hello Flowdock</a></h2>
-      <p class="updated">Posted on 22 March 2012 by Nick Boyce</p>
-    </header>
-    <p>For a number of years I&rsquo;ve really loved using <a href="http://campfirenow.com/">Campfire</a> for team chat and collaboration, but today I&rsquo;ve cancelled our account. I&rsquo;ve found that as time has gone on, and our team has grown, it&rsquo;s become increasingly frustrating to use. My main issues are:</p>
-
-<ul>
-<li>The timeline ends up with too much noise from Github commits and issues.</li>
-<li>Search is clunky. You can only search using keywords, and you have to leave the room to do so.</li>
-</ul>
-
-
-<p><a href="https://www.flowdock.com/">Flowdock</a> solves these problems by using one pane for chat, and another for &ldquo;Team Inbox&rdquo; and Search.</p>
-
-<p><img src="/assets/img/posts/flowdock.png" alt="Flowdock"></p>
-
-<p>Team Inbox is by far the most useful feature. We use it for:</p>
-
-<ul>
-<li>All Github activity. When new files are committed, you can mouse over for a full list of changes, and click to get to the Github commit page. When issues are opened or closed, they show too.</li>
-<li>Inbox. We feed in the <a href="http://twitter.com/easyartuk">@easyartuk</a> Twitter account (you can see one of the tweets in the bottom-right corner), and all emails to our developer account, and they&rsquo;ll show up in our feed.</li>
-</ul>
-
-
-<p>You can also comment on any of this activity contextually. So, for instance, I could comment on an email. Search is also really cool too, and you can filter by files, links, and attachments. <em>Without</em> leaving the chat.</p>
-
-<p>It&rsquo;s been a really useful tool for us, and I can&rsquo;t see us going back to Campfire.</p>
-
-    <p><a href="/2012/03/22/goodbye-campfire-hello-flowdock#disqus_thread"></a></p>
-  </article>
-  
 
   <div class="pagination">
     
@@ -189,11 +216,17 @@
         
       </li>
       
+      <li class="page">
+        
+        <a href="/page5">5</a>
+        
+      </li>
+      
     </ul>
 
     
-    <p class="next disabled">
-      <span>Next</span>
+    <p class="next">
+      <a href="/page5">Next</a>
     </p>
     
 
@@ -212,7 +245,11 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2012/11/04/some-reading-and-viewing">This weekend's reading and viewing</a></li>
+    
     <li><a href="/2012/10/22/the-importance-of-user-testing">The importance of user testing</a></li>
+    
+    <li><a href="/2012/10/21/dublin-web-summit-2012">Highlights from Dublin Web Summit 2012</a></li>
     
     <li><a href="/2012/10/05/some-notes-from-webperfdays">Some notes from WebPerfDays</a></li>
     
@@ -227,10 +264,6 @@
     <li><a href="/2012/05/01/using-selenium-and-rspec-for-behaviour-testing">Using Selenium and Rspec for behaviour testing</a></li>
     
     <li><a href="/2012/04/27/quick-tip-opening-files-in-sublime-from-terminal">Quick tip: Opening files in Sublime from Terminal</a></li>
-    
-    <li><a href="/2012/04/19/codekit-tip-export-project-settings">Codekit tip: Export project settings</a></li>
-    
-    <li><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Deploying static assets to S3 using s3cmd</a></li>
     
   </ol>
 </div>
