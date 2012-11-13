@@ -7,7 +7,7 @@
 <meta name="author" content="Easyart">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Git-based deploys | Easyart Developers</title>
+<title>London JS - Create the web | Easyart Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -31,42 +31,28 @@
 
         <article class="hentry">
           <header>
-            <h2>Git-based deploys</h2>
-            <p class="updated">Posted on 21 May 2012 by Nick Boyce</p>
+            <h2>London JS - Create the web</h2>
+            <p class="updated">Posted on 13 November 2012 by Steve Rydz</p>
           </header>
-          <p>Recently we&rsquo;ve switched from FTP to git to deploy changes to our live sites. Here&rsquo;s what our workflow looks like for functional changes (content amends use steps1,2,5,7,8):</p>
+          <p>Last night I attended <a href="http://www.eventhandler.co.uk/events/londonjs-createtheweb">London JS — Create the web</a>, which was hosted at <a href="http://forwardtechnology.co.uk/">Forward Technology</a>.</p>
 
-<p><img src="/assets/img/posts/git.jpg" alt="Git-based deploys"></p>
+<p>The first talk was by <a href="http://javascriptplayground.com">Jack Franklin</a> and was called <em>Optimising JavaScript</em>.</p>
 
-<ol>
-<li>Make changes on VMs on develop branch</li>
-<li>Commit and push develop branch to Github</li>
-<li>Pull develop branch to staging server</li>
-<li>Review changes</li>
-<li>Merge develop into master</li>
-<li>Run Selenium tests</li>
-<li>Push master to Github</li>
-<li>Pull master into live server</li>
-</ol>
+<p>It was only a short talk but Jack presented some interesting finds regarding how to do common things with JavaScript quickly. To see some examples of this <a href="http://jackfranklin.github.com/ldnjs-optimisation-talk/#/">go checkout his slides</a>.</p>
 
+<p>The second talk was more of a presentation on some of Adobes new products by <a href="https://twitter.com/mchaize">Michael Chaize</a> and <a href="https://twitter.com/tpryan">Terrance Ryan</a>.</p>
 
-<p>By using a Git-centric workflow, it&rsquo;s easier to guarantee that each application is running the same code, and we have the added safety of being able to roll back to previous versions.</p>
+<p>It really looks like Adobe have stepped up their game and are now developing more web focused tools. They seem to be doing a lot with animation, but from the sound of their laptop fans I&rsquo;m not sure the world is ready for that yet.</p>
 
-<p>Pulling changes onto live websites with millions of daily visitors makes me a little nervous, so I&rsquo;ll usually use <em>git fetch</em> rather than <em>git pull</em>, like so:</p>
+<p>The two tools that impressed me were the yet-to-be-released <a href="http://html.adobe.com/edge/reflow/">Reflow</a> and <a href="http://brackets.io/">Brackets</a>.</p>
 
-<pre><code>$ git fetch
-</code></pre>
+<p>Reflow is a responsive design application which allows you to set breakpoints and rearrange the design accordingly. Effectively you are editing DOM elements rather than Photoshop layers. I really think a tool like this will help get designers thinking responsively, causing us developers a few less headaches in the process.</p>
 
-<p>Pulls the remote master branch into a branch in the local repository called origin/master.</p>
+<p>Brackets is an open source HTML, CSS and JavaScript editor. It has been designed to be lightweight, front-end focused and extensible. It is built entirely in HTML, CSS and JavaScript and therefore easy to customise and extend with your own plugins. One feature I particularly liked was the ability to select an element from a HTML file and edit the CSS properties for that element without opening another file.</p>
 
-<pre><code>$ git diff --numstat master origin/master
-</code></pre>
+<p>Unfortunately I had to leave before <a href="https://twitter.com/sw12/">Sam Duttons</a> WebRTC talk so I can&rsquo;t say anything about that.</p>
 
-<p>Reports the affected files between master and the origin/master branch we pulled in the previous step.</p>
-
-<p>  $ git merge master origin/master</p>
-
-<p>Merges the origin/master branch into master.</p>
+<p>I did come away with a free <a href="https://www.foldable.me/">foldable me</a> which I did put together late last night but have yet to photograph.</p>
 
         </article>
         <div id="disqus_thread"></div>
