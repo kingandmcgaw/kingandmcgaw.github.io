@@ -31,6 +31,55 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/07/31/flickrs-liquid-photo-layout">Flickr's liquid photo layout</a></h2>
+      <p class="updated">Posted on 31 July 2012 by Nick Boyce</p>
+    </header>
+    <p>Spotted this interesting piece on <a href="http://code.flickr.com/blog/2012/05/15/liquid-photo-page-layout/">Flickr&rsquo;s code blog</a> about the thought behind their new liquid photo page, which is very relevant to some of the things we are thinking about at the moment.</p>
+
+    <p><a href="/2012/07/31/flickrs-liquid-photo-layout#disqus_thread"></a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/06/02/the-lesson-of-jam-sandwiches-for-service-developers-and-marketeers">The lesson of jam sandwiches for service developers and marketeers</a></h2>
+      <p class="updated">Posted on 02 June 2012 by Nick Boyce</p>
+    </header>
+    <p><a href="https://twitter.com/#!/Colinstrong">Colin Strong</a> from <a href="http://www.gfk.com/">GfK</a> did a great presentation at <a href="http://digitalshoreditch.com/">Digital Shoreditch</a> yesterday on behavioural economics called <a href="http://www.slideshare.net/colinstrong/jam-sandwiches-final">The lesson of jam sandwiches for service developers and marketeers</a> which ties in with a lot of things we&rsquo;ve been discussing internally. Here are my takeaways:</p>
+
+<h3>Avoid choice overload</h3>
+
+<p>In the Jam sandwich study, customers were presented with 24 jams, which resulted in a 3% takeup. When the number of jams was reduced to 6, the takeup jumped to 30%. Reduce choice to increase conversions.</p>
+
+<h3>Decoy options</h3>
+
+<p>Introducing options in a product mix can have an effect on the percieved value of the other options. As an example, when consumers were shown three options for Economist subscriptions&hellip;</p>
+
+<ol>
+<li>Online only for $59</li>
+<li>Print only for $125</li>
+<li>Print and online for $125</li>
+</ol>
+
+
+<p>&hellip;nobody picked option 2 and 84% choose option 3. That&rsquo;s because option 2 is acting as a decoy option 3 more attractive. When option 2 was removed, only 32% selected Option 3.</p>
+
+<h3>Encourage a sense of ownership</h3>
+
+<p>Once consumers feel they own an item they are reluctant to part with it. On Ebay, the highest bidder often starts thinking about possessing item, leading to more aggressive bidding. Amazon Prime’s limited trial makes customers focus on what they will lose if they cancel their subscription.</p>
+
+<h3>Social influence</h3>
+
+<p>Consumers are hugely influenced by the behaviour of others. Stock levels create a fear of missing out. I also think that positive social reinforcement &ndash; showing that other &ldquo;real&rdquo; people are buying an item &ndash; can be a huge influence also.</p>
+
+<h3>Create magic moments</h3>
+
+<p>Overall assessment is not key, only if the customer had a very positive or very negative experience. Create &ldquo;positive peaks&rdquo; through magic moments to leave a positive impression. Add something for free. It&rsquo;s inexpensive and has a disproportionate impact on satisfaction.</p>
+
+    <p><a href="/2012/06/02/the-lesson-of-jam-sandwiches-for-service-developers-and-marketeers#disqus_thread"></a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/05/21/git-based-deploys">Git-based deploys</a></h2>
       <p class="updated">Posted on 21 May 2012 by Nick Boyce</p>
     </header>
@@ -166,55 +215,6 @@
     <p><a href="/2012/04/27/quick-tip-opening-files-in-sublime-from-terminal#disqus_thread"></a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/04/19/codekit-tip-export-project-settings">Codekit tip: Export project settings</a></h2>
-      <p class="updated">Posted on 19 April 2012 by Steve Rydz</p>
-    </header>
-    <p>A few weeks ago I wrote about <a href="/2012/03/23/getting-to-know-codekit">getting to know CodeKit</a>. As a team, we have been using this tool solidly since then and it is now hard to imagine not working without it.</p>
-
-<p>We did have a couple of issues with it though. The first was that everytime we updated the app, we had to set up our project again. This has been fixed in a recent release.</p>
-
-<p>The other issue was that when working as a team, we had to ensure that we all had the exact same set-up. CodeKit is very intelligent and recognised what we were trying to acheive most of the time but we still found ourselves having to update output directories etc.</p>
-
-<p>As it turns out, there was one simple solution to both of these problems. It is possible to export a config file for each project with it’s settings. This file lives in the root directory of your project and every time you drag a project into CodeKit, it looks for this file automatically.</p>
-
-<p><img src="/assets/img/posts/codekit-2.png" alt="Codekit"></p>
-
-<p>To export the configuration file, simply highlight the project you are currently working on, right click on it, hover over the ‘Project settings’ menu, then click ‘Export project configuration file’. CodeKit will then place that file in the root directory of your project. That’s all there is to it.</p>
-
-<p>This approach has worked really well for us and taken the burden of having to constantly ensure we are all doing the same thing away from us. The other great thing about this is that we now have this config file in our GIT repository.</p>
-
-<p>All we have to do if we change the way our project is set up or introduce something new is to export another file and because we are using GIT, we will all get the latest file when we pull down the latest code.</p>
-
-<p><strong>Note:</strong> According to the CodeKit website, the free, BETA version of the app expires tomorrow (20th April, 2012), and I have heard rumours that it will be on sale via the app store for around $20. This app is more than worth that amount and if this is the case, I will certainly be purchasing a license first thing.</p>
-
-    <p><a href="/2012/04/19/codekit-tip-export-project-settings#disqus_thread"></a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Deploying static assets to S3 using s3cmd</a></h2>
-      <p class="updated">Posted on 17 April 2012 by Nick Boyce</p>
-    </header>
-    <p>I&rsquo;ve been looking at ways to deploy our static assets to S3 as part of our Git workflow.</p>
-
-<p>I want to be able to push to the master branch of a remote repo and have the changes deployed to S3, with predefined HTTP headers. Much like I&rsquo;m used to pushing to Heroku with git push heroku master.</p>
-
-<p>There are probably plenty of ways to do it &ndash; mounting S3 through Fuse, running Webdav servers, using Capistrano etc &ndash; but I found them too overkill for our needs.</p>
-
-<p>So I&rsquo;ve ended up writing a simple deploy script which lives at the root of the repo which uses <a href="http://s3tools.org/s3cmd">s3cmd</a> to sync between the local file system and our S3 bucket. It&rsquo;s a snap to set up, and the result is a command that looks like this:</p>
-
-<script src="https://gist.github.com/2404535.js"> </script>
-
-
-<p>I store this file in the repo, so that each of us developers can execute it by just calling ./deploy.sh. As this process is outside of the Git workflow, I have to exclude the .git directory. Conveniently, s3cmd&rsquo;s format for excluding files is the same as Git&rsquo;s so you can pass in a .gitignore if you&rsquo;re using one.</p>
-
-<p>It&rsquo;s not a true Git deploy (though it could be called via a <a href="http://progit.org/book/ch7-3.html">Git Hook</a>), but still a pretty neat solution.</p>
-
-    <p><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd#disqus_thread"></a></p>
-  </article>
-  
 
   <div class="pagination">
     
@@ -258,6 +258,12 @@
         
       </li>
       
+      <li class="page">
+        
+        <a href="/page6">6</a>
+        
+      </li>
+      
     </ul>
 
     
@@ -281,6 +287,10 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2012/11/22/links-week-46">Links - week 46</a></li>
+    
+    <li><a href="/2012/11/19/the-breakpoint-podcasts">The breakpoint podcasts</a></li>
+    
     <li><a href="/2012/11/13/london-js---create-the-web">London JS - Create the web</a></li>
     
     <li><a href="/2012/11/12/last-weeks-links-12-45">Links - Week 45</a></li>
@@ -296,10 +306,6 @@
     <li><a href="/2012/10/05/some-notes-from-webperfdays">Some notes from WebPerfDays</a></li>
     
     <li><a href="/2012/08/01/basecamp-at-easyart">Basecamp at Easyart</a></li>
-    
-    <li><a href="/2012/07/31/flickrs-liquid-photo-layout">Flickr's liquid photo layout</a></li>
-    
-    <li><a href="/2012/06/02/the-lesson-of-jam-sandwiches-for-service-developers-and-marketeers">The lesson of jam sandwiches for service developers and marketeers</a></li>
     
   </ol>
 </div>

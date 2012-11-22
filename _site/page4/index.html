@@ -31,6 +31,55 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/04/19/codekit-tip-export-project-settings">Codekit tip: Export project settings</a></h2>
+      <p class="updated">Posted on 19 April 2012 by Steve Rydz</p>
+    </header>
+    <p>A few weeks ago I wrote about <a href="/2012/03/23/getting-to-know-codekit">getting to know CodeKit</a>. As a team, we have been using this tool solidly since then and it is now hard to imagine not working without it.</p>
+
+<p>We did have a couple of issues with it though. The first was that everytime we updated the app, we had to set up our project again. This has been fixed in a recent release.</p>
+
+<p>The other issue was that when working as a team, we had to ensure that we all had the exact same set-up. CodeKit is very intelligent and recognised what we were trying to acheive most of the time but we still found ourselves having to update output directories etc.</p>
+
+<p>As it turns out, there was one simple solution to both of these problems. It is possible to export a config file for each project with it’s settings. This file lives in the root directory of your project and every time you drag a project into CodeKit, it looks for this file automatically.</p>
+
+<p><img src="/assets/img/posts/codekit-2.png" alt="Codekit"></p>
+
+<p>To export the configuration file, simply highlight the project you are currently working on, right click on it, hover over the ‘Project settings’ menu, then click ‘Export project configuration file’. CodeKit will then place that file in the root directory of your project. That’s all there is to it.</p>
+
+<p>This approach has worked really well for us and taken the burden of having to constantly ensure we are all doing the same thing away from us. The other great thing about this is that we now have this config file in our GIT repository.</p>
+
+<p>All we have to do if we change the way our project is set up or introduce something new is to export another file and because we are using GIT, we will all get the latest file when we pull down the latest code.</p>
+
+<p><strong>Note:</strong> According to the CodeKit website, the free, BETA version of the app expires tomorrow (20th April, 2012), and I have heard rumours that it will be on sale via the app store for around $20. This app is more than worth that amount and if this is the case, I will certainly be purchasing a license first thing.</p>
+
+    <p><a href="/2012/04/19/codekit-tip-export-project-settings#disqus_thread"></a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Deploying static assets to S3 using s3cmd</a></h2>
+      <p class="updated">Posted on 17 April 2012 by Nick Boyce</p>
+    </header>
+    <p>I&rsquo;ve been looking at ways to deploy our static assets to S3 as part of our Git workflow.</p>
+
+<p>I want to be able to push to the master branch of a remote repo and have the changes deployed to S3, with predefined HTTP headers. Much like I&rsquo;m used to pushing to Heroku with git push heroku master.</p>
+
+<p>There are probably plenty of ways to do it &ndash; mounting S3 through Fuse, running Webdav servers, using Capistrano etc &ndash; but I found them too overkill for our needs.</p>
+
+<p>So I&rsquo;ve ended up writing a simple deploy script which lives at the root of the repo which uses <a href="http://s3tools.org/s3cmd">s3cmd</a> to sync between the local file system and our S3 bucket. It&rsquo;s a snap to set up, and the result is a command that looks like this:</p>
+
+<script src="https://gist.github.com/2404535.js"> </script>
+
+
+<p>I store this file in the repo, so that each of us developers can execute it by just calling ./deploy.sh. As this process is outside of the Git workflow, I have to exclude the .git directory. Conveniently, s3cmd&rsquo;s format for excluding files is the same as Git&rsquo;s so you can pass in a .gitignore if you&rsquo;re using one.</p>
+
+<p>It&rsquo;s not a true Git deploy (though it could be called via a <a href="http://progit.org/book/ch7-3.html">Git Hook</a>), but still a pretty neat solution.</p>
+
+    <p><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd#disqus_thread"></a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></h2>
       <p class="updated">Posted on 17 April 2012 by John Pash</p>
     </header>
@@ -105,81 +154,6 @@
     <p><a href="/2012/04/12/a-unified-coding-style#disqus_thread"></a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/04/11/history-state-and-the-back-button">History state and the back button</a></h2>
-      <p class="updated">Posted on 11 April 2012 by Nick Boyce</p>
-    </header>
-    <p>I&rsquo;ve been playing around with the HTML5 history API today, in order to make certain parts of our new product page bookmarkable. Here&rsquo;s what we&rsquo;re aiming for:</p>
-
-<ol>
-<li>On page1.html, the user clicks an a tag which has a href value of page2.html</li>
-<li>Instead of refreshing the page with the contents of framing.html, a panel in the page slides across to reveal the contents of page2.html in the current page</li>
-<li>The URL changes to page2.html</li>
-</ol>
-
-
-<p>This is relatively easy to achieve by intercepting these links, and replacing them with Javascript behavior and using the HTML5 History API to push a new URL into the address bar. So, as an example, the following code will find every a on the page and instead of navigating to the href, just push the state into the address bar.</p>
-
-<script src="https://gist.github.com/2359314.js"> </script>
-
-
-<p>So we can quite easily intercept links to page2.html (either based on their href attribute or a CSS class), push the href into the address bar and load the content into the current page in some fancy-pants way.</p>
-
-<p>But say you want the back button to navigate the user from page2.html back to page1.html. This won&rsquo;t work, because unless you tell it to do otherwise, the back button will change the address, but do nothing else.</p>
-
-<p>This is where popstate comes in. Using popstate we can listen for changes in the address, and act upon them accordingly. So my code ended up looking something like this:</p>
-
-<script src="https://gist.github.com/2359401.js"> </script>
-
-
-<p>It&rsquo;s also possible to pass objects and titles through to pushstate, but I won&rsquo;t go into that for now as it&rsquo;s not yet well supported by browsers. Simply finding out the address of the page was good enough to solve the immediate problem.</p>
-
-<p>Resources:</p>
-
-<p><a href="http://diveintohtml5.info/history.html">http://diveintohtml5.info/history.html</a>
-<a href="https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history">https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history</a></p>
-
-    <p><a href="/2012/04/11/history-state-and-the-back-button#disqus_thread"></a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/04/10/testing-rails-json-apis-with-rspec">Testing Rails JSON APIs with RSpec</a></h2>
-      <p class="updated">Posted on 10 April 2012 by Nick Boyce</p>
-    </header>
-    <p>I&rsquo;ve spent some time in the last couple of weeks taking the learnings from an early API prototype, and starting a new Rails application from scratch, complete with RSpec tests. Here are some notes on some of our tools and methodologies.</p>
-
-<h3>Model specs</h3>
-
-<p>We&rsquo;re overriding the as_json method in our models and we&rsquo;re using <a href="https://github.com/collectiveidea/json_spec">json_spec</a> to test the documents have the right structure.</p>
-
-<script src="https://gist.github.com/2349770.js"> </script>
-
-
-<h3>Request specs</h3>
-
-<p>We have hundreds of lines of <a href="https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec">request specs</a>, and no controller specs. Here is a simple example:</p>
-
-<script src="https://gist.github.com/2349801.js"> </script>
-
-
-<p>Because we&rsquo;re getting an actual HTTP payload back (in the response variable) we can inspect whatever part of it that&rsquo;s relevant to us. We know the structure of the responses should come back in a known format because we&rsquo;re testing the to_json method in the class specs. So it&rsquo;s just a matter of using JSON.parse on the response.body and testing it as a native Ruby object.</p>
-
-<p>Of course, this means that we are trusting JSON.parse to behave reliably but that&rsquo;s an assumption worth making. If we were really pedantic, we could check that each object in the response array matches the expected structure:</p>
-
-<script src="https://gist.github.com/2349803.js"> </script>
-
-
-<p>Though I&rsquo;m not sure that&rsquo;s actually testing anything meaningful.</p>
-
-<p>Another great advantage is that it makes refactoring simple. As far as the specs are concerned, a request to is the same whether the heavy lifting is done in the model or the controller. This really helped me recently when I moved a bunch of logic from the controller to the model as I could let the specs tell me which parts starting misbehaving.</p>
-
-<p>Update: <a href="http://37signals.com/svn/posts/3159-testing-like-the-tsa">An interesting post by DHH about over-testing.</a></p>
-
-    <p><a href="/2012/04/10/testing-rails-json-apis-with-rspec#disqus_thread"></a></p>
-  </article>
-  
 
   <div class="pagination">
     
@@ -223,6 +197,12 @@
         
       </li>
       
+      <li class="page">
+        
+        <a href="/page6">6</a>
+        
+      </li>
+      
     </ul>
 
     
@@ -246,6 +226,10 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2012/11/22/links-week-46">Links - week 46</a></li>
+    
+    <li><a href="/2012/11/19/the-breakpoint-podcasts">The breakpoint podcasts</a></li>
+    
     <li><a href="/2012/11/13/london-js---create-the-web">London JS - Create the web</a></li>
     
     <li><a href="/2012/11/12/last-weeks-links-12-45">Links - Week 45</a></li>
@@ -261,10 +245,6 @@
     <li><a href="/2012/10/05/some-notes-from-webperfdays">Some notes from WebPerfDays</a></li>
     
     <li><a href="/2012/08/01/basecamp-at-easyart">Basecamp at Easyart</a></li>
-    
-    <li><a href="/2012/07/31/flickrs-liquid-photo-layout">Flickr's liquid photo layout</a></li>
-    
-    <li><a href="/2012/06/02/the-lesson-of-jam-sandwiches-for-service-developers-and-marketeers">The lesson of jam sandwiches for service developers and marketeers</a></li>
     
   </ol>
 </div>
