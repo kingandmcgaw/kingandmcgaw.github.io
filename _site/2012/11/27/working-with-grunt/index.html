@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="description" content="The Easyart Developers Blog">
+<meta name="author" content="Easyart">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Working with Grunt | Easyart Developers</title>
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lt IE 9]>
+<script src="/assets/js/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+  <div class="global-header" role="banner">
+    <h1><a href="/"><strong>Easyart</strong>Developers</a></h1>
+  </div>
+
+  <div class="content row">
+
+    <section class="col-7">
+      <div class="content-pri" role="main">
+
+        <article class="hentry">
+          <header>
+            <h2>Working with Grunt</h2>
+            <p class="updated">Posted on 27 November 2012 by Steve Rydz</p>
+          </header>
+          <p>A few weeks ago I attended a series of tooling workshops in Brighton. One of the workshops was focused around build process, and particularly <a href="http://gruntjs.com">Grunt</a>.</p>
+
+<p>Currently we use <a href="http://incident57.com/codekit/">CodeKit</a> to compile our Less and JavaScript files so we end up with concatenated, minified versions of each. So far this has worked well but we have found it difficult to keep things synchronised between team members.</p>
+
+<p>Soon after returning from the workshops I started to investigate Grunt in more detail and we put a plan in place on how we could use it to aid our build process.</p>
+
+<p>What we came up with was the following file structure:</p>
+
+<pre><code>    Site_Name/
+        |__ public/
+        |           |__ static/
+        |           |           |__ css/
+        |           |           |__ js/
+        |           |           |__ img/
+        |           |
+        |           |__ index.html
+        |
+        |__ spec/
+        |
+        |__ static-src/
+        |           |__ less/
+        |           |__ js/
+        |
+        |__ grunt.js
+        |__ README.md
+</code></pre>
+
+<h3>public</h3>
+
+<p>The public directory contains anything public facing, including all static assets such as stylesheets, scripts and images. Anything in the <code>static/css/</code> and <code>static/js/</code> directories is compiled from <code>static-src/</code>.</p>
+
+<h3>spec</h3>
+
+<p>The spec directory contains our selenium tests.</p>
+
+<h3>static-src</h3>
+
+<p>This is where we keep all of our pre-compiled files.</p>
+
+<h3>Compiling LESS</h3>
+
+<p>Our Less files are broken down into modules. There is a master file that imports all dependencies. This master file is then compiled into CSS, minified and placed in the <code>static/css/</code> directory.</p>
+
+<h3>Compiling JavaScript</h3>
+
+<p>Just like our Less files, all our JavaScript is broken down into modules. These are then concatenated to a master JavaScript file which is placed in the <code>static/js/</code> directory. We also create a minified version for production which sits alongside the master file in the <code>static/js/</code> directory.</p>
+
+<h3>Enter Grunt</h3>
+
+<p>Grunt makes the process of performing all of the above tasks very simple. Everything is defined inside our <code>grunt.js</code> file:</p>
+
+<pre><code>module.exports = function(grunt) {
+
+  grunt.initConfig({
+    lint: {
+      files: ['static-src/js/*.js']
+    },
+    less: {
+      development: {
+        options: {
+          paths: ['static-src/less/'],
+          yuicompress: true
+        },
+        files: {
+          'public/static/css/master.css': 'static-src/less/master.less'
+        }
+      }
+    },
+    concat: {
+      dist: {
+        src: [
+          'static-src/js/lib/jquery/jquery.js',
+          'static-src/js/lib/jquery/jquery.cookie.js',
+          'static-src/js/app.js'
+        ],
+        dest: 'public/static/js/master.js'
+      }
+    },
+    min: {
+      dist: {
+        src: 'public/static/js/master.js',
+        dest: 'public/static/js/master.min.js'
+      }
+    },
+    watch: {
+      files: ['static-src/js/*.js', 'static-src/less/*.less'],
+      tasks: 'default'
+    }
+  });
+
+  grunt.loadNpmTasks('grunt-contrib-less');
+
+  grunt.registerTask('default', 'lint less concat min');
+
+};
+</code></pre>
+
+<h3>Extending Grunt</h3>
+
+<p>Grunt is very extensible and here we are using it in it&rsquo;s most basic form using (with the exception of Less) only it&rsquo;s built-in tasks. The goal here was to become less reliant on a third-part app such as CodeKit in favour of a platform that we can easily build upon.</p>
+
+<p>Going forward, this is likely to be the way we do things. We will no doubt build on this in time, making use of more advanced features, and maybe even build some tasks of our own, but even as it stands, this is a good place to be.</p>
+
+        </article>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'easyartdevelopers';
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>    
+    </section>
+
+    <aside class="col-4 offset-1">
+      <div class="content-sec" role="complementary">
+        <div class="widget">
+  <h3>About this blog</h3>
+  <p>This is the blog of the developers at Easyart. We have a strong focus on user-centered design, test-driven development and emerging technologies.</p>
+</div>
+
+<div class="widget">
+  <h3>Recent posts</h3>
+  <ol>
+    
+    <li><a href="/2012/11/27/working-with-grunt">Working with Grunt</a></li>
+    
+    <li><a href="/2012/11/19/the-breakpoint-podcasts">The breakpoint podcasts</a></li>
+    
+    <li><a href="/2012/11/13/london-js---create-the-web">London JS - Create the web</a></li>
+    
+    <li><a href="/2012/11/12/last-weeks-links-12-45">Links - Week 45</a></li>
+    
+    <li><a href="/2012/11/07/full-frontal-tooling">Full Frontal Tooling</a></li>
+    
+    <li><a href="/2012/11/04/some-reading-and-viewing">This weekend's reading and viewing</a></li>
+    
+    <li><a href="/2012/10/22/the-importance-of-user-testing">The importance of user testing</a></li>
+    
+    <li><a href="/2012/10/21/dublin-web-summit-2012">Highlights from Dublin Web Summit 2012</a></li>
+    
+    <li><a href="/2012/10/05/some-notes-from-webperfdays">Some notes from WebPerfDays</a></li>
+    
+    <li><a href="/2012/08/01/basecamp-at-easyart">Basecamp at Easyart</a></li>
+    
+  </ol>
+</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="global-footer" role="contentinfo">
+    <p>&copy; Copyright 2012 Easyart. All rights reserved.</p>
+  </footer>
+
+<script type="text/javascript">
+// Disqus comments
+var disqus_shortname = 'easyartdevelopers';
+(function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+
+// Google analytics
+var _gaq=[['_setAccount','UA-204511-23'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
