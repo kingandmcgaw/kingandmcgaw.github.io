@@ -97,5 +97,5 @@ Grunt makes the process of performing all of the above tasks very simple. Everyt
 ### Extending Grunt
 Grunt is very extensible and here we are using it in it's most basic form using (with the exception of Less) only it's built-in tasks. The goal here was to become less reliant on a third-part app such as CodeKit in favour of a platform that we can easily build upon.
 
-Going forward, this is likely to be the way we do things. We will no doubt build on this in time, making use of more advanced features, and maybe even build some tasks of our own, but even as it stands, this is a good place to be.
+Going forward, this is likely to be the way we do things. We will no doubt build on this in time, making use of more advanced features, and maybe even build some tasks of our own, but even as it stands, this is a good position for us to be in.
 

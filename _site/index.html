@@ -135,9 +135,29 @@
 
 <p>Grunt is very extensible and here we are using it in it&rsquo;s most basic form using (with the exception of Less) only it&rsquo;s built-in tasks. The goal here was to become less reliant on a third-part app such as CodeKit in favour of a platform that we can easily build upon.</p>
 
-<p>Going forward, this is likely to be the way we do things. We will no doubt build on this in time, making use of more advanced features, and maybe even build some tasks of our own, but even as it stands, this is a good place to be.</p>
+<p>Going forward, this is likely to be the way we do things. We will no doubt build on this in time, making use of more advanced features, and maybe even build some tasks of our own, but even as it stands, this is a good position for us to be in.</p>
 
     <p><a href="/2012/11/27/working-with-grunt#disqus_thread"></a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/11/22/links-week-46">Links - week 46</a></h2>
+      <p class="updated">Posted on 22 November 2012 by Nick Boyce</p>
+    </header>
+    <p>Outside of the madness that is Christmas season at Easyart Towers, here are a few nuggets I&rsquo;ve enjoyed on the interwebs this week.</p>
+
+<ol>
+<li>The animated and excitable <a href="http://addyosmani.com/">Addy Osmani</a>&rsquo;s talk on <a href="http://vimeo.com/52450814">The New And Improved Developer Toolbelt</a> from Fronteers 2012 outlines some interesting tools for modern front end development, but I don&rsquo;t see us using Yoeman anytime soon (it&rsquo;s too magic!).</li>
+<li>I&rsquo;d seen this one before, and perhaps I am using it as a cheatsheet for his <a href="http://www.danpink.com/books/drive">book</a> that I haven&rsquo;t quite finished reading yet, but <a href="http://www.ted.com/talks/dan_pink_on_motivation.html">Dan Pink&rsquo;s TED lecture</a> on the mismatch between what science knows about motivation and what business does is utterly fascinating.</li>
+<li>Some useful links in <a href="http://ivanzuzak.info/2012/11/18/the-web-engineers-online-toolbox.html">The Web engineer&rsquo;s online toolbox</a> that I&rsquo;ll be sure to come back to</li>
+<li>Another one I re-read is <a href="http://backstage.soundcloud.com/2012/08/evolution-of-soundclouds-architecture/">The evolution of SoundCloud&rsquo;s architecture</a> as it&rsquo;s relevant to some thinking I am doing at the moment.</li>
+<li>I&rsquo;m really excited about what&rsquo;s happening at <a href="http://digital.cabinetoffice.gov.uk/">GDS</a>. It seems impossibly progressive for a government to assemble a really clever group of designers and (Ruby) developers to build a new integrated web platform, and to make the whole thing open source <a href="https://github.com/alphagov">and on Github</a>!</li>
+<li>I could almost see this list of <a href="http://www.smashingmagazine.com/2012/11/09/useful-tech-talks-videos-web-conferences/">Useful Talks And Videos From Web Design Conferences</a> replacing TV for me for a while, if only by <a href="http://www.boxee.tv/">Boxee</a> would switch back on!</li>
+</ol>
+
+
+    <p><a href="/2012/11/22/links-week-46#disqus_thread"></a></p>
   </article>
   
   <article class="hentry">
@@ -208,106 +228,6 @@
 
 
     <p><a href="/2012/11/12/last-weeks-links-12-45#disqus_thread"></a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/11/07/full-frontal-tooling">Full Frontal Tooling</a></h2>
-      <p class="updated">Posted on 07 November 2012 by Steve Rydz</p>
-    </header>
-    <p>I&rsquo;ve just got back from the <a href="http://2012.full-frontal.org/#tooling">Full Frontal Tooling Workshops</a> in Brighton, so I thought I&rsquo;d best write about my experience whilst it&rsquo;s still fresh in my mind.</p>
-
-<h3>The set up</h3>
-
-<p>There were six different workshops in total, with <a href="http://remysharp.com">Remy Sharp</a>, <a href="http://rmurphey.com">Rebecca Murphey</a> and <a href="http://jakearchibald.co.uk/">Jake Archibald</a> each leading two sessions. They were structured so participants could attend <em>any</em> four of the workshops throughout the day. The topics were:</p>
-
-<ul>
-<li><strong>Modularizing your JavaScript with RequireJS</strong> &mdash; Rebecca Murphey</li>
-<li><strong>Writing Testable JavaScript</strong> &mdash; Rebecca Murphey</li>
-<li><strong>Massive git</strong> &mdash; Jake Archibald</li>
-<li><strong>It&rsquo;s your Sass on the line</strong> &mdash; Jake Archibald</li>
-<li><strong>Debugging</strong> &mdash; Remy Sharp</li>
-<li><strong>Build Process</strong> &mdash; Remy Sharp</li>
-</ul>
-
-
-<h3>What to choose?</h3>
-
-<p>I chose the require.js, testable JavaScript, debugging and build process workshops. I didn&rsquo;t opt for the git workshop as I use it daily and am relatively comfortable with it and the same goes for Sass (although we currently use LESS at Easyart). Whilst I&rsquo;m sure they were great workshops, I felt I would benefit a lot more from the others, especially as they addressed topics that I have become very interested in lately.</p>
-
-<h3>Modularizing your JavaScript with RequireJS</h3>
-
-<p>We started with an existing project, which had several script tags linking to various JavaScript files such as jQuery, Backbone, Underscore and more. Rebecca then showed us how to use <a href="http://requirejs.org/">require.js</a> and the <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD format</a> to manage our dependencies and modules, and then going on to build the project with a simple command.</p>
-
-<p>This got me thinking about the way our JavaScript is structured, and whilst it has certainly seen improvement over the past six months or so, it could be taken a stage further by introducing require.js into our process.</p>
-
-<h3>Writing Testable JavaScript</h3>
-
-<p>We have been focusing on <a href="http://en.wikipedia.org/wiki/Test-driven_development">Test-driven development</a> quite a lot lately and have also identified that we need to be doing unit tests on our JavaScript so this topic was particularly relevant to me.</p>
-
-<p>Rebecca introduced us to <a href="http://docs.jquery.com/Qunit">QUnit</a> and explained the thought-process behind unit testing and writing testable JavaScript.</p>
-
-<p>When carrying out unit tests, we are essentially asking the following question:</p>
-
-<blockquote><p>Given this input, do I get this output?</p></blockquote>
-
-<p>&mdash; Rebecca Murphey</p>
-
-<p>This sounds simple, and really it is. The main thing to get your head around is writing JavaScript that is actually testable. Rebecca showed us some <em>typical</em> jQuery code, which was distinctly lacking in functions or output, and explained how it was very difficult to test, and went on to explain how to write JavaScript that actually returns something so we can test it.</p>
-
-<blockquote><p>Things don&rsquo;t do things &mdash; Things announce things</p></blockquote>
-
-<p>&mdash; Rebecca Murphey</p>
-
-<p>The process of writing good tests should be to make them fail first, and then write the necessary code to make them pass. Well written tests not only ensure that your code is actually working, they help you to write better code.</p>
-
-<p>One point that stood out to me in this workshop was not to get too hung up on testing edge cases. Make your tests as thorough as they need to be and then if an edge case does occur, write the test, then fix the problem.</p>
-
-<p>Later, we were briefly introduced to <a href="http://visionmedia.github.com/mocha/">Mocha</a>, a more advanced testing framework, and also shown how to integrate testing with <a href="http://gruntjs.com">grunt.js</a>.</p>
-
-<h3>Debugging</h3>
-
-<p>Being a developer, I&rsquo;m no stranger to the Chrome developer tools but I&rsquo;ve never really used them to their full potential.</p>
-
-<p>During this workshop, Remy introduced us to the concept of step debugging and setting breakpoints. I had come across breakpoints before but wasn&rsquo;t really sure how I could use them to debug code so I found this really helpful.</p>
-
-<p>Something Remy said, which I have heard quite a lot, is that if you are using alerts for debugging you should stop right now. <code>console.log</code> is your friend.</p>
-
-<p>After a run through of the various tabs in the Chrome developer tools, Remy talked to us about mobile debugging.</p>
-
-<p>Debugging code in mobile browsers can be a nightmare, but Remy showed us something called <a href="http://people.apache.org/~pmuellr/weinre/docs/latest/">weinre</a>, which basically listens to your ip address and binds itself to it, allowing you to open the developer tools on your machine and debug in your mobile browser.</p>
-
-<p>One thing that was stressed was the importance of testing on real devices. Emulators are fine for getting a quick overview but if you are doing any mobile specific work, get real phones.</p>
-
-<h3>Build Process</h3>
-
-<p>This workshop was based around a tool called <a href="http://gruntjs.com">Grunt</a>, which is, in its own words, a task-based command line build tool for JavaScript projects.</p>
-
-<p>Grunt is very powerful and can take care of a lot of otherwise mundane tasks for you such as:</p>
-
-<ul>
-<li>Concatenating files</li>
-<li>Generating project scaffolding</li>
-<li>Linting your code</li>
-<li>Minifying your code</li>
-<li>Running unit tests</li>
-<li>Starting a static web server</li>
-</ul>
-
-
-<p>These are just the built-in tasks. Grunt is still very new but despite this, there are already over 200 plugins available.</p>
-
-<p>This got me thinking about our build process and how it could be streamlined using this tool. We currently compile, concatenate and minify our Less files using <a href="http://incident57.com/codekit/">CodeKit</a>, the same goes for our JavaScript which we also run through JSHint. This works for us, but can sometimes feel cumbersome.</p>
-
-<p>The possibilities with Grunt are endless and I also feel like it would give us more control over our projects so it is definitely something I will investigate adding to our process.</p>
-
-<h3>Conclusion</h3>
-
-<p>I really felt like I got a lot out of these workshops today. It was a lot of information to take in but the key points all came across. I really liked the format and 90 minutes seems to be about the perfect length for workshop sessions of this kind.</p>
-
-<p>I don&rsquo;t know if Remy is planning to do something similar next year but if he does I hope I will be lucky enough to attend once more.</p>
-
-    <p><a href="/2012/11/07/full-frontal-tooling#disqus_thread"></a></p>
   </article>
   
 
@@ -382,6 +302,8 @@
     
     <li><a href="/2012/11/27/working-with-grunt">Working with Grunt</a></li>
     
+    <li><a href="/2012/11/22/links-week-46">Links - week 46</a></li>
+    
     <li><a href="/2012/11/19/the-breakpoint-podcasts">The breakpoint podcasts</a></li>
     
     <li><a href="/2012/11/13/london-js---create-the-web">London JS - Create the web</a></li>
@@ -397,8 +319,6 @@
     <li><a href="/2012/10/21/dublin-web-summit-2012">Highlights from Dublin Web Summit 2012</a></li>
     
     <li><a href="/2012/10/05/some-notes-from-webperfdays">Some notes from WebPerfDays</a></li>
-    
-    <li><a href="/2012/08/01/basecamp-at-easyart">Basecamp at Easyart</a></li>
     
   </ol>
 </div>
