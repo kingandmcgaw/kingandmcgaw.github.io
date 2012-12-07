@@ -1,3 +1,8 @@
+---
+
+published: false
+---
+
 I've been enjoying the [Art.sy engineering team's blog](http://artsy.github.com/). Their approach and [technology stack](http://artsy.github.com/blog/2012/10/10/artsy-technology-stack/) are spookily similar to what we have in store for the next generation of the platform at Easyart. Even their blog runs on [Jekyll](https://github.com/mojombo/jekyll) just like this one!
 
 As usual, I've spent a fair bit of time on [Quora](http://www.quora.com/) this week. The question [What is Spotify's architecture?](http://www.quora.com/Spotify/What-is-Spotifys-architecture) had an interesting answer from Spotify developer Niklas Gustavsson. They have around 100 backend services, most of which handle only a single task.
@@ -10,4 +15,4 @@ There's a great post called [Why Google Went Offline Today and a Bit about How t
 
 [The best interface is no interface](http://www.cooper.com/journal/2012/08/the-best-interface-is-no-interface.html/) is very much an approach we are trying to head towards with some of the product customisation screens we'll launch in 2013. I'm really excited about what next year has in store.
 
-Finally, this post is my first one created and edited in [http://prose.io/](Prose). It's a neat tool to browse Github repos, and is perfectly suited to (infact, created for)  Jekyll blogs.
+Finally, this post is my first one created and edited in (Prose)[http://prose.io/]. It's a really neat tool to create and edit code in Github repos in the browser, and is perfectly suited to (infact, created for) Jekyll blogs like this one.
