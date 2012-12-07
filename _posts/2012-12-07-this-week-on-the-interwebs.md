@@ -15,4 +15,4 @@ There's a great post called [Why Google Went Offline Today and a Bit about How t
 
 [The best interface is no interface](http://www.cooper.com/journal/2012/08/the-best-interface-is-no-interface.html/) is very much an approach we are trying to head towards with some of the product customisation screens we'll launch in 2013. I'm really excited about what next year has in store.
 
-Finally, this post is my first one created and edited in (Prose)[http://prose.io/]. It's a really neat tool to create and edit code in Github repos in the browser, and is perfectly suited to (infact, created for) Jekyll blogs like this one.
+Finally, this post is my first one created and edited in [Prose](http://prose.io/). It's a really neat tool to create and edit code in Github repos in the browser, and is perfectly suited to (infact, created for) Jekyll blogs like this one.
