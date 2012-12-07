@@ -8,5 +8,6 @@ Paul Irish's [Javascript Development Workflow of 2013](http://www.youtube.com/wa
 
 There's a great post called [Why Google Went Offline Today and a Bit about How the Internet Works](http://blog.cloudflare.com/why-google-went-offline-today-and-a-bit-about) over on the CloudFlare blog from a while back that sheds some light on how some of the underlying mechanics of the internetw work.
 
-Finally, [The best interface is no interface](http://www.cooper.com/journal/2012/08/the-best-interface-is-no-interface.html/) is very much an approach we are trying to head towards with some of the product customisation screens we'll launch in 2013. It's really exciting.
+[The best interface is no interface](http://www.cooper.com/journal/2012/08/the-best-interface-is-no-interface.html/) is very much an approach we are trying to head towards with some of the product customisation screens we'll launch in 2013. I'm really excited about what next year has in store.
 
+Finally, this post is my first one created and edited in [http://prose.io/](Prose). It's a neat tool to browse Github repos, and is perfectly suited to (infact, created for)  Jekyll blogs.
