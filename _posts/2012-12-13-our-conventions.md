@@ -5,8 +5,6 @@ published: true
 author: Nick Boyce
 ---
 
-# Conventions
-
 Part of the way the team has evolved this year has required putting more emphasis on consistent coding conventions and procedures to make our collaboration smoother. Here are a few notes.
 
 ####Javascript
