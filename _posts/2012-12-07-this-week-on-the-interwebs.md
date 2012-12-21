@@ -1,6 +1,7 @@
 ---
-
+layout: post
 published: true
+author: Nick Boyce
 ---
 
 I've been enjoying the [Art.sy engineering team's blog](http://artsy.github.com/). Their approach and [technology stack](http://artsy.github.com/blog/2012/10/10/artsy-technology-stack/) are spookily similar to what we have in store for the next generation of the platform at Easyart. Even their blog runs on [Jekyll](https://github.com/mojombo/jekyll) just like this one!
