@@ -7,7 +7,7 @@
 <meta name="author" content="Easyart">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The importance of user testing | Easyart Developers</title>
+<title>Using git flow | Easyart Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -31,36 +31,73 @@
 
         <article class="hentry">
           <header>
-            <h2>The importance of user testing</h2>
-            <p class="updated">Posted on 22 October 2012 by Steve Rydz</p>
+            <h2>Using git flow</h2>
+            <p class="updated">Posted on 09 January 2013 by Steve Rydz</p>
           </header>
-          <p>When developing a customer facing site, such as Easyart.com, is it very important to be aware of your users perspective. The recommended way to do this is something known as user testing.</p>
+          <p>For the past couple of weeks I&rsquo;ve been using a tool called <a href="https://github.com/nvie/gitflow">Git Flow</a>. In it&rsquo;s own words, git flow is <em>A collection of Git extensions to provide high-level repository operations for Vincent Driessen&rsquo;s <a href="http://nvie.com/git-model">branching model</a>.</em></p>
 
-<h3>What is user testing</h3>
+<p>If you&rsquo;re already familiar with Git on the command line then getting up and running with git flow will take you no time at all.</p>
 
-<p>User testing is essentially watching how people use your website/application. Traditionally, this is done by arranging a session for people to come and use your site, where they would be given tasks to complete. The process is recorded and then analysed to see what could be improved.</p>
+<h3>Installation</h3>
 
-<p>Mostly due to time and budget constraints, this isn&rsquo;t always easy to accomplish, but luckily there is now a whole host of affordable services that help us solve this problem.</p>
+<p>The full installation instructions <a href="https://github.com/nvie/gitflow/wiki/Installation">can be found here</a> but for the purposes of this article I am going to assume you are on a Mac and using homebrew.</p>
 
-<h3>Choosing a service</h3>
+<p>You can use homebrew to install git flow:</p>
 
-<p>When choosing a service for any reason, the important thing is to establish exactly what you need from it. We did some research on user testing and decided that we would need a video of the session along with the audio, and the ability to ask follow-up questions. The service that seemed to be the best fit for us was <a href="http://usertesting.com">usertesting.com</a>.</p>
+<pre><code>    $ brew install git-flow
+</code></pre>
 
-<h3>Setting up the test</h3>
+<p>That&rsquo;s all it takes.</p>
 
-<p>To kick off the test, we needed a set of tasks. We called this a user journey, and set a list of tasks for the participants of the test to follow, demonstrating the areas we knew we needed to work on.</p>
+<h3>Initialising a project</h3>
 
-<h3>Getting the feedback</h3>
+<p>To use git flow, you will need to already have a git project set up. So, to get started, just navigate to your project (in Terminal) and type the following:</p>
 
-<p>Within the hour, all three of the tests we set-up had been completed and we had access to the videos. Over the next couple of days we watched these videos, listened to the commentaries and read the answers to our follow-up questions, taking notes the whole time.</p>
+<pre><code>    $ git flow init
+</code></pre>
 
-<p>Almost immediately we identified some key areas that we needed to work on and have already started working on solutions to improve our customers experience on our site.</p>
+<p>It will then ask you a few questions regarding what to name your various branches. Unless you have good reason, I would stick to the defaults.</p>
 
-<h3>Going forward</h3>
+<h3>Going with the flow</h3>
 
-<p>From now on, we plan to run user tests regularly, as we have found it provides a valuable insight into how our site is used and how it can be improved.</p>
+<p>So now you have initialised git flow within your project, you want to get going.</p>
 
-<p>User testing <em>will</em> make your site better and <a href="http://usertesting.com">usertesting.com</a> is a great tool for helping you achieve this.</p>
+<p>The assumption here is that your master branch is always deployable and your develop branch is where you would make small changes that will be release fairly quickly.</p>
+
+<p>The feature I use most is <em>feature</em> branches. Essentially a branch called feature/<feature-name> is created and when complete, merged into your develop branch. To start a new feature branch just type:</p>
+
+<pre><code>    $ git flow feature start &lt;feature-name&gt;
+</code></pre>
+
+<p>Obviously feature name will be whatever you want to call your new feature. You can then start working on your feature and commit as you normally would. To set up a remote branch so others can collaborate just use the publish command:</p>
+
+<pre><code>    $ git flow feature publish &lt;feature-name&gt;
+</code></pre>
+
+<p>Once you are ready to merge your new feature, just use the finish command:</p>
+
+<pre><code>    $ git flow feature finish &lt;feature-name&gt;
+</code></pre>
+
+<p>This will merge your feature into your develop branch and delete your local branch too. If you want/need to delete the remote branch then just type:</p>
+
+<pre><code>    $ git push origin :feature/&lt;feature-name&gt;
+</code></pre>
+
+<h3>More resources</h3>
+
+<p>Hopefully this article has convinced you that using git flow is worthwhile and got you intrigued enough to find out more.</p>
+
+<p>Some more git flow resources:</p>
+
+<ul>
+<li><a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/">Why aren&rsquo;t you using git flow</a></li>
+<li><a href="http://yakiloo.com/getting-started-git-flow/">Getting started with git flow</a></li>
+<li><a href="http://vimeo.com/37408017">Oh the path with git flow</a></li>
+<li><a href="http://buildamodule.com/video/change-management-and-version-control-deploying-releases-features-and-fixes-with-git-how-to-use-a-scalable-git-branching-model-called-gitflow">How to use a scalable git branching model called gitflow</a></li>
+<li><a href="http://vimeo.com/16018419">A short introduction to git flow</a></li>
+</ul>
+
 
         </article>
         <div id="disqus_thread"></div>
