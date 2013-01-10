@@ -5,7 +5,11 @@ title: Links from the week
 author: Nick Boyce
 ---
 
-Some links I've been hoarding over the new year break.
+Thought it might be nice to start the year with a quote from from the [Getting Real book](http://gettingreal.37signals.com/):
+
+> There’s plenty of time to be a perfectionist. Just do it later.
+
+Here's a few links I've enjoyed over the new year break.
 
 * [Enabling Lean with Tech: lessons learned applying lean at PayPal](http://www.slideshare.net/billwscott/enabling-lean-with-tech-15455128?from=new_upload_email). An interesting slide deck from Bill Scott about how PayPal used a JavaScript-based stack and open source methodologies to set themselves free from their legacy technology stack and allow faster prototyping. 
 
@@ -17,6 +21,3 @@ Some links I've been hoarding over the new year break.
 
 * The [New York Times Skimmer](http://www.nytimes.com/skimmer/) looks like it's had a significant upgrade since I last saw it. It's a really impressive JavaScript front-end to the NYT content – complete with multiple themes and keyboard shortcuts – and by the looks of it, it's also available bundled as a Chrome web app.
 
-And a nice quote from the archives from the [Getting Real book](http://gettingreal.37signals.com/):
-
-> There’s plenty of time to be a perfectionist. Just do it later.
