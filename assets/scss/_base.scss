@@ -174,3 +174,36 @@ img {
   @include box-sizing(border-box);
   @include box-shadow(1px 1px 6px rgba(0,0,0,0.25));
 }
+
+/* ----------------------------------------------
+  FORMS
+---------------------------------------------- */
+form {
+  margin-bottom: 1.5em;
+}
+
+input,
+button {
+  padding: 5px;
+  border: 1px solid $border-color;
+  @include box-sizing(border-box);
+
+  &:focus {
+    border-color: darken($border-color, 25%);
+  }
+}
+
+input {
+  width: 60%;
+}
+
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+  @include linear-gradient(lighten($border-color, 15%), $border-color);
+
+  &:active,
+  &:focus {
+    background: $border-color;
+  }
+}

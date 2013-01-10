@@ -30,12 +30,12 @@
           transition: $transition;
 }
 
-@mixin linear-gradient($position, $start, $stop) {
+@mixin linear-gradient($start, $stop) {
   background: $start;
-  background: -moz-linear-gradient($position, $start 0%, $stop 100%);
-  background: -o-linear-gradient($position, $start 0%, $stop 100%);
-  background: -webkit-linear-gradient($position, $start 0%, $stop 100%);
-  background: linear-gradient($position, $start 0%, $stop 100%);
+  background: -moz-linear-gradient($start 0%, $stop 100%);
+  background: -o-linear-gradient($start 0%, $stop 100%);
+  background: -webkit-linear-gradient($start 0%, $stop 100%);
+  background: linear-gradient($start 0%, $stop 100%);
 }
 
 @mixin radial-gradient($position, $start, $stop) {
