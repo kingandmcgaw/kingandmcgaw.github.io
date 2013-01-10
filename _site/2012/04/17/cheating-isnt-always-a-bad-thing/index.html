@@ -45,6 +45,17 @@
 <p>High Scalability is a blog that exposes the architecture of some very well-known and highly trafficked  websites. The posts are often written by the developers of those systems. So if you&rsquo;ve ever wondered how <a href="http://highscalability.com/blog/2011/12/19/how-twitter-stores-250-million-tweets-a-day-using-mysql.html">Twitter stores 250,000,000 tweets a day</a> using MySql (no NoSql here), then H.S. is the blog for you.</p>
 
         </article>
+        <div id="disqus_thread"></div>
+        <script>
+          var disqus_shortname = 'easyartdevelopers';
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
       </div>    
     </section>
 
@@ -107,6 +118,16 @@
   </footer>
 
 <script>
+
+// Disqus comments
+var disqus_shortname = 'easyartdevelopers';
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+
 // Google analytics
 var _gaq=[['_setAccount','UA-204511-23'],['_trackPageview']];
 (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
