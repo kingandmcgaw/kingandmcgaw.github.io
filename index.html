@@ -9,6 +9,7 @@ layout: default
       <p class="updated">Posted on {{post.date | date: "%d %B %Y"}} by {{post.author}}</p>
     </header>
     {{post.content}}
+    <p><a href="{{post.url}}#disqus_thread">Leave a comment</a></p>
   </article>
   {% endfor %}
 
