@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Easyart Developers</title>
+ <link href="http://easyart.github.com/feed.xml" rel="self"/>
+ <link href="http://easyart.github.com"/>
+ <updated>2013-01-10T15:48:02+00:00</updated>
+ <id>http://easyart.github.com/</id>
+ <author>
+   <name></name>
+ </author>
+ 
+ <entry>
+   <title>Links from the week</title>
+   <link href="http://easyart.github.com/2013/01/10/links-from-the-week"/>
+   <updated>2013-01-10T00:00:00+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Using git flow</title>
+   <link href="http://easyart.github.com/2013/01/09/using-git-flow"/>
+   <updated>2013-01-09T15:46:43+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Is London the most popular city for Github users?</title>
+   <link href="http://easyart.github.com/2012/12/20/london-and-github"/>
+   <updated>2012-12-20T00:00:00+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Why have I failed?</title>
+   <link href="http://easyart.github.com/2012/12/19/why-have-i-failed"/>
+   <updated>2012-12-19T00:00:00+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Conventions</title>
+   <link href="http://easyart.github.com/2012/12/13/our-conventions"/>
+   <updated>2012-12-13T00:00:00+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>This Week On The Interwebs</title>
+   <link href="http://easyart.github.com/2012/12/07/this-week-on-the-interwebs"/>
+   <updated>2012-12-07T00:00:00+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>A prediction for 2013</title>
+   <link href="http://easyart.github.com/2012/12/03/a-prediction-for-2013"/>
+   <updated>2012-12-03T18:25:14+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Working with Grunt</title>
+   <link href="http://easyart.github.com/2012/11/27/working-with-grunt"/>
+   <updated>2012-11-27T10:54:10+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Links - week 46</title>
+   <link href="http://easyart.github.com/2012/11/22/links-week-46"/>
+   <updated>2012-11-22T22:12:38+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>The breakpoint podcasts</title>
+   <link href="http://easyart.github.com/2012/11/19/the-breakpoint-podcasts"/>
+   <updated>2012-11-19T10:28:10+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>London JS - Create the web</title>
+   <link href="http://easyart.github.com/2012/11/13/london-js---create-the-web"/>
+   <updated>2012-11-13T10:35:41+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Links - Week 45</title>
+   <link href="http://easyart.github.com/2012/11/12/last-weeks-links-12-45"/>
+   <updated>2012-11-12T13:38:29+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Full Frontal Tooling</title>
+   <link href="http://easyart.github.com/2012/11/07/full-frontal-tooling"/>
+   <updated>2012-11-07T20:25:51+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>This weekend's reading and viewing</title>
+   <link href="http://easyart.github.com/2012/11/04/some-reading-and-viewing"/>
+   <updated>2012-11-04T10:37:55+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>The importance of user testing</title>
+   <link href="http://easyart.github.com/2012/10/22/the-importance-of-user-testing"/>
+   <updated>2012-10-22T12:35:21+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Highlights from Dublin Web Summit 2012</title>
+   <link href="http://easyart.github.com/2012/10/21/dublin-web-summit-2012"/>
+   <updated>2012-10-21T12:16:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Some notes from WebPerfDays</title>
+   <link href="http://easyart.github.com/2012/10/05/some-notes-from-webperfdays"/>
+   <updated>2012-10-05T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Basecamp at Easyart</title>
+   <link href="http://easyart.github.com/2012/08/01/basecamp-at-easyart"/>
+   <updated>2012-08-01T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Flickr's liquid photo layout</title>
+   <link href="http://easyart.github.com/2012/07/31/flickrs-liquid-photo-layout"/>
+   <updated>2012-07-31T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>The lesson of jam sandwiches for service developers and marketeers</title>
+   <link href="http://easyart.github.com/2012/06/02/the-lesson-of-jam-sandwiches-for-service-developers-and-marketeers"/>
+   <updated>2012-06-02T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Git-based deploys</title>
+   <link href="http://easyart.github.com/2012/05/21/git-based-deploys"/>
+   <updated>2012-05-21T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Using Selenium and Rspec for behaviour testing</title>
+   <link href="http://easyart.github.com/2012/05/01/using-selenium-and-rspec-for-behaviour-testing"/>
+   <updated>2012-05-01T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Quick tip: Opening files in Sublime from Terminal</title>
+   <link href="http://easyart.github.com/2012/04/27/quick-tip-opening-files-in-sublime-from-terminal"/>
+   <updated>2012-04-27T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Codekit tip: Export project settings</title>
+   <link href="http://easyart.github.com/2012/04/19/codekit-tip-export-project-settings"/>
+   <updated>2012-04-19T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Deploying static assets to S3 using s3cmd</title>
+   <link href="http://easyart.github.com/2012/04/17/deploying-static-assets-to-s3-using-s3cmd"/>
+   <updated>2012-04-17T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Cheating isn't always a bad thing</title>
+   <link href="http://easyart.github.com/2012/04/17/cheating-isnt-always-a-bad-thing"/>
+   <updated>2012-04-17T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Front-end development requirements</title>
+   <link href="http://easyart.github.com/2012/04/13/front-end-development-requirement"/>
+   <updated>2012-04-13T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>A unified coding style</title>
+   <link href="http://easyart.github.com/2012/04/12/a-unified-coding-style"/>
+   <updated>2012-04-12T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>History state and the back button</title>
+   <link href="http://easyart.github.com/2012/04/11/history-state-and-the-back-button"/>
+   <updated>2012-04-11T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Testing Rails JSON APIs with RSpec</title>
+   <link href="http://easyart.github.com/2012/04/10/testing-rails-json-apis-with-rspec"/>
+   <updated>2012-04-10T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>On source control</title>
+   <link href="http://easyart.github.com/2012/04/05/on-source-control"/>
+   <updated>2012-04-05T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>The importance of LESS</title>
+   <link href="http://easyart.github.com/2012/03/26/the-importance-of-less"/>
+   <updated>2012-03-26T00:00:00+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>On Naming Schemes</title>
+   <link href="http://easyart.github.com/2012/03/23/on-naming-schemes"/>
+   <updated>2012-03-23T00:00:00+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Getting to know Codekit</title>
+   <link href="http://easyart.github.com/2012/03/23/getting-to-know-codekit"/>
+   <updated>2012-03-23T00:00:00+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Goodbye Campfire, Hello Flowdock</title>
+   <link href="http://easyart.github.com/2012/03/22/goodbye-campfire-hello-flowdock"/>
+   <updated>2012-03-22T00:00:00+00:00</updated>
+ </entry>
+ 
+ 
+</feed>
