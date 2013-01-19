@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 published: true
 author: Nick Boyce
 date: 19th January 2012
