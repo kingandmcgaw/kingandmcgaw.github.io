@@ -31,6 +31,29 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Deploying static assets to S3 using s3cmd</a></h2>
+      <p class="updated">Posted on 17 April 2012 by Nick Boyce</p>
+    </header>
+    <p>I&rsquo;ve been looking at ways to deploy our static assets to S3 as part of our Git workflow.</p>
+
+<p>I want to be able to push to the master branch of a remote repo and have the changes deployed to S3, with predefined HTTP headers. Much like I&rsquo;m used to pushing to Heroku with git push heroku master.</p>
+
+<p>There are probably plenty of ways to do it &ndash; mounting S3 through Fuse, running Webdav servers, using Capistrano etc &ndash; but I found them too overkill for our needs.</p>
+
+<p>So I&rsquo;ve ended up writing a simple deploy script which lives at the root of the repo which uses <a href="http://s3tools.org/s3cmd">s3cmd</a> to sync between the local file system and our S3 bucket. It&rsquo;s a snap to set up, and the result is a command that looks like this:</p>
+
+<script src="https://gist.github.com/2404535.js"> </script>
+
+
+<p>I store this file in the repo, so that each of us developers can execute it by just calling ./deploy.sh. As this process is outside of the Git workflow, I have to exclude the .git directory. Conveniently, s3cmd&rsquo;s format for excluding files is the same as Git&rsquo;s so you can pass in a .gitignore if you&rsquo;re using one.</p>
+
+<p>It&rsquo;s not a true Git deploy (though it could be called via a <a href="http://progit.org/book/ch7-3.html">Git Hook</a>), but still a pretty neat solution.</p>
+
+    <p><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></h2>
       <p class="updated">Posted on 17 April 2012 by John Pash</p>
     </header>
@@ -143,43 +166,6 @@
     <p><a href="/2012/04/11/history-state-and-the-back-button">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/04/10/testing-rails-json-apis-with-rspec">Testing Rails JSON APIs with RSpec</a></h2>
-      <p class="updated">Posted on 10 April 2012 by Nick Boyce</p>
-    </header>
-    <p>I&rsquo;ve spent some time in the last couple of weeks taking the learnings from an early API prototype, and starting a new Rails application from scratch, complete with RSpec tests. Here are some notes on some of our tools and methodologies.</p>
-
-<h3>Model specs</h3>
-
-<p>We&rsquo;re overriding the as_json method in our models and we&rsquo;re using <a href="https://github.com/collectiveidea/json_spec">json_spec</a> to test the documents have the right structure.</p>
-
-<script src="https://gist.github.com/2349770.js"> </script>
-
-
-<h3>Request specs</h3>
-
-<p>We have hundreds of lines of <a href="https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec">request specs</a>, and no controller specs. Here is a simple example:</p>
-
-<script src="https://gist.github.com/2349801.js"> </script>
-
-
-<p>Because we&rsquo;re getting an actual HTTP payload back (in the response variable) we can inspect whatever part of it that&rsquo;s relevant to us. We know the structure of the responses should come back in a known format because we&rsquo;re testing the to_json method in the class specs. So it&rsquo;s just a matter of using JSON.parse on the response.body and testing it as a native Ruby object.</p>
-
-<p>Of course, this means that we are trusting JSON.parse to behave reliably but that&rsquo;s an assumption worth making. If we were really pedantic, we could check that each object in the response array matches the expected structure:</p>
-
-<script src="https://gist.github.com/2349803.js"> </script>
-
-
-<p>Though I&rsquo;m not sure that&rsquo;s actually testing anything meaningful.</p>
-
-<p>Another great advantage is that it makes refactoring simple. As far as the specs are concerned, a request to is the same whether the heavy lifting is done in the model or the controller. This really helped me recently when I moved a bunch of logic from the controller to the model as I could let the specs tell me which parts starting misbehaving.</p>
-
-<p>Update: <a href="http://37signals.com/svn/posts/3159-testing-like-the-tsa">An interesting post by DHH about over-testing.</a></p>
-
-    <p><a href="/2012/04/10/testing-rails-json-apis-with-rspec">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
     
@@ -235,6 +221,12 @@
         
       </li>
       
+      <li class="page">
+        
+        <a href="/page8">8</a>
+        
+      </li>
+      
     </ul>
 
     
@@ -274,6 +266,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/01/21/front-end-performance-for-web-designers-and-front-end-developers">Front-end performance for web designers and front-end developers</a></li>
+    
     <li><a href="/2013/01/10/links-from-the-week">Links from the week</a></li>
     
     <li><a href="/2013/01/09/using-git-flow">Using git flow</a></li>
@@ -291,8 +285,6 @@
     <li><a href="/2012/11/27/working-with-grunt">Working with Grunt</a></li>
     
     <li><a href="/2012/11/22/links-week-46">Links - week 46</a></li>
-    
-    <li><a href="/2012/11/19/the-breakpoint-podcasts">The breakpoint podcasts</a></li>
     
   </ol>
 </div>

@@ -4,11 +4,17 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-01-10T16:36:41+00:00</updated>
+ <updated>2013-01-21T17:06:03+00:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
+ 
+ <entry>
+   <title>Front-end performance for web designers and front-end developers</title>
+   <link href="http://easyart.github.com/2013/01/21/front-end-performance-for-web-designers-and-front-end-developers"/>
+   <updated>2013-01-21T17:04:02+00:00</updated>
+ </entry>
  
  <entry>
    <title>Links from the week</title>
