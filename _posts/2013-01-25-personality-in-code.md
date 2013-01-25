@@ -6,7 +6,7 @@ author: Nick Boyce
 published: true
 ---
 
-I liked this nice little post-install message from [HTTPArty](https://github.com/jnunemaker/httparty):
+I liked this nice little post-install message from [HTTParty](https://github.com/jnunemaker/httparty):
 
     Post-install message from httparty:
     When you HTTParty, you must party hard!
