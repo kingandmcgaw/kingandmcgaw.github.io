@@ -12,6 +12,8 @@ Here's some things that popped up on my radar this week:
 * [howdoi](https://github.com/gleitz/howdoi) looks like a really useful way to get inline help in the terminal for a number of languages
 * [Redesigning Google: how Larry Page engineered a beautiful revolution](http://www.theverge.com/2013/1/24/3904134/google-redesign-how-larry-page-engineered-beautiful-revolution). An in-depth article on Google's new focus on design.
 * [Skinny Ties and responsive eCommerce](http://gravitydept.com/blog/skinny-ties-and-responsive-ecommerce/). Case study on a responsive redesign of an ecommerce store.
+* [Reminder: Design is still about words](http://37signals.com/svn/posts/3404)
+* [The Great Discontent's profile on Jessica Walsh](http://thegreatdiscontent.com/jessica-walsh). Surprisingly I'd never seen this site before, but I'll definitely be keeping an eye on it.
 
 I've also been making my way through some of the talks from last year's Bacon conference. The three I have watched so far have all been top-notch:
 
