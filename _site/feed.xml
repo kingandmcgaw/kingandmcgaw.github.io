@@ -4,16 +4,34 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-01-21T17:06:03+00:00</updated>
+ <updated>2013-01-26T11:13:36+00:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
  
  <entry>
+   <title>Links This Week</title>
+   <link href="http://easyart.github.com/2013/01/26/links-this-week"/>
+   <updated>2013-01-26T10:38:06+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Personality in Code</title>
+   <link href="http://easyart.github.com/2013/01/25/personality-in-code"/>
+   <updated>2013-01-25T15:03:54+00:00</updated>
+ </entry>
+ 
+ <entry>
    <title>Front-end performance for web designers and front-end developers</title>
    <link href="http://easyart.github.com/2013/01/21/front-end-performance-for-web-designers-and-front-end-developers"/>
    <updated>2013-01-21T17:04:02+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>On SOA</title>
+   <link href="http://easyart.github.com/2013/01/19/on-soa"/>
+   <updated>2013-01-19T00:00:00+00:00</updated>
  </entry>
  
  <entry>

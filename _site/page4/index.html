@@ -31,6 +31,149 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/11/12/last-weeks-links-12-45">Links - Week 45</a></h2>
+      <p class="updated">Posted on 12 November 2012 by Nick Boyce</p>
+    </header>
+    <h3>Interesting stuff from around the internet last week</h3>
+
+<ol>
+<li><a href="http://maker.github.com/ratchet/">Ratchet &ndash; HTML/CSS framework for iPhone prototyping</a></li>
+<li><a href="http://ademilter.com/lab/liffect/">Liffect &ndash; CSS effects for lists</a></li>
+<li><a href="http://wrapbootstrap.com/preview/WB0PHMG9K">Perfectum Dashboard &ndash; Bootstrap skin</a></li>
+<li><a href="http://worrydream.com/LearnableProgramming/">Learnable Programming by Bret Victor</a></li>
+<li><a href="http://sharpsuits.net/home">Client feedback turned into posters</a></li>
+<li><a href="https://speakerdeck.com/kennethreitz/api-driven-development">API driven development</a></li>
+<li><a href="http://www.guardian.co.uk/education/2012/nov/09/learn-language-in-three-months">How I learned a language in 22 hours</a></li>
+<li><a href="http://www.nytimes.com/2012/11/11/magazine/how-zara-grew-into-the-worlds-largest-fashion-retailer.html?_r=1&amp;pagewanted=all&amp;">How Zara Grew Into the World’s Largest Fashion Retailer</a></li>
+<li><a href="http://arstechnica.com/information-technology/2012/11/inside-team-romneys-whale-of-an-it-meltdown/">Inside Team Romney&rsquo;s whale of an IT meltdown</a></li>
+</ol>
+
+
+    <p><a href="/2012/11/12/last-weeks-links-12-45">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/11/07/full-frontal-tooling">Full Frontal Tooling</a></h2>
+      <p class="updated">Posted on 07 November 2012 by Steve Rydz</p>
+    </header>
+    <p>I&rsquo;ve just got back from the <a href="http://2012.full-frontal.org/#tooling">Full Frontal Tooling Workshops</a> in Brighton, so I thought I&rsquo;d best write about my experience whilst it&rsquo;s still fresh in my mind.</p>
+
+<h3>The set up</h3>
+
+<p>There were six different workshops in total, with <a href="http://remysharp.com">Remy Sharp</a>, <a href="http://rmurphey.com">Rebecca Murphey</a> and <a href="http://jakearchibald.co.uk/">Jake Archibald</a> each leading two sessions. They were structured so participants could attend <em>any</em> four of the workshops throughout the day. The topics were:</p>
+
+<ul>
+<li><strong>Modularizing your JavaScript with RequireJS</strong> &mdash; Rebecca Murphey</li>
+<li><strong>Writing Testable JavaScript</strong> &mdash; Rebecca Murphey</li>
+<li><strong>Massive git</strong> &mdash; Jake Archibald</li>
+<li><strong>It&rsquo;s your Sass on the line</strong> &mdash; Jake Archibald</li>
+<li><strong>Debugging</strong> &mdash; Remy Sharp</li>
+<li><strong>Build Process</strong> &mdash; Remy Sharp</li>
+</ul>
+
+
+<h3>What to choose?</h3>
+
+<p>I chose the require.js, testable JavaScript, debugging and build process workshops. I didn&rsquo;t opt for the git workshop as I use it daily and am relatively comfortable with it and the same goes for Sass (although we currently use LESS at Easyart). Whilst I&rsquo;m sure they were great workshops, I felt I would benefit a lot more from the others, especially as they addressed topics that I have become very interested in lately.</p>
+
+<h3>Modularizing your JavaScript with RequireJS</h3>
+
+<p>We started with an existing project, which had several script tags linking to various JavaScript files such as jQuery, Backbone, Underscore and more. Rebecca then showed us how to use <a href="http://requirejs.org/">require.js</a> and the <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD format</a> to manage our dependencies and modules, and then going on to build the project with a simple command.</p>
+
+<p>This got me thinking about the way our JavaScript is structured, and whilst it has certainly seen improvement over the past six months or so, it could be taken a stage further by introducing require.js into our process.</p>
+
+<h3>Writing Testable JavaScript</h3>
+
+<p>We have been focusing on <a href="http://en.wikipedia.org/wiki/Test-driven_development">Test-driven development</a> quite a lot lately and have also identified that we need to be doing unit tests on our JavaScript so this topic was particularly relevant to me.</p>
+
+<p>Rebecca introduced us to <a href="http://docs.jquery.com/Qunit">QUnit</a> and explained the thought-process behind unit testing and writing testable JavaScript.</p>
+
+<p>When carrying out unit tests, we are essentially asking the following question:</p>
+
+<blockquote><p>Given this input, do I get this output?</p></blockquote>
+
+<p>&mdash; Rebecca Murphey</p>
+
+<p>This sounds simple, and really it is. The main thing to get your head around is writing JavaScript that is actually testable. Rebecca showed us some <em>typical</em> jQuery code, which was distinctly lacking in functions or output, and explained how it was very difficult to test, and went on to explain how to write JavaScript that actually returns something so we can test it.</p>
+
+<blockquote><p>Things don&rsquo;t do things &mdash; Things announce things</p></blockquote>
+
+<p>&mdash; Rebecca Murphey</p>
+
+<p>The process of writing good tests should be to make them fail first, and then write the necessary code to make them pass. Well written tests not only ensure that your code is actually working, they help you to write better code.</p>
+
+<p>One point that stood out to me in this workshop was not to get too hung up on testing edge cases. Make your tests as thorough as they need to be and then if an edge case does occur, write the test, then fix the problem.</p>
+
+<p>Later, we were briefly introduced to <a href="http://visionmedia.github.com/mocha/">Mocha</a>, a more advanced testing framework, and also shown how to integrate testing with <a href="http://gruntjs.com">grunt.js</a>.</p>
+
+<h3>Debugging</h3>
+
+<p>Being a developer, I&rsquo;m no stranger to the Chrome developer tools but I&rsquo;ve never really used them to their full potential.</p>
+
+<p>During this workshop, Remy introduced us to the concept of step debugging and setting breakpoints. I had come across breakpoints before but wasn&rsquo;t really sure how I could use them to debug code so I found this really helpful.</p>
+
+<p>Something Remy said, which I have heard quite a lot, is that if you are using alerts for debugging you should stop right now. <code>console.log</code> is your friend.</p>
+
+<p>After a run through of the various tabs in the Chrome developer tools, Remy talked to us about mobile debugging.</p>
+
+<p>Debugging code in mobile browsers can be a nightmare, but Remy showed us something called <a href="http://people.apache.org/~pmuellr/weinre/docs/latest/">weinre</a>, which basically listens to your ip address and binds itself to it, allowing you to open the developer tools on your machine and debug in your mobile browser.</p>
+
+<p>One thing that was stressed was the importance of testing on real devices. Emulators are fine for getting a quick overview but if you are doing any mobile specific work, get real phones.</p>
+
+<h3>Build Process</h3>
+
+<p>This workshop was based around a tool called <a href="http://gruntjs.com">Grunt</a>, which is, in its own words, a task-based command line build tool for JavaScript projects.</p>
+
+<p>Grunt is very powerful and can take care of a lot of otherwise mundane tasks for you such as:</p>
+
+<ul>
+<li>Concatenating files</li>
+<li>Generating project scaffolding</li>
+<li>Linting your code</li>
+<li>Minifying your code</li>
+<li>Running unit tests</li>
+<li>Starting a static web server</li>
+</ul>
+
+
+<p>These are just the built-in tasks. Grunt is still very new but despite this, there are already over 200 plugins available.</p>
+
+<p>This got me thinking about our build process and how it could be streamlined using this tool. We currently compile, concatenate and minify our Less files using <a href="http://incident57.com/codekit/">CodeKit</a>, the same goes for our JavaScript which we also run through JSHint. This works for us, but can sometimes feel cumbersome.</p>
+
+<p>The possibilities with Grunt are endless and I also feel like it would give us more control over our projects so it is definitely something I will investigate adding to our process.</p>
+
+<h3>Conclusion</h3>
+
+<p>I really felt like I got a lot out of these workshops today. It was a lot of information to take in but the key points all came across. I really liked the format and 90 minutes seems to be about the perfect length for workshop sessions of this kind.</p>
+
+<p>I don&rsquo;t know if Remy is planning to do something similar next year but if he does I hope I will be lucky enough to attend once more.</p>
+
+    <p><a href="/2012/11/07/full-frontal-tooling">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/11/04/some-reading-and-viewing">This weekend's reading and viewing</a></h2>
+      <p class="updated">Posted on 04 November 2012 by Nick Boyce</p>
+    </header>
+    <p>After a week focussed on product development, user experience and design, I&rsquo;ve been geeking out with a bunch of articles, podcasts and videos this weekend.</p>
+
+<ul>
+<li><a href="http://vimeo.com/49701839">Adam Wiggins &ndash; &lsquo;Idea to Delivery: Application Development in the Modern Age&rsquo;</a></li>
+<li><a href="http://rubyrogues.com/076-rr-service-oriented-design-with-paul-dix/">Ruby Rogues &ndash; Service-Oriented Design with Paul Dix</a></li>
+<li><a href="http://popcornjs.org/">Ryan Merkley: Online video – annotated, remixed and popped</a></li>
+<li><a href="http://www.youtube.com/watch?v=T6-75HdADc8">Roy Tomeij: Modular &amp; reusable front-end code with HTML5, Sass and CoffeeScript</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Unix_philosophy">UNIX philosophy</a></li>
+<li><a href="http://www.wired.com/wiredenterprise/2012/10/ff-inside-google-data-center/all/">Google Throws Open Doors to Its Top-Secret Data Center</a></li>
+</ul>
+
+
+    <p><a href="/2012/11/04/some-reading-and-viewing">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/10/22/the-importance-of-user-testing">The importance of user testing</a></h2>
       <p class="updated">Posted on 22 October 2012 by Steve Rydz</p>
     </header>
@@ -128,80 +271,6 @@
 <p>Most of the event should be available on this <a href="http://new.livestream.com/websummit">Livestream page</a>.</p>
 
     <p><a href="/2012/10/21/dublin-web-summit-2012">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/10/05/some-notes-from-webperfdays">Some notes from WebPerfDays</a></h2>
-      <p class="updated">Posted on 05 October 2012 by Nick Boyce</p>
-    </header>
-    <p>I&rsquo;m just back from <a href="http://webperfdays.org/">WebPerfDays</a> at Facebook&rsquo;s <a href="http://www.facebook.com/facebooklondon">London engineering offices</a> in Covent Garden. It was a really great day out, with some great presenters.</p>
-
-<p>A few notes&hellip;</p>
-
-<ul>
-<li><a href="http://www.webperformancetoday.com/">Joshua Bixby</a> is a really good presenter and I&rsquo;ll be following his blog.</li>
-<li>Not all performace stats apply to all companies. There were several examples cited of how reducing page load time had either no discernable effect, or even a negative impact (though they were very specific cases).</li>
-<li>&ldquo;Mortal companies&rdquo; have different problems to the Googles, Facebooks and Amazons of the world.</li>
-<li>Using a CDN doesn&rsquo;t guarantee those assets are delivered to the user faster. Our measurements would suggest otherwise, but a second look at the data would be wise.</li>
-<li>97% of mobile response time is on the front end!</li>
-<li>I like the concept of a &ldquo;poverty line&rdquo; in performance. i.e. if a metric is below a certain threshold it&rsquo;s &ldquo;poor&rdquo;.</li>
-<li>A significant percentage of mobile users prefer the full site rather than a mobile version.</li>
-<li>Simply cleaning up code and doing all the things you already know you should be doing will get you 80% of the way to where you need to get to with front-end code.</li>
-<li>We should check out <a href="http://www.writegoodcode.com/">writegoodcode.com</a>.</li>
-<li>After you optimise your front-end code, you have to be be vigilant about maitaining the gains you have made.</li>
-<li>Other people probably have more difficult performance problems to solve than us. Seatwave have to cope for massive (60x) request peaks in requests in a matter of seconds (i.e. when their TVC is aired in the middle of X-Factor or a new concert goes on sale).</li>
-<li>We should take a close look on the performance of our third party dependencies. They are generally recognised as evil when it comes to web performance.</li>
-<li>Lonely Planet have a really great DevOps culture in their company (see their (dev blog)[http://devops.lonelyplanet.com/]) where metrics are king and web performance is recognised as a priority throughout the whole organisation. * They have gone some way to replacing “HiPPO” (Highest Paid Person’s Opinion) with real data.</li>
-<li>Webpagetest.org is a tool that a lot of web performance experts seem to refer to.</li>
-<li>Facebook have problems that are extremely unique, and fascinating from an observer&rsquo;s standpoint, but intimidatingly complex from a developer&rsquo;s. Sławek Biel did a really interesting presentation about how Facebook optimises its data access.</li>
-<li>Overall, it&rsquo;s just reminded me that we need to continue to focus on performance as part of what we do.</li>
-</ul>
-
-
-<p>Update: Some of the presentations are <a href="http://www.seriticonsulting.com/blog/2012/10/8/webperfdays-summary-and-slides.html">now available online</a>.</p>
-
-    <p><a href="/2012/10/05/some-notes-from-webperfdays">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/08/01/basecamp-at-easyart">Basecamp at Easyart</a></h2>
-      <p class="updated">Posted on 01 August 2012 by Nick Boyce</p>
-    </header>
-    <p><img src="/assets/img/posts/basecamp.jpg" alt="Basecamp"></p>
-
-<p>We&rsquo;re big fans of <a href="http://basecamp.com/">Basecamp</a> here at Easyart. It&rsquo;s very close to replacing email for our internal discussions. Here&rsquo;s what we like:</p>
-
-<ul>
-<li><strong>It&rsquo;s open.</strong> I might have a discussion with one person, but others can be aware of what&rsquo;s going on by overhearing the discussion in the project or in the daily recap. It&rsquo;s also easy to see who is over subscribed.</li>
-<li><strong>Distance is less important.</strong> We have two sites, numerous people that work from home, and a number of contractors. Using Basecamp is our primary means of communication makes collaboration more effective no matter where you are located.</li>
-<li><strong>It&rsquo;s incredibly simple and fun to use.</strong> It does a small amount of things – to-dos, text documents, discussions, files – really well (we use Google for calendars). I had been meaning to write an internal document on how to use Basecamp but it has never been necessary!</li>
-<li><strong>It&rsquo;s totally usable by email only.</strong> Some of our busier people use it purely through email, while others use a combination of online and email.</li>
-</ul>
-
-
-<p>A few things would make it even more useful:</p>
-
-<ul>
-<li><strong>Mentions.</strong> Sometimes the amount of email Basecamp generates is overwhelming, and unless you are assigned to a task you might never know that someone is waiting for a response from you.</li>
-<li><strong>A proper CalDAV calendar.</strong> We need to be able to create events from other apps and devices if the calendar is going to be useful for us.</li>
-<li><strong>A way to &ldquo;loop in&rdquo; other collaborators into a task or discussion, on the site.</strong> The only way to do this at the moment is to loop them in on email only.</li>
-<li><strong>Chat integration.</strong> We <a href="http://easyartdevelopers.posterous.com/goodbye-campfire-hello-flowdock">switched from Campfire to Flowdock</a> back in March, but because most of the action is now in Basecamp, we don&rsquo;t use chat as much. It would be nice to be able to send one-liners in Basecamp without starting new discussions.</li>
-</ul>
-
-
-    <p><a href="/2012/08/01/basecamp-at-easyart">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/07/31/flickrs-liquid-photo-layout">Flickr's liquid photo layout</a></h2>
-      <p class="updated">Posted on 31 July 2012 by Nick Boyce</p>
-    </header>
-    <p>Spotted this interesting piece on <a href="http://code.flickr.com/blog/2012/05/15/liquid-photo-page-layout/">Flickr&rsquo;s code blog</a> about the thought behind their new liquid photo page, which is very relevant to some of the things we are thinking about at the moment.</p>
-
-    <p><a href="/2012/07/31/flickrs-liquid-photo-layout">Leave a comment</a></p>
   </article>
   
 
@@ -304,7 +373,13 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/01/26/links-this-week">Links This Week</a></li>
+    
+    <li><a href="/2013/01/25/personality-in-code">Personality in Code</a></li>
+    
     <li><a href="/2013/01/21/front-end-performance-for-web-designers-and-front-end-developers">Front-end performance for web designers and front-end developers</a></li>
+    
+    <li><a href="/2013/01/19/on-soa">On SOA</a></li>
     
     <li><a href="/2013/01/10/links-from-the-week">Links from the week</a></li>
     
@@ -317,12 +392,6 @@
     <li><a href="/2012/12/13/our-conventions">Conventions</a></li>
     
     <li><a href="/2012/12/07/this-week-on-the-interwebs">This Week On The Interwebs</a></li>
-    
-    <li><a href="/2012/12/03/a-prediction-for-2013">A prediction for 2013</a></li>
-    
-    <li><a href="/2012/11/27/working-with-grunt">Working with Grunt</a></li>
-    
-    <li><a href="/2012/11/22/links-week-46">Links - week 46</a></li>
     
   </ol>
 </div>
