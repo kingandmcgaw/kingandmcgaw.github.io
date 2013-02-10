@@ -4,15 +4,21 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-02-03T20:52:42+00:00</updated>
+ <updated>2013-02-10T12:19:23+00:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
  
  <entry>
-   <title>Why mobile matters</title>
-   <link href="http://easyart.github.com/2013/02/03/why-mobile-matters"/>
+   <title>Links for the week</title>
+   <link href="http://easyart.github.com/2013/02/10/links-for-the-week"/>
+   <updated>2013-02-10T12:08:35+00:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Mobile continues to grow</title>
+   <link href="http://easyart.github.com/2013/02/03/mobile-continuees-to-grow"/>
    <updated>2013-02-03T20:35:39+00:00</updated>
  </entry>
  
