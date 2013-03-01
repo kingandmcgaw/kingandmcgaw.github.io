@@ -26,6 +26,13 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, img {
   display: block; }
 
+hr {
+  background: #ccc;
+  height: 1px;
+  border: 0;
+  padding: 0;
+}
+
 /* ----------------------------------------------
   BODY
 ---------------------------------------------- */

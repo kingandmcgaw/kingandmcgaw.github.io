@@ -7,7 +7,7 @@
 <meta name="author" content="Easyart">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Links for the week | Easyart Developers</title>
+<title>Git tricks | Easyart Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -31,23 +31,75 @@
 
         <article class="hentry">
           <header>
-            <h2>Links for the week</h2>
-            <p class="updated">Posted on 17 February 2013 by Nick Boyce</p>
+            <h2>Git tricks</h2>
+            <p class="updated">Posted on 01 March 2013 by Nick Boyce</p>
           </header>
-          <ul>
-<li><a href="http://docs.timdorr.apiary.io/">Unofficial documentation for the Tesla REST (ish) API</a>. I never expected to see something like <code>GET /vehicles/{id}/command/honk_horn</code> in a car!</li>
-<li><a href="http://www.slideshare.net/ProphetsAgency/trends-in-interactive-design-2013">2013 trends in interactive design</a>. Hint: mobile-first and bold, flat designs.</li>
-<li><a href="http://jimramsden.com/notes/no-more-mobile">No more &lsquo;mobile&rsquo;</a>. The term &lsquo;mobile&rsquo; is as good as useless these days, so we may need some new terms to define what we actually mean.</li>
-<li><a href="http://www.youtube.com/watch?v=2iDjrW8NqJI&amp;feature=youtube_gdata_player">A really long Scoble interview with the co-founders of Path</a>. Some really interesting insights from seasoned technology veterans.</li>
-<li><a href="http://mcfunley.com/design-for-continuous-experimentation">Design for continuous experimentation</a>. Etsy&rsquo;s Dan McKinley talks about some of the successes, failures and processes at Etsy.</li>
-</ul>
+          <p>About a year or so ago, I started keeping notes of my most-used Git tricks. I still refer back to them as I am so terrible at remembering commands (particularly unintuitive ones like deleting remote branches), so I thought they might be useful for others too.</p>
 
+<hr />
 
-<p>And a quote on branding:</p>
+<p>Keep git from tracking permission changes to files</p>
 
-<blockquote><p>The consumer now appears to believe that the brand should earn its public attention the way all of us must. Say boring, repetitive stuff and you suffer the punishment that every bad conversationalist faces. First, we ignore you. Then, we exclude you.</p></blockquote>
+<pre><code>git config core.filemode false
+</code></pre>
 
-<p><a href="http://blogs.hbr.org/cs/2012/08/the_logic_breathing_life_into_oreos_new_branding.html">Grant McCracken</a> in the Harvard Business Review.</p>
+<p>Restore a branch to the remote version (i.e. if you have pulled an incorrect remote branch)</p>
+
+<pre><code>git fetch git reset --hard origin/master
+</code></pre>
+
+<p>Restore a single file to a version on another branch</p>
+
+<pre><code>git checkout branch_name path/to-file    
+</code></pre>
+
+<p>Search for a string in the commit history:</p>
+
+<pre><code>git show :/search_string  
+</code></pre>
+
+<p>Amend the last commit message:</p>
+
+<pre><code>git commit --amend -m "New commit message"  
+</code></pre>
+
+<p>Toggle between branches</p>
+
+<pre><code>git checkout -  
+</code></pre>
+
+<p>colourise all git commands</p>
+
+<pre><code>git config --global color.ui true  
+</code></pre>
+
+<p>Use mergetool</p>
+
+<pre><code>git mergetool -t opendiff
+</code></pre>
+
+<p>Delete a branch remotely</p>
+
+<pre><code>git push origin :newfeature
+</code></pre>
+
+<p>Delete a branch locally</p>
+
+<pre><code>git branch -d newfeature  
+</code></pre>
+
+<p>Delete branches that don&rsquo;t exist on remote</p>
+
+<pre><code>git remote prune origin
+</code></pre>
+
+<p>This one is Github-specific: You can compare commit ranges by appending compare like so&hellip;</p>
+
+<pre><code>compare/master…someotherbranch
+compare/master@{yesterday}…master
+compare/master@{2.days.ago}…master
+compare/master@{2012-05-01}…master
+</code></pre>
 
         </article>
         <div id="disqus_thread"></div>

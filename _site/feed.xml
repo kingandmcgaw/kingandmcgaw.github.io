@@ -4,11 +4,17 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-02-17T21:40:51+00:00</updated>
+ <updated>2013-03-01T13:52:53+00:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
+ 
+ <entry>
+   <title>Git tricks</title>
+   <link href="http://easyart.github.com/2013/03/01/git-tricks"/>
+   <updated>2013-03-01T13:45:40+00:00</updated>
+ </entry>
  
  <entry>
    <title>Links for the week</title>
