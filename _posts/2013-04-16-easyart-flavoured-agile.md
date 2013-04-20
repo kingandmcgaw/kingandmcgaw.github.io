@@ -29,6 +29,8 @@ Our board has columns for **Icebox** (someday), **backlog** (someday soon), **to
 
 **Weekly wraps**. Stakeholders are invited to a recurring meeting every Friday at 4, where we demo the week's progress. This is useful both for the team (who might not have been involved in each others' work) and the stakeholders (to get a clear sense of progress). It's also usually paired with a well-earned beer and move the "done" tickets to the wall.
 
+**No user stories**. Without user stories we can't actually call our process "agile", but as we're so far building a platform with no external customers we're yet to find a place for user stories. I think in time we will.
+
 ### What we still have to work out
 
-**Where does design and creative fit in?**. I've found it challenging to work with design creative tasks within this process. Tasks like "design hero module for homepage" or "include links to related categories on product page" are fine, but we keep finding ourselves with tasks like "refactor homepage", which is not very useful. It might just be a matter of breaking the creative tasks down further.
+**Where does design and creative fit in?**. I've found it challenging to work with design creative tasks within this process. Tasks like "design hero module for homepage" or "include links to related categories on product page" are fine, but we keep finding ourselves with tasks like "refactor homepage", which is not very useful. So far I'm yet to find a compelling model for including design tasks in the agile workflow.
