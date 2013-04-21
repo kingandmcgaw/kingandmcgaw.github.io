@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Why don't other industries use version control
+title: Why don't other industries use version control?
 date: 2013-04-21 12:40:10
 author: Nick Boyce
 ---
 It's easy to take version control for granted when you work in software development as it's such an integral part of the process. But it's virtually non-existent in other technical industries.
 
-Recently, when Github launched their new online STL viewer (https://github.com/blog/1465-stl-file-viewing), I asked some friends who work with product and game design if they used version control for their source files. These are a few (edited) parts of that conversation.
+Recently, when Github launched their new [online STL viewer](https://github.com/blog/1465-stl-file-viewing), I asked some friends who work with product and game design if they used version control for their source files. These are a few (edited) parts of that conversation.
 
 > Product designer 1: What is a version control for my source files?
 
