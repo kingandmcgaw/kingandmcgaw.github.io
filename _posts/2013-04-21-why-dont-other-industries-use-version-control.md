@@ -16,6 +16,6 @@ Recently, when Github launched their new [online STL viewer](https://github.com/
 
 > Product designer 2: Well, all the major 3D / 2D design packages - especially the parametric ones - do this in some form. Although it's all controlled by the software.  The packages are expensive and generally these part management components add to the price.
 
-> Product designer 1: We've never used these tools at (redacted - major Australian electrical manufacturer) it would be so difficult to get our factories to abide by the procedures. Generally you just run an assembly and swap out old parts for new as it develops pretty sure the engineering departments at (redacted - major European electrical manufacturer) had a dedicated admin guy who would administer the 3D files. BEST JOB EVER."
+> Product designer 1: We've never used these tools at (redacted - major Australian electrical manufacturer) it would be so difficult to get our factories to abide by the procedures. Generally you just run an assembly and swap out old parts for new as it develops. Pretty sure the engineering departments at (redacted - major European electrical manufacturer) had a dedicated admin guy who would administer the 3D files. BEST JOB EVER."
 
 I guess there is some way to go, but I can't help but think of the benefits that would be a massive benefit if there was a meaningful (and non-proprietary) way to incorporate version control into their development processes.
