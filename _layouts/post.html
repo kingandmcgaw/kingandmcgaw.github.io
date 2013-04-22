@@ -8,7 +8,20 @@
         <article class="hentry">
           <header>
             <h2>{{page.title}}</h2>
-            <p class="updated">Posted on {{page.date | date: "%d %B %Y"}} by {{ page.author }}</p>
+            <p class="updated">Posted on {{page.date | date: "%d %B %Y"}}
+              by
+              {% if post.author contains "John Pash" %}
+              <a href="/authors/john-pash/">
+              {% endif %}
+              {% if post.author contains "Nick Boyce" %}
+              <a href="/authors/nick-boyce/">
+              {% endif %}
+              {% if post.author contains "Steve Rydz" %}
+              <a href="/authors/steve-rydz/">
+              {% endif %}
+              {{post.author}}
+              </a>
+            </p>
           </header>
           {{content}}
         </article>
@@ -23,7 +36,7 @@
         </script>
         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      </div>    
+      </div>
     </section>
 
     <aside class="col-4 offset-1">
