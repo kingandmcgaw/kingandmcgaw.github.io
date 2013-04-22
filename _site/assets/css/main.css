@@ -26,13 +26,6 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, img {
   display: block; }
 
-hr {
-  background: #ccc;
-  height: 1px;
-  border: 0;
-  padding: 0;
-}
-
 /* ----------------------------------------------
   BODY
 ---------------------------------------------- */
@@ -43,7 +36,7 @@ body {
   margin: 0 auto;
   font: 87.5%/1.5 "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333333;
-  background: #f5f5f5; }
+  background: whitesmoke; }
 
 /* ----------------------------------------------
   TYPOGRAPHY
@@ -97,6 +90,11 @@ pre {
 
 code {
   font-family: Monaco, "Courier New", Courier, monospace; }
+
+hr {
+  border: 1px solid #cccccc;
+  border-top: 0;
+  margin: 1.5em 0; }
 
 /* ----------------------------------------------
   HEADINGS
@@ -185,6 +183,18 @@ button {
   background: linear-gradient(#f2f2f2 0%, #cccccc 100%); }
   button:active, button:focus {
     background: #cccccc; }
+
+/* ----------------------------------------------
+  ARCHIVE STYLES
+---------------------------------------------- */
+.post-item {
+  margin-bottom: 1.5em;
+  border-bottom: 1px dashed #cccccc; }
+  .post-item .entry-title {
+    margin-bottom: 0; }
+  .post-item .entry-meta {
+    font-style: italic;
+    color: #999999; }
 
 /* ----------------------------------------------
   GRID

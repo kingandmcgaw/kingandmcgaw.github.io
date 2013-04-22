@@ -9,8 +9,8 @@ small, strike, strong, sub, sup, tt, var,
 b, u, i, center, dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -20,7 +20,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, img {
   display: block;
 }
@@ -41,8 +41,8 @@ body {
 /* ----------------------------------------------
   TYPOGRAPHY
 ---------------------------------------------- */
-p, 
-ul, 
+p,
+ul,
 ol {
   margin-bottom: 1.5em;
 }
@@ -107,14 +107,20 @@ code {
   font-family: $monospace;
 }
 
+hr {
+  border: 1px solid $border-color;
+  border-top: 0;
+  margin: 1.5em 0;
+}
+
 /* ----------------------------------------------
   HEADINGS
 ---------------------------------------------- */
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
   font-weight: normal;
 }
@@ -138,7 +144,7 @@ h3 {
 }
 
 h4,
-h5, 
+h5,
 h6 {
   margin-bottom: 1.5em;
   font-size: 1.5em;
@@ -148,7 +154,7 @@ h6 {
   LINKS
 ---------------------------------------------- */
 a {
-  
+
   &:link,
   &:visited {
     text-decoration: none;
@@ -205,5 +211,22 @@ button {
   &:active,
   &:focus {
     background: $border-color;
+  }
+}
+
+/* ----------------------------------------------
+  ARCHIVE STYLES
+---------------------------------------------- */
+.post-item {
+  margin-bottom: 1.5em;
+  border-bottom: 1px dashed $border-color;
+
+  .entry-title {
+    margin-bottom: 0;
+  }
+
+  .entry-meta {
+    font-style: italic;
+    color: $text-color-light;
   }
 }
