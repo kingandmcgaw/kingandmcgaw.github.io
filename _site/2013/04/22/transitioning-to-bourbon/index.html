@@ -7,7 +7,7 @@
 <meta name="author" content="Easyart">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The importance of LESS | Easyart Developers</title>
+<title>Transitioning to Bourbon | Easyart Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -31,32 +31,51 @@
 
         <article class="hentry">
           <header>
-            <h2>The importance of LESS</h2>
-            <p class="updated">Posted on 26 March 2012 by Steve Rydz</p>
+            <h2>Transitioning to Bourbon</h2>
+            <p class="updated">Posted on 22 April 2013 by Steve Rydz</p>
           </header>
-          <p>I recently <a href="/2012/03/23/getting-to-know-codekit/">wrote about CodeKit</a> and how it has improved our workflow when using pre-processors, but at the time I didn’t allude to the reason that we would use such things. Whilst LESS and SASS are certainly gaining traction, there are many developers out there who just don’t see the point in using something like that.</p>
+          <p>With the project we&rsquo;re currently working on, I was tasked with taking the lead on the front-end side of things. Previously we used Bootstrap, with our styles applied on top, but this was no longer a good fit for a number of reasons:</p>
 
-<p>I must admit, I too was sceptical when I started reading about this new-fangled way to write CSS. I was confident that my code was of a high standard, efficient and maintainable, and I also loved the hand-crafted feeling you get from hand-coding everything (including vendor pre-fixes). The thing is, I just could see how pre-processors could make my code any better.</p>
+<ol>
+<li>Large amounts of unused CSS</li>
+<li>Components had to be overwritten to fit our designs</li>
+<li>The grid system wasn&rsquo;t particularly flexible</li>
+</ol>
 
-<p>Of course I was missing the point. In order to really get the most out of these tools, you need to be writing good quality code anyway. LESS will not make you a better developer, but it can make you more efficient.</p>
 
-<p>The first thing that normally wins people over is the use of variables. How many times have you scrolled up and down that stylesheet, looking for that colour value? Well, not with LESS. Here’s another one. You want your box-shadows to be consistent, and you can’t remember the exact code you used. Again, you could spend a few minutes searching through your stylesheet, or you could just use LESS.</p>
+<p>My gut feel was that we need our own framework, but before we went down that road, I took a look at some other options.</p>
 
-<p>The point is, LESS is great for enabling you to work faster and it can really eliminate the tedious parts of the job too. Really, there is no reason to repeat ourselves in code, time after time. Why not use a tool that takes care of the repetitive tasks for you.</p>
+<p>At one point we tried Foundation, mainly because the grid system seemed to be quite clever, but there were a number of reasons why that also didn&rsquo;t work:</p>
 
-<p>Now, what I have just talked about only scratches the surface of what LESS is capable of, and there is much of it that you might not find useful, and that»s fine. Take what you need from it, but don’t write it off until you have taken the time to see how it can really benefit your workflow.</p>
+<ol>
+<li>Once again, large amounts of unused CSS</li>
+<li>Changing font sizes altered the grid system</li>
+<li>Browser support doesn&rsquo;t reach back as far as we need it to</li>
+</ol>
 
-<h3>Links and resources</h3>
 
-<p>Here are a few links and resources that will help you learn more about LESS:</p>
+<p>I decided to piece together our own framework, but to save time I wanted a reliable and flexible grid system, oh, and it had to be twelve columns.</p>
+
+<p>After trying out numerous pre-built grid systems and finding none of them worked as we wanted, I was ready to give up and build it myself, until my colleague Nick discovered <a href="http://neat.bourbon.io">Neat</a>.</p>
+
+<p>Neat is the grid system that accompanies <a href="http://bourbon.io">Bourbon</a>, a solid collection of Sass mixins and utilities. After trying it out for an hour or so, I decided this was what we needed.</p>
+
+<p>The great thing about using bourbon and neat is that only the styles we are actually using will be included in our compiled CSS, and we can also easily use our own classes keeping both our HTML and CSS as clean as possible from presentational class names.</p>
+
+<p>I was now ready to piece together our framework. I already had some styles which were a mix of our own global styles, some bootstrap components (alerts, wells, labels etc), and a few other bits and pieces. These are now kept in their own <a href="http://github.com/easyart/craven">github repo</a>, and will be included as a git submodule going forward.</p>
+
+<p>Here is a broad outline of how we now structure our CSS:</p>
 
 <ul>
-<li><a href="http://lesscss.org/">The official LESS website</a></li>
-<li><a href="http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/">An introduction to LESS and comparison to SASS – Smashing Magazine</a></li>
-<li><a href="http://www.stuffandnonsense.co.uk/blog/about/less">LESS – Stuff and Nonsense</a></li>
-<li><a href="http://steverydz.com/2012/02/13/colour-theory-with-less/">Colour theory with LESS – Steve Rydz (me)</a></li>
+<li><strong>Bourbon</strong>: Up-to-date CSS3 mixins</li>
+<li><strong>Neat</strong>: Stable and flexible grid system</li>
+<li><strong>Config</strong>: Variables to customize aspects of each site</li>
+<li><strong>Craven</strong>: Collection of styles inc. normalize, bootstrap components and global styles</li>
+<li><strong>Site specific</strong>: Any styles specific to each site</li>
 </ul>
 
+
+<p>So far we&rsquo;ve found this to be a maintainable way to structure our CSS, and we&rsquo;re hoping once we port it across all of our sites it will continue to be so.</p>
 
         </article>
         <div id="disqus_thread"></div>

@@ -4,11 +4,23 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-04-16T13:34:35+01:00</updated>
+ <updated>2013-04-22T11:54:46+01:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
+ 
+ <entry>
+   <title>Transitioning to Bourbon</title>
+   <link href="http://easyart.github.com/2013/04/22/transitioning-to-bourbon"/>
+   <updated>2013-04-22T12:01:48+01:00</updated>
+ </entry>
+ 
+ <entry>
+   <title>Why don't other industries use version control?</title>
+   <link href="http://easyart.github.com/2013/04/21/why-dont-other-industries-use-version-control"/>
+   <updated>2013-04-21T13:40:10+01:00</updated>
+ </entry>
  
  <entry>
    <title>Easyart-flavoured agile</title>
