@@ -10,17 +10,10 @@
             <h2>{{page.title}}</h2>
             <p class="updated">Posted on {{page.date | date: "%d %B %Y"}}
               by
-              {% if post.author contains "John Pash" %}
-              <a href="/authors/john-pash/">
+              {% if page.author contains "John Pash" %}<a href="/authors/john-pash/">{{page.author}}</a>
+              {% elsif page.author contains "Nick Boyce" %}<a href="/authors/nick-boyce/">{{page.author}}</a>. Find me on <a href="https://plus.google.com/u/1/108806228703128779712?rel=author">Google+</a>
+              {% elsif page.author contains "Steve Rydz" %}<a href="/authors/steve-rydz/">{{page.author}}</a>
               {% endif %}
-              {% if post.author contains "Nick Boyce" %}
-              <a href="/authors/nick-boyce/">
-              {% endif %}
-              {% if post.author contains "Steve Rydz" %}
-              <a href="/authors/steve-rydz/">
-              {% endif %}
-              {{post.author}}
-              </a>
             </p>
           </header>
           {{content}}
