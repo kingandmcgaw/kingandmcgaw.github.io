@@ -3,7 +3,7 @@ layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- 
+
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
@@ -16,8 +16,9 @@ layout: nil
  <entry>
    <title>{{ post.title }}</title>
    <link href="http://easyart.github.com{{ post.url }}"/>
-   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <updated>{{ post.date | date_to_xmlschema }} by {{ post.author }}</updated>
+   <content type="html">{{post.content | xml_escape}}</content>
  </entry>
  {% endfor %}
- 
+
 </feed>

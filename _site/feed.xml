@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- 
+
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-04-22T12:27:33+01:00</updated>
+ <updated>2013-04-22T13:01:17+01:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
@@ -13,278 +13,1457 @@
  <entry>
    <title>Transitioning to Bourbon</title>
    <link href="http://easyart.github.com/2013/04/22/transitioning-to-bourbon"/>
-   <updated>2013-04-22T12:01:48+01:00</updated>
+   <updated>2013-04-22T12:01:48+01:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;With the project we&amp;rsquo;re currently working on, I was tasked with taking the lead on the front-end side of things. Previously we used Bootstrap, with our styles applied on top, but this was no longer a good fit for a number of reasons:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Large amounts of unused CSS&lt;/li&gt;
+&lt;li&gt;Components had to be overwritten to fit our designs&lt;/li&gt;
+&lt;li&gt;The grid system wasn&amp;rsquo;t particularly flexible&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;My gut feel was that we need our own framework, but before we went down that road, I took a look at some other options.&lt;/p&gt;
+
+&lt;p&gt;At one point we tried Foundation, mainly because the grid system seemed to be quite clever, but there were a number of reasons why that also didn&amp;rsquo;t work:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Once again, large amounts of unused CSS&lt;/li&gt;
+&lt;li&gt;Changing font sizes altered the grid system&lt;/li&gt;
+&lt;li&gt;Browser support doesn&amp;rsquo;t reach back as far as we need it to&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;I decided to piece together our own framework, but to save time I wanted a reliable and flexible grid system, oh, and it had to be twelve columns.&lt;/p&gt;
+
+&lt;p&gt;After trying out numerous pre-built grid systems and finding none of them worked as we wanted, I was ready to give up and build it myself, until my colleague Nick discovered &lt;a href=&quot;http://neat.bourbon.io&quot;&gt;Neat&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Neat is the grid system that accompanies &lt;a href=&quot;http://bourbon.io&quot;&gt;Bourbon&lt;/a&gt;, a solid collection of Sass mixins and utilities. After trying it out for an hour or so, I decided this was what we needed.&lt;/p&gt;
+
+&lt;p&gt;The great thing about using bourbon and neat is that only the styles we are actually using will be included in our compiled CSS, and we can also easily use our own classes keeping both our HTML and CSS as clean as possible from presentational class names.&lt;/p&gt;
+
+&lt;p&gt;I was now ready to piece together our framework. I already had some styles which were a mix of our own global styles, some bootstrap components (alerts, wells, labels etc), and a few other bits and pieces. These are now kept in their own &lt;a href=&quot;http://github.com/easyart/craven&quot;&gt;github repo&lt;/a&gt;, and will be included as a git submodule going forward.&lt;/p&gt;
+
+&lt;p&gt;Here is a broad outline of how we now structure our CSS:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bourbon&lt;/strong&gt;: Up-to-date CSS3 mixins&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Neat&lt;/strong&gt;: Stable and flexible grid system&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Config&lt;/strong&gt;: Variables to customize aspects of each site&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Craven&lt;/strong&gt;: Collection of styles inc. normalize, bootstrap components and global styles&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Site specific&lt;/strong&gt;: Any styles specific to each site&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;So far we&amp;rsquo;ve found this to be a maintainable way to structure our CSS, and we&amp;rsquo;re hoping once we port it across all of our sites it will continue to be so.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Why don't other industries use version control?</title>
    <link href="http://easyart.github.com/2013/04/21/why-dont-other-industries-use-version-control"/>
-   <updated>2013-04-21T13:40:10+01:00</updated>
+   <updated>2013-04-21T13:40:10+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;It&amp;rsquo;s easy to take version control for granted when you work in software development as it&amp;rsquo;s such an integral part of the process. But it&amp;rsquo;s virtually non-existent in other technical industries.&lt;/p&gt;
+
+&lt;p&gt;Recently, when Github launched their new &lt;a href=&quot;https://github.com/blog/1465-stl-file-viewing&quot;&gt;online STL viewer&lt;/a&gt;, I asked some friends who work with product and game design if they used version control for their source files. These are a few (edited) parts of that conversation.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Product designer 1: What is a version control for my source files?&lt;/p&gt;
+
+&lt;p&gt;Product designer 2: I think he means some way of ensuring that everyone is looking / working on the latest file?&lt;/p&gt;
+
+&lt;p&gt;Game designer: Version control can be hella hard for some people to understand&amp;hellip; like their mind breaks when it&amp;rsquo;s explained to them.&lt;/p&gt;
+
+&lt;p&gt;Product designer 2: Well, all the major 3D / 2D design packages &amp;ndash; especially the parametric ones &amp;ndash; do this in some form. Although it&amp;rsquo;s all controlled by the software.  The packages are expensive and generally these part management components add to the price.&lt;/p&gt;
+
+&lt;p&gt;Product designer 1: We&amp;rsquo;ve never used these tools at (redacted &amp;ndash; major Australian electrical manufacturer) it would be so difficult to get our factories to abide by the procedures. Generally you just run an assembly and swap out old parts for new as it develops. Pretty sure the engineering departments at (redacted &amp;ndash; major European electrical manufacturer) had a dedicated admin guy who would administer the 3D files. BEST JOB EVER.&quot;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;There are a number of companies that are trying to solve this problem for designers (like &lt;a href=&quot;https://www.pixelapse.com/&quot;&gt;Pixelapse&lt;/a&gt;, &lt;a href=&quot;https://www.layervault.com/&quot;&gt;LayerVault&lt;/a&gt; and Beanstalk via their &lt;a href=&quot;http://designers.beanstalkapp.com/&quot;&gt;design preview feature&lt;/a&gt;), but that&amp;rsquo;s just really scratching the surface. I can&amp;rsquo;t help but think that the benefits that would be a massive if there was a meaningful (and non-proprietary) way to incorporate version control into more development processes.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Easyart-flavoured agile</title>
    <link href="http://easyart.github.com/2013/04/16/easyart-flavoured-agile"/>
-   <updated>2013-04-16T13:41:43+01:00</updated>
+   <updated>2013-04-16T13:41:43+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;We decided to try out kanban/agile for the development of our new Kubrick platform. None of the team had much experience with agile and we all agreed from the beginning that we didn&amp;rsquo;t want to take a strict approach to it, but would like to try it out and see how it fits with us. This is what we ended up with.&lt;/p&gt;
+
+&lt;h3&gt;The board&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://distilleryimage8.s3.amazonaws.com/50d7d9d0a68e11e291b222000a1f98fa_7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Our board has columns for &lt;strong&gt;Icebox&lt;/strong&gt; (someday), &lt;strong&gt;backlog&lt;/strong&gt; (someday soon), &lt;strong&gt;todo&lt;/strong&gt; (next two weeks), &lt;strong&gt;in progress&lt;/strong&gt; (now), &lt;strong&gt;QA&lt;/strong&gt; (done but needs review) and &lt;strong&gt;done&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;We use actual, real post-its&lt;/strong&gt;. This has numerous positive side-effects: visibility of progress throughout the office, avoiding more software (&lt;a href=&quot;/2012/08/01/basecamp-at-easyart/&quot;&gt;we&amp;rsquo;re big Basecamp users here at Easyart&lt;/a&gt;), and taking pride in the &amp;ldquo;done&amp;rdquo; list. The negative aspects of this: no visibility on progress &lt;em&gt;outside&lt;/em&gt; of the office (we have offices in London and Newhaven, and some staff working from home), no ability to comment or add details to the task and of course the questionable legibility of my handwriting.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Action tickets&lt;/strong&gt; are either small (pink, &amp;frac14; day) or medium (yellow &amp;frac12; day) tasks. Anything longer than that needs to be broken down or to become a discovery ticket. &lt;strong&gt;Discovery tickets&lt;/strong&gt; (green, no time allocated) help us keep an eye on the more mysterious parts of the project, or various technologies, refactors or improvements that could be useful for us. They can usually be broken down either by workshopping the specific issue, or by spending 2 or so hours researching. Mostly they will spawn new action tickets, but sometimes the discovery is a dead-end.&lt;/p&gt;
+
+&lt;h3&gt;Processes&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;We do daily stand ups at 9:15&lt;/strong&gt;. We actually drag the whiteboard into the meeting room every day to have our stand-ups. I tend to waffle on, so these can sometimes run longer than 5 mins, but we do try to keep them short. These only happen Wed-Fri (which I&amp;rsquo;ll make the subject of another post).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;No locked-in sprints&lt;/strong&gt;. Being flexible about the amount of work in a sprint is very un-Agile and makes it difficult to measure the overall velocity and predict milestones, but so far that hasn&amp;rsquo;t been a massive issue.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pair programming&lt;/strong&gt;. This has been invaluable for us, both to increase our skills and share knowledge.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://distilleryimage0.s3.amazonaws.com/8f69b01ca3a311e285fc22000a1f96be_7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Weekly wraps&lt;/strong&gt;. Stakeholders are invited to a recurring meeting every Friday at 4, where we demo the week&amp;rsquo;s progress. This is useful both for the team (who might not have been involved in each others' work) and the stakeholders (to get a clear sense of progress). It&amp;rsquo;s also usually paired with a well-earned beer and move the &amp;ldquo;done&amp;rdquo; tickets to the wall.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;No user stories&lt;/strong&gt;. Without user stories our process can hardly be called &amp;ldquo;agile&amp;rdquo;, but as we&amp;rsquo;re so far building a platform with no external customers we&amp;rsquo;re yet to find a place for user stories. I think in time we will.&lt;/p&gt;
+
+&lt;h3&gt;What we still have to work out&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Where does design and creative fit in?&lt;/strong&gt;. I&amp;rsquo;ve found it challenging to work with design creative tasks within this process. Tasks like &amp;ldquo;design hero module for homepage&amp;rdquo; or &amp;ldquo;include links to related categories on product page&amp;rdquo; are fine, but we keep finding ourselves with tasks like &amp;ldquo;refactor homepage&amp;rdquo;, which is not very useful. So far I&amp;rsquo;m yet to find a compelling model for including design tasks in the agile workflow.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Git tricks</title>
    <link href="http://easyart.github.com/2013/03/01/git-tricks"/>
-   <updated>2013-03-01T13:45:40+00:00</updated>
+   <updated>2013-03-01T13:45:40+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;About a year or so ago, I started keeping notes of my most-used Git tricks. I still refer back to them as I am so terrible at remembering commands (particularly unintuitive ones like deleting remote branches), so I thought they might be useful for others too.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Keep git from tracking permission changes to files&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config core.filemode false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Restore a branch to the remote version (i.e. if you have pulled an incorrect remote branch)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git fetch git reset --hard origin/master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Restore a single file to a version on another branch&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git checkout branch_name path/to-file    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Search for a string in the commit history:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git show :/search_string  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Amend the last commit message:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git commit --amend -m &quot;New commit message&quot;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Toggle between branches&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git checkout -  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;colourise all git commands&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global color.ui true  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Use mergetool&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git mergetool -t opendiff
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Delete a branch remotely&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git push origin :newfeature
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Delete a branch locally&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git branch -d newfeature  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Delete branches that don&amp;rsquo;t exist on remote&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git remote prune origin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This one is Github-specific: You can compare commit ranges by appending compare like so&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;compare/master…someotherbranch
+compare/master@{yesterday}…master
+compare/master@{2.days.ago}…master
+compare/master@{2012-05-01}…master
+&lt;/code&gt;&lt;/pre&gt;
+</content>
  </entry>
  
  <entry>
    <title>Links for the week</title>
    <link href="http://easyart.github.com/2013/02/17/links-for-the-week"/>
-   <updated>2013-02-17T21:07:40+00:00</updated>
+   <updated>2013-02-17T21:07:40+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.timdorr.apiary.io/&quot;&gt;Unofficial documentation for the Tesla REST (ish) API&lt;/a&gt;. I never expected to see something like &lt;code&gt;GET /vehicles/{id}/command/honk_horn&lt;/code&gt; in a car!&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.slideshare.net/ProphetsAgency/trends-in-interactive-design-2013&quot;&gt;2013 trends in interactive design&lt;/a&gt;. Hint: mobile-first and bold, flat designs.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jimramsden.com/notes/no-more-mobile&quot;&gt;No more &amp;lsquo;mobile&amp;rsquo;&lt;/a&gt;. The term &amp;lsquo;mobile&amp;rsquo; is as good as useless these days, so we may need some new terms to define what we actually mean.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=2iDjrW8NqJI&amp;amp;feature=youtube_gdata_player&quot;&gt;A really long Scoble interview with the co-founders of Path&lt;/a&gt;. Some really interesting insights from seasoned technology veterans.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://mcfunley.com/design-for-continuous-experimentation&quot;&gt;Design for continuous experimentation&lt;/a&gt;. Etsy&amp;rsquo;s Dan McKinley talks about some of the successes, failures and processes at Etsy.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;And a quote on branding:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;The consumer now appears to believe that the brand should earn its public attention the way all of us must. Say boring, repetitive stuff and you suffer the punishment that every bad conversationalist faces. First, we ignore you. Then, we exclude you.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blogs.hbr.org/cs/2012/08/the_logic_breathing_life_into_oreos_new_branding.html&quot;&gt;Grant McCracken&lt;/a&gt; in the Harvard Business Review.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Links for the week</title>
    <link href="http://easyart.github.com/2013/02/10/links-for-the-week"/>
-   <updated>2013-02-10T12:08:35+00:00</updated>
+   <updated>2013-02-10T12:08:35+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;It&amp;rsquo;s been a busy week for the tech team at Easyart this week (more on that later), but I&amp;rsquo;ve got a backlog of some interesting links in my Evernote that I want to share.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://ryancarson.com/post/41700372023/the-90-day-plan&quot;&gt;The 90 day plan&lt;/a&gt;. We try to do quarterly plans here, but this has inspired me to do better.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/frabcus/house/issues&quot;&gt;Developer creates Github issues for his house&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://dashes.com/anil/2013/01/all-dashboards-should-be-feeds.html&quot;&gt;Anil Dash: All dashboards should be feeds&lt;/a&gt;. I don&amp;rsquo;t entirely agree but he makes an interesting case.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://hessian.tv/forsale.html&quot;&gt;Hessian&lt;/a&gt; is a pre-made brand, for sale for $18,000.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://labs.tineye.com/multicolr#colors=f68e2b,9fc043,cb4e8d;weights=33,34,33;&quot;&gt;Multicolr Search Lab&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;And this quote from Justin Kan&amp;rsquo;s article &lt;a href=&quot;http://www.fastcompany.com/3005469/experienced-hires-will-save-you-yourself&quot;&gt;Experienced Hires Will Save You From Yourself&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;My general rule of thumb at Exec has been that as a founder, you should do the first version of everything yourself. Build the first product, test the first sales channels. By doing things yourself, you can quickly discover if they will pay dividends (or if it is time to move on to the next experiment). Once you discover something worth doing, then hire a professional to come in and clean up the mess you’ve made.&lt;/p&gt;&lt;/blockquote&gt;
+</content>
  </entry>
  
  <entry>
    <title>Mobile continues to grow</title>
    <link href="http://easyart.github.com/2013/02/03/mobile-continuees-to-grow"/>
-   <updated>2013-02-03T20:35:39+00:00</updated>
+   <updated>2013-02-03T20:35:39+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;Looking back some of our metrics for Easyart.com for 2012, this one stood out:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;92% more mobile transactions YOY&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Coupled with our responsive design and performance improvements (like improving our average page speed by 40%), we&amp;rsquo;ve also increased our mobile conversion rate significantly over 2012 and hope to see that trend continue in 2013.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Links This Week</title>
    <link href="http://easyart.github.com/2013/01/26/links-this-week"/>
-   <updated>2013-01-26T10:38:06+00:00</updated>
+   <updated>2013-01-26T10:38:06+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;Here&amp;rsquo;s some things that popped up on my radar this week:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://charliehoehn.com/2013/01/14/15-years-of-apple-dot-com-homepage/&quot;&gt;Slideshow with 15 years of the Apple homepage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://layervault.com/&quot;&gt;LayerVault&lt;/a&gt; have had a lovely redesign.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.organizedwonder.com/videos/1549&quot;&gt;Abe Burmeister: How I Built A Fashion Brand With No Experience, Just Punk Rock Spirit (And The Web)&lt;/a&gt;. Inspiring presentation on the story behind Outlier.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/gleitz/howdoi&quot;&gt;howdoi&lt;/a&gt; looks like a really useful way to get inline help in the terminal for a number of languages&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.theverge.com/2013/1/24/3904134/google-redesign-how-larry-page-engineered-beautiful-revolution&quot;&gt;Redesigning Google: how Larry Page engineered a beautiful revolution&lt;/a&gt;. An in-depth article on Google&amp;rsquo;s new focus on design.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://gravitydept.com/blog/skinny-ties-and-responsive-ecommerce/&quot;&gt;Skinny Ties and responsive eCommerce&lt;/a&gt;. Case study on a responsive redesign of an ecommerce store.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://37signals.com/svn/posts/3404&quot;&gt;Reminder: Design is still about words&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://thegreatdiscontent.com/jessica-walsh&quot;&gt;The Great Discontent&amp;rsquo;s profile on Jessica Walsh&lt;/a&gt;. Surprisingly I&amp;rsquo;d never seen this site before, but I&amp;rsquo;ll definitely be keeping an eye on it.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;I&amp;rsquo;ve also been making my way through some of the talks from last year&amp;rsquo;s Bacon conference. The three I have watched so far have all been top-notch:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://devslovebacon.com/conferences/bacon-2012/talks/monitoring-sucks-and-what-you-can-do-about-it&quot;&gt;Monitoring sucks (and what you can do about it)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://devslovebacon.com/conferences/bacon-2012/talks/customers-who-bought-music-also-bought-beer&quot;&gt;Customers who bought music also bought beer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://devslovebacon.com/conferences/bacon-2012/talks/stories-from-a-music-fueled-distributed-streaming-bender&quot;&gt;Stories from a music-fueled distributed streaming bender&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
  </entry>
  
  <entry>
    <title>Personality in Code</title>
    <link href="http://easyart.github.com/2013/01/25/personality-in-code"/>
-   <updated>2013-01-25T15:03:54+00:00</updated>
+   <updated>2013-01-25T15:03:54+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;I liked this nice little post-install message from &lt;a href=&quot;https://github.com/jnunemaker/httparty&quot;&gt;HTTParty&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Post-install message from httparty:
+When you HTTParty, you must party hard!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Code can have personality too!&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Front-end performance for web designers and front-end developers</title>
    <link href="http://easyart.github.com/2013/01/21/front-end-performance-for-web-designers-and-front-end-developers"/>
-   <updated>2013-01-21T17:04:02+00:00</updated>
+   <updated>2013-01-21T17:04:02+00:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;I read a very thorough post on front-end performance earlier today by Harry Roberts of CSS Wizardry fame. If you are involved in front-end development then go read it:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/&quot;&gt;Front-end performance for web designers and front-end developers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
  </entry>
  
  <entry>
    <title>On SOA</title>
    <link href="http://easyart.github.com/2013/01/19/on-soa"/>
-   <updated>2013-01-19T00:00:00+00:00</updated>
+   <updated>2013-01-19T00:00:00+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;I finally got around to reading Paul Dix&amp;rsquo;s &lt;a href=&quot;http://www.amazon.co.uk/Service-Oriented-Design-Rails-Addison-Wesley-Professional/dp/0321659368/ref=sr_1_1?ie=UTF8&amp;amp;qid=1358592354&amp;amp;sr=8-1&quot;&gt;Service-Oriented Design with Ruby and Rails&lt;/a&gt; over the new year break. Having worked on a number of services for a platform at my previous job, I was very familiar with the benefits (and drawbacks) of &lt;a href=&quot;http://en.wikipedia.org/wiki/Service-oriented_architecture&quot;&gt;service-oriented architecture&lt;/a&gt; but it really concreted my understanding of what SOA could do for our organisation.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve since been devouring articles on the topic, and have listed a few below that I have particularly enjoyed.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://rubysource.com/soa-for-the-little-guys/&quot;&gt;SOA for the Little Guys&lt;/a&gt;. This article does an amazing job of introducing SOA concepts right through to code examples.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods/&quot;&gt;Notes on Distributed Systems for Young Bloods&lt;/a&gt;. Hugely detailed post, with a focus on pitfalls of the SOA approach. Failure at some point in the system is inevitable.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.slideshare.net/ChrisWyckoff/refactor-your-monolithic-rails-app-to-a-soa&quot;&gt;Refactor Your Monolithic Rails App to a SOA&lt;/a&gt; (particularly slides 11-25)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://confreaks.com/videos/1273-rubyconf2012-service-oriented-architecture-at-square&quot;&gt;Service Oriented Architecture at Square&lt;/a&gt;. A really interesting presentation from Square&amp;rsquo;s Chris Hunt on their SOA approach.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://confreaks.com/videos/1270-rubyconf2012-abstracting-features-into-custom-reverse-proxies-or-making-better-lemonade-from-chaos&quot;&gt;Abstracting Features Into Custom Reverse Proxies&lt;/a&gt;. Another video from Rubyconf on custom proxies to front and normalise multiple services.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://highscalability.com/amazon-architecture&quot;&gt;Amazon Architecture&lt;/a&gt;. When you view a page on Amazon there are famously more than 100 services that are accessed to build it. This old post on the High Scalability blog outlines Amazon&amp;rsquo;s SOA approach.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.infoq.com/articles/ebay-scalability-best-practices&quot;&gt;Scalability Best Practices: Lessons from eBay&lt;/a&gt;. Detailed article on Ebay&amp;rsquo;s architecture from Randy Shoup.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://hurvitz.org/blog/2008/06/linkedin-architecture&quot;&gt;LinkedIn Architecture&lt;/a&gt;. Outline of the evolution of LinkedIn from a monolithic app to a service-oriented approach. &lt;a href=&quot;http://www.slideshare.net/linkedin/linkedins-communication-architecture&quot;&gt;Slides&lt;/a&gt; are also available.&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
  </entry>
  
  <entry>
    <title>Links from the week</title>
    <link href="http://easyart.github.com/2013/01/10/links-from-the-week"/>
-   <updated>2013-01-10T00:00:00+00:00</updated>
+   <updated>2013-01-10T00:00:00+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;Thought it might be nice to start the year with a quote from from the &lt;a href=&quot;http://gettingreal.37signals.com/&quot;&gt;Getting Real book&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;There’s plenty of time to be a perfectionist. Just do it later.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a few links I&amp;rsquo;ve enjoyed over the new year break.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.slideshare.net/billwscott/enabling-lean-with-tech-15455128?from=new_upload_email&quot;&gt;Enabling Lean with Tech: lessons learned applying lean at PayPal&lt;/a&gt;. An interesting slide deck from Bill Scott about how PayPal used a JavaScript-based stack and open source methodologies to set themselves free from their legacy technology stack and allow faster prototyping.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://remysharp.com/2012/12/21/my-workflow-never-having-to-leave-devtools/&quot;&gt;My Workflow: Never having to leave DevTools&lt;/a&gt;. Remy Sharp demonstrates some of the newer features of Webkit Inspector which allow much more deveklopment to happen inside the browser.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://jehiah.cz/one-two/&quot;&gt;A Personal Annual Report&lt;/a&gt;. Jehiah Czebotar collected metrics about his activities throughout the year and presented an interesting report.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://blog.capwatkins.com/building-a-designdriven-culture&quot;&gt;Building a Design-Driven Culture&lt;/a&gt;. &lt;em&gt;Being design-driven means treating design as a partner (and a leader) in the product creation process. Look at your feature roadmap right now. Are there major initiatives and ideas that were generated directly from your designer or design team? If yes, was design in the room when the other items were created and prioritized? Congratulations, you’re design-driven.&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The &lt;a href=&quot;http://www.nytimes.com/skimmer/&quot;&gt;New York Times Skimmer&lt;/a&gt; looks like it&amp;rsquo;s had a significant upgrade since I last saw it. It&amp;rsquo;s a really impressive JavaScript front-end to the NYT content – complete with multiple themes and keyboard shortcuts – and by the looks of it, it&amp;rsquo;s also available bundled as a Chrome web app.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
  </entry>
  
  <entry>
    <title>Using git flow</title>
    <link href="http://easyart.github.com/2013/01/09/using-git-flow"/>
-   <updated>2013-01-09T15:46:43+00:00</updated>
+   <updated>2013-01-09T15:46:43+00:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;For the past couple of weeks I&amp;rsquo;ve been using a tool called &lt;a href=&quot;https://github.com/nvie/gitflow&quot;&gt;Git Flow&lt;/a&gt;. In it&amp;rsquo;s own words, git flow is &lt;em&gt;A collection of Git extensions to provide high-level repository operations for Vincent Driessen&amp;rsquo;s &lt;a href=&quot;http://nvie.com/git-model&quot;&gt;branching model&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re already familiar with Git on the command line then getting up and running with git flow will take you no time at all.&lt;/p&gt;
+
+&lt;h3&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;The full installation instructions &lt;a href=&quot;https://github.com/nvie/gitflow/wiki/Installation&quot;&gt;can be found here&lt;/a&gt; but for the purposes of this article I am going to assume you are on a Mac and using homebrew.&lt;/p&gt;
+
+&lt;p&gt;You can use homebrew to install git flow:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ brew install git-flow
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That&amp;rsquo;s all it takes.&lt;/p&gt;
+
+&lt;h3&gt;Initialising a project&lt;/h3&gt;
+
+&lt;p&gt;To use git flow, you will need to already have a git project set up. So, to get started, just navigate to your project (in Terminal) and type the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ git flow init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It will then ask you a few questions regarding what to name your various branches. Unless you have good reason, I would stick to the defaults.&lt;/p&gt;
+
+&lt;h3&gt;Going with the flow&lt;/h3&gt;
+
+&lt;p&gt;So now you have initialised git flow within your project, you want to get going.&lt;/p&gt;
+
+&lt;p&gt;The assumption here is that your master branch is always deployable and your develop branch is where you would make small changes that will be release fairly quickly.&lt;/p&gt;
+
+&lt;p&gt;The feature I use most is &lt;em&gt;feature&lt;/em&gt; branches. Essentially a branch called feature/&amp;lt;feature-name&gt; is created and when complete, merged into your develop branch. To start a new feature branch just type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ git flow feature start &amp;lt;feature-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Obviously feature name will be whatever you want to call your new feature. You can then start working on your feature and commit as you normally would. To set up a remote branch so others can collaborate just use the publish command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ git flow feature publish &amp;lt;feature-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you are ready to merge your new feature, just use the finish command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ git flow feature finish &amp;lt;feature-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will merge your feature into your develop branch and delete your local branch too. If you want/need to delete the remote branch then just type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ git push origin :feature/&amp;lt;feature-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;More resources&lt;/h3&gt;
+
+&lt;p&gt;Hopefully this article has convinced you that using git flow is worthwhile and got you intrigued enough to find out more.&lt;/p&gt;
+
+&lt;p&gt;Some more git flow resources:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/&quot;&gt;Why aren&amp;rsquo;t you using git flow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://yakiloo.com/getting-started-git-flow/&quot;&gt;Getting started with git flow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://vimeo.com/37408017&quot;&gt;Oh the path with git flow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://buildamodule.com/video/change-management-and-version-control-deploying-releases-features-and-fixes-with-git-how-to-use-a-scalable-git-branching-model-called-gitflow&quot;&gt;How to use a scalable git branching model called gitflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://vimeo.com/16018419&quot;&gt;A short introduction to git flow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
  </entry>
  
  <entry>
    <title>Is London the most popular city for Github users?</title>
    <link href="http://easyart.github.com/2012/12/20/london-and-github"/>
-   <updated>2012-12-20T00:00:00+00:00</updated>
+   <updated>2012-12-20T00:00:00+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;Interesting review of 2012 from Github in &lt;a href=&quot;https://github.com/blog/1359-the-octoverse-in-2012&quot;&gt;The Octoverse in 2012&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Since the beginning of the year, we&amp;rsquo;ve seen a doubling in activity, with pushes alone responsible for over 60% of the events in a given day. On a typical weekday, 10k people sign up for a GitHub account, and our users:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;push 140GB of new data&lt;/li&gt;
+&lt;li&gt;create 25k repositories and 7k pull requests&lt;/li&gt;
+&lt;li&gt;push to 125k repositories&lt;/li&gt;
+&lt;li&gt;Best of all:&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;10k people create their very first repository&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Apart from their impressive growth, this little fact caught my eye:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;The top 10 countries visiting GitHub.com are: United States, Germany, United Kingdom, China, Japan, France, India, Canada, Russia and Brazil. The top 10 cities are: London, San Francisco, New York, Paris, Moscow, Beijing, Berlin, Bangalore, Sydney and Toronto.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;London is the #1 city for Github users? Go London!&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Why have I failed?</title>
    <link href="http://easyart.github.com/2012/12/19/why-have-i-failed"/>
-   <updated>2012-12-19T00:00:00+00:00</updated>
+   <updated>2012-12-19T00:00:00+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;One of the things I most like about hacker culture is the acceptance (almost celebration) of failure as an essential part of a the path to success.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://s.startupvitamins.com/products/19_poster.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blog.bahadir.io/posts/failed-entrepreneur.html&quot;&gt;This post&lt;/a&gt;, and the &lt;a href=&quot;http://news.ycombinator.com/item?id=4942356&quot;&gt;accompanying discussion&lt;/a&gt; on Hacker News had a few quotes I really liked:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;As soon as you believe you&amp;rsquo;re the smartest man in the room, you&amp;rsquo;re in the wrong room&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;And this one:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;My job is not programming. My job is delivering value using programming.&lt;/p&gt;&lt;/blockquote&gt;
+</content>
  </entry>
  
  <entry>
    <title>Conventions</title>
    <link href="http://easyart.github.com/2012/12/13/our-conventions"/>
-   <updated>2012-12-13T00:00:00+00:00</updated>
+   <updated>2012-12-13T00:00:00+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;Part of the way the team has evolved this year has required putting more emphasis on consistent coding conventions and procedures to make our collaboration smoother. Here are a few notes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Javascript&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml&quot;&gt;Google&amp;rsquo;s Javascript style guide&lt;/a&gt;, plus some JSHint config.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CSS/Less&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Our own internal styleguide.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;HTML&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Our own internal styleguide.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Nothing yet, but probably the &lt;a href=&quot;https://github.com/styleguide/ruby&quot;&gt;Github Ruby Styleguide&lt;/a&gt; in the future.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Git branching&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We use something vaguely between &lt;a href=&quot;http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/&quot;&gt;git-flow&lt;/a&gt; and &lt;a href=&quot;http://scottchacon.com/2011/08/31/github-flow.html&quot;&gt;&amp;ldquo;Github flow&amp;rdquo;&lt;/a&gt;. In essence, &lt;code&gt;master&lt;/code&gt; is always deployable, &lt;code&gt;develop&lt;/code&gt; is a shared staging branch, and feature branches are created for major or disruptive features. I could see us moving to git-flow next year.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Project naming&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We decided to name our projects after film directors. So far Romero (our internal CSS framework), Kubrick (our next-generation platform in development) and Eastwood (an experimental Backbone-based product page) are active, but I am sure more will sprint to life in 2013.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s pretty lean so far, but we&amp;rsquo;re making refinements all the time.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>This Week On The Interwebs</title>
    <link href="http://easyart.github.com/2012/12/07/this-week-on-the-interwebs"/>
-   <updated>2012-12-07T00:00:00+00:00</updated>
+   <updated>2012-12-07T00:00:00+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;I&amp;rsquo;ve been enjoying the &lt;a href=&quot;http://artsy.github.com/&quot;&gt;Art.sy engineering team&amp;rsquo;s blog&lt;/a&gt;. Their approach and &lt;a href=&quot;http://artsy.github.com/blog/2012/10/10/artsy-technology-stack/&quot;&gt;technology stack&lt;/a&gt; are spookily similar to what we have in store for the next generation of the platform at Easyart. Even their blog runs on &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll&lt;/a&gt; just like this one!&lt;/p&gt;
+
+&lt;p&gt;As usual, I&amp;rsquo;ve spent a fair bit of time on &lt;a href=&quot;http://www.quora.com/&quot;&gt;Quora&lt;/a&gt; this week. The question &lt;a href=&quot;http://www.quora.com/Spotify/What-is-Spotifys-architecture&quot;&gt;What is Spotify&amp;rsquo;s architecture?&lt;/a&gt; had an interesting answer from Spotify developer Niklas Gustavsson. They have around 100 backend services, most of which handle only a single task.&lt;/p&gt;
+
+&lt;p&gt;Paul Irish&amp;rsquo;s &lt;a href=&quot;http://www.youtube.com/watch?v=f7AU2Ozu8eo&quot;&gt;Javascript Development Workflow of 2013&lt;/a&gt; has a lot of good tips. Things are moving so quickly in this space it&amp;rsquo;s hard to keep up, so I find myself watching more and more presentations at home where I would have otherwise been watching TV.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://loopj.com/2012/12/07/http-headers-for-fun-and-profit/&quot;&gt;HTTP Headers For Fun &amp;amp; Profit&lt;/a&gt; lists some interesting HTTP headers returned by popular sites.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s a great post called &lt;a href=&quot;http://blog.cloudflare.com/why-google-went-offline-today-and-a-bit-about&quot;&gt;Why Google Went Offline Today and a Bit about How the Internet Works&lt;/a&gt; over on the CloudFlare blog from a while back that sheds some light on how some of the underlying mechanics of the internetw work.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.cooper.com/journal/2012/08/the-best-interface-is-no-interface.html/&quot;&gt;The best interface is no interface&lt;/a&gt; is very much an approach we are trying to head towards with some of the product customisation screens we&amp;rsquo;ll launch in 2013. I&amp;rsquo;m really excited about what next year has in store.&lt;/p&gt;
+
+&lt;p&gt;Finally, this post is my first one created and edited in &lt;a href=&quot;http://prose.io/&quot;&gt;Prose&lt;/a&gt;. It&amp;rsquo;s a really neat tool to create and edit code in Github repos in the browser, and is perfectly suited to (infact, created for) Jekyll blogs like this one.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>A prediction for 2013</title>
    <link href="http://easyart.github.com/2012/12/03/a-prediction-for-2013"/>
-   <updated>2012-12-03T18:25:14+00:00</updated>
+   <updated>2012-12-03T18:25:14+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;A humble prediction:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Traffic to Easyart.com from 7&quot; Android devices is going to have a noticeable bump after Christmas.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Google and Amazon are both pushing their tablet products hard this gifting season, and both have pretty compelling products at a great price point. Even I – a dedicated Apple nut – have just bought a Nexus, and I&amp;rsquo;m going to retire my first generation iPad to the giant eBay in the sky.&lt;/p&gt;
+
+&lt;p&gt;When the postman handed the package over, he said &amp;ldquo;all I am doing is delivering Googles&amp;rdquo;. That being the case, we&amp;rsquo;d better get our skates on and set some new breakpoints in our responsive CSS!&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Working with Grunt</title>
    <link href="http://easyart.github.com/2012/11/27/working-with-grunt"/>
-   <updated>2012-11-27T10:54:10+00:00</updated>
+   <updated>2012-11-27T10:54:10+00:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;A few weeks ago I attended a series of tooling workshops in Brighton. One of the workshops was focused around build process, and particularly &lt;a href=&quot;http://gruntjs.com&quot;&gt;Grunt&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Currently we use &lt;a href=&quot;http://incident57.com/codekit/&quot;&gt;CodeKit&lt;/a&gt; to compile our Less and JavaScript files so we end up with concatenated, minified versions of each. So far this has worked well but we have found it difficult to keep things synchronised between team members.&lt;/p&gt;
+
+&lt;p&gt;Soon after returning from the workshops I started to investigate Grunt in more detail and we put a plan in place on how we could use it to aid our build process.&lt;/p&gt;
+
+&lt;p&gt;What we came up with was the following file structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    Site_Name/
+        |__ public/
+        |           |__ static/
+        |           |           |__ css/
+        |           |           |__ js/
+        |           |           |__ img/
+        |           |
+        |           |__ index.html
+        |
+        |__ spec/
+        |
+        |__ static-src/
+        |           |__ less/
+        |           |__ js/
+        |
+        |__ grunt.js
+        |__ README.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;public&lt;/h3&gt;
+
+&lt;p&gt;The public directory contains anything public facing, including all static assets such as stylesheets, scripts and images. Anything in the &lt;code&gt;static/css/&lt;/code&gt; and &lt;code&gt;static/js/&lt;/code&gt; directories is compiled from &lt;code&gt;static-src/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;spec&lt;/h3&gt;
+
+&lt;p&gt;The spec directory contains our selenium tests.&lt;/p&gt;
+
+&lt;h3&gt;static-src&lt;/h3&gt;
+
+&lt;p&gt;This is where we keep all of our pre-compiled files.&lt;/p&gt;
+
+&lt;h3&gt;Compiling LESS&lt;/h3&gt;
+
+&lt;p&gt;Our Less files are broken down into modules. There is a master file that imports all dependencies. This master file is then compiled into CSS, minified and placed in the &lt;code&gt;static/css/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;h3&gt;Compiling JavaScript&lt;/h3&gt;
+
+&lt;p&gt;Just like our Less files, all our JavaScript is broken down into modules. These are then concatenated to a master JavaScript file which is placed in the &lt;code&gt;static/js/&lt;/code&gt; directory. We also create a minified version for production which sits alongside the master file in the &lt;code&gt;static/js/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;h3&gt;Enter Grunt&lt;/h3&gt;
+
+&lt;p&gt;Grunt makes the process of performing all of the above tasks very simple. Everything is defined inside our &lt;code&gt;grunt.js&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;module.exports = function(grunt) {
+
+  grunt.initConfig({
+    lint: {
+      files: ['static-src/js/*.js']
+    },
+    less: {
+      development: {
+        options: {
+          paths: ['static-src/less/'],
+          yuicompress: true
+        },
+        files: {
+          'public/static/css/master.css': 'static-src/less/master.less'
+        }
+      }
+    },
+    concat: {
+      dist: {
+        src: [
+          'static-src/js/lib/jquery/jquery.js',
+          'static-src/js/lib/jquery/jquery.cookie.js',
+          'static-src/js/app.js'
+        ],
+        dest: 'public/static/js/master.js'
+      }
+    },
+    min: {
+      dist: {
+        src: 'public/static/js/master.js',
+        dest: 'public/static/js/master.min.js'
+      }
+    },
+    watch: {
+      files: ['static-src/js/*.js', 'static-src/less/*.less'],
+      tasks: 'default'
+    }
+  });
+
+  grunt.loadNpmTasks('grunt-contrib-less');
+
+  grunt.registerTask('default', 'lint less concat min');
+
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Extending Grunt&lt;/h3&gt;
+
+&lt;p&gt;Grunt is very extensible and here we are using it in it&amp;rsquo;s most basic form using (with the exception of Less) only it&amp;rsquo;s built-in tasks. The goal here was to become less reliant on a third-part app such as CodeKit in favour of a platform that we can easily build upon.&lt;/p&gt;
+
+&lt;p&gt;Going forward, this is likely to be the way we do things. We will no doubt build on this in time, making use of more advanced features, and maybe even build some tasks of our own, but even as it stands, this is a good position for us to be in.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Links - week 46</title>
    <link href="http://easyart.github.com/2012/11/22/links-week-46"/>
-   <updated>2012-11-22T22:12:38+00:00</updated>
+   <updated>2012-11-22T22:12:38+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;Outside of the madness that is Christmas season at Easyart Towers, here are a few nuggets I&amp;rsquo;ve enjoyed on the interwebs this week.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;The animated and excitable &lt;a href=&quot;http://addyosmani.com/&quot;&gt;Addy Osmani&lt;/a&gt;&amp;rsquo;s talk on &lt;a href=&quot;http://vimeo.com/52450814&quot;&gt;The New And Improved Developer Toolbelt&lt;/a&gt; from Fronteers 2012 outlines some interesting tools for modern front end development, but I don&amp;rsquo;t see us using Yoeman anytime soon (it&amp;rsquo;s too magic!).&lt;/li&gt;
+&lt;li&gt;I&amp;rsquo;d seen this one before, and perhaps I am using it as a cheatsheet for his &lt;a href=&quot;http://www.danpink.com/books/drive&quot;&gt;book&lt;/a&gt; that I haven&amp;rsquo;t quite finished reading yet, but &lt;a href=&quot;http://www.ted.com/talks/dan_pink_on_motivation.html&quot;&gt;Dan Pink&amp;rsquo;s TED lecture&lt;/a&gt; on the mismatch between what science knows about motivation and what business does is utterly fascinating.&lt;/li&gt;
+&lt;li&gt;Some useful links in &lt;a href=&quot;http://ivanzuzak.info/2012/11/18/the-web-engineers-online-toolbox.html&quot;&gt;The Web engineer&amp;rsquo;s online toolbox&lt;/a&gt; that I&amp;rsquo;ll be sure to come back to&lt;/li&gt;
+&lt;li&gt;Another one I re-read is &lt;a href=&quot;http://backstage.soundcloud.com/2012/08/evolution-of-soundclouds-architecture/&quot;&gt;The evolution of SoundCloud&amp;rsquo;s architecture&lt;/a&gt; as it&amp;rsquo;s relevant to some thinking I am doing at the moment.&lt;/li&gt;
+&lt;li&gt;I&amp;rsquo;m really excited about what&amp;rsquo;s happening at &lt;a href=&quot;http://digital.cabinetoffice.gov.uk/&quot;&gt;GDS&lt;/a&gt;. It seems impossibly progressive for a government to assemble a really clever group of designers and (Ruby) developers to build a new integrated web platform, and to make the whole thing open source &lt;a href=&quot;https://github.com/alphagov&quot;&gt;and on Github&lt;/a&gt;!&lt;/li&gt;
+&lt;li&gt;I could almost see this list of &lt;a href=&quot;http://www.smashingmagazine.com/2012/11/09/useful-tech-talks-videos-web-conferences/&quot;&gt;Useful Talks And Videos From Web Design Conferences&lt;/a&gt; replacing TV for me for a while, if only by &lt;a href=&quot;http://www.boxee.tv/&quot;&gt;Boxee&lt;/a&gt; would switch back on!&lt;/li&gt;
+&lt;/ol&gt;
+
+</content>
  </entry>
  
  <entry>
    <title>The breakpoint podcasts</title>
    <link href="http://easyart.github.com/2012/11/19/the-breakpoint-podcasts"/>
-   <updated>2012-11-19T10:28:10+00:00</updated>
+   <updated>2012-11-19T10:28:10+00:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;Lately I&amp;rsquo;ve been enjoying a new video series from the &lt;a href=&quot;http://www.youtube.com/user/GoogleDevelopers?feature=watch&quot;&gt;Google Developers channel&lt;/a&gt; called &lt;strong&gt;The Breakpoint&lt;/strong&gt; with &lt;a href=&quot;http://paulirish.com&quot;&gt;Paul Irish&lt;/a&gt; and &lt;a href=&quot;http://addyosmani.com/&quot;&gt;Addy Osmani&lt;/a&gt;, which focuses on front-end developer tools.&lt;/p&gt;
+
+&lt;p&gt;So far there have been three episodes and I highly recommend checking them out:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=ktwJ-EDiZoU&quot;&gt;Episode 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=PPXeWjWp-8Y&amp;amp;feature=relmfu&quot;&gt;Episode 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?feature=player_embedded&amp;amp;v=HijZNR6kc9A&quot;&gt;Episode 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
  </entry>
  
  <entry>
    <title>London JS - Create the web</title>
    <link href="http://easyart.github.com/2012/11/13/london-js---create-the-web"/>
-   <updated>2012-11-13T10:35:41+00:00</updated>
+   <updated>2012-11-13T10:35:41+00:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;Last night I attended &lt;a href=&quot;http://www.eventhandler.co.uk/events/londonjs-createtheweb&quot;&gt;London JS — Create the web&lt;/a&gt;, which was hosted at &lt;a href=&quot;http://forwardtechnology.co.uk/&quot;&gt;Forward Technology&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The first talk was by &lt;a href=&quot;http://javascriptplayground.com&quot;&gt;Jack Franklin&lt;/a&gt; and was called &lt;em&gt;Optimising JavaScript&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;It was only a short talk but Jack presented some interesting finds regarding how to do common things with JavaScript quickly. To see some examples of this &lt;a href=&quot;http://jackfranklin.github.com/ldnjs-optimisation-talk/#/&quot;&gt;go checkout his slides&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The second talk was more of a presentation on some of Adobes new products by &lt;a href=&quot;https://twitter.com/mchaize&quot;&gt;Michael Chaize&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/tpryan&quot;&gt;Terrance Ryan&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It really looks like Adobe have stepped up their game and are now developing more web focused tools. They seem to be doing a lot with animation, but from the sound of their laptop fans I&amp;rsquo;m not sure the world is ready for that yet.&lt;/p&gt;
+
+&lt;p&gt;The two tools that impressed me were the yet-to-be-released &lt;a href=&quot;http://html.adobe.com/edge/reflow/&quot;&gt;Reflow&lt;/a&gt; and &lt;a href=&quot;http://brackets.io/&quot;&gt;Brackets&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Reflow is a responsive design application which allows you to set breakpoints and rearrange the design accordingly. Effectively you are editing DOM elements rather than Photoshop layers. I really think a tool like this will help get designers thinking responsively, causing us developers a few less headaches in the process.&lt;/p&gt;
+
+&lt;p&gt;Brackets is an open source HTML, CSS and JavaScript editor. It has been designed to be lightweight, front-end focused and extensible. It is built entirely in HTML, CSS and JavaScript and therefore easy to customise and extend with your own plugins. One feature I particularly liked was the ability to select an element from a HTML file and edit the CSS properties for that element without opening another file.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately I had to leave before &lt;a href=&quot;https://twitter.com/sw12/&quot;&gt;Sam Duttons&lt;/a&gt; WebRTC talk so I can&amp;rsquo;t say anything about that.&lt;/p&gt;
+
+&lt;p&gt;I did come away with a free &lt;a href=&quot;https://www.foldable.me/&quot;&gt;foldable me&lt;/a&gt; which I did put together late last night but have yet to photograph.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Links - Week 45</title>
    <link href="http://easyart.github.com/2012/11/12/last-weeks-links-12-45"/>
-   <updated>2012-11-12T13:38:29+00:00</updated>
+   <updated>2012-11-12T13:38:29+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;h3&gt;Interesting stuff from around the internet last week&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://maker.github.com/ratchet/&quot;&gt;Ratchet &amp;ndash; HTML/CSS framework for iPhone prototyping&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ademilter.com/lab/liffect/&quot;&gt;Liffect &amp;ndash; CSS effects for lists&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wrapbootstrap.com/preview/WB0PHMG9K&quot;&gt;Perfectum Dashboard &amp;ndash; Bootstrap skin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://worrydream.com/LearnableProgramming/&quot;&gt;Learnable Programming by Bret Victor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://sharpsuits.net/home&quot;&gt;Client feedback turned into posters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://speakerdeck.com/kennethreitz/api-driven-development&quot;&gt;API driven development&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.guardian.co.uk/education/2012/nov/09/learn-language-in-three-months&quot;&gt;How I learned a language in 22 hours&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.nytimes.com/2012/11/11/magazine/how-zara-grew-into-the-worlds-largest-fashion-retailer.html?_r=1&amp;amp;pagewanted=all&amp;amp;&quot;&gt;How Zara Grew Into the World’s Largest Fashion Retailer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://arstechnica.com/information-technology/2012/11/inside-team-romneys-whale-of-an-it-meltdown/&quot;&gt;Inside Team Romney&amp;rsquo;s whale of an IT meltdown&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+</content>
  </entry>
  
  <entry>
    <title>Full Frontal Tooling</title>
    <link href="http://easyart.github.com/2012/11/07/full-frontal-tooling"/>
-   <updated>2012-11-07T20:25:51+00:00</updated>
+   <updated>2012-11-07T20:25:51+00:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;I&amp;rsquo;ve just got back from the &lt;a href=&quot;http://2012.full-frontal.org/#tooling&quot;&gt;Full Frontal Tooling Workshops&lt;/a&gt; in Brighton, so I thought I&amp;rsquo;d best write about my experience whilst it&amp;rsquo;s still fresh in my mind.&lt;/p&gt;
+
+&lt;h3&gt;The set up&lt;/h3&gt;
+
+&lt;p&gt;There were six different workshops in total, with &lt;a href=&quot;http://remysharp.com&quot;&gt;Remy Sharp&lt;/a&gt;, &lt;a href=&quot;http://rmurphey.com&quot;&gt;Rebecca Murphey&lt;/a&gt; and &lt;a href=&quot;http://jakearchibald.co.uk/&quot;&gt;Jake Archibald&lt;/a&gt; each leading two sessions. They were structured so participants could attend &lt;em&gt;any&lt;/em&gt; four of the workshops throughout the day. The topics were:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Modularizing your JavaScript with RequireJS&lt;/strong&gt; &amp;mdash; Rebecca Murphey&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Writing Testable JavaScript&lt;/strong&gt; &amp;mdash; Rebecca Murphey&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Massive git&lt;/strong&gt; &amp;mdash; Jake Archibald&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;It&amp;rsquo;s your Sass on the line&lt;/strong&gt; &amp;mdash; Jake Archibald&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Debugging&lt;/strong&gt; &amp;mdash; Remy Sharp&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Build Process&lt;/strong&gt; &amp;mdash; Remy Sharp&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;What to choose?&lt;/h3&gt;
+
+&lt;p&gt;I chose the require.js, testable JavaScript, debugging and build process workshops. I didn&amp;rsquo;t opt for the git workshop as I use it daily and am relatively comfortable with it and the same goes for Sass (although we currently use LESS at Easyart). Whilst I&amp;rsquo;m sure they were great workshops, I felt I would benefit a lot more from the others, especially as they addressed topics that I have become very interested in lately.&lt;/p&gt;
+
+&lt;h3&gt;Modularizing your JavaScript with RequireJS&lt;/h3&gt;
+
+&lt;p&gt;We started with an existing project, which had several script tags linking to various JavaScript files such as jQuery, Backbone, Underscore and more. Rebecca then showed us how to use &lt;a href=&quot;http://requirejs.org/&quot;&gt;require.js&lt;/a&gt; and the &lt;a href=&quot;https://github.com/amdjs/amdjs-api/wiki/AMD&quot;&gt;AMD format&lt;/a&gt; to manage our dependencies and modules, and then going on to build the project with a simple command.&lt;/p&gt;
+
+&lt;p&gt;This got me thinking about the way our JavaScript is structured, and whilst it has certainly seen improvement over the past six months or so, it could be taken a stage further by introducing require.js into our process.&lt;/p&gt;
+
+&lt;h3&gt;Writing Testable JavaScript&lt;/h3&gt;
+
+&lt;p&gt;We have been focusing on &lt;a href=&quot;http://en.wikipedia.org/wiki/Test-driven_development&quot;&gt;Test-driven development&lt;/a&gt; quite a lot lately and have also identified that we need to be doing unit tests on our JavaScript so this topic was particularly relevant to me.&lt;/p&gt;
+
+&lt;p&gt;Rebecca introduced us to &lt;a href=&quot;http://docs.jquery.com/Qunit&quot;&gt;QUnit&lt;/a&gt; and explained the thought-process behind unit testing and writing testable JavaScript.&lt;/p&gt;
+
+&lt;p&gt;When carrying out unit tests, we are essentially asking the following question:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Given this input, do I get this output?&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&amp;mdash; Rebecca Murphey&lt;/p&gt;
+
+&lt;p&gt;This sounds simple, and really it is. The main thing to get your head around is writing JavaScript that is actually testable. Rebecca showed us some &lt;em&gt;typical&lt;/em&gt; jQuery code, which was distinctly lacking in functions or output, and explained how it was very difficult to test, and went on to explain how to write JavaScript that actually returns something so we can test it.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Things don&amp;rsquo;t do things &amp;mdash; Things announce things&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&amp;mdash; Rebecca Murphey&lt;/p&gt;
+
+&lt;p&gt;The process of writing good tests should be to make them fail first, and then write the necessary code to make them pass. Well written tests not only ensure that your code is actually working, they help you to write better code.&lt;/p&gt;
+
+&lt;p&gt;One point that stood out to me in this workshop was not to get too hung up on testing edge cases. Make your tests as thorough as they need to be and then if an edge case does occur, write the test, then fix the problem.&lt;/p&gt;
+
+&lt;p&gt;Later, we were briefly introduced to &lt;a href=&quot;http://visionmedia.github.com/mocha/&quot;&gt;Mocha&lt;/a&gt;, a more advanced testing framework, and also shown how to integrate testing with &lt;a href=&quot;http://gruntjs.com&quot;&gt;grunt.js&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Debugging&lt;/h3&gt;
+
+&lt;p&gt;Being a developer, I&amp;rsquo;m no stranger to the Chrome developer tools but I&amp;rsquo;ve never really used them to their full potential.&lt;/p&gt;
+
+&lt;p&gt;During this workshop, Remy introduced us to the concept of step debugging and setting breakpoints. I had come across breakpoints before but wasn&amp;rsquo;t really sure how I could use them to debug code so I found this really helpful.&lt;/p&gt;
+
+&lt;p&gt;Something Remy said, which I have heard quite a lot, is that if you are using alerts for debugging you should stop right now. &lt;code&gt;console.log&lt;/code&gt; is your friend.&lt;/p&gt;
+
+&lt;p&gt;After a run through of the various tabs in the Chrome developer tools, Remy talked to us about mobile debugging.&lt;/p&gt;
+
+&lt;p&gt;Debugging code in mobile browsers can be a nightmare, but Remy showed us something called &lt;a href=&quot;http://people.apache.org/~pmuellr/weinre/docs/latest/&quot;&gt;weinre&lt;/a&gt;, which basically listens to your ip address and binds itself to it, allowing you to open the developer tools on your machine and debug in your mobile browser.&lt;/p&gt;
+
+&lt;p&gt;One thing that was stressed was the importance of testing on real devices. Emulators are fine for getting a quick overview but if you are doing any mobile specific work, get real phones.&lt;/p&gt;
+
+&lt;h3&gt;Build Process&lt;/h3&gt;
+
+&lt;p&gt;This workshop was based around a tool called &lt;a href=&quot;http://gruntjs.com&quot;&gt;Grunt&lt;/a&gt;, which is, in its own words, a task-based command line build tool for JavaScript projects.&lt;/p&gt;
+
+&lt;p&gt;Grunt is very powerful and can take care of a lot of otherwise mundane tasks for you such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Concatenating files&lt;/li&gt;
+&lt;li&gt;Generating project scaffolding&lt;/li&gt;
+&lt;li&gt;Linting your code&lt;/li&gt;
+&lt;li&gt;Minifying your code&lt;/li&gt;
+&lt;li&gt;Running unit tests&lt;/li&gt;
+&lt;li&gt;Starting a static web server&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;These are just the built-in tasks. Grunt is still very new but despite this, there are already over 200 plugins available.&lt;/p&gt;
+
+&lt;p&gt;This got me thinking about our build process and how it could be streamlined using this tool. We currently compile, concatenate and minify our Less files using &lt;a href=&quot;http://incident57.com/codekit/&quot;&gt;CodeKit&lt;/a&gt;, the same goes for our JavaScript which we also run through JSHint. This works for us, but can sometimes feel cumbersome.&lt;/p&gt;
+
+&lt;p&gt;The possibilities with Grunt are endless and I also feel like it would give us more control over our projects so it is definitely something I will investigate adding to our process.&lt;/p&gt;
+
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;I really felt like I got a lot out of these workshops today. It was a lot of information to take in but the key points all came across. I really liked the format and 90 minutes seems to be about the perfect length for workshop sessions of this kind.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t know if Remy is planning to do something similar next year but if he does I hope I will be lucky enough to attend once more.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>This weekend's reading and viewing</title>
    <link href="http://easyart.github.com/2012/11/04/some-reading-and-viewing"/>
-   <updated>2012-11-04T10:37:55+00:00</updated>
+   <updated>2012-11-04T10:37:55+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;After a week focussed on product development, user experience and design, I&amp;rsquo;ve been geeking out with a bunch of articles, podcasts and videos this weekend.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://vimeo.com/49701839&quot;&gt;Adam Wiggins &amp;ndash; &amp;lsquo;Idea to Delivery: Application Development in the Modern Age&amp;rsquo;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://rubyrogues.com/076-rr-service-oriented-design-with-paul-dix/&quot;&gt;Ruby Rogues &amp;ndash; Service-Oriented Design with Paul Dix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://popcornjs.org/&quot;&gt;Ryan Merkley: Online video – annotated, remixed and popped&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=T6-75HdADc8&quot;&gt;Roy Tomeij: Modular &amp;amp; reusable front-end code with HTML5, Sass and CoffeeScript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Unix_philosophy&quot;&gt;UNIX philosophy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.wired.com/wiredenterprise/2012/10/ff-inside-google-data-center/all/&quot;&gt;Google Throws Open Doors to Its Top-Secret Data Center&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
  </entry>
  
  <entry>
    <title>The importance of user testing</title>
    <link href="http://easyart.github.com/2012/10/22/the-importance-of-user-testing"/>
-   <updated>2012-10-22T12:35:21+01:00</updated>
+   <updated>2012-10-22T12:35:21+01:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;When developing a customer facing site, such as Easyart.com, is it very important to be aware of your users perspective. The recommended way to do this is something known as user testing.&lt;/p&gt;
+
+&lt;h3&gt;What is user testing&lt;/h3&gt;
+
+&lt;p&gt;User testing is essentially watching how people use your website/application. Traditionally, this is done by arranging a session for people to come and use your site, where they would be given tasks to complete. The process is recorded and then analysed to see what could be improved.&lt;/p&gt;
+
+&lt;p&gt;Mostly due to time and budget constraints, this isn&amp;rsquo;t always easy to accomplish, but luckily there is now a whole host of affordable services that help us solve this problem.&lt;/p&gt;
+
+&lt;h3&gt;Choosing a service&lt;/h3&gt;
+
+&lt;p&gt;When choosing a service for any reason, the important thing is to establish exactly what you need from it. We did some research on user testing and decided that we would need a video of the session along with the audio, and the ability to ask follow-up questions. The service that seemed to be the best fit for us was &lt;a href=&quot;http://usertesting.com&quot;&gt;usertesting.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Setting up the test&lt;/h3&gt;
+
+&lt;p&gt;To kick off the test, we needed a set of tasks. We called this a user journey, and set a list of tasks for the participants of the test to follow, demonstrating the areas we knew we needed to work on.&lt;/p&gt;
+
+&lt;h3&gt;Getting the feedback&lt;/h3&gt;
+
+&lt;p&gt;Within the hour, all three of the tests we set-up had been completed and we had access to the videos. Over the next couple of days we watched these videos, listened to the commentaries and read the answers to our follow-up questions, taking notes the whole time.&lt;/p&gt;
+
+&lt;p&gt;Almost immediately we identified some key areas that we needed to work on and have already started working on solutions to improve our customers experience on our site.&lt;/p&gt;
+
+&lt;h3&gt;Going forward&lt;/h3&gt;
+
+&lt;p&gt;From now on, we plan to run user tests regularly, as we have found it provides a valuable insight into how our site is used and how it can be improved.&lt;/p&gt;
+
+&lt;p&gt;User testing &lt;em&gt;will&lt;/em&gt; make your site better and &lt;a href=&quot;http://usertesting.com&quot;&gt;usertesting.com&lt;/a&gt; is a great tool for helping you achieve this.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Highlights from Dublin Web Summit 2012</title>
    <link href="http://easyart.github.com/2012/10/21/dublin-web-summit-2012"/>
-   <updated>2012-10-21T12:16:00+01:00</updated>
+   <updated>2012-10-21T12:16:00+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;This week thousands fellow web makers, CEOs, VCs and geeks descended on Dublin for the Dublin Web Summit. They had done an amazing job of promoting the event &amp;ndash; there were flags on the mains streets, front-page coverage in papers and loads of media reporting live from the event (to the point where the wifi was almost useless!). The event itself had four stages, an expo room with startups from all over the world, and startup pitching stages. The overall highlight had to be DWS By Night, where they had taken over a whole street of pubs and clubs with free drinks for attendees. There were bound to be some sore heads on Thursday morning!&lt;/p&gt;
+
+&lt;h3&gt;Startup pitching stages&lt;/h3&gt;
+
+&lt;p&gt;Though the calibre of speakers on the stages was second to none (in Europe at least), I spent a lot of time on the startup pitching stages seeing what was happening in the startup world. Some highlights from the pitching stages and stands:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.copygr.am/&quot;&gt;Copygr.am&lt;/a&gt;. Tools for Instagram, and photographic prints. The design is lovely, but the prints are too expensive.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.fabsie.com/&quot;&gt;Fabsie&lt;/a&gt;. Designer flatpack furniture manufactured on demand from crowdsourced manufacturers. I was really impressed by this but wonder how far they can go with the aesthetic they are locked into with laser cut wood.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://resumup.com/&quot;&gt;Resump&lt;/a&gt;. &amp;ldquo;ResumUp is a service which shows you who and what you need to know to achieve all your career goals.&amp;rdquo; It helps you visualise your skills and connects you with people who are already in your network to progress your career.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.atooma.com/&quot;&gt;Atoomba&lt;/a&gt;. Basically IFTT for your (Android) mobile.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.smartthings.com/&quot;&gt;Smart Things&lt;/a&gt;. These guys won the pitching competition for their impressive system to connect devices to the internet. This (or something like it) is going to be a big deal.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://tictail.com/&quot;&gt;Tictail&lt;/a&gt;. Quick and easy online stores with a killer UI. I tried it out and had as store online in 2minutes, and actually enjoyed the process. The resulting stores are just OK but the creation process is really impressive.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Chris Poole 4chan, Founder&lt;/h3&gt;
+
+&lt;p&gt;The subheading of this talk was something like &lt;em&gt;how I unwittingly became a sysadmin&lt;/em&gt;, and was a story of how 4chan serves 600m page views a month and 1m new posts a day on five second-hand servers &amp;ndash; each of which is a single point of failure &amp;ndash; and no full-time staff.&lt;/p&gt;
+
+&lt;p&gt;By looking at the numbers that Google Analytics (which fires in the client via JavaScript) and Cloudflare (which was the entry point to the web request) were reporting, he realised that that half of their traffic was coming from web scrapers and third-party extensions, so it was only then that they added an API (which now serves 50m requests a day).&lt;/p&gt;
+
+&lt;p&gt;This was a really interesting talk with some refreshingly honest views, but it does go against a lot of things I believe as a software engineer, and I very much doubt that he has taken the same approach with his VC-funded startup &lt;a href=&quot;http://canv.as/&quot;&gt;Canv.as&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;Curating the e-commerce revolution&lt;/h3&gt;
+
+&lt;p&gt;A panel discussion with:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Chris Morton, Ceo &amp;amp; Co-Founder of Lyst&lt;/li&gt;
+&lt;li&gt;Diego Berdakin, President of BeachMint&lt;/li&gt;
+&lt;li&gt;Shauna Mei, Founder AHAlife.com&lt;/li&gt;
+&lt;li&gt;Carl Fritjofsson, Co-Founder &amp;amp; COO Wrapp&lt;/li&gt;
+&lt;li&gt;Olivia Gossett, founder of ILWYW.com&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;The basic theme of the discussion was that in online fashion retail, customers expect recommendations and a back-story (and increasingly customisation) in order to connect with the product. There seemed to be general agreement that the Net a Porter &amp;ldquo;shop the story&amp;rdquo; approach is a model that works well.&lt;/p&gt;
+
+&lt;p&gt;Amazon&amp;rsquo;s approach is to fulfil commands (you search for TVs, you get TVs), but is terrible for serendipitous discovery. &amp;ldquo;You never go to a grocery store and bring back only what was on your list&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Serendipity through content. Create desire through stories and context.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://new.livestream.com/websummit/DWS12Main/videos/4985557&quot;&gt;Here&amp;rsquo;s a recording&lt;/a&gt; of the panel (watch from 1:47:40)&lt;/p&gt;
+
+&lt;h3&gt;More highlights in brief&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The BBC&amp;rsquo;s Chief Architect, News and Knowledge Gary O'Connor on BBC&amp;rsquo;s dipping their toe in the water of cloud computing. An interesting perspective on the challenges in selling it into ops (they had no choice really, because they had to scale to accommodate London 2012 coverage), selecting a provider (AWS).&lt;/li&gt;
+&lt;li&gt;Mike McCue, Founder and CEO of Flipboard with MG Siegler, TechCrunch. I didn&amp;rsquo;t really consider Flipboard to be important to publishing, but I have changed my mind now.&lt;/li&gt;
+&lt;li&gt;Mozilla Chairman Mitchell Baker provided some interesting insights into the state of the web at the moment and Mozilla&amp;rsquo;s mission to keep it open.&lt;/li&gt;
+&lt;li&gt;Patrick Collison from Stripe was really interesting talk about how they got started, their challenges and growth.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Most of the event should be available on this &lt;a href=&quot;http://new.livestream.com/websummit&quot;&gt;Livestream page&lt;/a&gt;.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Some notes from WebPerfDays</title>
    <link href="http://easyart.github.com/2012/10/05/some-notes-from-webperfdays"/>
-   <updated>2012-10-05T00:00:00+01:00</updated>
+   <updated>2012-10-05T00:00:00+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;I&amp;rsquo;m just back from &lt;a href=&quot;http://webperfdays.org/&quot;&gt;WebPerfDays&lt;/a&gt; at Facebook&amp;rsquo;s &lt;a href=&quot;http://www.facebook.com/facebooklondon&quot;&gt;London engineering offices&lt;/a&gt; in Covent Garden. It was a really great day out, with some great presenters.&lt;/p&gt;
+
+&lt;p&gt;A few notes&amp;hellip;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.webperformancetoday.com/&quot;&gt;Joshua Bixby&lt;/a&gt; is a really good presenter and I&amp;rsquo;ll be following his blog.&lt;/li&gt;
+&lt;li&gt;Not all performace stats apply to all companies. There were several examples cited of how reducing page load time had either no discernable effect, or even a negative impact (though they were very specific cases).&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Mortal companies&amp;rdquo; have different problems to the Googles, Facebooks and Amazons of the world.&lt;/li&gt;
+&lt;li&gt;Using a CDN doesn&amp;rsquo;t guarantee those assets are delivered to the user faster. Our measurements would suggest otherwise, but a second look at the data would be wise.&lt;/li&gt;
+&lt;li&gt;97% of mobile response time is on the front end!&lt;/li&gt;
+&lt;li&gt;I like the concept of a &amp;ldquo;poverty line&amp;rdquo; in performance. i.e. if a metric is below a certain threshold it&amp;rsquo;s &amp;ldquo;poor&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;A significant percentage of mobile users prefer the full site rather than a mobile version.&lt;/li&gt;
+&lt;li&gt;Simply cleaning up code and doing all the things you already know you should be doing will get you 80% of the way to where you need to get to with front-end code.&lt;/li&gt;
+&lt;li&gt;We should check out &lt;a href=&quot;http://www.writegoodcode.com/&quot;&gt;writegoodcode.com&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;After you optimise your front-end code, you have to be be vigilant about maitaining the gains you have made.&lt;/li&gt;
+&lt;li&gt;Other people probably have more difficult performance problems to solve than us. Seatwave have to cope for massive (60x) request peaks in requests in a matter of seconds (i.e. when their TVC is aired in the middle of X-Factor or a new concert goes on sale).&lt;/li&gt;
+&lt;li&gt;We should take a close look on the performance of our third party dependencies. They are generally recognised as evil when it comes to web performance.&lt;/li&gt;
+&lt;li&gt;Lonely Planet have a really great DevOps culture in their company (see their (dev blog)[http://devops.lonelyplanet.com/]) where metrics are king and web performance is recognised as a priority throughout the whole organisation. * They have gone some way to replacing “HiPPO” (Highest Paid Person’s Opinion) with real data.&lt;/li&gt;
+&lt;li&gt;Webpagetest.org is a tool that a lot of web performance experts seem to refer to.&lt;/li&gt;
+&lt;li&gt;Facebook have problems that are extremely unique, and fascinating from an observer&amp;rsquo;s standpoint, but intimidatingly complex from a developer&amp;rsquo;s. Sławek Biel did a really interesting presentation about how Facebook optimises its data access.&lt;/li&gt;
+&lt;li&gt;Overall, it&amp;rsquo;s just reminded me that we need to continue to focus on performance as part of what we do.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Update: Some of the presentations are &lt;a href=&quot;http://www.seriticonsulting.com/blog/2012/10/8/webperfdays-summary-and-slides.html&quot;&gt;now available online&lt;/a&gt;.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Basecamp at Easyart</title>
    <link href="http://easyart.github.com/2012/08/01/basecamp-at-easyart"/>
-   <updated>2012-08-01T00:00:00+01:00</updated>
+   <updated>2012-08-01T00:00:00+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/img/posts/basecamp.jpg&quot; alt=&quot;Basecamp&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re big fans of &lt;a href=&quot;http://basecamp.com/&quot;&gt;Basecamp&lt;/a&gt; here at Easyart. It&amp;rsquo;s very close to replacing email for our internal discussions. Here&amp;rsquo;s what we like:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;It&amp;rsquo;s open.&lt;/strong&gt; I might have a discussion with one person, but others can be aware of what&amp;rsquo;s going on by overhearing the discussion in the project or in the daily recap. It&amp;rsquo;s also easy to see who is over subscribed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Distance is less important.&lt;/strong&gt; We have two sites, numerous people that work from home, and a number of contractors. Using Basecamp is our primary means of communication makes collaboration more effective no matter where you are located.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;It&amp;rsquo;s incredibly simple and fun to use.&lt;/strong&gt; It does a small amount of things – to-dos, text documents, discussions, files – really well (we use Google for calendars). I had been meaning to write an internal document on how to use Basecamp but it has never been necessary!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;It&amp;rsquo;s totally usable by email only.&lt;/strong&gt; Some of our busier people use it purely through email, while others use a combination of online and email.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;A few things would make it even more useful:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mentions.&lt;/strong&gt; Sometimes the amount of email Basecamp generates is overwhelming, and unless you are assigned to a task you might never know that someone is waiting for a response from you.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A proper CalDAV calendar.&lt;/strong&gt; We need to be able to create events from other apps and devices if the calendar is going to be useful for us.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A way to &amp;ldquo;loop in&amp;rdquo; other collaborators into a task or discussion, on the site.&lt;/strong&gt; The only way to do this at the moment is to loop them in on email only.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Chat integration.&lt;/strong&gt; We &lt;a href=&quot;http://easyartdevelopers.posterous.com/goodbye-campfire-hello-flowdock&quot;&gt;switched from Campfire to Flowdock&lt;/a&gt; back in March, but because most of the action is now in Basecamp, we don&amp;rsquo;t use chat as much. It would be nice to be able to send one-liners in Basecamp without starting new discussions.&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
  </entry>
  
  <entry>
    <title>Flickr's liquid photo layout</title>
    <link href="http://easyart.github.com/2012/07/31/flickrs-liquid-photo-layout"/>
-   <updated>2012-07-31T00:00:00+01:00</updated>
+   <updated>2012-07-31T00:00:00+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;Spotted this interesting piece on &lt;a href=&quot;http://code.flickr.com/blog/2012/05/15/liquid-photo-page-layout/&quot;&gt;Flickr&amp;rsquo;s code blog&lt;/a&gt; about the thought behind their new liquid photo page, which is very relevant to some of the things we are thinking about at the moment.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>The lesson of jam sandwiches for service developers and marketeers</title>
    <link href="http://easyart.github.com/2012/06/02/the-lesson-of-jam-sandwiches-for-service-developers-and-marketeers"/>
-   <updated>2012-06-02T00:00:00+01:00</updated>
+   <updated>2012-06-02T00:00:00+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://twitter.com/#!/Colinstrong&quot;&gt;Colin Strong&lt;/a&gt; from &lt;a href=&quot;http://www.gfk.com/&quot;&gt;GfK&lt;/a&gt; did a great presentation at &lt;a href=&quot;http://digitalshoreditch.com/&quot;&gt;Digital Shoreditch&lt;/a&gt; yesterday on behavioural economics called &lt;a href=&quot;http://www.slideshare.net/colinstrong/jam-sandwiches-final&quot;&gt;The lesson of jam sandwiches for service developers and marketeers&lt;/a&gt; which ties in with a lot of things we&amp;rsquo;ve been discussing internally. Here are my takeaways:&lt;/p&gt;
+
+&lt;h3&gt;Avoid choice overload&lt;/h3&gt;
+
+&lt;p&gt;In the Jam sandwich study, customers were presented with 24 jams, which resulted in a 3% takeup. When the number of jams was reduced to 6, the takeup jumped to 30%. Reduce choice to increase conversions.&lt;/p&gt;
+
+&lt;h3&gt;Decoy options&lt;/h3&gt;
+
+&lt;p&gt;Introducing options in a product mix can have an effect on the percieved value of the other options. As an example, when consumers were shown three options for Economist subscriptions&amp;hellip;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Online only for $59&lt;/li&gt;
+&lt;li&gt;Print only for $125&lt;/li&gt;
+&lt;li&gt;Print and online for $125&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;&amp;hellip;nobody picked option 2 and 84% choose option 3. That&amp;rsquo;s because option 2 is acting as a decoy option 3 more attractive. When option 2 was removed, only 32% selected Option 3.&lt;/p&gt;
+
+&lt;h3&gt;Encourage a sense of ownership&lt;/h3&gt;
+
+&lt;p&gt;Once consumers feel they own an item they are reluctant to part with it. On Ebay, the highest bidder often starts thinking about possessing item, leading to more aggressive bidding. Amazon Prime’s limited trial makes customers focus on what they will lose if they cancel their subscription.&lt;/p&gt;
+
+&lt;h3&gt;Social influence&lt;/h3&gt;
+
+&lt;p&gt;Consumers are hugely influenced by the behaviour of others. Stock levels create a fear of missing out. I also think that positive social reinforcement &amp;ndash; showing that other &amp;ldquo;real&amp;rdquo; people are buying an item &amp;ndash; can be a huge influence also.&lt;/p&gt;
+
+&lt;h3&gt;Create magic moments&lt;/h3&gt;
+
+&lt;p&gt;Overall assessment is not key, only if the customer had a very positive or very negative experience. Create &amp;ldquo;positive peaks&amp;rdquo; through magic moments to leave a positive impression. Add something for free. It&amp;rsquo;s inexpensive and has a disproportionate impact on satisfaction.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Git-based deploys</title>
    <link href="http://easyart.github.com/2012/05/21/git-based-deploys"/>
-   <updated>2012-05-21T00:00:00+01:00</updated>
+   <updated>2012-05-21T00:00:00+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;Recently we&amp;rsquo;ve switched from FTP to git to deploy changes to our live sites. Here&amp;rsquo;s what our workflow looks like for functional changes (content amends use steps1,2,5,7,8):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/git.jpg&quot; alt=&quot;Git-based deploys&quot;&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Make changes on VMs on develop branch&lt;/li&gt;
+&lt;li&gt;Commit and push develop branch to Github&lt;/li&gt;
+&lt;li&gt;Pull develop branch to staging server&lt;/li&gt;
+&lt;li&gt;Review changes&lt;/li&gt;
+&lt;li&gt;Merge develop into master&lt;/li&gt;
+&lt;li&gt;Run Selenium tests&lt;/li&gt;
+&lt;li&gt;Push master to Github&lt;/li&gt;
+&lt;li&gt;Pull master into live server&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;By using a Git-centric workflow, it&amp;rsquo;s easier to guarantee that each application is running the same code, and we have the added safety of being able to roll back to previous versions.&lt;/p&gt;
+
+&lt;p&gt;Pulling changes onto live websites with millions of daily visitors makes me a little nervous, so I&amp;rsquo;ll usually use &lt;em&gt;git fetch&lt;/em&gt; rather than &lt;em&gt;git pull&lt;/em&gt;, like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git fetch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pulls the remote master branch into a branch in the local repository called origin/master.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git diff --numstat master origin/master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Reports the affected files between master and the origin/master branch we pulled in the previous step.&lt;/p&gt;
+
+&lt;p&gt;  $ git merge master origin/master&lt;/p&gt;
+
+&lt;p&gt;Merges the origin/master branch into master.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Using Selenium and Rspec for behaviour testing</title>
    <link href="http://easyart.github.com/2012/05/01/using-selenium-and-rspec-for-behaviour-testing"/>
-   <updated>2012-05-01T00:00:00+01:00</updated>
+   <updated>2012-05-01T00:00:00+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;We&amp;rsquo;ve been doing some restructuring here at Easyart, in order to set up a more Git-centric workflow for deployments. We wanted to make sure that we had some tests which would help us spot any problems while we made the transition.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m relatively comfortable with Rspec, so it was a natural starting point. But given that the sites themselves aren&amp;rsquo;t built in Ruby, I&amp;rsquo;m using Rspec to power Selenium Webdriver.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a sample test:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/2566740.js&quot;&gt; &lt;/script&gt;
+
+
+&lt;p&gt;The Selenium::WebDriver object makes writing these tests pretty simple. These are the main methods we use:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;find_element and find_elements&lt;/li&gt;
+&lt;li&gt;get (or navigate.to, which I think are identical)&lt;/li&gt;
+&lt;li&gt;title&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;That&amp;rsquo;s pretty much it! These are the methods in the Selenium::WebDriver::Element object we are making the most use of:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;text&lt;/li&gt;
+&lt;li&gt;click&lt;/li&gt;
+&lt;li&gt;send_keys&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Here&amp;rsquo;s an example which makes use of these:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/2566849.js&quot;&gt; &lt;/script&gt;
+
+
+&lt;p&gt;One thing that took some getting used to was using the Selenium::WebDriver::Wait object. When you do a click, you have to tell Selenium you want to wait for a certain condition to be true before moving on to the next live of code.&lt;/p&gt;
+
+&lt;p&gt;In this example, I&amp;rsquo;m waiting until the H1 tag contains the word &amp;ldquo;cart&amp;rdquo;:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/2567891.js&quot;&gt; &lt;/script&gt;
+
+
+&lt;p&gt;I&amp;rsquo;m used Rspec for unit and request specs, but it&amp;rsquo;s advantageous to use a visible browser for this type of testing, as sometimes you can spot things with your eye that your tests won&amp;rsquo;t. Then you write the test to catch it.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Quick tip: Opening files in Sublime from Terminal</title>
    <link href="http://easyart.github.com/2012/04/27/quick-tip-opening-files-in-sublime-from-terminal"/>
-   <updated>2012-04-27T00:00:00+01:00</updated>
+   <updated>2012-04-27T00:00:00+01:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;Sublime Text 2 has been my text editor of choice for almost a year now but as I find myself working from the command line more and more these days, I thought I’d share a quick tip I picked up from Nick, opening files from the command line.&lt;/p&gt;
+
+&lt;h3&gt;Getting set up&lt;/h3&gt;
+
+&lt;p&gt;To begin with, we need to ensure that the bin directory is specified in our path. Just paste the following into Terminal:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ echo &quot;export PATH=~/bin:$PATH&quot; &amp;gt;&amp;gt; ~/.profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next up, we need to create the subl command. To do that just paste the following into Terminal:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ln -s &quot;/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl&quot; ~/bin/subl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To make sure this is working, just type subl into Terminal and press enter. If you’ve followed the steps above then that should open up Sublime.&lt;/p&gt;
+
+&lt;h3&gt;Using the command&lt;/h3&gt;
+
+&lt;p&gt;We’ve already seen how the subl command can be used to open Sublime itself, however it can also be used to open files and directorys, among other things.&lt;/p&gt;
+
+&lt;p&gt;This command opens a directory called mySite:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ subl ~/Documents/mySite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This command opens a file from the above directory called index.html:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ subl ~/Documents/mySite/index.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Taking it further&lt;/h3&gt;
+
+&lt;p&gt;This only scratches the surface of what you can do with this type of command. To see other actions available, try typing subl &amp;mdash;help into Terminal and pressing enter. This will give you a list of ways to use this command.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This post is pretty much lifted from a post I wrote on my own blog last night:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://steverydz.com/2012/04/27/sublime-text-2-opening-files-and-folders-from-the-command-line/&quot;&gt;http://steverydz.com/2012/04/27/sublime-text-2-opening-files-and-folders-from-the-command-line/&lt;/a&gt;&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Codekit tip: Export project settings</title>
    <link href="http://easyart.github.com/2012/04/19/codekit-tip-export-project-settings"/>
-   <updated>2012-04-19T00:00:00+01:00</updated>
+   <updated>2012-04-19T00:00:00+01:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;A few weeks ago I wrote about &lt;a href=&quot;/2012/03/23/getting-to-know-codekit&quot;&gt;getting to know CodeKit&lt;/a&gt;. As a team, we have been using this tool solidly since then and it is now hard to imagine not working without it.&lt;/p&gt;
+
+&lt;p&gt;We did have a couple of issues with it though. The first was that everytime we updated the app, we had to set up our project again. This has been fixed in a recent release.&lt;/p&gt;
+
+&lt;p&gt;The other issue was that when working as a team, we had to ensure that we all had the exact same set-up. CodeKit is very intelligent and recognised what we were trying to acheive most of the time but we still found ourselves having to update output directories etc.&lt;/p&gt;
+
+&lt;p&gt;As it turns out, there was one simple solution to both of these problems. It is possible to export a config file for each project with it’s settings. This file lives in the root directory of your project and every time you drag a project into CodeKit, it looks for this file automatically.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/codekit-2.png&quot; alt=&quot;Codekit&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;To export the configuration file, simply highlight the project you are currently working on, right click on it, hover over the ‘Project settings’ menu, then click ‘Export project configuration file’. CodeKit will then place that file in the root directory of your project. That’s all there is to it.&lt;/p&gt;
+
+&lt;p&gt;This approach has worked really well for us and taken the burden of having to constantly ensure we are all doing the same thing away from us. The other great thing about this is that we now have this config file in our GIT repository.&lt;/p&gt;
+
+&lt;p&gt;All we have to do if we change the way our project is set up or introduce something new is to export another file and because we are using GIT, we will all get the latest file when we pull down the latest code.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; According to the CodeKit website, the free, BETA version of the app expires tomorrow (20th April, 2012), and I have heard rumours that it will be on sale via the app store for around $20. This app is more than worth that amount and if this is the case, I will certainly be purchasing a license first thing.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Deploying static assets to S3 using s3cmd</title>
    <link href="http://easyart.github.com/2012/04/17/deploying-static-assets-to-s3-using-s3cmd"/>
-   <updated>2012-04-17T00:00:00+01:00</updated>
+   <updated>2012-04-17T00:00:00+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;I&amp;rsquo;ve been looking at ways to deploy our static assets to S3 as part of our Git workflow.&lt;/p&gt;
+
+&lt;p&gt;I want to be able to push to the master branch of a remote repo and have the changes deployed to S3, with predefined HTTP headers. Much like I&amp;rsquo;m used to pushing to Heroku with git push heroku master.&lt;/p&gt;
+
+&lt;p&gt;There are probably plenty of ways to do it &amp;ndash; mounting S3 through Fuse, running Webdav servers, using Capistrano etc &amp;ndash; but I found them too overkill for our needs.&lt;/p&gt;
+
+&lt;p&gt;So I&amp;rsquo;ve ended up writing a simple deploy script which lives at the root of the repo which uses &lt;a href=&quot;http://s3tools.org/s3cmd&quot;&gt;s3cmd&lt;/a&gt; to sync between the local file system and our S3 bucket. It&amp;rsquo;s a snap to set up, and the result is a command that looks like this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/2404535.js&quot;&gt; &lt;/script&gt;
+
+
+&lt;p&gt;I store this file in the repo, so that each of us developers can execute it by just calling ./deploy.sh. As this process is outside of the Git workflow, I have to exclude the .git directory. Conveniently, s3cmd&amp;rsquo;s format for excluding files is the same as Git&amp;rsquo;s so you can pass in a .gitignore if you&amp;rsquo;re using one.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s not a true Git deploy (though it could be called via a &lt;a href=&quot;http://progit.org/book/ch7-3.html&quot;&gt;Git Hook&lt;/a&gt;), but still a pretty neat solution.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Cheating isn't always a bad thing</title>
    <link href="http://easyart.github.com/2012/04/17/cheating-isnt-always-a-bad-thing"/>
-   <updated>2012-04-17T00:00:00+01:00</updated>
+   <updated>2012-04-17T00:00:00+01:00 by John Pash</updated>
+   <content type="html">&lt;p&gt;I read a thought-provoking comment today on &lt;a href=&quot;http://highscalability.com/blog/2012/3/26/7-years-of-youtube-scalability-lessons-in-30-minutes.html&quot;&gt;High Scalability&lt;/a&gt; that got me thinking. It appeared in a post which attempted to sum up &amp;ldquo;&lt;a href=&quot;http://highscalability.com/blog/2012/3/26/7-years-of-youtube-scalability-lessons-in-30-minutes.html&quot;&gt;7 Years of YouTube Scalability Lessons in 30 Minutes&lt;/a&gt;&amp;rdquo;. It shows a neat little trick that you can use to make it appear to the user that your site is faster than it really is. Read on&amp;hellip;&lt;/p&gt;
+
+&lt;h3&gt;Approximate Correctness &amp;ndash; Cheat a Little&lt;/h3&gt;
+
+&lt;blockquote&gt;&lt;p&gt;A real world example. If you write a comment and someone loads the page at the same time, they might not get it for 300-400ms, the user who is reading won’t care. The writer of the comment will care, so you make sure the user who wrote the comment will see it. So you cheat a little bit. Your system doesn’t have to have globally consistent transactions. That would be super expensive and overkill. Not every comment is a financial transaction. So know when you can cheat.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;So basically you would update the page DOM in real-time, but send the actual comment post operation behind the scenes. It can take as long as it needs to complete. But in the meantime the commenter is happy to have such a quick experience. It&amp;rsquo;s a win-win!&lt;/p&gt;
+
+&lt;p&gt;High Scalability is a blog that exposes the architecture of some very well-known and highly trafficked  websites. The posts are often written by the developers of those systems. So if you&amp;rsquo;ve ever wondered how &lt;a href=&quot;http://highscalability.com/blog/2011/12/19/how-twitter-stores-250-million-tweets-a-day-using-mysql.html&quot;&gt;Twitter stores 250,000,000 tweets a day&lt;/a&gt; using MySql (no NoSql here), then H.S. is the blog for you.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Front-end development requirements</title>
    <link href="http://easyart.github.com/2012/04/13/front-end-development-requirement"/>
-   <updated>2012-04-13T00:00:00+01:00</updated>
+   <updated>2012-04-13T00:00:00+01:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;It wasn’t that long ago when front-end development was considered to be nothing more than knowing HTML, CSS and jQuery. There wasn’t a great deal more to it, but the role has really developed over the past two years or so.&lt;/p&gt;
+
+&lt;p&gt;Yesterday I came across an article that does a great job of outlining what should be required of a front-end developer today. &lt;a href=&quot;http://rmurphey.com/blog/2012/04/12/a-baseline-for-front-end-developers/&quot;&gt;Go read it&amp;hellip;&lt;/a&gt;&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>A unified coding style</title>
    <link href="http://easyart.github.com/2012/04/12/a-unified-coding-style"/>
-   <updated>2012-04-12T00:00:00+01:00</updated>
+   <updated>2012-04-12T00:00:00+01:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;Something we have been working on recently is finding a unified coding style that we are all comfortable with. The benefits of this are that any one of us can pick up a project and run with it as we are already familiar with the way the project has been set up.&lt;/p&gt;
+
+&lt;p&gt;Another aim of ours when authoring code is to be as efficient as possible, not just in terms of file size but in terms of maintainability also.&lt;/p&gt;
+
+&lt;p&gt;One tool we have been using to help us acheive this is LESS. Combining LESS with our own coding conventions, each of us can quickly find what we are looking for in our CSS and can also make changes quickly, knowing that what we are doing will be maintainable.&lt;/p&gt;
+
+&lt;p&gt;An example would be nesting. LESS allows you to nest selectors like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#header {
+  overflow: hidden;
+
+  h1 {
+    font-size: 3em;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As someone who doesn’t have a background in programming, I did find this initially confusing, but it soon begins to make sense and once you start working this way you will probably never want to go back.&lt;/p&gt;
+
+&lt;p&gt;This code will output as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#header {
+  overflow: hidden;
+}
+
+#header h1 {
+  font-size: 3em;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Something else you will notice in the above snippet is that there is a blank line before the descendent selector, an no blank lines after the closing brakets. This is something we agreed upon as a standard because it makes code more readable.&lt;/p&gt;
+
+&lt;p&gt;It doesn’t matter what your coding conventions are, as long as they make sense to you and your team, but using them will increase productivity considerably and are worth the investment in time it takes to establish them.&lt;/p&gt;
+
+&lt;p&gt;Another thing that is worth doing, and again, something we are working on, is drafting a &lt;a href=&quot;https://github.com/styleguide/css&quot;&gt;CSS styleguide&lt;/a&gt;. This is something that you can add to over time as and when you add new tools and methodologies into your process, such as we have, working with LESS and CodeKit.&lt;/p&gt;
+
+&lt;p&gt;The key thing to remember is that whatever you come up with, it needs to be something that your team can all get on board with, as the aim is to increase productivity and make things easier to maintain.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>History state and the back button</title>
    <link href="http://easyart.github.com/2012/04/11/history-state-and-the-back-button"/>
-   <updated>2012-04-11T00:00:00+01:00</updated>
+   <updated>2012-04-11T00:00:00+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;I&amp;rsquo;ve been playing around with the HTML5 history API today, in order to make certain parts of our new product page bookmarkable. Here&amp;rsquo;s what we&amp;rsquo;re aiming for:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;On page1.html, the user clicks an a tag which has a href value of page2.html&lt;/li&gt;
+&lt;li&gt;Instead of refreshing the page with the contents of framing.html, a panel in the page slides across to reveal the contents of page2.html in the current page&lt;/li&gt;
+&lt;li&gt;The URL changes to page2.html&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;This is relatively easy to achieve by intercepting these links, and replacing them with Javascript behavior and using the HTML5 History API to push a new URL into the address bar. So, as an example, the following code will find every a on the page and instead of navigating to the href, just push the state into the address bar.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/2359314.js&quot;&gt; &lt;/script&gt;
+
+
+&lt;p&gt;So we can quite easily intercept links to page2.html (either based on their href attribute or a CSS class), push the href into the address bar and load the content into the current page in some fancy-pants way.&lt;/p&gt;
+
+&lt;p&gt;But say you want the back button to navigate the user from page2.html back to page1.html. This won&amp;rsquo;t work, because unless you tell it to do otherwise, the back button will change the address, but do nothing else.&lt;/p&gt;
+
+&lt;p&gt;This is where popstate comes in. Using popstate we can listen for changes in the address, and act upon them accordingly. So my code ended up looking something like this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/2359401.js&quot;&gt; &lt;/script&gt;
+
+
+&lt;p&gt;It&amp;rsquo;s also possible to pass objects and titles through to pushstate, but I won&amp;rsquo;t go into that for now as it&amp;rsquo;s not yet well supported by browsers. Simply finding out the address of the page was good enough to solve the immediate problem.&lt;/p&gt;
+
+&lt;p&gt;Resources:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://diveintohtml5.info/history.html&quot;&gt;http://diveintohtml5.info/history.html&lt;/a&gt;
+&lt;a href=&quot;https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history&quot;&gt;https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history&lt;/a&gt;&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Testing Rails JSON APIs with RSpec</title>
    <link href="http://easyart.github.com/2012/04/10/testing-rails-json-apis-with-rspec"/>
-   <updated>2012-04-10T00:00:00+01:00</updated>
+   <updated>2012-04-10T00:00:00+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;I&amp;rsquo;ve spent some time in the last couple of weeks taking the learnings from an early API prototype, and starting a new Rails application from scratch, complete with RSpec tests. Here are some notes on some of our tools and methodologies.&lt;/p&gt;
+
+&lt;h3&gt;Model specs&lt;/h3&gt;
+
+&lt;p&gt;We&amp;rsquo;re overriding the as_json method in our models and we&amp;rsquo;re using &lt;a href=&quot;https://github.com/collectiveidea/json_spec&quot;&gt;json_spec&lt;/a&gt; to test the documents have the right structure.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/2349770.js&quot;&gt; &lt;/script&gt;
+
+
+&lt;h3&gt;Request specs&lt;/h3&gt;
+
+&lt;p&gt;We have hundreds of lines of &lt;a href=&quot;https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec&quot;&gt;request specs&lt;/a&gt;, and no controller specs. Here is a simple example:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/2349801.js&quot;&gt; &lt;/script&gt;
+
+
+&lt;p&gt;Because we&amp;rsquo;re getting an actual HTTP payload back (in the response variable) we can inspect whatever part of it that&amp;rsquo;s relevant to us. We know the structure of the responses should come back in a known format because we&amp;rsquo;re testing the to_json method in the class specs. So it&amp;rsquo;s just a matter of using JSON.parse on the response.body and testing it as a native Ruby object.&lt;/p&gt;
+
+&lt;p&gt;Of course, this means that we are trusting JSON.parse to behave reliably but that&amp;rsquo;s an assumption worth making. If we were really pedantic, we could check that each object in the response array matches the expected structure:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/2349803.js&quot;&gt; &lt;/script&gt;
+
+
+&lt;p&gt;Though I&amp;rsquo;m not sure that&amp;rsquo;s actually testing anything meaningful.&lt;/p&gt;
+
+&lt;p&gt;Another great advantage is that it makes refactoring simple. As far as the specs are concerned, a request to is the same whether the heavy lifting is done in the model or the controller. This really helped me recently when I moved a bunch of logic from the controller to the model as I could let the specs tell me which parts starting misbehaving.&lt;/p&gt;
+
+&lt;p&gt;Update: &lt;a href=&quot;http://37signals.com/svn/posts/3159-testing-like-the-tsa&quot;&gt;An interesting post by DHH about over-testing.&lt;/a&gt;&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>On source control</title>
    <link href="http://easyart.github.com/2012/04/05/on-source-control"/>
-   <updated>2012-04-05T00:00:00+01:00</updated>
+   <updated>2012-04-05T00:00:00+01:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;Source control is fairly commonplace these days. Most people use the likes of &lt;a href=&quot;http://git-scm.com/&quot;&gt;GIT&lt;/a&gt; or &lt;a href=&quot;http://subversion.tigris.org/&quot;&gt;SVN&lt;/a&gt; as part of their process, however there are still plenty of people out there who don’t use version control because they either don’t see a reason to or they don’t know where to start.&lt;/p&gt;
+
+&lt;p&gt;Until mid-way through last year, I fell into the latter category. I worked alone as a freelancer and made good use of &lt;a href=&quot;http://dropbox.com/&quot;&gt;Dropbox&lt;/a&gt;. The thing is, I was really missing out. It wasn’t until I started working as part of a team that I saw the real benefits.&lt;/p&gt;
+
+&lt;p&gt;I had tried to used these tools a few times, but quickly became overwhelmed by the magnitude of documentation that was presented to me. It all seemed to complicated and still, I couldn’t understand how I would benefit from this extra step in my workflow.&lt;/p&gt;
+
+&lt;p&gt;The thing is, once someone sat down with me and took me through what I needed to know about these systems, it almost became second nature. I have now got experience using both SVN and GIT and would highly recommend GIT over SVN to anyone, especially with the use of &lt;a href=&quot;http://github.com/&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;These days, particularly if you use a Mac (which I assume most developers do), there are some great, simple user interfaces for both GIT and SVN which will help you to get started and give you an understanding as to how these technologies work. Once you understand this, its really easy to learn the terminal commands.&lt;/p&gt;
+
+&lt;p&gt;The apps I would recommend are &lt;a href=&quot;http://versionsapp.com/&quot;&gt;Versions&lt;/a&gt; for SVN and &lt;a href=&quot;http://mac.github.com/&quot;&gt;Github:Mac&lt;/a&gt; for GIT. Both are relatively self-explanatory but also have good documentation available.&lt;/p&gt;
+
+&lt;p&gt;Stick with it and you will wonder how you ever worked without this stuff. Personally, I would never start a project without using GIT now, even when working solo.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>The importance of LESS</title>
    <link href="http://easyart.github.com/2012/03/26/the-importance-of-less"/>
-   <updated>2012-03-26T00:00:00+01:00</updated>
+   <updated>2012-03-26T00:00:00+01:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;I recently &lt;a href=&quot;/2012/03/23/getting-to-know-codekit/&quot;&gt;wrote about CodeKit&lt;/a&gt; and how it has improved our workflow when using pre-processors, but at the time I didn’t allude to the reason that we would use such things. Whilst LESS and SASS are certainly gaining traction, there are many developers out there who just don’t see the point in using something like that.&lt;/p&gt;
+
+&lt;p&gt;I must admit, I too was sceptical when I started reading about this new-fangled way to write CSS. I was confident that my code was of a high standard, efficient and maintainable, and I also loved the hand-crafted feeling you get from hand-coding everything (including vendor pre-fixes). The thing is, I just could see how pre-processors could make my code any better.&lt;/p&gt;
+
+&lt;p&gt;Of course I was missing the point. In order to really get the most out of these tools, you need to be writing good quality code anyway. LESS will not make you a better developer, but it can make you more efficient.&lt;/p&gt;
+
+&lt;p&gt;The first thing that normally wins people over is the use of variables. How many times have you scrolled up and down that stylesheet, looking for that colour value? Well, not with LESS. Here’s another one. You want your box-shadows to be consistent, and you can’t remember the exact code you used. Again, you could spend a few minutes searching through your stylesheet, or you could just use LESS.&lt;/p&gt;
+
+&lt;p&gt;The point is, LESS is great for enabling you to work faster and it can really eliminate the tedious parts of the job too. Really, there is no reason to repeat ourselves in code, time after time. Why not use a tool that takes care of the repetitive tasks for you.&lt;/p&gt;
+
+&lt;p&gt;Now, what I have just talked about only scratches the surface of what LESS is capable of, and there is much of it that you might not find useful, and that»s fine. Take what you need from it, but don’t write it off until you have taken the time to see how it can really benefit your workflow.&lt;/p&gt;
+
+&lt;h3&gt;Links and resources&lt;/h3&gt;
+
+&lt;p&gt;Here are a few links and resources that will help you learn more about LESS:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://lesscss.org/&quot;&gt;The official LESS website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/&quot;&gt;An introduction to LESS and comparison to SASS – Smashing Magazine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.stuffandnonsense.co.uk/blog/about/less&quot;&gt;LESS – Stuff and Nonsense&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://steverydz.com/2012/02/13/colour-theory-with-less/&quot;&gt;Colour theory with LESS – Steve Rydz (me)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
  </entry>
  
  <entry>
    <title>On Naming Schemes</title>
    <link href="http://easyart.github.com/2012/03/23/on-naming-schemes"/>
-   <updated>2012-03-23T00:00:00+00:00</updated>
+   <updated>2012-03-23T00:00:00+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;There has been some debate internally about how naming our systems and applications. On the surface it may seem trivial, I find having a naming scheme really helps for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Discussing how systems relate to one another. It&amp;rsquo;s much easier to talk about Bootstrap than &amp;ldquo;The Twitter CSS Framework&amp;rdquo;. Significant advances in the application may result in new names, meaning less talk of &amp;ldquo;the new system&amp;rdquo; and &amp;ldquo;the old system&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Organising Git repositories. Calling things &amp;ldquo;API&amp;rdquo; or &amp;ldquo;CSS framework&amp;rdquo; is boring and not specific enough to be useful.&lt;/li&gt;
+&lt;li&gt;Every project deserves a little personality of its own.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/naming-schemes.jpeg&quot; alt=&quot;Naming schemes&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;So, with that in mind, we have decided to use movie directors as the naming scheme for our systems, starting with our new API-driven platform, Kubrick. So if &amp;ldquo;&lt;a href=&quot;http://martinfowler.com/bliki/TwoHardThings.html&quot;&gt;there are only two hard things in Computer Science&lt;/a&gt;: cache invalidation and naming things&amp;rdquo;, perhaps we have reason to celebrate!&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Getting to know Codekit</title>
    <link href="http://easyart.github.com/2012/03/23/getting-to-know-codekit"/>
-   <updated>2012-03-23T00:00:00+00:00</updated>
+   <updated>2012-03-23T00:00:00+00:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;CSS pre-processors are all the rage these days, or so it would seem, but it can be a little complicated to get up and running with them, unless you’re using the right tools. Enter &lt;a href=&quot;http://incident57.com/codekit/&quot;&gt;CodeKit&lt;/a&gt;. This little app does pretty much everything from compiling LESS, SASS, HAML and CoffeeScript to optimising images and allowing you to import JavaScript files into each other.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/codekit.jpeg&quot; alt=&quot;Codekit&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Since I started using &lt;a href=&quot;http://lesscss.org/&quot;&gt;LESS&lt;/a&gt; about six months ago I have been on the hunt for an app that can make the process of using it simple. That’s where CodeKit comes into it. Previously I had been using the &lt;a href=&quot;http://incident57.com/less/&quot;&gt;LESS app&lt;/a&gt; and on a surface level found it worked well, but it was lacking a sense of intuitiveness. CodeKit just &lt;em&gt;knows&lt;/em&gt; what I’m trying to do and doesn&amp;rsquo;t require much in the way of configuration, at least where LESS is concerned.&lt;/p&gt;
+
+&lt;p&gt;I will be writing more about how we use CodeKit at Easyart in the future, but for now I will simply say that if you are at all involved in front-end development then you should check out it out as you will surely find it will improve your workflow and potentially make you more productive.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>Goodbye Campfire, Hello Flowdock</title>
    <link href="http://easyart.github.com/2012/03/22/goodbye-campfire-hello-flowdock"/>
-   <updated>2012-03-22T00:00:00+00:00</updated>
+   <updated>2012-03-22T00:00:00+00:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;For a number of years I&amp;rsquo;ve really loved using &lt;a href=&quot;http://campfirenow.com/&quot;&gt;Campfire&lt;/a&gt; for team chat and collaboration, but today I&amp;rsquo;ve cancelled our account. I&amp;rsquo;ve found that as time has gone on, and our team has grown, it&amp;rsquo;s become increasingly frustrating to use. My main issues are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The timeline ends up with too much noise from Github commits and issues.&lt;/li&gt;
+&lt;li&gt;Search is clunky. You can only search using keywords, and you have to leave the room to do so.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;a href=&quot;https://www.flowdock.com/&quot;&gt;Flowdock&lt;/a&gt; solves these problems by using one pane for chat, and another for &amp;ldquo;Team Inbox&amp;rdquo; and Search.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/flowdock.png&quot; alt=&quot;Flowdock&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Team Inbox is by far the most useful feature. We use it for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;All Github activity. When new files are committed, you can mouse over for a full list of changes, and click to get to the Github commit page. When issues are opened or closed, they show too.&lt;/li&gt;
+&lt;li&gt;Inbox. We feed in the &lt;a href=&quot;http://twitter.com/easyartuk&quot;&gt;@easyartuk&lt;/a&gt; Twitter account (you can see one of the tweets in the bottom-right corner), and all emails to our developer account, and they&amp;rsquo;ll show up in our feed.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;You can also comment on any of this activity contextually. So, for instance, I could comment on an email. Search is also really cool too, and you can filter by files, links, and attachments. &lt;em&gt;Without&lt;/em&gt; leaving the chat.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s been a really useful tool for us, and I can&amp;rsquo;t see us going back to Campfire.&lt;/p&gt;
+</content>
  </entry>
  
- 
+
 </feed>
