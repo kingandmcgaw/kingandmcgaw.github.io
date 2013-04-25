@@ -31,6 +31,41 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/04/19/codekit-tip-export-project-settings">Codekit tip: Export project settings</a></h2>
+      <p class="updated">Posted on 19 April 2012
+        by
+        
+        
+        
+        <a href="/authors/steve-rydz/">
+        
+        Steve Rydz
+        </a>
+      </p>
+    </header>
+    <p>A few weeks ago I wrote about <a href="/2012/03/23/getting-to-know-codekit">getting to know CodeKit</a>. As a team, we have been using this tool solidly since then and it is now hard to imagine not working without it.</p>
+
+<p>We did have a couple of issues with it though. The first was that everytime we updated the app, we had to set up our project again. This has been fixed in a recent release.</p>
+
+<p>The other issue was that when working as a team, we had to ensure that we all had the exact same set-up. CodeKit is very intelligent and recognised what we were trying to acheive most of the time but we still found ourselves having to update output directories etc.</p>
+
+<p>As it turns out, there was one simple solution to both of these problems. It is possible to export a config file for each project with it’s settings. This file lives in the root directory of your project and every time you drag a project into CodeKit, it looks for this file automatically.</p>
+
+<p><img src="/assets/img/posts/codekit-2.png" alt="Codekit"></p>
+
+<p>To export the configuration file, simply highlight the project you are currently working on, right click on it, hover over the ‘Project settings’ menu, then click ‘Export project configuration file’. CodeKit will then place that file in the root directory of your project. That’s all there is to it.</p>
+
+<p>This approach has worked really well for us and taken the burden of having to constantly ensure we are all doing the same thing away from us. The other great thing about this is that we now have this config file in our GIT repository.</p>
+
+<p>All we have to do if we change the way our project is set up or introduce something new is to export another file and because we are using GIT, we will all get the latest file when we pull down the latest code.</p>
+
+<p><strong>Note:</strong> According to the CodeKit website, the free, BETA version of the app expires tomorrow (20th April, 2012), and I have heard rumours that it will be on sale via the app store for around $20. This app is more than worth that amount and if this is the case, I will certainly be purchasing a license first thing.</p>
+
+    <p><a href="/2012/04/19/codekit-tip-export-project-settings">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Deploying static assets to S3 using s3cmd</a></h2>
       <p class="updated">Posted on 17 April 2012
         by
@@ -164,53 +199,6 @@
     <p><a href="/2012/04/12/a-unified-coding-style">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/04/11/history-state-and-the-back-button">History state and the back button</a></h2>
-      <p class="updated">Posted on 11 April 2012
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>I&rsquo;ve been playing around with the HTML5 history API today, in order to make certain parts of our new product page bookmarkable. Here&rsquo;s what we&rsquo;re aiming for:</p>
-
-<ol>
-<li>On page1.html, the user clicks an a tag which has a href value of page2.html</li>
-<li>Instead of refreshing the page with the contents of framing.html, a panel in the page slides across to reveal the contents of page2.html in the current page</li>
-<li>The URL changes to page2.html</li>
-</ol>
-
-
-<p>This is relatively easy to achieve by intercepting these links, and replacing them with Javascript behavior and using the HTML5 History API to push a new URL into the address bar. So, as an example, the following code will find every a on the page and instead of navigating to the href, just push the state into the address bar.</p>
-
-<script src="https://gist.github.com/2359314.js"> </script>
-
-
-<p>So we can quite easily intercept links to page2.html (either based on their href attribute or a CSS class), push the href into the address bar and load the content into the current page in some fancy-pants way.</p>
-
-<p>But say you want the back button to navigate the user from page2.html back to page1.html. This won&rsquo;t work, because unless you tell it to do otherwise, the back button will change the address, but do nothing else.</p>
-
-<p>This is where popstate comes in. Using popstate we can listen for changes in the address, and act upon them accordingly. So my code ended up looking something like this:</p>
-
-<script src="https://gist.github.com/2359401.js"> </script>
-
-
-<p>It&rsquo;s also possible to pass objects and titles through to pushstate, but I won&rsquo;t go into that for now as it&rsquo;s not yet well supported by browsers. Simply finding out the address of the page was good enough to solve the immediate problem.</p>
-
-<p>Resources:</p>
-
-<p><a href="http://diveintohtml5.info/history.html">http://diveintohtml5.info/history.html</a>
-<a href="https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history">https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history</a></p>
-
-    <p><a href="/2012/04/11/history-state-and-the-back-button">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -325,6 +313,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/04/25/making-ideas-happen">Making Ideas Happen</a></li>
+    
     <li><a href="/2013/04/22/transitioning-to-bourbon">Transitioning to Bourbon</a></li>
     
     <li><a href="/2013/04/21/why-dont-other-industries-use-version-control">Why don't other industries use version control?</a></li>
@@ -342,8 +332,6 @@
     <li><a href="/2013/01/26/links-this-week">Links This Week</a></li>
     
     <li><a href="/2013/01/25/personality-in-code">Personality in Code</a></li>
-    
-    <li><a href="/2013/01/21/front-end-performance-for-web-designers-and-front-end-developers">Front-end performance for web designers and front-end developers</a></li>
     
   </ol>
 </div>
