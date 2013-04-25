@@ -6,8 +6,7 @@ author: Nick Boyce
 ---
 A couple of years ago I had the pleasure of seeing [Scott Belsky](http://www.scottbelsky.com/) (of [Behance](http://www.behance.com) and now [Adobe](http://www.adobe.com) fame speak about his book [Making Ideas Happen](http://99u.com/book/making-ideas-happen) at the [Like Minds Business Book Club](http://wearelikeminds.com/books)). 
 
-{% vimeo 29564068 %}
-*"Making Ideas Happen" at the 99% conference.*
+{% youtube lsQtptwMCFI %}
 
 It's a fantastic book which celebrates some of the things I value most - collaboration, creativity and getting things done! Here are my some of the passages I highlighted on my Kindle.
 
