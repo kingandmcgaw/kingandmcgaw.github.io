@@ -31,6 +31,90 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/03/01/git-tricks">Git tricks</a></h2>
+      <p class="updated">Posted on 01 March 2013
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>About a year or so ago, I started keeping notes of my most-used Git tricks. I still refer back to them as I am so terrible at remembering commands (particularly unintuitive ones like deleting remote branches), so I thought they might be useful for others too.</p>
+
+<hr />
+
+<p>Keep git from tracking permission changes to files</p>
+
+<pre><code>git config core.filemode false
+</code></pre>
+
+<p>Restore a branch to the remote version (i.e. if you have pulled an incorrect remote branch)</p>
+
+<pre><code>git fetch git reset --hard origin/master
+</code></pre>
+
+<p>Restore a single file to a version on another branch</p>
+
+<pre><code>git checkout branch_name path/to-file    
+</code></pre>
+
+<p>Search for a string in the commit history:</p>
+
+<pre><code>git show :/search_string  
+</code></pre>
+
+<p>Amend the last commit message:</p>
+
+<pre><code>git commit --amend -m "New commit message"  
+</code></pre>
+
+<p>Toggle between branches</p>
+
+<pre><code>git checkout -  
+</code></pre>
+
+<p>colourise all git commands</p>
+
+<pre><code>git config --global color.ui true  
+</code></pre>
+
+<p>Use mergetool</p>
+
+<pre><code>git mergetool -t opendiff
+</code></pre>
+
+<p>Delete a branch remotely</p>
+
+<pre><code>git push origin :newfeature
+</code></pre>
+
+<p>Delete a branch locally</p>
+
+<pre><code>git branch -d newfeature  
+</code></pre>
+
+<p>Delete branches that don&rsquo;t exist on remote</p>
+
+<pre><code>git remote prune origin
+</code></pre>
+
+<p>This one is Github-specific: You can compare commit ranges by appending compare like so&hellip;</p>
+
+<pre><code>compare/master…someotherbranch
+compare/master@{yesterday}…master
+compare/master@{2.days.ago}…master
+compare/master@{2012-05-01}…master
+</code></pre>
+
+    <p><a href="/2013/03/01/git-tricks">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/02/17/links-for-the-week">Links for the week</a></h2>
       <p class="updated">Posted on 17 February 2013
         by
@@ -156,31 +240,6 @@
     <p><a href="/2013/01/26/links-this-week">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/01/25/personality-in-code">Personality in Code</a></h2>
-      <p class="updated">Posted on 25 January 2013
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>I liked this nice little post-install message from <a href="https://github.com/jnunemaker/httparty">HTTParty</a>:</p>
-
-<pre><code>Post-install message from httparty:
-When you HTTParty, you must party hard!
-</code></pre>
-
-<p>Code can have personality too!</p>
-
-    <p><a href="/2013/01/25/personality-in-code">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -295,6 +354,8 @@ When you HTTParty, you must party hard!
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/04/29/notes-from-industry-conference">Notes from Industry Conference</a></li>
+    
     <li><a href="/2013/04/25/making-ideas-happen">Making Ideas Happen</a></li>
     
     <li><a href="/2013/04/22/transitioning-to-bourbon">Transitioning to Bourbon</a></li>
@@ -312,8 +373,6 @@ When you HTTParty, you must party hard!
     <li><a href="/2013/02/03/mobile-continuees-to-grow">Mobile continues to grow</a></li>
     
     <li><a href="/2013/01/26/links-this-week">Links This Week</a></li>
-    
-    <li><a href="/2013/01/25/personality-in-code">Personality in Code</a></li>
     
   </ol>
 </div>
