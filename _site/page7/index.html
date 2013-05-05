@@ -31,6 +31,49 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/10/05/some-notes-from-webperfdays">Some notes from WebPerfDays</a></h2>
+      <p class="updated">Posted on 05 October 2012
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>I&rsquo;m just back from <a href="http://webperfdays.org/">WebPerfDays</a> at Facebook&rsquo;s <a href="http://www.facebook.com/facebooklondon">London engineering offices</a> in Covent Garden. It was a really great day out, with some great presenters.</p>
+
+<p>A few notes&hellip;</p>
+
+<ul>
+<li><a href="http://www.webperformancetoday.com/">Joshua Bixby</a> is a really good presenter and I&rsquo;ll be following his blog.</li>
+<li>Not all performace stats apply to all companies. There were several examples cited of how reducing page load time had either no discernable effect, or even a negative impact (though they were very specific cases).</li>
+<li>&ldquo;Mortal companies&rdquo; have different problems to the Googles, Facebooks and Amazons of the world.</li>
+<li>Using a CDN doesn&rsquo;t guarantee those assets are delivered to the user faster. Our measurements would suggest otherwise, but a second look at the data would be wise.</li>
+<li>97% of mobile response time is on the front end!</li>
+<li>I like the concept of a &ldquo;poverty line&rdquo; in performance. i.e. if a metric is below a certain threshold it&rsquo;s &ldquo;poor&rdquo;.</li>
+<li>A significant percentage of mobile users prefer the full site rather than a mobile version.</li>
+<li>Simply cleaning up code and doing all the things you already know you should be doing will get you 80% of the way to where you need to get to with front-end code.</li>
+<li>We should check out <a href="http://www.writegoodcode.com/">writegoodcode.com</a>.</li>
+<li>After you optimise your front-end code, you have to be be vigilant about maitaining the gains you have made.</li>
+<li>Other people probably have more difficult performance problems to solve than us. Seatwave have to cope for massive (60x) request peaks in requests in a matter of seconds (i.e. when their TVC is aired in the middle of X-Factor or a new concert goes on sale).</li>
+<li>We should take a close look on the performance of our third party dependencies. They are generally recognised as evil when it comes to web performance.</li>
+<li>Lonely Planet have a really great DevOps culture in their company (see their (dev blog)[http://devops.lonelyplanet.com/]) where metrics are king and web performance is recognised as a priority throughout the whole organisation. * They have gone some way to replacing “HiPPO” (Highest Paid Person’s Opinion) with real data.</li>
+<li>Webpagetest.org is a tool that a lot of web performance experts seem to refer to.</li>
+<li>Facebook have problems that are extremely unique, and fascinating from an observer&rsquo;s standpoint, but intimidatingly complex from a developer&rsquo;s. Sławek Biel did a really interesting presentation about how Facebook optimises its data access.</li>
+<li>Overall, it&rsquo;s just reminded me that we need to continue to focus on performance as part of what we do.</li>
+</ul>
+
+
+<p>Update: Some of the presentations are <a href="http://www.seriticonsulting.com/blog/2012/10/8/webperfdays-summary-and-slides.html">now available online</a>.</p>
+
+    <p><a href="/2012/10/05/some-notes-from-webperfdays">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/08/01/basecamp-at-easyart">Basecamp at Easyart</a></h2>
       <p class="updated">Posted on 01 August 2012
         by
@@ -186,64 +229,6 @@
     <p><a href="/2012/05/21/git-based-deploys">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/05/01/using-selenium-and-rspec-for-behaviour-testing">Using Selenium and Rspec for behaviour testing</a></h2>
-      <p class="updated">Posted on 01 May 2012
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>We&rsquo;ve been doing some restructuring here at Easyart, in order to set up a more Git-centric workflow for deployments. We wanted to make sure that we had some tests which would help us spot any problems while we made the transition.</p>
-
-<p>I&rsquo;m relatively comfortable with Rspec, so it was a natural starting point. But given that the sites themselves aren&rsquo;t built in Ruby, I&rsquo;m using Rspec to power Selenium Webdriver.</p>
-
-<p>Here&rsquo;s a sample test:</p>
-
-<script src="https://gist.github.com/2566740.js"> </script>
-
-
-<p>The Selenium::WebDriver object makes writing these tests pretty simple. These are the main methods we use:</p>
-
-<ul>
-<li>find_element and find_elements</li>
-<li>get (or navigate.to, which I think are identical)</li>
-<li>title</li>
-</ul>
-
-
-<p>That&rsquo;s pretty much it! These are the methods in the Selenium::WebDriver::Element object we are making the most use of:</p>
-
-<ul>
-<li>text</li>
-<li>click</li>
-<li>send_keys</li>
-</ul>
-
-
-<p>Here&rsquo;s an example which makes use of these:</p>
-
-<script src="https://gist.github.com/2566849.js"> </script>
-
-
-<p>One thing that took some getting used to was using the Selenium::WebDriver::Wait object. When you do a click, you have to tell Selenium you want to wait for a certain condition to be true before moving on to the next live of code.</p>
-
-<p>In this example, I&rsquo;m waiting until the H1 tag contains the word &ldquo;cart&rdquo;:</p>
-
-<script src="https://gist.github.com/2567891.js"> </script>
-
-
-<p>I&rsquo;m used Rspec for unit and request specs, but it&rsquo;s advantageous to use a visible browser for this type of testing, as sometimes you can spot things with your eye that your tests won&rsquo;t. Then you write the test to catch it.</p>
-
-    <p><a href="/2012/05/01/using-selenium-and-rspec-for-behaviour-testing">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -358,6 +343,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/05/05/json-api">JSONAPI.org</a></li>
+    
     <li><a href="/2013/04/29/notes-from-industry-conference">Notes from Industry Conference</a></li>
     
     <li><a href="/2013/04/25/making-ideas-happen">Making Ideas Happen</a></li>
@@ -375,8 +362,6 @@
     <li><a href="/2013/02/10/links-for-the-week">Links for the week</a></li>
     
     <li><a href="/2013/02/03/mobile-continuees-to-grow">Mobile continues to grow</a></li>
-    
-    <li><a href="/2013/01/26/links-this-week">Links This Week</a></li>
     
   </ol>
 </div>

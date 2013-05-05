@@ -105,6 +105,10 @@ pre {
 
 code {
   font-family: $monospace;
+  background: #eee;
+  border: 1px solid $border-color;
+  padding: 0.5em;
+  @include border-radius(5px);
 }
 
 hr {

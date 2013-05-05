@@ -7,7 +7,7 @@
 <meta name="author" content="Easyart">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Conventions | Easyart Developers</title>
+<title>JSONAPI.org | Easyart Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -31,40 +31,68 @@
 
         <article class="hentry">
           <header>
-            <h2>Conventions</h2>
-            <p class="updated">Posted on 13 December 2012
+            <h2>JSONAPI.org</h2>
+            <p class="updated">Posted on 05 May 2013
               by
               <a href="/authors/nick-boyce/">Nick Boyce</a>. Find me on <a href="https://plus.google.com/u/1/108806228703128779712?rel=author">Google+</a>
               
             </p>
           </header>
-          <p>Part of the way the team has evolved this year has required putting more emphasis on consistent coding conventions and procedures to make our collaboration smoother. Here are a few notes.</p>
+          <p>I was interested to see <a href="http://jsonapi.org/">jsonapi.org</a> spring up on the web recently. Though it&rsquo;s authored by Ember&rsquo;s team, the references to Ember have been moved from the homepage to the <a href="http://jsonapi.org/history">history</a> section, and it&rsquo;s clear that the ambition is to set a standard for API compatibility between servers and clients.</p>
 
-<p><strong>Javascript</strong></p>
+<p>Overall I applaud the ambition and it&rsquo;s clearly written by clever people. That said, I believe consuming the proposed data structures is more complicated unless you&rsquo;re using a compatible library.</p>
 
-<p><a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">Google&rsquo;s Javascript style guide</a>, plus some JSHint config.</p>
+<p>Consider these examples&hellip;</p>
 
-<p><strong>CSS/Less</strong></p>
+<blockquote><p>If the value of a resource key is a JSON object, the value represents a single document.
+If the value of a resource key is a JSON array, the value represents a list of documents.</p></blockquote>
 
-<p>Our own internal styleguide.</p>
+<p>Isn&rsquo;t it better to have the URL scheme define if you are looking at a document or collection? i.e. <code>GET /resource</code> is a collection and <code>GET /resource/document</code> is a document?</p>
 
-<p><strong>HTML</strong></p>
+<blockquote><p>To save HTTP requests, it may be convenient to send related documents along with the requested documents.</p></blockquote>
 
-<p>Our own internal styleguide.</p>
+<p>For example:</p>
 
-<p><strong>Ruby</strong></p>
+<pre><code>{
+  "posts": {
+    "id": "1",
+    "title": "Rails is Omakase",
+    "rels": {
+      "author": 9
+    }
+  },
+  "people": [{
+    "id": "9",
+    "name": "@d2h"
+  }]
+}
+</code></pre>
 
-<p>Nothing yet, but probably the <a href="https://github.com/styleguide/ruby">Github Ruby Styleguide</a> in the future.</p>
+<p>So to list the post title and author name would be something like:</p>
 
-<p><strong>Git branching</strong></p>
+<pre><code>{posts.title}} by {people.where(id: 9).name}
+</code></pre>
 
-<p>We use something vaguely between <a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/">git-flow</a> and <a href="http://scottchacon.com/2011/08/31/github-flow.html">&ldquo;Github flow&rdquo;</a>. In essence, <code>master</code> is always deployable, <code>develop</code> is a shared staging branch, and feature branches are created for major or disruptive features. I could see us moving to git-flow next year.</p>
+<p>This is clever and probably the &ldquo;right&rdquo; way to do it, but is it easier to consume? I&rsquo;d suggest that nesting the documents is much easier:</p>
 
-<p><strong>Project naming</strong></p>
+<pre><code>{
+  "posts": {
+    "id": "1",
+    "title": "Rails is Omakase",
+    "author": {
+      "id": "9",
+      "name": "@d2h"
+    }
+  }
+}
+</code></pre>
 
-<p>We decided to name our projects after film directors. So far Romero (our internal CSS framework), Kubrick (our next-generation platform in development) and Eastwood (an experimental Backbone-based product page) are active, but I am sure more will sprint to life in 2013.</p>
+<p>And it can be consumed like this:</p>
 
-<p>It&rsquo;s pretty lean so far, but we&rsquo;re making refinements all the time.</p>
+<pre><code>{posts.title} by {posts.author.name}
+</code></pre>
+
+<p>Yes, it&rsquo;s imperfect and can result in more duplication and less flexibility, but I think for a lot of cases that isn&rsquo;t an issue.</p>
 
         </article>
         <div id="disqus_thread"></div>
