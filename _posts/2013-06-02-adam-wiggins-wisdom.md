@@ -9,7 +9,7 @@ This week [Adam Wiggins](http://about.adamwiggins.com/) announced that he has [s
 At Easyart we're big fans of Heroku (it's used extensively for our new platform), and Adam's general approach to modern web software design, so I thought it might be a good opportunity to review some of his nuggets of wisdom.
 
 ###[The Twelve-Factor App](http://www.12factor.net/)
-The principles from which the Heroku ecosystem is founded, but can be applied to any modern web application platform. 
+A manifesto for modern web software design and the principles. It's clearly the concepts from which the Heroku ecosystem is formed, but the principles can be applied to any modern web application platform stack. 
 
 ###[My Heroku Values](https://gist.github.com/adamwiggins/5687294)
 A few bits and pieces from this post:
