@@ -4,14 +4,14 @@ title: Some wisdom from Adam Wiggins
 date: 2013-06-02 16:04:53
 author: Nick Boyce
 ---
-[Adam Wiggins](http://about.adamwiggins.com/) has [stepped down](https://gist.github.com/adamwiggins/5687917) as CTO of [Heroku](http://heroku.com) to pursue other opportunities.
+This week [Adam Wiggins](http://about.adamwiggins.com/) announced that he has [stepped down](https://gist.github.com/adamwiggins/5687917) as CTO of [Heroku](http://heroku.com) to pursue other opportunities.
 
-At Easyart we're big fans of Heroku, and Adam's general approach to modern web software design, so I thought it might be a good opportunity to recount some of my favourite nuggets of wisdom.
+At Easyart we're big fans of Heroku, and Adam's general approach to modern web software design, so I thought it might be a good opportunity to review some of his nuggets of wisdom.
 
 ###[The Twelve-Factor App](http://www.12factor.net/)
 The principles from which the Heroku ecosystem is founded, but can be applied to any modern web application platform. 
 
-###[My Heroku Values](https://gist.github.com/adamwiggins/5687294)**
+###[My Heroku Values](https://gist.github.com/adamwiggins/5687294)
 A few bits and pieces from this post:
 
 > **Make it real**. Ideas are cheap. Make a prototype, sketch a CLI session, draw a wireframe. Discussions around concrete examples, not handy-waving abstractions. Don't say you did something, provide a URL that proves it.
