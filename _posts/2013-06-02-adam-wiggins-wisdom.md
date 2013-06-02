@@ -6,7 +6,7 @@ author: Nick Boyce
 ---
 This week [Adam Wiggins](http://about.adamwiggins.com/) announced that he has [stepped down](https://gist.github.com/adamwiggins/5687917) as CTO of [Heroku](http://heroku.com) to pursue other opportunities.
 
-At Easyart we're big fans of Heroku, and Adam's general approach to modern web software design, so I thought it might be a good opportunity to review some of his nuggets of wisdom.
+At Easyart we're big fans of Heroku (it's used extensively for our new platform), and Adam's general approach to modern web software design, so I thought it might be a good opportunity to review some of his nuggets of wisdom.
 
 ###[The Twelve-Factor App](http://www.12factor.net/)
 The principles from which the Heroku ecosystem is founded, but can be applied to any modern web application platform. 
@@ -23,3 +23,5 @@ A few bits and pieces from this post:
 > **Throw things away**. It's not the code that is valuable, it's the understanding you've gained from building it.
 
 > **Decision-making via ownership, not consensus or authority**. Every product, feature, software component, web page, business deal, blog post, and so on should have a single owner. Many people may collaborate on it, but the owner is "the buck stops here" and makes the final call on what happens with the owned thing.
+
+It will be interesting to see what he turns his hand to next.
