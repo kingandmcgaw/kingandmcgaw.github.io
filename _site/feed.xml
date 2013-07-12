@@ -4,11 +4,32 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-07-12T15:38:54+01:00</updated>
+ <updated>2013-07-12T16:22:09+01:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
+ 
+ <entry>
+   <title>Lazy loading Facebook buttons</title>
+   <link href="http://easyart.github.com/2013/07/12/lazy-loading-facebook-buttons"/>
+   <updated>2013-07-12T17:13:45+01:00 by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;We recently did the WordPress work for the &lt;a href=&quot;http://arteverywhere.org.uk/&quot;&gt;Art Everywhere&lt;/a&gt; project, and one of the requirements of the project was to include a Facebook like button for each artwork on the &lt;a href=&quot;http://arteverywhere.org.uk/artworks/&quot;&gt;Choose Artworks&lt;/a&gt; page.&lt;/p&gt;
+
+&lt;p&gt;That page has around 100 artworks on it so immediately I heard alarm bells, until I remembered the &lt;a href=&quot;http://socialitejs.com/&quot;&gt;Socialite plugin&lt;/a&gt;. This allows you to lazy-loading the Facebook buttons.&lt;/p&gt;
+
+&lt;p&gt;No matter what, we didn&amp;rsquo;t want all of those Facebook buttons to load at the same time, even if the rest of the page had already loaded, so we decided we would load them in on hover.&lt;/p&gt;
+
+&lt;p&gt;Initially we struggled to get this working how we wanted, as all the buttons would load when you hovered over any of the buttons. Finally &lt;a href=&quot;http://easyart.github.io/authors/nick-boyce/&quot;&gt;Nick&lt;/a&gt; found the solution:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&quot;.artwork-info&quot;).hover(function () {
+    Socialite.load(this);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It turns out, all we had to do was pass &lt;code&gt;this&lt;/code&gt; to the &lt;code&gt;Socialite.load&lt;/code&gt; function. So, if ever you find yourself having to implement similar functionality, you know what to do.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Some wisdom from Adam Wiggins</title>

@@ -7,7 +7,7 @@
 <meta name="author" content="Easyart">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The breakpoint podcasts | Easyart Developers</title>
+<title>Lazy loading Facebook buttons | Easyart Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -31,23 +31,27 @@
 
         <article class="hentry">
           <header>
-            <h2>The breakpoint podcasts</h2>
-            <p class="updated">Posted on 19 November 2012
+            <h2>Lazy loading Facebook buttons</h2>
+            <p class="updated">Posted on 12 July 2013
               by
               <a href="/authors/steve-rydz/">Steve Rydz</a>
               
             </p>
           </header>
-          <p>Lately I&rsquo;ve been enjoying a new video series from the <a href="http://www.youtube.com/user/GoogleDevelopers?feature=watch">Google Developers channel</a> called <strong>The Breakpoint</strong> with <a href="http://paulirish.com">Paul Irish</a> and <a href="http://addyosmani.com/">Addy Osmani</a>, which focuses on front-end developer tools.</p>
+          <p>We recently did the WordPress work for the <a href="http://arteverywhere.org.uk/">Art Everywhere</a> project, and one of the requirements of the project was to include a Facebook like button for each artwork on the <a href="http://arteverywhere.org.uk/artworks/">Choose Artworks</a> page.</p>
 
-<p>So far there have been three episodes and I highly recommend checking them out:</p>
+<p>That page has around 100 artworks on it so immediately I heard alarm bells, until I remembered the <a href="http://socialitejs.com/">Socialite plugin</a>. This allows you to lazy-loading the Facebook buttons.</p>
 
-<ul>
-<li><a href="http://www.youtube.com/watch?v=ktwJ-EDiZoU">Episode 1</a></li>
-<li><a href="http://www.youtube.com/watch?v=PPXeWjWp-8Y&amp;feature=relmfu">Episode 2</a></li>
-<li><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=HijZNR6kc9A">Episode 3</a></li>
-</ul>
+<p>No matter what, we didn&rsquo;t want all of those Facebook buttons to load at the same time, even if the rest of the page had already loaded, so we decided we would load them in on hover.</p>
 
+<p>Initially we struggled to get this working how we wanted, as all the buttons would load when you hovered over any of the buttons. Finally <a href="http://easyart.github.io/authors/nick-boyce/">Nick</a> found the solution:</p>
+
+<pre><code>$(".artwork-info").hover(function () {
+    Socialite.load(this);
+});
+</code></pre>
+
+<p>It turns out, all we had to do was pass <code>this</code> to the <code>Socialite.load</code> function. So, if ever you find yourself having to implement similar functionality, you know what to do.</p>
 
         </article>
         <div id="disqus_thread"></div>
