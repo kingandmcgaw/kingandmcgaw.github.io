@@ -31,6 +31,47 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/06/02/adam-wiggins-wisdom">Some wisdom from Adam Wiggins</a></h2>
+      <p class="updated">Posted on 02 June 2013
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>This week <a href="http://about.adamwiggins.com/">Adam Wiggins</a> announced that he has <a href="https://gist.github.com/adamwiggins/5687917">stepped down</a> as CTO of <a href="http://heroku.com">Heroku</a> to pursue other opportunities.</p>
+
+<p>At Easyart we&rsquo;re big fans of Heroku (it&rsquo;s used extensively for our new platform), and Adam&rsquo;s general approach to modern web software design, so I thought it might be a good opportunity to review some of his nuggets of wisdom.</p>
+
+<h3><a href="http://www.12factor.net/">The Twelve-Factor App</a></h3>
+
+<p>A manifesto for modern web software design and the principles. It&rsquo;s clearly the concepts from which the Heroku ecosystem is formed, but the principles can be applied to any modern web application platform stack.</p>
+
+<h3><a href="https://gist.github.com/adamwiggins/5687294">My Heroku Values</a></h3>
+
+<p>A few bits and pieces from this post:</p>
+
+<blockquote><p><strong>Make it real</strong>. Ideas are cheap. Make a prototype, sketch a CLI session, draw a wireframe. Discussions around concrete examples, not handy-waving abstractions. Don&rsquo;t say you did something, provide a URL that proves it.</p>
+
+<p><strong>Ship it</strong>. Nothing is real until it&rsquo;s being used by a real user. This doesn&rsquo;t mean you make a prototype in the morning and blog about it in the evening. It means you find one person you believe your product will help and try to get them to use it.</p>
+
+<p><strong>Divide and conqueor</strong>. Big, hard problems become easy if you cut them into small pieces. How do you eat the elephant? One bite at a time. If a problems seems hard, think about how you can cut it into two smaller, easier problems. If one of those problems is still too hard, cut it in half again.</p>
+
+<p><strong>Throw things away</strong>. It&rsquo;s not the code that is valuable, it&rsquo;s the understanding you&rsquo;ve gained from building it.</p>
+
+<p><strong>Decision-making via ownership, not consensus or authority</strong>. Every product, feature, software component, web page, business deal, blog post, and so on should have a single owner. Many people may collaborate on it, but the owner is &ldquo;the buck stops here&rdquo; and makes the final call on what happens with the owned thing.</p></blockquote>
+
+<p>It will be interesting to see what he turns his hand to next.</p>
+
+    <p><a href="/2013/06/02/adam-wiggins-wisdom">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/05/05/json-api">JSONAPI.org</a></h2>
       <p class="updated">Posted on 05 May 2013
         by
@@ -59,13 +100,13 @@ If the value of a resource key is a JSON array, the value represents a list of d
 <p>For example:</p>
 
 <pre><code>{
-  "posts": {
+  "posts": [{
     "id": "1",
     "title": "Rails is Omakase",
     "rels": {
       "author": 9
     }
-  },
+  }],
   "people": [{
     "id": "9",
     "name": "@d2h"
@@ -73,28 +114,32 @@ If the value of a resource key is a JSON array, the value represents a list of d
 }
 </code></pre>
 
-<p>So to list the post title and author name would be something like:</p>
+<p>So to list the post title and author name would be something like (pseudo code):</p>
 
-<pre><code>{posts.title}} by {people.where(id: 9).name}
+<pre><code>{posts.each (post)}
+  {post.title} by {people.where(id: post.rels.author).name}
+{end}  
 </code></pre>
 
-<p>This is clever and probably the &ldquo;right&rdquo; way to do it, but is it easier to consume? I&rsquo;d suggest that nesting the documents is much easier:</p>
+<p>Now, that&rsquo;s pseudo-code, and in reality it would depend on what language or framework you are using as to how easy that &ldquo;where&rdquo; statement is. It&rsquo;s definitely going to be a lot more complicated than my example to do it in vanilla JavaScript. I&rsquo;d suggest that nesting the documents is much easier:</p>
 
 <pre><code>{
-  "posts": {
+  "posts": [{
     "id": "1",
     "title": "Rails is Omakase",
     "author": {
       "id": "9",
       "name": "@d2h"
     }
-  }
+  }]
 }
 </code></pre>
 
 <p>And it can be consumed like this:</p>
 
-<pre><code>{posts.title} by {posts.author.name}
+<pre><code>{posts.each (post)}
+  {post.title} by {post.author.name}
+{end}  
 </code></pre>
 
 <p>Yes, it&rsquo;s imperfect and can result in more duplication and less flexibility, but I think for a lot of cases that isn&rsquo;t an issue.</p>
@@ -120,7 +165,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 <p>Last week I attended <a href="http://industryconf.com">Industry</a>, organised by Gavin Elliott. I must say Gavin did a great job and  it was a great conference. Here are my notes from the talks:</p>
 
-<h3>Rachel Andrew &ndash; &ldquo;All of a sudden&hellip; no luck!&rdquo; Things we have learned while supporting Perch.</h3>
+<h3>Rachel Andrew - &ldquo;All of a sudden&hellip; no luck!&rdquo; Things we have learned while supporting Perch.</h3>
 
 <p><a href="https://speakerdeck.com/rachelandrew/all-of-a-sudden-dot-dot-dot-no-luck">Slides</a></p>
 
@@ -130,7 +175,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 <hr />
 
-<h3>Harry Roberts &ndash; Architecting scalable CSS</h3>
+<h3>Harry Roberts - Architecting scalable CSS</h3>
 
 <p><a href="https://speakerdeck.com/csswizardry/architecting-scalable-css">Slides</a></p>
 
@@ -140,13 +185,13 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 <hr />
 
-<h3>Christopher Murphy &ndash; We are navigators</h3>
+<h3>Christopher Murphy - We are navigators</h3>
 
 <p>This talk focused on the importance of education in the industry and how important our mentors can be.</p>
 
 <hr />
 
-<h3>Ashley Baxter &ndash; Changing a stagnant industry</h3>
+<h3>Ashley Baxter - Changing a stagnant industry</h3>
 
 <p>I wasn&rsquo;t really sure what to expect from this talk, and it was hard to believe this was Ashley&rsquo;s first time speaking at a conference.</p>
 
@@ -154,13 +199,13 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 <hr />
 
-<h3>Noah Stokes &ndash; $50'000 mistakes</h3>
+<h3>Noah Stokes - $50'000 mistakes</h3>
 
 <p>Noah has had quite an impressive career, working at Apple and also turning down job offers from the likes of Google, but it hasn&rsquo;t all been a smooth ride. His story shows that with hard work and dedication, you can achieve anything.</p>
 
 <hr />
 
-<h3>Rasika Krishna &ndash; Cross-cultural UX</h3>
+<h3>Rasika Krishna - Cross-cultural UX</h3>
 
 <p>I&rsquo;ve had my fair share of working on sites for other cultures. I&rsquo;ve worked on Arabic, Chinese and Russian sites before and at Easyart we have French, German and Swedish sites as well as our UK ones, but it was really interesting to hear about how different other cultures can be.</p>
 
@@ -168,13 +213,13 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 <hr />
 
-<h3>Josh Brewer &ndash; Redesigning Twitter</h3>
+<h3>Josh Brewer - Redesigning Twitter</h3>
 
 <p>Josh talked us through the most recent redesign of Twitter and the challenges they faced. There were a few takeaways from this talk, such as the importance of scaling features to meet a deadline, iterating in code early on in the design process and using version control for your PSD&rsquo;s for collaboration (for this Josh recommended SVN as it handles binary files better than Git).</p>
 
 <hr />
 
-<h3>Jeremy Keith &ndash; What we talk about when we talk about the web</h3>
+<h3>Jeremy Keith - What we talk about when we talk about the web</h3>
 
 <p>Jeremy raised some great points in this talk, some of which we really shouldn&rsquo;t need to be told anymore, but it was a great overview of how the web works and what we can do to make it better.</p>
 
@@ -199,7 +244,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
     </header>
     <p>A couple of years ago I had the pleasure of seeing <a href="http://www.scottbelsky.com/">Scott Belsky</a> (of <a href="http://www.behance.com">Behance</a> and now <a href="http://www.adobe.com">Adobe</a> fame speak about his book <a href="http://99u.com/book/making-ideas-happen">Making Ideas Happen</a> at the <a href="http://wearelikeminds.com/books">Like Minds Business Book Club</a>).</p>
 
-<p>It&rsquo;s a fantastic book which celebrates some of the things I value most &ndash; collaboration, creativity and getting things done! Here are my some of the passages I highlighted on my Kindle.</p>
+<p>It&rsquo;s a fantastic book which celebrates some of the things I value most - collaboration, creativity and getting things done! Here are my some of the passages I highlighted on my Kindle.</p>
 
 <h3>On collaboration and creative process</h3>
 
@@ -314,39 +359,6 @@ If the value of a resource key is a JSON array, the value represents a list of d
     <p><a href="/2013/04/22/transitioning-to-bourbon">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/04/21/why-dont-other-industries-use-version-control">Why don't other industries use version control?</a></h2>
-      <p class="updated">Posted on 21 April 2013
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>It&rsquo;s easy to take version control for granted when you work in software development as it&rsquo;s such an integral part of the process. But it&rsquo;s virtually non-existent in other technical industries.</p>
-
-<p>Recently, when Github launched their new <a href="https://github.com/blog/1465-stl-file-viewing">online STL viewer</a>, I asked some friends who work with product and game design if they used version control for their source files. These are a few (edited) parts of that conversation.</p>
-
-<blockquote><p>Product designer 1: What is a version control for my source files?</p>
-
-<p>Product designer 2: I think he means some way of ensuring that everyone is looking / working on the latest file?</p>
-
-<p>Game designer: Version control can be hella hard for some people to understand&hellip; like their mind breaks when it&rsquo;s explained to them.</p>
-
-<p>Product designer 2: Well, all the major 3D / 2D design packages &ndash; especially the parametric ones &ndash; do this in some form. Although it&rsquo;s all controlled by the software.  The packages are expensive and generally these part management components add to the price.</p>
-
-<p>Product designer 1: We&rsquo;ve never used these tools at (redacted &ndash; major Australian electrical manufacturer) it would be so difficult to get our factories to abide by the procedures. Generally you just run an assembly and swap out old parts for new as it develops. Pretty sure the engineering departments at (redacted &ndash; major European electrical manufacturer) had a dedicated admin guy who would administer the 3D files. BEST JOB EVER."</p></blockquote>
-
-<p>There are a number of companies that are trying to solve this problem for designers (like <a href="https://www.pixelapse.com/">Pixelapse</a>, <a href="https://www.layervault.com/">LayerVault</a> and Beanstalk via their <a href="http://designers.beanstalkapp.com/">design preview feature</a>), but that&rsquo;s just really scratching the surface. I can&rsquo;t help but think that the benefits that would be a massive if there was a meaningful (and non-proprietary) way to incorporate version control into more development processes.</p>
-
-    <p><a href="/2013/04/21/why-dont-other-industries-use-version-control">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -459,6 +471,8 @@ If the value of a resource key is a JSON array, the value represents a list of d
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/06/02/adam-wiggins-wisdom">Some wisdom from Adam Wiggins</a></li>
+    
     <li><a href="/2013/05/05/json-api">JSONAPI.org</a></li>
     
     <li><a href="/2013/04/29/notes-from-industry-conference">Notes from Industry Conference</a></li>
@@ -476,8 +490,6 @@ If the value of a resource key is a JSON array, the value represents a list of d
     <li><a href="/2013/02/17/links-for-the-week">Links for the week</a></li>
     
     <li><a href="/2013/02/10/links-for-the-week">Links for the week</a></li>
-    
-    <li><a href="/2013/02/03/mobile-continuees-to-grow">Mobile continues to grow</a></li>
     
   </ol>
 </div>

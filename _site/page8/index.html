@@ -31,6 +31,57 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/05/21/git-based-deploys">Git-based deploys</a></h2>
+      <p class="updated">Posted on 21 May 2012
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>Recently we&rsquo;ve switched from FTP to git to deploy changes to our live sites. Here&rsquo;s what our workflow looks like for functional changes (content amends use steps1,2,5,7,8):</p>
+
+<p><img src="/assets/img/posts/git.jpg" alt="Git-based deploys"></p>
+
+<ol>
+<li>Make changes on VMs on develop branch</li>
+<li>Commit and push develop branch to Github</li>
+<li>Pull develop branch to staging server</li>
+<li>Review changes</li>
+<li>Merge develop into master</li>
+<li>Run Selenium tests</li>
+<li>Push master to Github</li>
+<li>Pull master into live server</li>
+</ol>
+
+
+<p>By using a Git-centric workflow, it&rsquo;s easier to guarantee that each application is running the same code, and we have the added safety of being able to roll back to previous versions.</p>
+
+<p>Pulling changes onto live websites with millions of daily visitors makes me a little nervous, so I&rsquo;ll usually use <em>git fetch</em> rather than <em>git pull</em>, like so:</p>
+
+<pre><code>$ git fetch
+</code></pre>
+
+<p>Pulls the remote master branch into a branch in the local repository called origin/master.</p>
+
+<pre><code>$ git diff --numstat master origin/master
+</code></pre>
+
+<p>Reports the affected files between master and the origin/master branch we pulled in the previous step.</p>
+
+<p>  $ git merge master origin/master</p>
+
+<p>Merges the origin/master branch into master.</p>
+
+    <p><a href="/2012/05/21/git-based-deploys">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/05/01/using-selenium-and-rspec-for-behaviour-testing">Using Selenium and Rspec for behaviour testing</a></h2>
       <p class="updated">Posted on 01 May 2012
         by
@@ -133,7 +184,7 @@
 
 <h3>Taking it further</h3>
 
-<p>This only scratches the surface of what you can do with this type of command. To see other actions available, try typing subl &mdash;help into Terminal and pressing enter. This will give you a list of ways to use this command.</p>
+<p>This only scratches the surface of what you can do with this type of command. To see other actions available, try typing subl &ndash;help into Terminal and pressing enter. This will give you a list of ways to use this command.</p>
 
 <p><strong>Note:</strong> This post is pretty much lifted from a post I wrote on my own blog last night:</p>
 
@@ -195,7 +246,7 @@
 
 <p>I want to be able to push to the master branch of a remote repo and have the changes deployed to S3, with predefined HTTP headers. Much like I&rsquo;m used to pushing to Heroku with git push heroku master.</p>
 
-<p>There are probably plenty of ways to do it &ndash; mounting S3 through Fuse, running Webdav servers, using Capistrano etc &ndash; but I found them too overkill for our needs.</p>
+<p>There are probably plenty of ways to do it - mounting S3 through Fuse, running Webdav servers, using Capistrano etc - but I found them too overkill for our needs.</p>
 
 <p>So I&rsquo;ve ended up writing a simple deploy script which lives at the root of the repo which uses <a href="http://s3tools.org/s3cmd">s3cmd</a> to sync between the local file system and our S3 bucket. It&rsquo;s a snap to set up, and the result is a command that looks like this:</p>
 
@@ -207,33 +258,6 @@
 <p>It&rsquo;s not a true Git deploy (though it could be called via a <a href="http://progit.org/book/ch7-3.html">Git Hook</a>), but still a pretty neat solution.</p>
 
     <p><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Cheating isn't always a bad thing</a></h2>
-      <p class="updated">Posted on 17 April 2012
-        by
-        
-        <a href="/authors/john-pash/">
-        
-        
-        
-        John Pash
-        </a>
-      </p>
-    </header>
-    <p>I read a thought-provoking comment today on <a href="http://highscalability.com/blog/2012/3/26/7-years-of-youtube-scalability-lessons-in-30-minutes.html">High Scalability</a> that got me thinking. It appeared in a post which attempted to sum up &ldquo;<a href="http://highscalability.com/blog/2012/3/26/7-years-of-youtube-scalability-lessons-in-30-minutes.html">7 Years of YouTube Scalability Lessons in 30 Minutes</a>&rdquo;. It shows a neat little trick that you can use to make it appear to the user that your site is faster than it really is. Read on&hellip;</p>
-
-<h3>Approximate Correctness &ndash; Cheat a Little</h3>
-
-<blockquote><p>A real world example. If you write a comment and someone loads the page at the same time, they might not get it for 300-400ms, the user who is reading won’t care. The writer of the comment will care, so you make sure the user who wrote the comment will see it. So you cheat a little bit. Your system doesn’t have to have globally consistent transactions. That would be super expensive and overkill. Not every comment is a financial transaction. So know when you can cheat.</p></blockquote>
-
-<p>So basically you would update the page DOM in real-time, but send the actual comment post operation behind the scenes. It can take as long as it needs to complete. But in the meantime the commenter is happy to have such a quick experience. It&rsquo;s a win-win!</p>
-
-<p>High Scalability is a blog that exposes the architecture of some very well-known and highly trafficked  websites. The posts are often written by the developers of those systems. So if you&rsquo;ve ever wondered how <a href="http://highscalability.com/blog/2011/12/19/how-twitter-stores-250-million-tweets-a-day-using-mysql.html">Twitter stores 250,000,000 tweets a day</a> using MySql (no NoSql here), then H.S. is the blog for you.</p>
-
-    <p><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Leave a comment</a></p>
   </article>
   
 
@@ -350,6 +374,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/06/02/adam-wiggins-wisdom">Some wisdom from Adam Wiggins</a></li>
+    
     <li><a href="/2013/05/05/json-api">JSONAPI.org</a></li>
     
     <li><a href="/2013/04/29/notes-from-industry-conference">Notes from Industry Conference</a></li>
@@ -367,8 +393,6 @@
     <li><a href="/2013/02/17/links-for-the-week">Links for the week</a></li>
     
     <li><a href="/2013/02/10/links-for-the-week">Links for the week</a></li>
-    
-    <li><a href="/2013/02/03/mobile-continuees-to-grow">Mobile continues to grow</a></li>
     
   </ol>
 </div>
