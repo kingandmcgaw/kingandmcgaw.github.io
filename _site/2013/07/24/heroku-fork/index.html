@@ -7,7 +7,7 @@
 <meta name="author" content="Easyart">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Is London the most popular city for Github users? | Easyart Developers</title>
+<title>Heroku Fork | Easyart Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -31,32 +31,57 @@
 
         <article class="hentry">
           <header>
-            <h2>Is London the most popular city for Github users?</h2>
-            <p class="updated">Posted on 20 December 2012
+            <h2>Heroku Fork</h2>
+            <p class="updated">Posted on 24 July 2013
               by
               <a href="/authors/nick-boyce/">Nick Boyce</a>. Find me on <a href="https://plus.google.com/u/1/108806228703128779712?rel=author">Google+</a>
               
             </p>
           </header>
-          <p>Interesting review of 2012 from Github in <a href="https://github.com/blog/1359-the-octoverse-in-2012">The Octoverse in 2012</a>:</p>
+          <p>I&rsquo;ve been meaning to try the <a href="https://devcenter.heroku.com/articles/fork-app">fork</a> feature on Heroku for a while.</p>
 
-<blockquote><p>Since the beginning of the year, we&rsquo;ve seen a doubling in activity, with pushes alone responsible for over 60% of the events in a given day. On a typical weekday, 10k people sign up for a GitHub account, and our users:</p>
+<p>It does exactly what you expect, but that&rsquo;s what&rsquo;s so brilliant about it. It&rsquo;s taken be less than 2 minutes to set up a staging environment for one of our apps in the EU region. Here&rsquo;s what&rsquo;s involved:</p>
 
-<ul>
-<li>push 140GB of new data</li>
-<li>create 25k repositories and 7k pull requests</li>
-<li>push to 125k repositories</li>
-<li>Best of all:</li>
-</ul>
+<p>Clone an existing app, optionally choosing a region. This will also add your add-ons to the forked app at the same payment tier so keep an eye out for this.</p>
 
+<pre><code>heroku fork -a yourapp yourapp-staging --region eu
 
-<p>10k people create their very first repository</p></blockquote>
+Creating fork yourapp-staging... done
+Copying slug... done
+Adding airbrake:developer... done
+Adding memcachier:100... done
+Adding scheduler:standard... done
+Copying config vars... done
+Fork complete, view it at http://yourapp-staging.herokuapp.com/
+</code></pre>
 
-<p>Apart from their impressive growth, this little fact caught my eye:</p>
+<p>Get the forked app&rsquo;s Git repo information so you can push code to it.</p>
 
-<blockquote><p>The top 10 countries visiting GitHub.com are: United States, Germany, United Kingdom, China, Japan, France, India, Canada, Russia and Brazil. The top 10 cities are: London, San Francisco, New York, Paris, Moscow, Beijing, Berlin, Bangalore, Sydney and Toronto.</p></blockquote>
+<pre><code>heroku info -a yourapp-staging
 
-<p>London is the #1 city for Github users? Go London!</p>
+=== yourapp-staging
+Addons:        memcachier:dev
+               scheduler:standard
+
+Git URL:       git@heroku.com:yourapp-staging.git
+Owner Email:   nick@nickboyce.com
+Region:        eu
+Stack:         cedar
+Tier:          Legacy
+Web URL:       http://yourapp-staging.herokuapp.com/
+</code></pre>
+
+<p>Add a new git remote so you can push to the new app.</p>
+
+<pre><code>git remote add staging git@heroku.com:yourapp-staging.git
+</code></pre>
+
+<p>Push a branch to your new app.</p>
+
+<pre><code>git push staging custom-framing:master
+</code></pre>
+
+<p>You&rsquo;re done!</p>
 
         </article>
         <div id="disqus_thread"></div>

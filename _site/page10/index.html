@@ -31,6 +31,53 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/04/11/history-state-and-the-back-button">History state and the back button</a></h2>
+      <p class="updated">Posted on 11 April 2012
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>I&rsquo;ve been playing around with the HTML5 history API today, in order to make certain parts of our new product page bookmarkable. Here&rsquo;s what we&rsquo;re aiming for:</p>
+
+<ol>
+<li>On page1.html, the user clicks an a tag which has a href value of page2.html</li>
+<li>Instead of refreshing the page with the contents of framing.html, a panel in the page slides across to reveal the contents of page2.html in the current page</li>
+<li>The URL changes to page2.html</li>
+</ol>
+
+
+<p>This is relatively easy to achieve by intercepting these links, and replacing them with Javascript behavior and using the HTML5 History API to push a new URL into the address bar. So, as an example, the following code will find every a on the page and instead of navigating to the href, just push the state into the address bar.</p>
+
+<script src="https://gist.github.com/2359314.js"> </script>
+
+
+<p>So we can quite easily intercept links to page2.html (either based on their href attribute or a CSS class), push the href into the address bar and load the content into the current page in some fancy-pants way.</p>
+
+<p>But say you want the back button to navigate the user from page2.html back to page1.html. This won&rsquo;t work, because unless you tell it to do otherwise, the back button will change the address, but do nothing else.</p>
+
+<p>This is where popstate comes in. Using popstate we can listen for changes in the address, and act upon them accordingly. So my code ended up looking something like this:</p>
+
+<script src="https://gist.github.com/2359401.js"> </script>
+
+
+<p>It&rsquo;s also possible to pass objects and titles through to pushstate, but I won&rsquo;t go into that for now as it&rsquo;s not yet well supported by browsers. Simply finding out the address of the page was good enough to solve the immediate problem.</p>
+
+<p>Resources:</p>
+
+<p><a href="http://diveintohtml5.info/history.html">http://diveintohtml5.info/history.html</a>
+<a href="https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history">https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history</a></p>
+
+    <p><a href="/2012/04/11/history-state-and-the-back-button">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/04/10/testing-rails-json-apis-with-rspec">Testing Rails JSON APIs with RSpec</a></h2>
       <p class="updated">Posted on 10 April 2012
         by
@@ -177,31 +224,6 @@
     <p><a href="/2012/03/23/on-naming-schemes">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/03/23/getting-to-know-codekit">Getting to know Codekit</a></h2>
-      <p class="updated">Posted on 23 March 2012
-        by
-        
-        
-        
-        <a href="/authors/steve-rydz/">
-        
-        Steve Rydz
-        </a>
-      </p>
-    </header>
-    <p>CSS pre-processors are all the rage these days, or so it would seem, but it can be a little complicated to get up and running with them, unless you’re using the right tools. Enter <a href="http://incident57.com/codekit/">CodeKit</a>. This little app does pretty much everything from compiling LESS, SASS, HAML and CoffeeScript to optimising images and allowing you to import JavaScript files into each other.</p>
-
-<p><img src="/assets/img/posts/codekit.jpeg" alt="Codekit"></p>
-
-<p>Since I started using <a href="http://lesscss.org/">LESS</a> about six months ago I have been on the hunt for an app that can make the process of using it simple. That’s where CodeKit comes into it. Previously I had been using the <a href="http://incident57.com/less/">LESS app</a> and on a surface level found it worked well, but it was lacking a sense of intuitiveness. CodeKit just <em>knows</em> what I’m trying to do and doesn&rsquo;t require much in the way of configuration, at least where LESS is concerned.</p>
-
-<p>I will be writing more about how we use CodeKit at Easyart in the future, but for now I will simply say that if you are at all involved in front-end development then you should check out it out as you will surely find it will improve your workflow and potentially make you more productive.</p>
-
-    <p><a href="/2012/03/23/getting-to-know-codekit">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -322,6 +344,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/07/24/heroku-fork">Heroku Fork</a></li>
+    
     <li><a href="/2013/07/12/lazy-loading-facebook-buttons">Lazy loading Facebook buttons</a></li>
     
     <li><a href="/2013/06/02/adam-wiggins-wisdom">Some wisdom from Adam Wiggins</a></li>
@@ -339,8 +363,6 @@
     <li><a href="/2013/04/16/easyart-flavoured-agile">Easyart-flavoured agile</a></li>
     
     <li><a href="/2013/03/01/git-tricks">Git tricks</a></li>
-    
-    <li><a href="/2013/02/17/links-for-the-week">Links for the week</a></li>
     
   </ol>
 </div>

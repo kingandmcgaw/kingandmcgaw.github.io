@@ -31,6 +31,41 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/04/19/codekit-tip-export-project-settings">Codekit tip: Export project settings</a></h2>
+      <p class="updated">Posted on 19 April 2012
+        by
+        
+        
+        
+        <a href="/authors/steve-rydz/">
+        
+        Steve Rydz
+        </a>
+      </p>
+    </header>
+    <p>A few weeks ago I wrote about <a href="/2012/03/23/getting-to-know-codekit">getting to know CodeKit</a>. As a team, we have been using this tool solidly since then and it is now hard to imagine not working without it.</p>
+
+<p>We did have a couple of issues with it though. The first was that everytime we updated the app, we had to set up our project again. This has been fixed in a recent release.</p>
+
+<p>The other issue was that when working as a team, we had to ensure that we all had the exact same set-up. CodeKit is very intelligent and recognised what we were trying to acheive most of the time but we still found ourselves having to update output directories etc.</p>
+
+<p>As it turns out, there was one simple solution to both of these problems. It is possible to export a config file for each project with it’s settings. This file lives in the root directory of your project and every time you drag a project into CodeKit, it looks for this file automatically.</p>
+
+<p><img src="/assets/img/posts/codekit-2.png" alt="Codekit"></p>
+
+<p>To export the configuration file, simply highlight the project you are currently working on, right click on it, hover over the ‘Project settings’ menu, then click ‘Export project configuration file’. CodeKit will then place that file in the root directory of your project. That’s all there is to it.</p>
+
+<p>This approach has worked really well for us and taken the burden of having to constantly ensure we are all doing the same thing away from us. The other great thing about this is that we now have this config file in our GIT repository.</p>
+
+<p>All we have to do if we change the way our project is set up or introduce something new is to export another file and because we are using GIT, we will all get the latest file when we pull down the latest code.</p>
+
+<p><strong>Note:</strong> According to the CodeKit website, the free, BETA version of the app expires tomorrow (20th April, 2012), and I have heard rumours that it will be on sale via the app store for around $20. This app is more than worth that amount and if this is the case, I will certainly be purchasing a license first thing.</p>
+
+    <p><a href="/2012/04/19/codekit-tip-export-project-settings">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/04/17/deploying-static-assets-to-s3-using-s3cmd">Deploying static assets to S3 using s3cmd</a></h2>
       <p class="updated">Posted on 17 April 2012
         by
@@ -47,7 +82,7 @@
 
 <p>I want to be able to push to the master branch of a remote repo and have the changes deployed to S3, with predefined HTTP headers. Much like I&rsquo;m used to pushing to Heroku with git push heroku master.</p>
 
-<p>There are probably plenty of ways to do it - mounting S3 through Fuse, running Webdav servers, using Capistrano etc - but I found them too overkill for our needs.</p>
+<p>There are probably plenty of ways to do it &ndash; mounting S3 through Fuse, running Webdav servers, using Capistrano etc &ndash; but I found them too overkill for our needs.</p>
 
 <p>So I&rsquo;ve ended up writing a simple deploy script which lives at the root of the repo which uses <a href="http://s3tools.org/s3cmd">s3cmd</a> to sync between the local file system and our S3 bucket. It&rsquo;s a snap to set up, and the result is a command that looks like this:</p>
 
@@ -77,7 +112,7 @@
     </header>
     <p>I read a thought-provoking comment today on <a href="http://highscalability.com/blog/2012/3/26/7-years-of-youtube-scalability-lessons-in-30-minutes.html">High Scalability</a> that got me thinking. It appeared in a post which attempted to sum up &ldquo;<a href="http://highscalability.com/blog/2012/3/26/7-years-of-youtube-scalability-lessons-in-30-minutes.html">7 Years of YouTube Scalability Lessons in 30 Minutes</a>&rdquo;. It shows a neat little trick that you can use to make it appear to the user that your site is faster than it really is. Read on&hellip;</p>
 
-<h3>Approximate Correctness - Cheat a Little</h3>
+<h3>Approximate Correctness &ndash; Cheat a Little</h3>
 
 <blockquote><p>A real world example. If you write a comment and someone loads the page at the same time, they might not get it for 300-400ms, the user who is reading won’t care. The writer of the comment will care, so you make sure the user who wrote the comment will see it. So you cheat a little bit. Your system doesn’t have to have globally consistent transactions. That would be super expensive and overkill. Not every comment is a financial transaction. So know when you can cheat.</p></blockquote>
 
@@ -162,53 +197,6 @@
 <p>The key thing to remember is that whatever you come up with, it needs to be something that your team can all get on board with, as the aim is to increase productivity and make things easier to maintain.</p>
 
     <p><a href="/2012/04/12/a-unified-coding-style">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/04/11/history-state-and-the-back-button">History state and the back button</a></h2>
-      <p class="updated">Posted on 11 April 2012
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>I&rsquo;ve been playing around with the HTML5 history API today, in order to make certain parts of our new product page bookmarkable. Here&rsquo;s what we&rsquo;re aiming for:</p>
-
-<ol>
-<li>On page1.html, the user clicks an a tag which has a href value of page2.html</li>
-<li>Instead of refreshing the page with the contents of framing.html, a panel in the page slides across to reveal the contents of page2.html in the current page</li>
-<li>The URL changes to page2.html</li>
-</ol>
-
-
-<p>This is relatively easy to achieve by intercepting these links, and replacing them with Javascript behavior and using the HTML5 History API to push a new URL into the address bar. So, as an example, the following code will find every a on the page and instead of navigating to the href, just push the state into the address bar.</p>
-
-<script src="https://gist.github.com/2359314.js"> </script>
-
-
-<p>So we can quite easily intercept links to page2.html (either based on their href attribute or a CSS class), push the href into the address bar and load the content into the current page in some fancy-pants way.</p>
-
-<p>But say you want the back button to navigate the user from page2.html back to page1.html. This won&rsquo;t work, because unless you tell it to do otherwise, the back button will change the address, but do nothing else.</p>
-
-<p>This is where popstate comes in. Using popstate we can listen for changes in the address, and act upon them accordingly. So my code ended up looking something like this:</p>
-
-<script src="https://gist.github.com/2359401.js"> </script>
-
-
-<p>It&rsquo;s also possible to pass objects and titles through to pushstate, but I won&rsquo;t go into that for now as it&rsquo;s not yet well supported by browsers. Simply finding out the address of the page was good enough to solve the immediate problem.</p>
-
-<p>Resources:</p>
-
-<p><a href="http://diveintohtml5.info/history.html">http://diveintohtml5.info/history.html</a>
-<a href="https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history">https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history</a></p>
-
-    <p><a href="/2012/04/11/history-state-and-the-back-button">Leave a comment</a></p>
   </article>
   
 
@@ -331,6 +319,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/07/24/heroku-fork">Heroku Fork</a></li>
+    
     <li><a href="/2013/07/12/lazy-loading-facebook-buttons">Lazy loading Facebook buttons</a></li>
     
     <li><a href="/2013/06/02/adam-wiggins-wisdom">Some wisdom from Adam Wiggins</a></li>
@@ -348,8 +338,6 @@
     <li><a href="/2013/04/16/easyart-flavoured-agile">Easyart-flavoured agile</a></li>
     
     <li><a href="/2013/03/01/git-tricks">Git tricks</a></li>
-    
-    <li><a href="/2013/02/17/links-for-the-week">Links for the week</a></li>
     
   </ol>
 </div>

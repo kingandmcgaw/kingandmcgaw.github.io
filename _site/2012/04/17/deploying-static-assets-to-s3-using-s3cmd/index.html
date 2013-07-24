@@ -42,7 +42,7 @@
 
 <p>I want to be able to push to the master branch of a remote repo and have the changes deployed to S3, with predefined HTTP headers. Much like I&rsquo;m used to pushing to Heroku with git push heroku master.</p>
 
-<p>There are probably plenty of ways to do it - mounting S3 through Fuse, running Webdav servers, using Capistrano etc - but I found them too overkill for our needs.</p>
+<p>There are probably plenty of ways to do it &ndash; mounting S3 through Fuse, running Webdav servers, using Capistrano etc &ndash; but I found them too overkill for our needs.</p>
 
 <p>So I&rsquo;ve ended up writing a simple deploy script which lives at the root of the repo which uses <a href="http://s3tools.org/s3cmd">s3cmd</a> to sync between the local file system and our S3 bucket. It&rsquo;s a snap to set up, and the result is a command that looks like this:</p>
 
@@ -96,6 +96,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/07/24/heroku-fork">Heroku Fork</a></li>
+    
     <li><a href="/2013/07/12/lazy-loading-facebook-buttons">Lazy loading Facebook buttons</a></li>
     
     <li><a href="/2013/06/02/adam-wiggins-wisdom">Some wisdom from Adam Wiggins</a></li>
@@ -113,8 +115,6 @@
     <li><a href="/2013/04/16/easyart-flavoured-agile">Easyart-flavoured agile</a></li>
     
     <li><a href="/2013/03/01/git-tricks">Git tricks</a></li>
-    
-    <li><a href="/2013/02/17/links-for-the-week">Links for the week</a></li>
     
   </ol>
 </div>

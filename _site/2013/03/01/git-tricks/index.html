@@ -42,44 +42,68 @@
 
 <hr />
 
-<p>Keep git from tracking permission changes to files
-    git config core.filemode false</p>
+<p>Keep git from tracking permission changes to files</p>
 
-<p>Restore a branch to the remote version (i.e. if you have pulled an incorrect remote branch)
-    git fetch git reset &ndash;hard origin/master</p>
+<pre><code>git config core.filemode false
+</code></pre>
 
-<p>Restore a single file to a version on another branch
-    git checkout branch_name path/to-file</p>
+<p>Restore a branch to the remote version (i.e. if you have pulled an incorrect remote branch)</p>
 
-<p>Search for a string in the commit history:
-    git show :/search_string</p>
+<pre><code>git fetch git reset --hard origin/master
+</code></pre>
 
-<p>Amend the last commit message:
-    git commit &ndash;amend -m &ldquo;New commit message&rdquo;</p>
+<p>Restore a single file to a version on another branch</p>
 
-<p>Toggle between branches
-    git checkout -</p>
+<pre><code>git checkout branch_name path/to-file    
+</code></pre>
 
-<p>colourise all git commands
-    git config &ndash;global color.ui true</p>
+<p>Search for a string in the commit history:</p>
 
-<p>Use mergetool
-    git mergetool -t opendiff</p>
+<pre><code>git show :/search_string  
+</code></pre>
 
-<p>Delete a branch remotely
-    git push origin :newfeature</p>
+<p>Amend the last commit message:</p>
 
-<p>Delete a branch locally
-    git branch -d newfeature</p>
+<pre><code>git commit --amend -m "New commit message"  
+</code></pre>
 
-<p>Delete branches that don&rsquo;t exist on remote
-    git remote prune origin</p>
+<p>Toggle between branches</p>
 
-<p>This one is Github-specific: You can compare commit ranges by appending compare like so&hellip;
-    compare/master…someotherbranch
-    compare/master@{yesterday}…master
-    compare/master@{2.days.ago}…master
-    compare/master@{2012-05-01}…master</p>
+<pre><code>git checkout -  
+</code></pre>
+
+<p>colourise all git commands</p>
+
+<pre><code>git config --global color.ui true  
+</code></pre>
+
+<p>Use mergetool</p>
+
+<pre><code>git mergetool -t opendiff
+</code></pre>
+
+<p>Delete a branch remotely</p>
+
+<pre><code>git push origin :newfeature
+</code></pre>
+
+<p>Delete a branch locally</p>
+
+<pre><code>git branch -d newfeature  
+</code></pre>
+
+<p>Delete branches that don&rsquo;t exist on remote</p>
+
+<pre><code>git remote prune origin
+</code></pre>
+
+<p>This one is Github-specific: You can compare commit ranges by appending compare like so&hellip;</p>
+
+<pre><code>compare/master…someotherbranch
+compare/master@{yesterday}…master
+compare/master@{2.days.ago}…master
+compare/master@{2012-05-01}…master
+</code></pre>
 
         </article>
         <div id="disqus_thread"></div>
@@ -124,6 +148,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/07/24/heroku-fork">Heroku Fork</a></li>
+    
     <li><a href="/2013/07/12/lazy-loading-facebook-buttons">Lazy loading Facebook buttons</a></li>
     
     <li><a href="/2013/06/02/adam-wiggins-wisdom">Some wisdom from Adam Wiggins</a></li>
@@ -141,8 +167,6 @@
     <li><a href="/2013/04/16/easyart-flavoured-agile">Easyart-flavoured agile</a></li>
     
     <li><a href="/2013/03/01/git-tricks">Git tricks</a></li>
-    
-    <li><a href="/2013/02/17/links-for-the-week">Links for the week</a></li>
     
   </ol>
 </div>

@@ -4,11 +4,62 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-07-12T16:24:39+01:00</updated>
+ <updated>2013-07-24T22:19:43+01:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
+ 
+ <entry>
+   <title>Heroku Fork</title>
+   <link href="http://easyart.github.com/2013/07/24/heroku-fork"/>
+   <updated>2013-07-24T23:04:28+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;I&amp;rsquo;ve been meaning to try the &lt;a href=&quot;https://devcenter.heroku.com/articles/fork-app&quot;&gt;fork&lt;/a&gt; feature on Heroku for a while.&lt;/p&gt;
+
+&lt;p&gt;It does exactly what you expect, but that&amp;rsquo;s what&amp;rsquo;s so brilliant about it. It&amp;rsquo;s taken be less than 2 minutes to set up a staging environment for one of our apps in the EU region. Here&amp;rsquo;s what&amp;rsquo;s involved:&lt;/p&gt;
+
+&lt;p&gt;Clone an existing app, optionally choosing a region. This will also add your add-ons to the forked app at the same payment tier so keep an eye out for this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;heroku fork -a yourapp yourapp-staging --region eu
+
+Creating fork yourapp-staging... done
+Copying slug... done
+Adding airbrake:developer... done
+Adding memcachier:100... done
+Adding scheduler:standard... done
+Copying config vars... done
+Fork complete, view it at http://yourapp-staging.herokuapp.com/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Get the forked app&amp;rsquo;s Git repo information so you can push code to it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;heroku info -a yourapp-staging
+
+=== yourapp-staging
+Addons:        memcachier:dev
+               scheduler:standard
+
+Git URL:       git@heroku.com:yourapp-staging.git
+Owner Email:   nick@nickboyce.com
+Region:        eu
+Stack:         cedar
+Tier:          Legacy
+Web URL:       http://yourapp-staging.herokuapp.com/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add a new git remote so you can push to the new app.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git remote add staging git@heroku.com:yourapp-staging.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Push a branch to your new app.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git push staging custom-framing:master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You&amp;rsquo;re done!&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Lazy loading Facebook buttons</title>
@@ -135,7 +186,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 &lt;p&gt;Last week I attended &lt;a href=&quot;http://industryconf.com&quot;&gt;Industry&lt;/a&gt;, organised by Gavin Elliott. I must say Gavin did a great job and  it was a great conference. Here are my notes from the talks:&lt;/p&gt;
 
-&lt;h3&gt;Rachel Andrew - &amp;ldquo;All of a sudden&amp;hellip; no luck!&amp;rdquo; Things we have learned while supporting Perch.&lt;/h3&gt;
+&lt;h3&gt;Rachel Andrew &amp;ndash; &amp;ldquo;All of a sudden&amp;hellip; no luck!&amp;rdquo; Things we have learned while supporting Perch.&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/rachelandrew/all-of-a-sudden-dot-dot-dot-no-luck&quot;&gt;Slides&lt;/a&gt;&lt;/p&gt;
 
@@ -145,7 +196,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 &lt;hr /&gt;
 
-&lt;h3&gt;Harry Roberts - Architecting scalable CSS&lt;/h3&gt;
+&lt;h3&gt;Harry Roberts &amp;ndash; Architecting scalable CSS&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/csswizardry/architecting-scalable-css&quot;&gt;Slides&lt;/a&gt;&lt;/p&gt;
 
@@ -155,13 +206,13 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 &lt;hr /&gt;
 
-&lt;h3&gt;Christopher Murphy - We are navigators&lt;/h3&gt;
+&lt;h3&gt;Christopher Murphy &amp;ndash; We are navigators&lt;/h3&gt;
 
 &lt;p&gt;This talk focused on the importance of education in the industry and how important our mentors can be.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h3&gt;Ashley Baxter - Changing a stagnant industry&lt;/h3&gt;
+&lt;h3&gt;Ashley Baxter &amp;ndash; Changing a stagnant industry&lt;/h3&gt;
 
 &lt;p&gt;I wasn&amp;rsquo;t really sure what to expect from this talk, and it was hard to believe this was Ashley&amp;rsquo;s first time speaking at a conference.&lt;/p&gt;
 
@@ -169,13 +220,13 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 &lt;hr /&gt;
 
-&lt;h3&gt;Noah Stokes - $50'000 mistakes&lt;/h3&gt;
+&lt;h3&gt;Noah Stokes &amp;ndash; $50'000 mistakes&lt;/h3&gt;
 
 &lt;p&gt;Noah has had quite an impressive career, working at Apple and also turning down job offers from the likes of Google, but it hasn&amp;rsquo;t all been a smooth ride. His story shows that with hard work and dedication, you can achieve anything.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h3&gt;Rasika Krishna - Cross-cultural UX&lt;/h3&gt;
+&lt;h3&gt;Rasika Krishna &amp;ndash; Cross-cultural UX&lt;/h3&gt;
 
 &lt;p&gt;I&amp;rsquo;ve had my fair share of working on sites for other cultures. I&amp;rsquo;ve worked on Arabic, Chinese and Russian sites before and at Easyart we have French, German and Swedish sites as well as our UK ones, but it was really interesting to hear about how different other cultures can be.&lt;/p&gt;
 
@@ -183,13 +234,13 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 &lt;hr /&gt;
 
-&lt;h3&gt;Josh Brewer - Redesigning Twitter&lt;/h3&gt;
+&lt;h3&gt;Josh Brewer &amp;ndash; Redesigning Twitter&lt;/h3&gt;
 
 &lt;p&gt;Josh talked us through the most recent redesign of Twitter and the challenges they faced. There were a few takeaways from this talk, such as the importance of scaling features to meet a deadline, iterating in code early on in the design process and using version control for your PSD&amp;rsquo;s for collaboration (for this Josh recommended SVN as it handles binary files better than Git).&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h3&gt;Jeremy Keith - What we talk about when we talk about the web&lt;/h3&gt;
+&lt;h3&gt;Jeremy Keith &amp;ndash; What we talk about when we talk about the web&lt;/h3&gt;
 
 &lt;p&gt;Jeremy raised some great points in this talk, some of which we really shouldn&amp;rsquo;t need to be told anymore, but it was a great overview of how the web works and what we can do to make it better.&lt;/p&gt;
 
@@ -203,7 +254,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
    <updated>2013-04-25T11:14:16+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;A couple of years ago I had the pleasure of seeing &lt;a href=&quot;http://www.scottbelsky.com/&quot;&gt;Scott Belsky&lt;/a&gt; (of &lt;a href=&quot;http://www.behance.com&quot;&gt;Behance&lt;/a&gt; and now &lt;a href=&quot;http://www.adobe.com&quot;&gt;Adobe&lt;/a&gt; fame speak about his book &lt;a href=&quot;http://99u.com/book/making-ideas-happen&quot;&gt;Making Ideas Happen&lt;/a&gt; at the &lt;a href=&quot;http://wearelikeminds.com/books&quot;&gt;Like Minds Business Book Club&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;It&amp;rsquo;s a fantastic book which celebrates some of the things I value most - collaboration, creativity and getting things done! Here are my some of the passages I highlighted on my Kindle.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s a fantastic book which celebrates some of the things I value most &amp;ndash; collaboration, creativity and getting things done! Here are my some of the passages I highlighted on my Kindle.&lt;/p&gt;
 
 &lt;h3&gt;On collaboration and creative process&lt;/h3&gt;
 
@@ -320,9 +371,9 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 &lt;p&gt;Game designer: Version control can be hella hard for some people to understand&amp;hellip; like their mind breaks when it&amp;rsquo;s explained to them.&lt;/p&gt;
 
-&lt;p&gt;Product designer 2: Well, all the major 3D / 2D design packages - especially the parametric ones - do this in some form. Although it&amp;rsquo;s all controlled by the software.  The packages are expensive and generally these part management components add to the price.&lt;/p&gt;
+&lt;p&gt;Product designer 2: Well, all the major 3D / 2D design packages &amp;ndash; especially the parametric ones &amp;ndash; do this in some form. Although it&amp;rsquo;s all controlled by the software.  The packages are expensive and generally these part management components add to the price.&lt;/p&gt;
 
-&lt;p&gt;Product designer 1: We&amp;rsquo;ve never used these tools at (redacted - major Australian electrical manufacturer) it would be so difficult to get our factories to abide by the procedures. Generally you just run an assembly and swap out old parts for new as it develops. Pretty sure the engineering departments at (redacted - major European electrical manufacturer) had a dedicated admin guy who would administer the 3D files. BEST JOB EVER.&quot;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Product designer 1: We&amp;rsquo;ve never used these tools at (redacted &amp;ndash; major Australian electrical manufacturer) it would be so difficult to get our factories to abide by the procedures. Generally you just run an assembly and swap out old parts for new as it develops. Pretty sure the engineering departments at (redacted &amp;ndash; major European electrical manufacturer) had a dedicated admin guy who would administer the 3D files. BEST JOB EVER.&quot;&lt;/p&gt;&lt;/blockquote&gt;
 
 &lt;p&gt;There are a number of companies that are trying to solve this problem for designers (like &lt;a href=&quot;https://www.pixelapse.com/&quot;&gt;Pixelapse&lt;/a&gt;, &lt;a href=&quot;https://www.layervault.com/&quot;&gt;LayerVault&lt;/a&gt; and Beanstalk via their &lt;a href=&quot;http://designers.beanstalkapp.com/&quot;&gt;design preview feature&lt;/a&gt;), but that&amp;rsquo;s just really scratching the surface. I can&amp;rsquo;t help but think that the benefits that would be a massive if there was a meaningful (and non-proprietary) way to incorporate version control into more development processes.&lt;/p&gt;
 </content>
@@ -372,44 +423,68 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 &lt;hr /&gt;
 
-&lt;p&gt;Keep git from tracking permission changes to files
-    git config core.filemode false&lt;/p&gt;
+&lt;p&gt;Keep git from tracking permission changes to files&lt;/p&gt;
 
-&lt;p&gt;Restore a branch to the remote version (i.e. if you have pulled an incorrect remote branch)
-    git fetch git reset &amp;ndash;hard origin/master&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git config core.filemode false
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Restore a single file to a version on another branch
-    git checkout branch_name path/to-file&lt;/p&gt;
+&lt;p&gt;Restore a branch to the remote version (i.e. if you have pulled an incorrect remote branch)&lt;/p&gt;
 
-&lt;p&gt;Search for a string in the commit history:
-    git show :/search_string&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git fetch git reset --hard origin/master
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Amend the last commit message:
-    git commit &amp;ndash;amend -m &amp;ldquo;New commit message&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Restore a single file to a version on another branch&lt;/p&gt;
 
-&lt;p&gt;Toggle between branches
-    git checkout -&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git checkout branch_name path/to-file    
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;colourise all git commands
-    git config &amp;ndash;global color.ui true&lt;/p&gt;
+&lt;p&gt;Search for a string in the commit history:&lt;/p&gt;
 
-&lt;p&gt;Use mergetool
-    git mergetool -t opendiff&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git show :/search_string  
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Delete a branch remotely
-    git push origin :newfeature&lt;/p&gt;
+&lt;p&gt;Amend the last commit message:&lt;/p&gt;
 
-&lt;p&gt;Delete a branch locally
-    git branch -d newfeature&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git commit --amend -m &quot;New commit message&quot;  
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Delete branches that don&amp;rsquo;t exist on remote
-    git remote prune origin&lt;/p&gt;
+&lt;p&gt;Toggle between branches&lt;/p&gt;
 
-&lt;p&gt;This one is Github-specific: You can compare commit ranges by appending compare like so&amp;hellip;
-    compare/master…someotherbranch
-    compare/master@{yesterday}…master
-    compare/master@{2.days.ago}…master
-    compare/master@{2012-05-01}…master&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git checkout -  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;colourise all git commands&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global color.ui true  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Use mergetool&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git mergetool -t opendiff
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Delete a branch remotely&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git push origin :newfeature
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Delete a branch locally&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git branch -d newfeature  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Delete branches that don&amp;rsquo;t exist on remote&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git remote prune origin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This one is Github-specific: You can compare commit ranges by appending compare like so&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;compare/master…someotherbranch
+compare/master@{yesterday}…master
+compare/master@{2.days.ago}…master
+compare/master@{2012-05-01}…master
+&lt;/code&gt;&lt;/pre&gt;
 </content>
  </entry>
  
@@ -600,7 +675,7 @@ When you HTTParty, you must party hard!
 
 &lt;p&gt;The assumption here is that your master branch is always deployable and your develop branch is where you would make small changes that will be release fairly quickly.&lt;/p&gt;
 
-&lt;p&gt;The feature I use most is &lt;em&gt;feature&lt;/em&gt; branches. Essentially a branch called feature/&lt;feature-name&gt; is created and when complete, merged into your develop branch. To start a new feature branch just type:&lt;/p&gt;
+&lt;p&gt;The feature I use most is &lt;em&gt;feature&lt;/em&gt; branches. Essentially a branch called feature/&amp;lt;feature-name&gt; is created and when complete, merged into your develop branch. To start a new feature branch just type:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;    $ git flow feature start &amp;lt;feature-name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -926,9 +1001,9 @@ When you HTTParty, you must party hard!
    <content type="html">&lt;h3&gt;Interesting stuff from around the internet last week&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;http://maker.github.com/ratchet/&quot;&gt;Ratchet - HTML/CSS framework for iPhone prototyping&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://ademilter.com/lab/liffect/&quot;&gt;Liffect - CSS effects for lists&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://wrapbootstrap.com/preview/WB0PHMG9K&quot;&gt;Perfectum Dashboard - Bootstrap skin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://maker.github.com/ratchet/&quot;&gt;Ratchet &amp;ndash; HTML/CSS framework for iPhone prototyping&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ademilter.com/lab/liffect/&quot;&gt;Liffect &amp;ndash; CSS effects for lists&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wrapbootstrap.com/preview/WB0PHMG9K&quot;&gt;Perfectum Dashboard &amp;ndash; Bootstrap skin&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://worrydream.com/LearnableProgramming/&quot;&gt;Learnable Programming by Bret Victor&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://sharpsuits.net/home&quot;&gt;Client feedback turned into posters&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://speakerdeck.com/kennethreitz/api-driven-development&quot;&gt;API driven development&lt;/a&gt;&lt;/li&gt;
@@ -1045,8 +1120,8 @@ When you HTTParty, you must party hard!
    <content type="html">&lt;p&gt;After a week focussed on product development, user experience and design, I&amp;rsquo;ve been geeking out with a bunch of articles, podcasts and videos this weekend.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://vimeo.com/49701839&quot;&gt;Adam Wiggins - &amp;lsquo;Idea to Delivery: Application Development in the Modern Age&amp;rsquo;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://rubyrogues.com/076-rr-service-oriented-design-with-paul-dix/&quot;&gt;Ruby Rogues - Service-Oriented Design with Paul Dix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://vimeo.com/49701839&quot;&gt;Adam Wiggins &amp;ndash; &amp;lsquo;Idea to Delivery: Application Development in the Modern Age&amp;rsquo;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://rubyrogues.com/076-rr-service-oriented-design-with-paul-dix/&quot;&gt;Ruby Rogues &amp;ndash; Service-Oriented Design with Paul Dix&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://popcornjs.org/&quot;&gt;Ryan Merkley: Online video – annotated, remixed and popped&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=T6-75HdADc8&quot;&gt;Roy Tomeij: Modular &amp;amp; reusable front-end code with HTML5, Sass and CoffeeScript&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Unix_philosophy&quot;&gt;UNIX philosophy&lt;/a&gt;&lt;/li&gt;
@@ -1094,7 +1169,7 @@ When you HTTParty, you must party hard!
    <title>Highlights from Dublin Web Summit 2012</title>
    <link href="http://easyart.github.com/2012/10/21/dublin-web-summit-2012"/>
    <updated>2012-10-21T12:16:00+01:00 by Nick Boyce</updated>
-   <content type="html">&lt;p&gt;This week thousands fellow web makers, CEOs, VCs and geeks descended on Dublin for the Dublin Web Summit. They had done an amazing job of promoting the event - there were flags on the mains streets, front-page coverage in papers and loads of media reporting live from the event (to the point where the wifi was almost useless!). The event itself had four stages, an expo room with startups from all over the world, and startup pitching stages. The overall highlight had to be DWS By Night, where they had taken over a whole street of pubs and clubs with free drinks for attendees. There were bound to be some sore heads on Thursday morning!&lt;/p&gt;
+   <content type="html">&lt;p&gt;This week thousands fellow web makers, CEOs, VCs and geeks descended on Dublin for the Dublin Web Summit. They had done an amazing job of promoting the event &amp;ndash; there were flags on the mains streets, front-page coverage in papers and loads of media reporting live from the event (to the point where the wifi was almost useless!). The event itself had four stages, an expo room with startups from all over the world, and startup pitching stages. The overall highlight had to be DWS By Night, where they had taken over a whole street of pubs and clubs with free drinks for attendees. There were bound to be some sore heads on Thursday morning!&lt;/p&gt;
 
 &lt;h3&gt;Startup pitching stages&lt;/h3&gt;
 
@@ -1112,7 +1187,7 @@ When you HTTParty, you must party hard!
 
 &lt;h3&gt;Chris Poole 4chan, Founder&lt;/h3&gt;
 
-&lt;p&gt;The subheading of this talk was something like &lt;em&gt;how I unwittingly became a sysadmin&lt;/em&gt;, and was a story of how 4chan serves 600m page views a month and 1m new posts a day on five second-hand servers - each of which is a single point of failure - and no full-time staff.&lt;/p&gt;
+&lt;p&gt;The subheading of this talk was something like &lt;em&gt;how I unwittingly became a sysadmin&lt;/em&gt;, and was a story of how 4chan serves 600m page views a month and 1m new posts a day on five second-hand servers &amp;ndash; each of which is a single point of failure &amp;ndash; and no full-time staff.&lt;/p&gt;
 
 &lt;p&gt;By looking at the numbers that Google Analytics (which fires in the client via JavaScript) and Cloudflare (which was the entry point to the web request) were reporting, he realised that that half of their traffic was coming from web scrapers and third-party extensions, so it was only then that they added an API (which now serves 50m requests a day).&lt;/p&gt;
 
@@ -1250,7 +1325,7 @@ When you HTTParty, you must party hard!
 
 &lt;h3&gt;Social influence&lt;/h3&gt;
 
-&lt;p&gt;Consumers are hugely influenced by the behaviour of others. Stock levels create a fear of missing out. I also think that positive social reinforcement - showing that other &amp;ldquo;real&amp;rdquo; people are buying an item - can be a huge influence also.&lt;/p&gt;
+&lt;p&gt;Consumers are hugely influenced by the behaviour of others. Stock levels create a fear of missing out. I also think that positive social reinforcement &amp;ndash; showing that other &amp;ldquo;real&amp;rdquo; people are buying an item &amp;ndash; can be a huge influence also.&lt;/p&gt;
 
 &lt;h3&gt;Create magic moments&lt;/h3&gt;
 
@@ -1381,7 +1456,7 @@ When you HTTParty, you must party hard!
 
 &lt;h3&gt;Taking it further&lt;/h3&gt;
 
-&lt;p&gt;This only scratches the surface of what you can do with this type of command. To see other actions available, try typing subl &amp;ndash;help into Terminal and pressing enter. This will give you a list of ways to use this command.&lt;/p&gt;
+&lt;p&gt;This only scratches the surface of what you can do with this type of command. To see other actions available, try typing subl &amp;mdash;help into Terminal and pressing enter. This will give you a list of ways to use this command.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This post is pretty much lifted from a post I wrote on my own blog last night:&lt;/p&gt;
 
@@ -1421,7 +1496,7 @@ When you HTTParty, you must party hard!
 
 &lt;p&gt;I want to be able to push to the master branch of a remote repo and have the changes deployed to S3, with predefined HTTP headers. Much like I&amp;rsquo;m used to pushing to Heroku with git push heroku master.&lt;/p&gt;
 
-&lt;p&gt;There are probably plenty of ways to do it - mounting S3 through Fuse, running Webdav servers, using Capistrano etc - but I found them too overkill for our needs.&lt;/p&gt;
+&lt;p&gt;There are probably plenty of ways to do it &amp;ndash; mounting S3 through Fuse, running Webdav servers, using Capistrano etc &amp;ndash; but I found them too overkill for our needs.&lt;/p&gt;
 
 &lt;p&gt;So I&amp;rsquo;ve ended up writing a simple deploy script which lives at the root of the repo which uses &lt;a href=&quot;http://s3tools.org/s3cmd&quot;&gt;s3cmd&lt;/a&gt; to sync between the local file system and our S3 bucket. It&amp;rsquo;s a snap to set up, and the result is a command that looks like this:&lt;/p&gt;
 
@@ -1440,7 +1515,7 @@ When you HTTParty, you must party hard!
    <updated>2012-04-17T00:00:00+01:00 by John Pash</updated>
    <content type="html">&lt;p&gt;I read a thought-provoking comment today on &lt;a href=&quot;http://highscalability.com/blog/2012/3/26/7-years-of-youtube-scalability-lessons-in-30-minutes.html&quot;&gt;High Scalability&lt;/a&gt; that got me thinking. It appeared in a post which attempted to sum up &amp;ldquo;&lt;a href=&quot;http://highscalability.com/blog/2012/3/26/7-years-of-youtube-scalability-lessons-in-30-minutes.html&quot;&gt;7 Years of YouTube Scalability Lessons in 30 Minutes&lt;/a&gt;&amp;rdquo;. It shows a neat little trick that you can use to make it appear to the user that your site is faster than it really is. Read on&amp;hellip;&lt;/p&gt;
 
-&lt;h3&gt;Approximate Correctness - Cheat a Little&lt;/h3&gt;
+&lt;h3&gt;Approximate Correctness &amp;ndash; Cheat a Little&lt;/h3&gt;
 
 &lt;blockquote&gt;&lt;p&gt;A real world example. If you write a comment and someone loads the page at the same time, they might not get it for 300-400ms, the user who is reading won’t care. The writer of the comment will care, so you make sure the user who wrote the comment will see it. So you cheat a little bit. Your system doesn’t have to have globally consistent transactions. That would be super expensive and overkill. Not every comment is a financial transaction. So know when you can cheat.&lt;/p&gt;&lt;/blockquote&gt;
 
