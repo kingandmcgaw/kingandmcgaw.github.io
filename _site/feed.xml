@@ -4,11 +4,37 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-07-24T22:19:43+01:00</updated>
+ <updated>2013-08-04T15:29:10+01:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
+ 
+ <entry>
+   <title>Design For Disaster and other interesting links</title>
+   <link href="http://easyart.github.com/2013/08/04/design-for-disaster"/>
+   <updated>2013-08-04T16:16:38+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.steverydz.com&quot;&gt;Steve&lt;/a&gt; brought Jeffrey Veen&amp;rsquo;s &lt;a href=&quot;https://vimeo.com/63525053&quot;&gt;Design For Disaster&lt;/a&gt; talk to my attention last week and I&amp;rsquo;m still thinking about it.&lt;/p&gt;
+
+&lt;iframe src=&quot;http://player.vimeo.com/video/63525053&quot; width=&quot;100%&quot; frameborder=&quot;0&quot; webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;
+
+
+&lt;p&gt;Veen is a real veteran of the web and an impressive storyteller. In this talk he recounts a specific disaster in Typekit&amp;rsquo;s history, and how procedures set up before and after, as well as parts of the company culture had an effect on its outcome.&lt;/p&gt;
+
+&lt;p&gt;Some more bits and pieces I&amp;rsquo;ve enjoyed recently:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://mobile.nytimes.com/2013/07/27/nyregion/in-lieu-of-money-toyota-donates-efficiency-to-new-york-charity.html&quot;&gt;In Lieu of Money, Toyota Donates Efficiency to New York Charity&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Shipping beats perfection. Be open. Share your work. Anybody can fix anything. &lt;a href=&quot;https://sites.google.com/a/khanacademy.org/forge/for-developers&quot;&gt;Development philosophy at Khan Academy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=1a7S2yRaEQg&amp;amp;feature=youtu.be&quot;&gt;108 Years of Herman Miller (in 108 Seconds)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.altdevblogaday.com/2013/07/24/theres-nothing-like-a-tidy-codebase/&quot;&gt;There’s nothing like a tidy codebase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://i.stack.imgur.com/whhD1.png&quot;&gt;HTTP logic tree, illustrated&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/editors-picks/f70bb9221b36&quot;&gt;“I’m adding a meeting” should really be “I’m subtracting an hour from your life.”&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://firstround.com/article/42-Rules-to-Lead-by-from-the-Man-Who-Defined-Googles-Product-Strategy&quot;&gt;&amp;ldquo;42 Rules to Lead by from the Man Who Defined Google’s Product Strategy&amp;rdquo;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Heroku Fork</title>
