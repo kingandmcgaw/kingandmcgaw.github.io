@@ -4,11 +4,27 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-08-04T15:30:41+01:00</updated>
+ <updated>2013-08-11T13:19:08+01:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
+ 
+ <entry>
+   <title>A Decision Journal</title>
+   <link href="http://easyart.github.com/2013/08/11/a-decision-journal"/>
+   <updated>2013-08-11T14:09:37+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;Nobel Laureate Daniel Kahneman:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Somewhat surprisingly, few organizations keep track of what’s decided and why.&lt;/p&gt;
+
+&lt;p&gt;This seems idiotic when you consider that often thousands of dollars are spent making a decision. Of the few that do keep track of decisions, fewer will be honest about what’s actually discussed.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;This one of the reasons I think it&amp;rsquo;s worth spending work hours blogging. To distill ideas and decisions and share them with the organisation and your peers.&lt;/p&gt;
+
+&lt;p&gt;Via the wonderful &lt;a href=&quot;http://www.farnamstreetblog.com/2013/07/how-your-organization-can-improve-decision-making/&quot;&gt;Farnam Street&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Design For Disaster and other interesting links</title>

@@ -31,6 +31,33 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></h2>
+      <p class="updated">Posted on 11 August 2013
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>Nobel Laureate Daniel Kahneman:</p>
+
+<blockquote><p>Somewhat surprisingly, few organizations keep track of what’s decided and why.</p>
+
+<p>This seems idiotic when you consider that often thousands of dollars are spent making a decision. Of the few that do keep track of decisions, fewer will be honest about what’s actually discussed.</p></blockquote>
+
+<p>This one of the reasons I think it&rsquo;s worth spending work hours blogging. To distill ideas and decisions and share them with the organisation and your peers.</p>
+
+<p>Via the wonderful <a href="http://www.farnamstreetblog.com/2013/07/how-your-organization-can-improve-decision-making/">Farnam Street</a>.</p>
+
+    <p><a href="/2013/08/11/a-decision-journal">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></h2>
       <p class="updated">Posted on 04 August 2013
         by
@@ -202,83 +229,6 @@ Web URL:       http://yourapp-staging.herokuapp.com/
     <p><a href="/2013/06/02/adam-wiggins-wisdom">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/05/05/json-api">JSONAPI.org</a></h2>
-      <p class="updated">Posted on 05 May 2013
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>I was interested to see <a href="http://jsonapi.org/">jsonapi.org</a> spring up on the web recently. Though it&rsquo;s authored by Ember&rsquo;s team, the references to Ember have been moved from the homepage to the <a href="http://jsonapi.org/history">history</a> section, and it&rsquo;s clear that the ambition is to set a standard for API compatibility between servers and clients.</p>
-
-<p>Overall I applaud the ambition and it&rsquo;s clearly written by clever people. That said, I believe consuming the proposed data structures is more complicated unless you&rsquo;re using a compatible library.</p>
-
-<p>Consider these examples&hellip;</p>
-
-<blockquote><p>If the value of a resource key is a JSON object, the value represents a single document.
-If the value of a resource key is a JSON array, the value represents a list of documents.</p></blockquote>
-
-<p>Isn&rsquo;t it better to have the URL scheme define if you are looking at a document or collection? i.e. <code>GET /resource</code> is a collection and <code>GET /resource/document</code> is a document?</p>
-
-<blockquote><p>To save HTTP requests, it may be convenient to send related documents along with the requested documents.</p></blockquote>
-
-<p>For example:</p>
-
-<pre><code>{
-  "posts": [{
-    "id": "1",
-    "title": "Rails is Omakase",
-    "rels": {
-      "author": 9
-    }
-  }],
-  "people": [{
-    "id": "9",
-    "name": "@d2h"
-  }]
-}
-</code></pre>
-
-<p>So to list the post title and author name would be something like (pseudo code):</p>
-
-<pre><code>{posts.each (post)}
-  {post.title} by {people.where(id: post.rels.author).name}
-{end}  
-</code></pre>
-
-<p>Now, that&rsquo;s pseudo-code, and in reality it would depend on what language or framework you are using as to how easy that &ldquo;where&rdquo; statement is. It&rsquo;s definitely going to be a lot more complicated than my example to do it in vanilla JavaScript. I&rsquo;d suggest that nesting the documents is much easier:</p>
-
-<pre><code>{
-  "posts": [{
-    "id": "1",
-    "title": "Rails is Omakase",
-    "author": {
-      "id": "9",
-      "name": "@d2h"
-    }
-  }]
-}
-</code></pre>
-
-<p>And it can be consumed like this:</p>
-
-<pre><code>{posts.each (post)}
-  {post.title} by {post.author.name}
-{end}  
-</code></pre>
-
-<p>Yes, it&rsquo;s imperfect and can result in more duplication and less flexibility, but I think for a lot of cases that isn&rsquo;t an issue.</p>
-
-    <p><a href="/2013/05/05/json-api">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -397,6 +347,8 @@ If the value of a resource key is a JSON array, the value represents a list of d
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></li>
+    
     <li><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></li>
     
     <li><a href="/2013/07/24/heroku-fork">Heroku Fork</a></li>
@@ -414,8 +366,6 @@ If the value of a resource key is a JSON array, the value represents a list of d
     <li><a href="/2013/04/22/transitioning-to-bourbon">Transitioning to Bourbon</a></li>
     
     <li><a href="/2013/04/21/why-dont-other-industries-use-version-control">Why don't other industries use version control?</a></li>
-    
-    <li><a href="/2013/04/16/easyart-flavoured-agile">Easyart-flavoured agile</a></li>
     
   </ol>
 </div>
