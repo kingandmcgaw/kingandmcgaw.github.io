@@ -31,6 +31,66 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/08/20/launching-kubrick-part-1">Launching Kubrick, part 1</a></h2>
+      <p class="updated">Posted on 20 August 2013
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>After a period of beta testing, user testing and painful analysis, last week we migrated <a href="http://www.worldgallery.co.uk">WorldGallery.co.uk</a> to Kubrick, the new platform we&rsquo;ve been working on in the London office. Kubrick&rsquo;s primary objectives are textbook e-commerce, but the technology and processes are a bit more interesting (which I will write about later)</p>
+
+<h3>Improving conversion rate</h3>
+
+<p>When you have a product catalogue as extensive as WorldGallery, it&rsquo;s a challenge to help users find the product they want to find. I think this is particularly true of art products which are often difficult to categories.</p>
+
+<p>The primary focus has been a new category structure, and adding the capability for users to navigate directly to artwork, artist or category pages via a new search auto-suggest feature. The result is a more curated user experience.</p>
+
+<ul>
+<li>Key tech: Rails, Sinatra, ElasticSearch, JSON</li>
+</ul>
+
+
+<h3>Improving AOV</h3>
+
+<p>We have a massive range of frames and a brilliant team of master framers, and frankly we need to do a better job of getting our customers interested in frames. To do this, we&rsquo;ve integrated framing directly into the main product page and made it near-instantaneous to navigate between various types of unframed, canvas or framed products.</p>
+
+<ul>
+<li>Key tech: Backbone, JSON</li>
+</ul>
+
+
+<h3>Increase traffic</h3>
+
+<p>We&rsquo;ve vastly simplified the structure of the site (focussing on artworks, categories, artists and artworks), resulting in a more easy-to-understand structure, more crawlable pages, one &ldquo;true&rdquo; URL for each page (rather than rewrites which can result in multiple URLs for a single entity).</p>
+
+<ul>
+<li>Key tech: Rails, Rack::Rewrite</li>
+</ul>
+
+
+<p>We also had some <strong>secondary goals</strong> in this development, which are mainly to do with our internal goals within the team.</p>
+
+<ul>
+<li>Make the site mobile-friendly for the 25% (and rising) of users that access our sites on tablets or mobile</li>
+<li>Improve engagement (measured in time on site, number of page views and return visits)</li>
+<li>Improved monitoring</li>
+<li>Automated testing</li>
+</ul>
+
+
+<p>We&rsquo;re already seeing some positive results and look forward to migrating some of our other sites over.</p>
+
+    <p><a href="/2013/08/20/launching-kubrick-part-1">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></h2>
       <p class="updated">Posted on 11 August 2013
         by
@@ -188,47 +248,6 @@ Web URL:       http://yourapp-staging.herokuapp.com/
     <p><a href="/2013/07/12/lazy-loading-facebook-buttons">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/06/02/adam-wiggins-wisdom">Some wisdom from Adam Wiggins</a></h2>
-      <p class="updated">Posted on 02 June 2013
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>This week <a href="http://about.adamwiggins.com/">Adam Wiggins</a> announced that he has <a href="https://gist.github.com/adamwiggins/5687917">stepped down</a> as CTO of <a href="http://heroku.com">Heroku</a> to pursue other opportunities.</p>
-
-<p>At Easyart we&rsquo;re big fans of Heroku (it&rsquo;s used extensively for our new platform), and Adam&rsquo;s general approach to modern web software design, so I thought it might be a good opportunity to review some of his nuggets of wisdom.</p>
-
-<h3><a href="http://www.12factor.net/">The Twelve-Factor App</a></h3>
-
-<p>A manifesto for modern web software design and the principles. It&rsquo;s clearly the concepts from which the Heroku ecosystem is formed, but the principles can be applied to any modern web application platform stack.</p>
-
-<h3><a href="https://gist.github.com/adamwiggins/5687294">My Heroku Values</a></h3>
-
-<p>A few bits and pieces from this post:</p>
-
-<blockquote><p><strong>Make it real</strong>. Ideas are cheap. Make a prototype, sketch a CLI session, draw a wireframe. Discussions around concrete examples, not handy-waving abstractions. Don&rsquo;t say you did something, provide a URL that proves it.</p>
-
-<p><strong>Ship it</strong>. Nothing is real until it&rsquo;s being used by a real user. This doesn&rsquo;t mean you make a prototype in the morning and blog about it in the evening. It means you find one person you believe your product will help and try to get them to use it.</p>
-
-<p><strong>Divide and conqueor</strong>. Big, hard problems become easy if you cut them into small pieces. How do you eat the elephant? One bite at a time. If a problems seems hard, think about how you can cut it into two smaller, easier problems. If one of those problems is still too hard, cut it in half again.</p>
-
-<p><strong>Throw things away</strong>. It&rsquo;s not the code that is valuable, it&rsquo;s the understanding you&rsquo;ve gained from building it.</p>
-
-<p><strong>Decision-making via ownership, not consensus or authority</strong>. Every product, feature, software component, web page, business deal, blog post, and so on should have a single owner. Many people may collaborate on it, but the owner is &ldquo;the buck stops here&rdquo; and makes the final call on what happens with the owned thing.</p></blockquote>
-
-<p>It will be interesting to see what he turns his hand to next.</p>
-
-    <p><a href="/2013/06/02/adam-wiggins-wisdom">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -347,6 +366,8 @@ Web URL:       http://yourapp-staging.herokuapp.com/
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/08/20/launching-kubrick-part-1">Launching Kubrick, part 1</a></li>
+    
     <li><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></li>
     
     <li><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></li>
@@ -364,8 +385,6 @@ Web URL:       http://yourapp-staging.herokuapp.com/
     <li><a href="/2013/04/25/making-ideas-happen">Making Ideas Happen</a></li>
     
     <li><a href="/2013/04/22/transitioning-to-bourbon">Transitioning to Bourbon</a></li>
-    
-    <li><a href="/2013/04/21/why-dont-other-industries-use-version-control">Why don't other industries use version control?</a></li>
     
   </ol>
 </div>

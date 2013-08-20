@@ -4,11 +4,60 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-08-11T13:19:08+01:00</updated>
+ <updated>2013-08-20T13:21:32+01:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
+ 
+ <entry>
+   <title>Launching Kubrick, part 1</title>
+   <link href="http://easyart.github.com/2013/08/20/launching-kubrick-part-1"/>
+   <updated>2013-08-20T13:45:14+01:00 by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;After a period of beta testing, user testing and painful analysis, last week we migrated &lt;a href=&quot;http://www.worldgallery.co.uk&quot;&gt;WorldGallery.co.uk&lt;/a&gt; to Kubrick, the new platform we&amp;rsquo;ve been working on in the London office. Kubrick&amp;rsquo;s primary objectives are textbook e-commerce, but the technology and processes are a bit more interesting (which I will write about later)&lt;/p&gt;
+
+&lt;h3&gt;Improving conversion rate&lt;/h3&gt;
+
+&lt;p&gt;When you have a product catalogue as extensive as WorldGallery, it&amp;rsquo;s a challenge to help users find the product they want to find. I think this is particularly true of art products which are often difficult to categories.&lt;/p&gt;
+
+&lt;p&gt;The primary focus has been a new category structure, and adding the capability for users to navigate directly to artwork, artist or category pages via a new search auto-suggest feature. The result is a more curated user experience.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Key tech: Rails, Sinatra, ElasticSearch, JSON&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Improving AOV&lt;/h3&gt;
+
+&lt;p&gt;We have a massive range of frames and a brilliant team of master framers, and frankly we need to do a better job of getting our customers interested in frames. To do this, we&amp;rsquo;ve integrated framing directly into the main product page and made it near-instantaneous to navigate between various types of unframed, canvas or framed products.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Key tech: Backbone, JSON&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Increase traffic&lt;/h3&gt;
+
+&lt;p&gt;We&amp;rsquo;ve vastly simplified the structure of the site (focussing on artworks, categories, artists and artworks), resulting in a more easy-to-understand structure, more crawlable pages, one &amp;ldquo;true&amp;rdquo; URL for each page (rather than rewrites which can result in multiple URLs for a single entity).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Key tech: Rails, Rack::Rewrite&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;We also had some &lt;strong&gt;secondary goals&lt;/strong&gt; in this development, which are mainly to do with our internal goals within the team.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Make the site mobile-friendly for the 25% (and rising) of users that access our sites on tablets or mobile&lt;/li&gt;
+&lt;li&gt;Improve engagement (measured in time on site, number of page views and return visits)&lt;/li&gt;
+&lt;li&gt;Improved monitoring&lt;/li&gt;
+&lt;li&gt;Automated testing&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;We&amp;rsquo;re already seeing some positive results and look forward to migrating some of our other sites over.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>A Decision Journal</title>
