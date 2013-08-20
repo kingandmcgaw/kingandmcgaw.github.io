@@ -4,7 +4,7 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-08-20T13:21:32+01:00</updated>
+ <updated>2013-08-20T14:06:25+01:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
@@ -38,20 +38,31 @@
 
 &lt;h3&gt;Increase traffic&lt;/h3&gt;
 
-&lt;p&gt;We&amp;rsquo;ve vastly simplified the structure of the site (focussing on artworks, categories, artists and artworks), resulting in a more easy-to-understand structure, more crawlable pages, one &amp;ldquo;true&amp;rdquo; URL for each page (rather than rewrites which can result in multiple URLs for a single entity).&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ve vastly simplified the structure of the site (focussing on artworks, categories, artists and artworks), resulting in one authoritative URL for each page (rather than rewrites which can result in multiple URLs for a single entity).&lt;/p&gt;
+
+&lt;p&gt;For example, the &amp;ldquo;Modern Art&amp;rdquo; category used to be available via a number of URLs like these:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/mt/Modern-Art-Prints-51-2.html‎&lt;/li&gt;
+&lt;li&gt;/category/modern-modern-59.html‎&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;All of these should now redirect to the one &amp;ldquo;true&amp;rdquo; modern art category: /art-prints/modern-art. This is better for users and better for Google.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Key tech: Rails, Rack::Rewrite&lt;/li&gt;
 &lt;/ul&gt;
 
 
-&lt;p&gt;We also had some &lt;strong&gt;secondary goals&lt;/strong&gt; in this development, which are mainly to do with our internal goals within the team.&lt;/p&gt;
+&lt;p&gt;We also had some &lt;strong&gt;secondary goals&lt;/strong&gt; in this development:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Make the site mobile-friendly for the 25% (and rising) of users that access our sites on tablets or mobile&lt;/li&gt;
 &lt;li&gt;Improve engagement (measured in time on site, number of page views and return visits)&lt;/li&gt;
 &lt;li&gt;Improved monitoring&lt;/li&gt;
-&lt;li&gt;Automated testing&lt;/li&gt;
+&lt;li&gt;Automated testing on everything&lt;/li&gt;
+&lt;li&gt;Increased speed of development&lt;/li&gt;
 &lt;/ul&gt;
 
 

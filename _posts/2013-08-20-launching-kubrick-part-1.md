@@ -19,15 +19,23 @@ We have a massive range of frames and a brilliant team of master framers, and fr
 * Key tech: Backbone, JSON
 
 ### Increase traffic
-We've vastly simplified the structure of the site (focussing on artworks, categories, artists and artworks), resulting in a more easy-to-understand structure, more crawlable pages, one "true" URL for each page (rather than rewrites which can result in multiple URLs for a single entity).
+We've vastly simplified the structure of the site (focussing on artworks, categories, artists and artworks), resulting in one authoritative URL for each page (rather than rewrites which can result in multiple URLs for a single entity).
+
+For example, the "Modern Art" category used to be available via a number of URLs like these:
+
+* /mt/Modern-Art-Prints-51-2.html‎
+* /category/modern-modern-59.html‎
+
+All of these should now redirect to the one "true" modern art category: /art-prints/modern-art. This is better for users and better for Google.
 
 * Key tech: Rails, Rack::Rewrite
 
-We also had some **secondary goals** in this development, which are mainly to do with our internal goals within the team.
+We also had some **secondary goals** in this development:
 
 * Make the site mobile-friendly for the 25% (and rising) of users that access our sites on tablets or mobile
 * Improve engagement (measured in time on site, number of page views and return visits)
 * Improved monitoring
-* Automated testing
+* Automated testing on everything
+* Increased speed of development
 
 We're already seeing some positive results and look forward to migrating some of our other sites over.
