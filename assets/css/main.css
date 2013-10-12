@@ -34,9 +34,10 @@ body {
   width: 90%;
   max-width: 1080px;
   margin: 0 auto;
-  font: 87.5%/1.5 "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 100%/1.5 "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333333;
-  background: whitesmoke; }
+
+}
 
 /* ----------------------------------------------
   TYPOGRAPHY
@@ -331,7 +332,8 @@ button {
     .global-header a:hover, .global-header a:active, .global-header a:focus {
       text-decoration: none; }
   .global-header strong {
-    color: #333333; }
+    color: #333333;
+  }
 
 /* ----------------------------------------------
   FOOTER
