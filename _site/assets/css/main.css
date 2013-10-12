@@ -76,8 +76,7 @@ strong {
 blockquote {
   padding-left: 1.5em;
   border-left: 3px solid #cccccc;
-  font-style: italic;
-  color: #999999; }
+}
 
 pre {
   overflow: auto;
@@ -325,14 +324,15 @@ button {
 .global-header {
   overflow: hidden;
   margin: 3em 0;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 10px solid #cccccc;
   color: #999999; }
   .global-header a {
     color: #999999; }
     .global-header a:hover, .global-header a:active, .global-header a:focus {
       text-decoration: none; }
   .global-header strong {
-    color: #333333; }
+    color: #333333;
+  }
 
 /* ----------------------------------------------
   FOOTER
