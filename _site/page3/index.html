@@ -31,6 +31,66 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/04/22/transitioning-to-bourbon">Transitioning to Bourbon</a></h2>
+      <p class="updated">Posted on 22 April 2013
+        by
+        
+        
+        
+        <a href="/authors/steve-rydz/">
+        
+        Steve Rydz
+        </a>
+      </p>
+    </header>
+    <p>With the project we&rsquo;re currently working on, I was tasked with taking the lead on the front-end side of things. Previously we used Bootstrap, with our styles applied on top, but this was no longer a good fit for a number of reasons:</p>
+
+<ol>
+<li>Large amounts of unused CSS</li>
+<li>Components had to be overwritten to fit our designs</li>
+<li>The grid system wasn&rsquo;t particularly flexible</li>
+</ol>
+
+
+<p>My gut feel was that we need our own framework, but before we went down that road, I took a look at some other options.</p>
+
+<p>At one point we tried Foundation, mainly because the grid system seemed to be quite clever, but there were a number of reasons why that also didn&rsquo;t work:</p>
+
+<ol>
+<li>Once again, large amounts of unused CSS</li>
+<li>Changing font sizes altered the grid system</li>
+<li>Browser support doesn&rsquo;t reach back as far as we need it to</li>
+</ol>
+
+
+<p>I decided to piece together our own framework, but to save time I wanted a reliable and flexible grid system, oh, and it had to be twelve columns.</p>
+
+<p>After trying out numerous pre-built grid systems and finding none of them worked as we wanted, I was ready to give up and build it myself, until my colleague Nick discovered <a href="http://neat.bourbon.io">Neat</a>.</p>
+
+<p>Neat is the grid system that accompanies <a href="http://bourbon.io">Bourbon</a>, a solid collection of Sass mixins and utilities. After trying it out for an hour or so, I decided this was what we needed.</p>
+
+<p>The great thing about using bourbon and neat is that only the styles we are actually using will be included in our compiled CSS, and we can also easily use our own classes keeping both our HTML and CSS as clean as possible from presentational class names.</p>
+
+<p>I was now ready to piece together our framework. I already had some styles which were a mix of our own global styles, some bootstrap components (alerts, wells, labels etc), and a few other bits and pieces. These are now kept in their own <a href="http://github.com/easyart/craven">github repo</a>, and will be included as a git submodule going forward.</p>
+
+<p>Here is a broad outline of how we now structure our CSS:</p>
+
+<ul>
+<li><strong>Bourbon</strong>: Up-to-date CSS3 mixins</li>
+<li><strong>Neat</strong>: Stable and flexible grid system</li>
+<li><strong>Config</strong>: Variables to customize aspects of each site</li>
+<li><strong>Craven</strong>: Collection of styles inc. normalize, bootstrap components and global styles</li>
+<li><strong>Site specific</strong>: Any styles specific to each site</li>
+</ul>
+
+
+<p>So far we&rsquo;ve found this to be a maintainable way to structure our CSS, and we&rsquo;re hoping once we port it across all of our sites it will continue to be so.</p>
+
+    <p><a href="/2013/04/22/transitioning-to-bourbon">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/04/21/why-dont-other-industries-use-version-control">Why don't other industries use version control?</a></h2>
       <p class="updated">Posted on 21 April 2013
         by
@@ -225,38 +285,6 @@ compare/master@{2012-05-01}…master
     <p><a href="/2013/02/17/links-for-the-week">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/02/10/links-for-the-week">Links for the week</a></h2>
-      <p class="updated">Posted on 10 February 2013
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>It&rsquo;s been a busy week for the tech team at Easyart this week (more on that later), but I&rsquo;ve got a backlog of some interesting links in my Evernote that I want to share.</p>
-
-<ul>
-<li><a href="http://ryancarson.com/post/41700372023/the-90-day-plan">The 90 day plan</a>. We try to do quarterly plans here, but this has inspired me to do better.</li>
-<li><a href="https://github.com/frabcus/house/issues">Developer creates Github issues for his house</a>.</li>
-<li><a href="http://dashes.com/anil/2013/01/all-dashboards-should-be-feeds.html">Anil Dash: All dashboards should be feeds</a>. I don&rsquo;t entirely agree but he makes an interesting case.</li>
-<li><a href="http://hessian.tv/forsale.html">Hessian</a> is a pre-made brand, for sale for $18,000.</li>
-<li><a href="http://labs.tineye.com/multicolr#colors=f68e2b,9fc043,cb4e8d;weights=33,34,33;">Multicolr Search Lab</a>.</li>
-</ul>
-
-
-<p>And this quote from Justin Kan&rsquo;s article <a href="http://www.fastcompany.com/3005469/experienced-hires-will-save-you-yourself">Experienced Hires Will Save You From Yourself</a>:</p>
-
-<blockquote><p>My general rule of thumb at Exec has been that as a founder, you should do the first version of everything yourself. Build the first product, test the first sales channels. By doing things yourself, you can quickly discover if they will pay dividends (or if it is time to move on to the next experiment). Once you discover something worth doing, then hire a professional to come in and clean up the mess you’ve made.</p></blockquote>
-
-    <p><a href="/2013/02/10/links-for-the-week">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -336,6 +364,12 @@ compare/master@{2012-05-01}…master
         
       </li>
       
+      <li class="page">
+        
+        <a href="/page12">12</a>
+        
+      </li>
+      
     </ul>
 
     
@@ -377,6 +411,8 @@ compare/master@{2012-05-01}…master
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></li>
+    
     <li><a href="/2013/08/20/launching-kubrick-part-1">Launching Kubrick, part 1</a></li>
     
     <li><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></li>
@@ -394,8 +430,6 @@ compare/master@{2012-05-01}…master
     <li><a href="/2013/04/29/notes-from-industry-conference">Notes from Industry Conference</a></li>
     
     <li><a href="/2013/04/25/making-ideas-happen">Making Ideas Happen</a></li>
-    
-    <li><a href="/2013/04/22/transitioning-to-bourbon">Transitioning to Bourbon</a></li>
     
   </ol>
 </div>
