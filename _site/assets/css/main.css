@@ -75,7 +75,8 @@ strong {
 blockquote {
   padding-left: 1.5em;
   border-left: 3px solid #cccccc;
-}
+  font-style: italic;
+  color: #999999; }
 
 pre {
   overflow: auto;
