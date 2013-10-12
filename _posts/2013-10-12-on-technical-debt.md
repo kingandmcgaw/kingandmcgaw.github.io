@@ -38,3 +38,5 @@ For existing features, **study the data**. If this feature is providing real bus
 For new features, it's important to **define success criteria upfront**. If the feature doesn't meet the measure of success you've defined, remove it. And if it does, we know the debt is worth taking on. Ideally these metrics should be published so that later down the line when someone asks "why do we have this feature", there is an answer to point to.
 
 Adding these processes requires great discipline, but it provides a confidence that every new feature is providing real value to the company.
+
+Update: [some discussion on Hacker News](https://news.ycombinator.com/item?id=6538833)
