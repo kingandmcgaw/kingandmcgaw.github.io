@@ -25,7 +25,7 @@ Another great article on the topic by Yammer's CTO, Kris Gale, [on technical deb
 
   > For years, the two things that most frustrated me to hear from product managers were "how hard would it be..." and "can't you just..." It took me quite a while to figure out why I had such a strong, visceral reaction to these phrases. The answer seems obvious now: The work of implementing a feature initially is often a tiny fraction of the work to support that feature over the lifetime of a product, and yes, we can "just" code any logic someone dreams up. What might take two weeks right now adds a marginal cost to every engineering project we'll take on in this product in the future. In fact, I'd argue that the initial time spent implementing a feature is one of the least interesting data points to consider when weighing the cost and benefit of a feature.
 
-And [this rant](http://insideintercom.io/there-are-no-small-changes/) argues that there is simply no such thing as a small change:
+And [this brilliant rant](http://insideintercom.io/there-are-no-small-changes/) by Des Traynor argues that there is simply no such thing as a small change:
 
   > Agreeing to features is deceptively easy. Coding them rarely is. Maintaining them can be a nightmare. When you’re striving for quality, there are no small changes.
 
