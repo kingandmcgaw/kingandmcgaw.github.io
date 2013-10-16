@@ -2,7 +2,7 @@
 layout: post
 title: Setting Up Google Tag Manager with Optimizely
 date: 2013-10-16 14:07:47
-author:John Pash
+author: John Pash
 ---
 
 ### Summary
