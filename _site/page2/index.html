@@ -32,6 +32,133 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></h2>
+      <p class="updated">Posted on 11 August 2013
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>Nobel Laureate Daniel Kahneman:</p>
+
+<blockquote><p>Somewhat surprisingly, few organizations keep track of what’s decided and why.</p>
+
+<p>This seems idiotic when you consider that often thousands of dollars are spent making a decision. Of the few that do keep track of decisions, fewer will be honest about what’s actually discussed.</p></blockquote>
+
+<p>This one of the reasons I think it&rsquo;s worth spending work hours blogging. To distill ideas and decisions and share them with the organisation and your peers.</p>
+
+<p>Via the wonderful <a href="http://www.farnamstreetblog.com/2013/07/how-your-organization-can-improve-decision-making/">Farnam Street</a>.</p>
+
+    <p><a href="/2013/08/11/a-decision-journal">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></h2>
+      <p class="updated">Posted on 04 August 2013
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p><a href="http://www.steverydz.com">Steve</a> brought Jeffrey Veen&rsquo;s <a href="https://vimeo.com/63525053">Design For Disaster</a> talk to my attention last week and I&rsquo;m still thinking about it.</p>
+
+<iframe src="http://player.vimeo.com/video/63525053" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+
+<p>Veen is a real veteran of the web and an impressive storyteller. In this talk he recounts a specific disaster in Typekit&rsquo;s history, and how procedures set up before and after, as well as parts of the company culture had an effect on its outcome.</p>
+
+<p>Some more bits and pieces I&rsquo;ve enjoyed recently:</p>
+
+<ul>
+<li><a href="http://mobile.nytimes.com/2013/07/27/nyregion/in-lieu-of-money-toyota-donates-efficiency-to-new-york-charity.html">In Lieu of Money, Toyota Donates Efficiency to New York Charity</a></li>
+<li>Shipping beats perfection. Be open. Share your work. Anybody can fix anything. <a href="https://sites.google.com/a/khanacademy.org/forge/for-developers">Development philosophy at Khan Academy</a>.</li>
+<li><a href="http://www.youtube.com/watch?v=1a7S2yRaEQg&amp;feature=youtu.be">108 Years of Herman Miller (in 108 Seconds)</a></li>
+<li><a href="http://www.altdevblogaday.com/2013/07/24/theres-nothing-like-a-tidy-codebase/">There’s nothing like a tidy codebase</a></li>
+<li><a href="http://i.stack.imgur.com/whhD1.png">HTTP logic tree, illustrated</a></li>
+<li><a href="https://medium.com/editors-picks/f70bb9221b36">“I’m adding a meeting” should really be “I’m subtracting an hour from your life.”</a></li>
+<li><a href="http://firstround.com/article/42-Rules-to-Lead-by-from-the-Man-Who-Defined-Googles-Product-Strategy">&ldquo;42 Rules to Lead by from the Man Who Defined Google’s Product Strategy&rdquo;</a></li>
+<li><a href="http://designthinking.ideo.com/?p=1121">&ldquo;The Secret to Your Success? Make Others Successful&rdquo;</a></li>
+</ul>
+
+
+    <p><a href="/2013/08/04/design-for-disaster">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2013/07/24/heroku-fork">Heroku Fork</a></h2>
+      <p class="updated">Posted on 24 July 2013
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>I&rsquo;ve been meaning to try the <a href="https://devcenter.heroku.com/articles/fork-app">fork</a> feature on Heroku for a while.</p>
+
+<p>It does exactly what you expect, but that&rsquo;s what&rsquo;s so brilliant about it. It&rsquo;s taken be less than 2 minutes to set up a staging environment for one of our apps in the EU region. Here&rsquo;s what&rsquo;s involved:</p>
+
+<p>Clone an existing app, optionally choosing a region. This will also add your add-ons to the forked app at the same payment tier so keep an eye out for this.</p>
+
+<pre><code>heroku fork -a yourapp yourapp-staging --region eu
+
+Creating fork yourapp-staging... done
+Copying slug... done
+Adding airbrake:developer... done
+Adding memcachier:100... done
+Adding scheduler:standard... done
+Copying config vars... done
+Fork complete, view it at http://yourapp-staging.herokuapp.com/
+</code></pre>
+
+<p>Get the forked app&rsquo;s Git repo information so you can push code to it.</p>
+
+<pre><code>heroku info -a yourapp-staging
+
+=== yourapp-staging
+Addons:        memcachier:dev
+               scheduler:standard
+
+Git URL:       git@heroku.com:yourapp-staging.git
+Owner Email:   nick@nickboyce.com
+Region:        eu
+Stack:         cedar
+Tier:          Legacy
+Web URL:       http://yourapp-staging.herokuapp.com/
+</code></pre>
+
+<p>Add a new git remote so you can push to the new app.</p>
+
+<pre><code>git remote add staging git@heroku.com:yourapp-staging.git
+</code></pre>
+
+<p>Push a branch to your new app.</p>
+
+<pre><code>git push staging custom-framing:master
+</code></pre>
+
+<p>You&rsquo;re done!</p>
+
+    <p><a href="/2013/07/24/heroku-fork">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/07/12/lazy-loading-facebook-buttons">Lazy loading Facebook buttons</a></h2>
       <p class="updated">Posted on 12 July 2013
         by
@@ -101,235 +228,6 @@
 <p>It will be interesting to see what he turns his hand to next.</p>
 
     <p><a href="/2013/06/02/adam-wiggins-wisdom">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/05/05/json-api">JSONAPI.org</a></h2>
-      <p class="updated">Posted on 05 May 2013
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>I was interested to see <a href="http://jsonapi.org/">jsonapi.org</a> spring up on the web recently. Though it&rsquo;s authored by Ember&rsquo;s team, the references to Ember have been moved from the homepage to the <a href="http://jsonapi.org/history">history</a> section, and it&rsquo;s clear that the ambition is to set a standard for API compatibility between servers and clients.</p>
-
-<p>Overall I applaud the ambition and it&rsquo;s clearly written by clever people. That said, I believe consuming the proposed data structures is more complicated unless you&rsquo;re using a compatible library.</p>
-
-<p>Consider these examples&hellip;</p>
-
-<blockquote><p>If the value of a resource key is a JSON object, the value represents a single document.
-If the value of a resource key is a JSON array, the value represents a list of documents.</p></blockquote>
-
-<p>Isn&rsquo;t it better to have the URL scheme define if you are looking at a document or collection? i.e. <code>GET /resource</code> is a collection and <code>GET /resource/document</code> is a document?</p>
-
-<blockquote><p>To save HTTP requests, it may be convenient to send related documents along with the requested documents.</p></blockquote>
-
-<p>For example:</p>
-
-<pre><code>{
-  "posts": [{
-    "id": "1",
-    "title": "Rails is Omakase",
-    "rels": {
-      "author": 9
-    }
-  }],
-  "people": [{
-    "id": "9",
-    "name": "@d2h"
-  }]
-}
-</code></pre>
-
-<p>So to list the post title and author name would be something like (pseudo code):</p>
-
-<pre><code>{posts.each (post)}
-  {post.title} by {people.where(id: post.rels.author).name}
-{end}  
-</code></pre>
-
-<p>Now, that&rsquo;s pseudo-code, and in reality it would depend on what language or framework you are using as to how easy that &ldquo;where&rdquo; statement is. It&rsquo;s definitely going to be a lot more complicated than my example to do it in vanilla JavaScript. I&rsquo;d suggest that nesting the documents is much easier:</p>
-
-<pre><code>{
-  "posts": [{
-    "id": "1",
-    "title": "Rails is Omakase",
-    "author": {
-      "id": "9",
-      "name": "@d2h"
-    }
-  }]
-}
-</code></pre>
-
-<p>And it can be consumed like this:</p>
-
-<pre><code>{posts.each (post)}
-  {post.title} by {post.author.name}
-{end}  
-</code></pre>
-
-<p>Yes, it&rsquo;s imperfect and can result in more duplication and less flexibility, but I think for a lot of cases that isn&rsquo;t an issue.</p>
-
-    <p><a href="/2013/05/05/json-api">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/04/29/notes-from-industry-conference">Notes from Industry Conference</a></h2>
-      <p class="updated">Posted on 29 April 2013
-        by
-        
-        
-        
-        <a href="/authors/steve-rydz/">
-        
-        Steve Rydz
-        </a>
-      </p>
-    </header>
-    <p><img src="/assets/img/posts/industry-conf.jpg" alt="Industry Conference" /></p>
-
-<p>Last week I attended <a href="http://industryconf.com">Industry</a>, organised by Gavin Elliott. I must say Gavin did a great job and  it was a great conference. Here are my notes from the talks:</p>
-
-<h3>Rachel Andrew &ndash; &ldquo;All of a sudden&hellip; no luck!&rdquo; Things we have learned while supporting Perch.</h3>
-
-<p><a href="https://speakerdeck.com/rachelandrew/all-of-a-sudden-dot-dot-dot-no-luck">Slides</a></p>
-
-<p>There were some good points this talk, such as how email doesn&rsquo;t scale well for support and how important it is to add features that benefit the majority of your customers, not the noisy minority. Also, Rachel described how engagement with customers makes it easier to determine what you should be doing. Essentially, customer support is your best source of market research.</p>
-
-<p>This led me to think that as well as user testing, we should be engaging more with our customer services team to determine where we can improve things for our customers.</p>
-
-<hr />
-
-<h3>Harry Roberts &ndash; Architecting scalable CSS</h3>
-
-<p><a href="https://speakerdeck.com/csswizardry/architecting-scalable-css">Slides</a></p>
-
-<p>I was looking forward to this talk as I am in the early stages of putting together the CSS for our new platform. Harry addressed a lot of things I have been thinking about recently.</p>
-
-<p>He talked about breaking code into the smallest possible blocks, and how each block should do one thing well. Blocks can then be combined if needed. A great methodology for this is <a href="http://bem.info">BEM</a> which stands for Block-Element-Modifier. I also liked the idea of a <a href="http://csswizardry.com/2013/04/shame-css/">shame.css</a> file for hacks and quick fixes.</p>
-
-<hr />
-
-<h3>Christopher Murphy &ndash; We are navigators</h3>
-
-<p>This talk focused on the importance of education in the industry and how important our mentors can be.</p>
-
-<hr />
-
-<h3>Ashley Baxter &ndash; Changing a stagnant industry</h3>
-
-<p>I wasn&rsquo;t really sure what to expect from this talk, and it was hard to believe this was Ashley&rsquo;s first time speaking at a conference.</p>
-
-<p>Ashley clearly has a lot of drive and has achieved some amazing things purely because she is passionate about what she does. I guess the main take away from this is not to let anything stand in your way and if you don&rsquo;t like the way something is, don&rsquo;t complain about it, make it better.</p>
-
-<hr />
-
-<h3>Noah Stokes &ndash; $50'000 mistakes</h3>
-
-<p>Noah has had quite an impressive career, working at Apple and also turning down job offers from the likes of Google, but it hasn&rsquo;t all been a smooth ride. His story shows that with hard work and dedication, you can achieve anything.</p>
-
-<hr />
-
-<h3>Rasika Krishna &ndash; Cross-cultural UX</h3>
-
-<p>I&rsquo;ve had my fair share of working on sites for other cultures. I&rsquo;ve worked on Arabic, Chinese and Russian sites before and at Easyart we have French, German and Swedish sites as well as our UK ones, but it was really interesting to hear about how different other cultures can be.</p>
-
-<p>I couldn&rsquo;t agree more with Rasika&rsquo;s point about it not being enough just running some text through Google Translate or switching the text-direction. I was also surprised to learn that in Malaysia, you need Government sign-off before launching a website.</p>
-
-<hr />
-
-<h3>Josh Brewer &ndash; Redesigning Twitter</h3>
-
-<p>Josh talked us through the most recent redesign of Twitter and the challenges they faced. There were a few takeaways from this talk, such as the importance of scaling features to meet a deadline, iterating in code early on in the design process and using version control for your PSD&rsquo;s for collaboration (for this Josh recommended SVN as it handles binary files better than Git).</p>
-
-<hr />
-
-<h3>Jeremy Keith &ndash; What we talk about when we talk about the web</h3>
-
-<p>Jeremy raised some great points in this talk, some of which we really shouldn&rsquo;t need to be told anymore, but it was a great overview of how the web works and what we can do to make it better.</p>
-
-<p>The idea that the web is its own medium resounded with me, and that we should not be trying to replicate print. Jeremy also reminded us all about progressive enhancement and how it does not mean designing for the lowest common denominator. The principles behind progressive enhancement and mobile-first go hand-in-hand.</p>
-
-    <p><a href="/2013/04/29/notes-from-industry-conference">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/04/25/making-ideas-happen">Making Ideas Happen</a></h2>
-      <p class="updated">Posted on 25 April 2013
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>A couple of years ago I had the pleasure of seeing <a href="http://www.scottbelsky.com/">Scott Belsky</a> (of <a href="http://www.behance.com">Behance</a> and now <a href="http://www.adobe.com">Adobe</a> fame speak about his book <a href="http://99u.com/book/making-ideas-happen">Making Ideas Happen</a> at the <a href="http://wearelikeminds.com/books">Like Minds Business Book Club</a>).</p>
-
-<p>It&rsquo;s a fantastic book which celebrates some of the things I value most &ndash; collaboration, creativity and getting things done! Here are my some of the passages I highlighted on my Kindle.</p>
-
-<h3>On collaboration and creative process</h3>
-
-<blockquote><p>&hellip;among the hundreds of successful creatives I’ve interviewed, a <strong>fearless approach to sharing ideas</strong> is one of the most common attributes. Why? Because having the idea is just one tiny step along the road to making that idea happen.</p>
-
-<p>Regardless of where you are in your career—and what stage your ideas are in—you should not only accept feedback, you should seek it out. <strong>Managers, coworkers, and clients have a responsibility to share feedback, and you should encourage them to do so</strong>.</p>
-
-<p>“The genius sketch is a myth. Architecture is made by a team of committed people who work together… . <strong>Success usually has more to do with dumb determination than with genius</strong>.”</p>
-
-<p>&hellip;<strong>people thrive when their judgment and autonomy are respected</strong>.</p>
-
-<p>As you cultivate your team’s immune system, you will want to <strong>differentiate between skeptics and cynics</strong>.</p>
-
-<p>Share Ownership of Your Ideas The more people who lie awake in bed thinking about your idea, the better. <strong>But people only obsess about ideas when they feel a sense of ownership</strong>.</p>
-
-<p>Collaboration brings small sparks together to generate breakthrough innovation.</p>
-
-<p>Harvard Business Review cited a recent MIT study showing that employees with the most extensive personal online networks were 7 percent more productive than their colleagues, and <strong>those with the most cohesive face-to-face networks were 30 percent more productive</strong>. Clearly, our respective communities—both online and offline—play a critical role in helping us refine our ideas, stay focused, and execute to completion.</p>
-
-<p>Have a Tempered Tolerance for Change</p>
-
-<p>&hellip;intersection of creative energy and organizational prowess where great ideas become actions and ultimately revolutionary achievements.</p></blockquote>
-
-<h3>On getting things done</h3>
-
-<blockquote><p>&hellip;successful creative entity must be comfortable alternating between these two creative phases: ideation and execution.</p>
-
-<p>The way you organize projects, prioritize, and manage your energy is arguably more important than the quality of the ideas you wish to pursue.</p>
-
-<p>Accountability, one of the most crucial benefits of engaging with your community, is what binds you to the relentless pursuit of your ideas.</p>
-
-<p>Action Steps are specific things you must do to move an idea forward. <strong>The more clear and concrete an Action Step is, the less friction you will encounter trying to do it</strong>. If an Action Step is vague or complicated, you will probably skip over it to others on your list that are more straightforward. To avoid this, start each Action Step with a verb: Call programmer to discuss … Install new software for … Research the possibility of … Mock up a sample of the … Update XYZ document for … Address issue of …</p>
-
-<p><strong>An unowned Action Step will never be taken</strong>. Every Action Step must be owned by a single person. While some Action Steps may involve the input of different people, accountability must reside in one individual’s hands at the end of the day.</p>
-
-<p>Aside from friendly questioning along the lines of “Did you capture that?” some teams take a few minutes at the end of every meeting to go around the table and allow each person to recite the Action Steps that he or she captured.</p>
-
-<p><strong>Actions are truly “delegated” only when they are accepted</strong>. Regardless of your method for managing Action Steps, it is vital that you (and your project partners) never accept an Action Step unless it is clear and able to be executed.</p>
-
-<p>&hellip;minimize (or quit) all communication applications during certain periods of your day.</p>
-
-<p>Constant motion is the key to execution.</p>
-
-<p>Constraints serve as kindling for execution. When you’re not given constraints, you must seek them.</p>
-
-<p>Especially amidst heavy, burdensome projects with hundreds of Action Steps and milestones, <strong>it is emotionally invigorating to surround yourself with progress</strong>. Why throw away the evidence of your achievements when you can create an inspiring monument to getting stuff done? <strong>When you make incremental progress, celebrate it and feature it</strong>. Surround yourself with it.</p></blockquote>
-
-<p>And this fantastic quote from British author A. A. Milne</p>
-
-<blockquote><p>“Good judgment comes from experience, and experience—well, that comes from poor judgment.”</p></blockquote>
-
-    <p><a href="/2013/04/25/making-ideas-happen">Leave a comment</a></p>
   </article>
   
 
@@ -458,6 +356,12 @@ If the value of a resource key is a JSON array, the value represents a list of d
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/12/31/%22turn-your-css-into-a-ruby-gem%22">Turn your CSS into a ruby gem</a></li>
+    
+    <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
+    
+    <li><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></li>
+    
     <li><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></li>
     
     <li><a href="/2013/08/20/launching-kubrick-part-1">Launching Kubrick, part 1</a></li>
@@ -471,12 +375,6 @@ If the value of a resource key is a JSON array, the value represents a list of d
     <li><a href="/2013/07/12/lazy-loading-facebook-buttons">Lazy loading Facebook buttons</a></li>
     
     <li><a href="/2013/06/02/adam-wiggins-wisdom">Some wisdom from Adam Wiggins</a></li>
-    
-    <li><a href="/2013/05/05/json-api">JSONAPI.org</a></li>
-    
-    <li><a href="/2013/04/29/notes-from-industry-conference">Notes from Industry Conference</a></li>
-    
-    <li><a href="/2013/04/25/making-ideas-happen">Making Ideas Happen</a></li>
     
   </ol>
 </div>

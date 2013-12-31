@@ -32,6 +32,160 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/12/31/%22turn-your-css-into-a-ruby-gem%22">Turn your CSS into a ruby gem</a></h2>
+      <p class="updated">Posted on 31 December 2013
+        by
+        
+        
+        
+        <a href="/authors/steve-rydz/">
+        
+        Steve Rydz
+        </a>
+      </p>
+    </header>
+    <p>In our never-ending mission to make our codebase more maintainable, we decided to package up our shared CSS into a gem so we can use it on all of our projects easily, without having to worry about things going out of sync.</p>
+
+<p>This seemed daunting to me, as I&rsquo;d never done anything like this before, but after some reading and googling, I found it wasn&rsquo;t actually that complicated. Here&rsquo;s how I did it:</p>
+
+<h2>What you&rsquo;ll need</h2>
+
+<ul>
+<li>Ensure rubygems is up to date by running <code>gem update --system</code> from your terminal</li>
+<li>Install <strong>bundler</strong> by running <code>gem install bundler</code></li>
+<li>A <a href="http://github.com">github</a> repo for the gem</li>
+<li>An account on <a href="http://rubygems.org">Rubygems</a></li>
+</ul>
+
+
+<h2>Creating the gem</h2>
+
+<p><strong>Note:</strong> I&rsquo;ve called my gem <em>craven</em>, so wherever you see this, you should replace it with the name of your gem.</p>
+
+<p>You can use bundler to create the scaffolding for your gem. All you have to do is run:</p>
+
+<pre><code>    bundle gem craven
+</code></pre>
+
+<p>Believe it or not, this is almost good-to-go, but we need to do a small amount of config first.</p>
+
+<p>Open the file <code>craven/lib/craven.rb</code> and edit it so it looks like this:</p>
+
+<pre><code>    require "craven/version"
+
+    module Craven
+        class Engine &lt; Rails::Engine
+        end
+    end
+</code></pre>
+
+<p>Now open the file <code>craven/craven.gemspec</code> and fill out any sections containing <code>TODO:</code>. I also set the homepage to my github repo:</p>
+
+<pre><code>    spec.homepage = "http://github.com/easyart/craven
+</code></pre>
+
+<h2>Adding your assets</h2>
+
+<p>Now you can add your assets to the gem. Assuming your assets are intended to be used as a library, you should use the <code>vendor</code> directory structure, so all your stylesheets are included in  <code>craven/vendor/assets/stylesheets/craven/</code>.</p>
+
+<h2>Bumping the version number</h2>
+
+<p>Now you are almost ready to publish your gem, but each time you do, you will need to bump up the version of your gem, otherwise it will fail. You can do this in <code>craven/lib/craven/version.rb</code>.</p>
+
+<h2>Publishing the gem</h2>
+
+<p>Now for the exciting part - you&rsquo;re about to publish your first ruby gem. To do this, just run:</p>
+
+<pre><code>    bundle exec rake publish
+</code></pre>
+
+<p>This will publish the gem and push your changed to github. The first time you do this you will be prompted to fill out some credentials. From then on, all you will have to do is run the above command to publish changes to your gem.</p>
+
+    <p><a href="/2013/12/31/%22turn-your-css-into-a-ruby-gem%22">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></h2>
+      <p class="updated">Posted on 24 November 2013
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>We&rsquo;re excited to welcome Steve Fuller to the Easyart tech team, as a result of our acquisition of assets from Picture Cabinet Ltd. Steve was responsible for building Picture Cabinet&rsquo;s platform that powers a large number of print on demand sites, apps and kiosks and will undoubtably be a valuable addition to the team.</p>
+
+    <p><a href="/2013/11/24/welcoming-steve-fuller">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></h2>
+      <p class="updated">Posted on 16 October 2013
+        by
+        
+        <a href="/authors/john-pash/">
+        
+        
+        
+        John Pash
+        </a>
+      </p>
+    </header>
+    <h3>Summary</h3>
+
+<p>We&rsquo;ve recently moved over to using <a href="www.google.co.uk/tagmanager%E2%80%8E">Google Tag Manager</a> (GTM) on the redesign of <a href="www.worldgallery.co.uk">Worldgallery</a>. The promise of being able to <em>&ldquo;update your website tags&hellip;without bugging the IT folks.&rdquo;</em> was too hard to pass up. The reality of GTM, however, has proven to be something all together different.</p>
+
+<p>We also use <a href="https://www.optimizely.com/">Optimizely</a> quite heavily on the new site. And the easy integration with Google Analytics(GA) via <a href="https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables">Custom Variables</a> mean that we can easily segment the Optimizely visitors by buckets. For instance, we can run a report that gives us &ldquo;Ecommerce value of all visitors who saw Version A of the checkout page&rdquo; or &ldquo;Time on page for visitors who saw Version B of a certain landing page&rdquo;. This greatly enhances the default reporting from Optimizely.</p>
+
+<h3>The Problem</h3>
+
+<p>Now that Google Tag Manager is responsible for loading all javascript on the page, we need to be sure that they get executed in the correct order. And that order is 1) Optimizely followed by 2) Google Analytics</p>
+
+<p>By default, GTM does what it does as and when it sees fit. So we can&rsquo;t be sure that the tags will fire as needed. However the fix for this particular problem <a href="http://www.verticalnerve.com/blog/detail?id=278">has already been solved</a>.</p>
+
+<p>In a nutshell:</p>
+
+<ul>
+<li>Load the Optimizely code in a GTM <strong><a href="https://support.google.com/tagmanager/answer/2574372#CustomHTML">Custom HTML Tag</a></strong>.</li>
+<li>Then set a dataLayer variable in that tag which says &ldquo;OK - Ready to go&rdquo;</li>
+<li>That then triggers the GA pageview to fire. Simple!</li>
+</ul>
+
+
+<p>But that wasn&rsquo;t enough to make it work&hellip;</p>
+
+<p>Yes, we could fire the GA pageview at the right time - after Optimizely has done it&rsquo;s thing. But for some reason the Custom Variables still weren&rsquo;t being sent along with the request.</p>
+
+<h3>The Solution</h3>
+
+<p>Fast forward about 30 hours of head-scratching and a large handful of experiments. When finally the missing piece of the puzzle was found.</p>
+
+<p>There is a <a href="https://support.google.com/tagmanager/answer/2574372#TrackerName">poorly documented</a> feature of GTM for the <strong>Tracker Name</strong> setting. Reading this would lead one to believe that all this setting does is allow you to <em>&ldquo;name the tracker object yourself&rdquo;</em>.</p>
+
+<p>What isn&rsquo;t mentioned is that by turning on this setting (which can be found under <strong>Advanced Settings</strong> for the <strong>Page View</strong> tag) you effectively make the tracker name public. This is your UA-XXXXXX-X number. Without this information Optimizely is not able to set the Custom Variable correctly.</p>
+
+<h3>Conclusion</h3>
+
+<p>If you use <strong>Google Tag Manager</strong> along with <strong>Optimizely</strong> and want to take advantage of <strong>Google Analytics</strong> <em>Custom Variable</em> segmentation - pause for breath - then you need to:</p>
+
+<ol>
+<li>Tick the box next <strong>Tracker Name</strong> under <strong>Advanced Settings</strong> (but don&rsquo;t fill anything in the text box!)</li>
+<li>Follow <a href="http://www.verticalnerve.com/blog/detail?id=278">these instructions</a> to ensure the correct load order of scripts</li>
+<li>GOTO PUB</li>
+</ol>
+
+
+    <p><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></h2>
       <p class="updated">Posted on 12 October 2013
         by
@@ -64,7 +218,7 @@
 
 <blockquote><p>For years, the two things that most frustrated me to hear from product managers were &ldquo;how hard would it be&hellip;&rdquo; and &ldquo;can&rsquo;t you just&hellip;&rdquo; It took me quite a while to figure out why I had such a strong, visceral reaction to these phrases. The answer seems obvious now: The work of implementing a feature initially is often a tiny fraction of the work to support that feature over the lifetime of a product, and yes, we can &ldquo;just&rdquo; code any logic someone dreams up. What might take two weeks right now adds a marginal cost to every engineering project we&rsquo;ll take on in this product in the future. In fact, I&rsquo;d argue that the initial time spent implementing a feature is one of the least interesting data points to consider when weighing the cost and benefit of a feature.</p></blockquote>
 
-<p>And <a href="http://insideintercom.io/there-are-no-small-changes/">this rant</a> argues that there is simply no such thing as a small change:</p>
+<p>And <a href="http://insideintercom.io/there-are-no-small-changes/">this brilliant rant</a> by Des Traynor argues that there is simply no such thing as a small change:</p>
 
 <blockquote><p>Agreeing to features is deceptively easy. Coding them rarely is. Maintaining them can be a nightmare. When you’re striving for quality, there are no small changes.</p></blockquote>
 
@@ -77,6 +231,8 @@
 <p>For new features, it&rsquo;s important to <strong>define success criteria upfront</strong>. If the feature doesn&rsquo;t meet the measure of success you&rsquo;ve defined, remove it. And if it does, we know the debt is worth taking on. Ideally these metrics should be published so that later down the line when someone asks &ldquo;why do we have this feature&rdquo;, there is an answer to point to.</p>
 
 <p>Adding these processes requires great discipline, but it provides a confidence that every new feature is providing real value to the company.</p>
+
+<p>Update: <a href="https://news.ycombinator.com/item?id=6538833">some discussion on Hacker News</a></p>
 
     <p><a href="/2013/10/12/on-technical-debt">Leave a comment</a></p>
   </article>
@@ -150,133 +306,6 @@
 <p>We&rsquo;re already seeing some positive results and look forward to migrating some of our other sites over.</p>
 
     <p><a href="/2013/08/20/launching-kubrick-part-1">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></h2>
-      <p class="updated">Posted on 11 August 2013
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>Nobel Laureate Daniel Kahneman:</p>
-
-<blockquote><p>Somewhat surprisingly, few organizations keep track of what’s decided and why.</p>
-
-<p>This seems idiotic when you consider that often thousands of dollars are spent making a decision. Of the few that do keep track of decisions, fewer will be honest about what’s actually discussed.</p></blockquote>
-
-<p>This one of the reasons I think it&rsquo;s worth spending work hours blogging. To distill ideas and decisions and share them with the organisation and your peers.</p>
-
-<p>Via the wonderful <a href="http://www.farnamstreetblog.com/2013/07/how-your-organization-can-improve-decision-making/">Farnam Street</a>.</p>
-
-    <p><a href="/2013/08/11/a-decision-journal">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></h2>
-      <p class="updated">Posted on 04 August 2013
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p><a href="http://www.steverydz.com">Steve</a> brought Jeffrey Veen&rsquo;s <a href="https://vimeo.com/63525053">Design For Disaster</a> talk to my attention last week and I&rsquo;m still thinking about it.</p>
-
-<iframe src="http://player.vimeo.com/video/63525053" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-
-
-<p>Veen is a real veteran of the web and an impressive storyteller. In this talk he recounts a specific disaster in Typekit&rsquo;s history, and how procedures set up before and after, as well as parts of the company culture had an effect on its outcome.</p>
-
-<p>Some more bits and pieces I&rsquo;ve enjoyed recently:</p>
-
-<ul>
-<li><a href="http://mobile.nytimes.com/2013/07/27/nyregion/in-lieu-of-money-toyota-donates-efficiency-to-new-york-charity.html">In Lieu of Money, Toyota Donates Efficiency to New York Charity</a></li>
-<li>Shipping beats perfection. Be open. Share your work. Anybody can fix anything. <a href="https://sites.google.com/a/khanacademy.org/forge/for-developers">Development philosophy at Khan Academy</a>.</li>
-<li><a href="http://www.youtube.com/watch?v=1a7S2yRaEQg&amp;feature=youtu.be">108 Years of Herman Miller (in 108 Seconds)</a></li>
-<li><a href="http://www.altdevblogaday.com/2013/07/24/theres-nothing-like-a-tidy-codebase/">There’s nothing like a tidy codebase</a></li>
-<li><a href="http://i.stack.imgur.com/whhD1.png">HTTP logic tree, illustrated</a></li>
-<li><a href="https://medium.com/editors-picks/f70bb9221b36">“I’m adding a meeting” should really be “I’m subtracting an hour from your life.”</a></li>
-<li><a href="http://firstround.com/article/42-Rules-to-Lead-by-from-the-Man-Who-Defined-Googles-Product-Strategy">&ldquo;42 Rules to Lead by from the Man Who Defined Google’s Product Strategy&rdquo;</a></li>
-<li><a href="http://designthinking.ideo.com/?p=1121">&ldquo;The Secret to Your Success? Make Others Successful&rdquo;</a></li>
-</ul>
-
-
-    <p><a href="/2013/08/04/design-for-disaster">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/07/24/heroku-fork">Heroku Fork</a></h2>
-      <p class="updated">Posted on 24 July 2013
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>I&rsquo;ve been meaning to try the <a href="https://devcenter.heroku.com/articles/fork-app">fork</a> feature on Heroku for a while.</p>
-
-<p>It does exactly what you expect, but that&rsquo;s what&rsquo;s so brilliant about it. It&rsquo;s taken be less than 2 minutes to set up a staging environment for one of our apps in the EU region. Here&rsquo;s what&rsquo;s involved:</p>
-
-<p>Clone an existing app, optionally choosing a region. This will also add your add-ons to the forked app at the same payment tier so keep an eye out for this.</p>
-
-<pre><code>heroku fork -a yourapp yourapp-staging --region eu
-
-Creating fork yourapp-staging... done
-Copying slug... done
-Adding airbrake:developer... done
-Adding memcachier:100... done
-Adding scheduler:standard... done
-Copying config vars... done
-Fork complete, view it at http://yourapp-staging.herokuapp.com/
-</code></pre>
-
-<p>Get the forked app&rsquo;s Git repo information so you can push code to it.</p>
-
-<pre><code>heroku info -a yourapp-staging
-
-=== yourapp-staging
-Addons:        memcachier:dev
-               scheduler:standard
-
-Git URL:       git@heroku.com:yourapp-staging.git
-Owner Email:   nick@nickboyce.com
-Region:        eu
-Stack:         cedar
-Tier:          Legacy
-Web URL:       http://yourapp-staging.herokuapp.com/
-</code></pre>
-
-<p>Add a new git remote so you can push to the new app.</p>
-
-<pre><code>git remote add staging git@heroku.com:yourapp-staging.git
-</code></pre>
-
-<p>Push a branch to your new app.</p>
-
-<pre><code>git push staging custom-framing:master
-</code></pre>
-
-<p>You&rsquo;re done!</p>
-
-    <p><a href="/2013/07/24/heroku-fork">Leave a comment</a></p>
   </article>
   
 
@@ -403,6 +432,12 @@ Web URL:       http://yourapp-staging.herokuapp.com/
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2013/12/31/%22turn-your-css-into-a-ruby-gem%22">Turn your CSS into a ruby gem</a></li>
+    
+    <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
+    
+    <li><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></li>
+    
     <li><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></li>
     
     <li><a href="/2013/08/20/launching-kubrick-part-1">Launching Kubrick, part 1</a></li>
@@ -416,12 +451,6 @@ Web URL:       http://yourapp-staging.herokuapp.com/
     <li><a href="/2013/07/12/lazy-loading-facebook-buttons">Lazy loading Facebook buttons</a></li>
     
     <li><a href="/2013/06/02/adam-wiggins-wisdom">Some wisdom from Adam Wiggins</a></li>
-    
-    <li><a href="/2013/05/05/json-api">JSONAPI.org</a></li>
-    
-    <li><a href="/2013/04/29/notes-from-industry-conference">Notes from Industry Conference</a></li>
-    
-    <li><a href="/2013/04/25/making-ideas-happen">Making Ideas Happen</a></li>
     
   </ol>
 </div>

@@ -19,16 +19,16 @@
 Navigate to the project root and use the following command to generate a new post (replacing "post-title" with the title of your post):
 
     $ rake newpost["post-title"]
-    
+
 Or if you are on ZSH:
-    
+
     $ rake 'newpost[post-title]'
 
 ## Run the site locally
 
 To run the site on your computer, navigate to the root and run the following command:
 
-    $ jekyll --auto --server
+    $ jekyll server --watch
 
 You will then be able to view the site at localhost:4000
 
