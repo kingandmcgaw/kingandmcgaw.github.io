@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Turn your CSS into a ruby gem"
+title: Turn your CSS into a ruby gem
 date: 2013-12-31 11:26:25
 author: "Steve Rydz"
 ---
