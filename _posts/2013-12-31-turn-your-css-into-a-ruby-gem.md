@@ -46,6 +46,6 @@ Now you are almost ready to publish your gem, but each time you do, you will nee
 ## Publishing the gem
 Now for the exciting part - you're about to publish your first ruby gem. To do this, just run:
 
-		bundle exec rake publish
+		bundle exec rake release
 
 This will publish the gem and push your changed to github. The first time you do this you will be prompted to fill out some credentials. From then on, all you will have to do is run the above command to publish changes to your gem.
