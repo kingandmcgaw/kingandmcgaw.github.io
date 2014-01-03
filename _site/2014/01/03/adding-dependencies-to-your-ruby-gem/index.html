@@ -7,7 +7,7 @@
 <meta name="author" content="Easyart">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Front-end performance for web designers and front-end developers | Easyart Developers</title>
+<title>Adding dependencies to your ruby gem | Easyart Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -32,19 +32,34 @@
 
         <article class="hentry">
           <header>
-            <h2>Front-end performance for web designers and front-end developers</h2>
-            <p class="updated">Posted on 21 January 2013
+            <h2>Adding dependencies to your ruby gem</h2>
+            <p class="updated">Posted on 03 January 2014
               by
               <a href="/authors/steve-rydz/">Steve Rydz</a>
               
             </p>
           </header>
-          <p>I read a very thorough post on front-end performance earlier today by Harry Roberts of CSS Wizardry fame. If you are involved in front-end development then go read it:</p>
+          <p>A couple of days ago I wrote about <a href="http://easyart.github.io/2013/12/31/turn-your-css-into-a-ruby-gem/">turning your CSS into a ruby gem</a>. Since then my colleague <a href="http://easyart.github.io/authors/john-pash/">John</a> suggested that I add <a href="http://bourbon.io">Bourbon</a> and <a href="http://neat.bourbon.io">Neat</a> as dependencies, as the SCSS included in the gem will not work without them.</p>
 
-<ul>
-<li><a href="http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/">Front-end performance for web designers and front-end developers</a></li>
-</ul>
+<p>So, once again I was faced with a new challenge - and once again it turned out to be fairly simple in the end.</p>
 
+<p>I won&rsquo;t go into details about the different kinds of dependencies you can use in a gem, <a href="http://guides.rubygems.org/patterns/#declaring_dependencies">the rubygems guide</a> does a better job of that than I would, but the process is the same either way.</p>
+
+<p>In your <code>&lt;gem name&gt;.gemspec</code> file, you just need to add the following:</p>
+
+<pre><code>    spec.add_dependency "bourbon", "&gt;= 3.1.4"
+    spec.add_dependency "neat", "&gt;= 1.3.0"
+</code></pre>
+
+<p>Obviously the name and version number of the gems you include here will be whatever you are using on your project.</p>
+
+<p>The next, and final step is to go to <code>lib/&lt;gem name&gt;.rb</code> and require your dependencies at the top of the file, underneath your <code>&lt;gem name&gt;/version</code> require statement:</p>
+
+<pre><code>    require "bourbon"
+    require "neat"
+</code></pre>
+
+<p>And that&rsquo;s it. Next time you (or someone else) uses your gem, the dependencies will be installed without having to include them separately.</p>
 
         </article>
         <div id="disqus_thread"></div>

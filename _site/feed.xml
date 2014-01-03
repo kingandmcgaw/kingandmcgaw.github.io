@@ -4,11 +4,39 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2013-12-31T11:37:41+00:00</updated>
+ <updated>2014-01-03T09:44:31+00:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
+ 
+ <entry>
+   <title>Adding dependencies to your ruby gem</title>
+   <link href="http://easyart.github.com/2014/01/03/adding-dependencies-to-your-ruby-gem"/>
+   <updated>2014-01-03T09:43:45Z by Steve Rydz</updated>
+   <content type="html">&lt;p&gt;A couple of days ago I wrote about &lt;a href=&quot;http://easyart.github.io/2013/12/31/turn-your-css-into-a-ruby-gem/&quot;&gt;turning your CSS into a ruby gem&lt;/a&gt;. Since then my colleague &lt;a href=&quot;http://easyart.github.io/authors/john-pash/&quot;&gt;John&lt;/a&gt; suggested that I add &lt;a href=&quot;http://bourbon.io&quot;&gt;Bourbon&lt;/a&gt; and &lt;a href=&quot;http://neat.bourbon.io&quot;&gt;Neat&lt;/a&gt; as dependencies, as the SCSS included in the gem will not work without them.&lt;/p&gt;
+
+&lt;p&gt;So, once again I was faced with a new challenge - and once again it turned out to be fairly simple in the end.&lt;/p&gt;
+
+&lt;p&gt;I won&amp;rsquo;t go into details about the different kinds of dependencies you can use in a gem, &lt;a href=&quot;http://guides.rubygems.org/patterns/#declaring_dependencies&quot;&gt;the rubygems guide&lt;/a&gt; does a better job of that than I would, but the process is the same either way.&lt;/p&gt;
+
+&lt;p&gt;In your &lt;code&gt;&amp;lt;gem name&amp;gt;.gemspec&lt;/code&gt; file, you just need to add the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    spec.add_dependency &quot;bourbon&quot;, &quot;&amp;gt;= 3.1.4&quot;
+    spec.add_dependency &quot;neat&quot;, &quot;&amp;gt;= 1.3.0&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Obviously the name and version number of the gems you include here will be whatever you are using on your project.&lt;/p&gt;
+
+&lt;p&gt;The next, and final step is to go to &lt;code&gt;lib/&amp;lt;gem name&amp;gt;.rb&lt;/code&gt; and require your dependencies at the top of the file, underneath your &lt;code&gt;&amp;lt;gem name&amp;gt;/version&lt;/code&gt; require statement:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    require &quot;bourbon&quot;
+    require &quot;neat&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And that&amp;rsquo;s it. Next time you (or someone else) uses your gem, the dependencies will be installed without having to include them separately.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Turn your CSS into a ruby gem</title>
@@ -66,7 +94,7 @@
 
 &lt;p&gt;Now for the exciting part - you&amp;rsquo;re about to publish your first ruby gem. To do this, just run:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    bundle exec rake publish
+&lt;pre&gt;&lt;code&gt;    bundle exec rake release
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This will publish the gem and push your changed to github. The first time you do this you will be prompted to fill out some credentials. From then on, all you will have to do is run the above command to publish changes to your gem.&lt;/p&gt;
