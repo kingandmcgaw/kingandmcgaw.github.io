@@ -10,14 +10,14 @@ layout: default
       by
       {% if post.author contains "John Pash" %}
       <a href="/authors/john-pash/">
-      {% endif %}
-      {% if post.author contains "Nick Boyce" %}
+      {% elsif post.author contains "Nick Boyce" %}
       <a href="/authors/nick-boyce/">
-      {% endif %}
-      {% if post.author contains "Steve Rydz" %}
+      {% elsif post.author contains "Steve Rydz" %}
       <a href="/authors/steve-rydz/">
+      {% elsif post.author contains "Steve Fuller" %}
+      <a href="/authors/steve-fuller/">
       {% endif %}
-      {{post.author}}
+        {{post.author}}
       </a>
     </p>
   </div>
