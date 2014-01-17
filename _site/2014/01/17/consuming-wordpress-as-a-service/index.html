@@ -7,7 +7,7 @@
 <meta name="author" content="Easyart">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Is London the most popular city for Github users? | Easyart Developers</title>
+<title>Consuming Wordpress as a service | Easyart Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -32,32 +32,19 @@
 
         <article class="hentry">
           <header>
-            <h2>Is London the most popular city for Github users?</h2>
-            <p class="updated">Posted on 20 December 2012
+            <h2>Consuming Wordpress as a service</h2>
+            <p class="updated">Posted on 17 January 2014
               by
-              <a href="/authors/nick-boyce/">Nick Boyce</a>. Find me on <a href="https://plus.google.com/u/1/108806228703128779712?rel=author">Google+</a>
               
             </p>
           </header>
-          <p>Interesting review of 2012 from Github in <a href="https://github.com/blog/1359-the-octoverse-in-2012">The Octoverse in 2012</a>:</p>
+          <p>Our Wordpress blog is a useful tool for publishing marketing information and one we wanted to keep in our new site as it provides useful information for customers as well as helping to keep the content of the site fresh.</p>
 
-<blockquote><p>Since the beginning of the year, we&rsquo;ve seen a doubling in activity, with pushes alone responsible for over 60% of the events in a given day. On a typical weekday, 10k people sign up for a GitHub account, and our users:</p>
+<p>We didn&rsquo;t necessarily want all the features of Wordpress so beloved of developers the world over, just the content posts, assets and a means of querying the different categories we&rsquo;d set up.</p>
 
-<ul>
-<li>push 140GB of new data</li>
-<li>create 25k repositories and 7k pull requests</li>
-<li>push to 125k repositories</li>
-<li>Best of all:</li>
-</ul>
+<p>We used the <a href="http://wordpress.org/plugins/json-api/">JSON_API</a> plugin to do the job. It installs into a wordpress instance and exposes a number of REST methods allowing our rails controller to fetch and parse the blog content efficiently (caching it for performance). The plugin doesn&rsquo;t include any authentication options but if you only enable the get methods it&rsquo;s no more public than a hosted Wordpress site.</p>
 
-
-<p>10k people create their very first repository</p></blockquote>
-
-<p>Apart from their impressive growth, this little fact caught my eye:</p>
-
-<blockquote><p>The top 10 countries visiting GitHub.com are: United States, Germany, United Kingdom, China, Japan, France, India, Canada, Russia and Brazil. The top 10 cities are: London, San Francisco, New York, Paris, Moscow, Beijing, Berlin, Bangalore, Sydney and Toronto.</p></blockquote>
-
-<p>London is the #1 city for Github users? Go London!</p>
+<p>There were a few small customizations to Wordpress we added - essentially to disable frontend access so that the content only appears in the context of our <a href="http://www.easyart.com/trends">main website</a>. Splitting the content management off into a separate service like this both fits with the SOA structure of Easyart and means our editors can add and edit content without affecting anything that might be happening on the rest of the platform.</p>
 
         </article>
         <div id="disqus_thread"></div>

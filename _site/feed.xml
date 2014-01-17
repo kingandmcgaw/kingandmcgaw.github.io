@@ -4,11 +4,25 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2014-01-03T09:44:31+00:00</updated>
+ <updated>2014-01-17T16:22:54+00:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
+ 
+ <entry>
+   <title>Consuming Wordpress as a service</title>
+   <link href="http://easyart.github.com/2014/01/17/consuming-wordpress-as-a-service"/>
+   <updated>2014-01-17T16:04:10Z by Steve Fuller</updated>
+   <content type="html">&lt;p&gt;Our Wordpress blog is a useful tool for publishing marketing information and one we wanted to keep in our new site as it provides useful information for customers as well as helping to keep the content of the site fresh.&lt;/p&gt;
+
+&lt;p&gt;We didn&amp;rsquo;t necessarily want all the features of Wordpress so beloved of developers the world over, just the content posts, assets and a means of querying the different categories we&amp;rsquo;d set up.&lt;/p&gt;
+
+&lt;p&gt;We used the &lt;a href=&quot;http://wordpress.org/plugins/json-api/&quot;&gt;JSON_API&lt;/a&gt; plugin to do the job. It installs into a wordpress instance and exposes a number of REST methods allowing our rails controller to fetch and parse the blog content efficiently (caching it for performance). The plugin doesn&amp;rsquo;t include any authentication options but if you only enable the get methods it&amp;rsquo;s no more public than a hosted Wordpress site.&lt;/p&gt;
+
+&lt;p&gt;There were a few small customizations to Wordpress we added - essentially to disable frontend access so that the content only appears in the context of our &lt;a href=&quot;http://www.easyart.com/trends&quot;&gt;main website&lt;/a&gt;. Splitting the content management off into a separate service like this both fits with the SOA structure of Easyart and means our editors can add and edit content without affecting anything that might be happening on the rest of the platform.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Adding dependencies to your ruby gem</title>

@@ -32,6 +32,59 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></h2>
+      <p class="updated">Posted on 12 October 2013
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>In reading <a href="https://keen.io/blog/63582764323/what-ctos-fear-most">What CTOs Fear Most</a>, it&rsquo;s clear that managing priorities is a common fear amongst technical managers.</p>
+
+<p>The Easyart technical team is in the midst of redeveloping a platform that has been running for well over a decade, we are continually faced with difficult decisions about what features are worth migrating, and how they compete for resources with new features.</p>
+
+<p>In our circumstance, retaining a feature is actually a new development task which is competing with every other task. Most of the existing features are there for good reason, but it&rsquo;s worth challeging the idea that every old feature is going to have more business value than the new features they are competing with.</p>
+
+<p>Just because we can, it doesn&rsquo;t mean we should. Just because a feature exists, removing it doesn&rsquo;t necessarily make the product poorer. This point of view can be unpopular but the opportunity to shed some technical debt and rationalise our offering can make the hard work worthwhile.</p>
+
+<p>Julie Zhuo, Product design director at Facebook makes the point well in her fantastic blog post <a href="https://medium.com/the-year-of-the-looking-glass/f777ec49f24a">The Tax of New</a> (paraphrased here):</p>
+
+<blockquote><p>Run that line of thinking too many times and you get death by a thousand paper cuts. This is how good, simple products become quite the opposite.</p>
+
+<p>The tax that comes with introducing any new feature into your product is high. I cannot stress this enough. Sure, maybe the new feature isn’t hard to build, maybe it only takes a couple days and a handful of people, maybe it can be shipped and delivered by next week.</p>
+
+<p>Perhaps you will continue to develop and evolve it. Even if you don’t (maybe your plan was just to launch it and move on), the fact of its existence will inevitably create more work for you. You will get user requests and bugs about it. You will spend time thinking idly about ways to make it better. It will likely pop up in the context of your next redesign or code rearchitecture.</p></blockquote>
+
+<p>Another great article on the topic by Yammer&rsquo;s CTO, Kris Gale, <a href="http://firstround.com/article/The-one-cost-engineers-and-product-managers-dont-consider">on technical debt and complexity</a>:</p>
+
+<blockquote><p>For years, the two things that most frustrated me to hear from product managers were &ldquo;how hard would it be&hellip;&rdquo; and &ldquo;can&rsquo;t you just&hellip;&rdquo; It took me quite a while to figure out why I had such a strong, visceral reaction to these phrases. The answer seems obvious now: The work of implementing a feature initially is often a tiny fraction of the work to support that feature over the lifetime of a product, and yes, we can &ldquo;just&rdquo; code any logic someone dreams up. What might take two weeks right now adds a marginal cost to every engineering project we&rsquo;ll take on in this product in the future. In fact, I&rsquo;d argue that the initial time spent implementing a feature is one of the least interesting data points to consider when weighing the cost and benefit of a feature.</p></blockquote>
+
+<p>And <a href="http://insideintercom.io/there-are-no-small-changes/">this brilliant rant</a> by Des Traynor argues that there is simply no such thing as a small change:</p>
+
+<blockquote><p>Agreeing to features is deceptively easy. Coding them rarely is. Maintaining them can be a nightmare. When you’re striving for quality, there are no small changes.</p></blockquote>
+
+<p>When you release a feature it&rsquo;s not the end of the job, it&rsquo;s just the beginning!</p>
+
+<p>Thankfully none of this means we should avoid new ideas or innovation, we just need to put some process around our decisions to ensure that new features are providing value, not just technical debt.</p>
+
+<p>For existing features, <strong>study the data</strong>. If this feature is providing real business value, it&rsquo;s worth retaining and developing further. If not, consider removing it.</p>
+
+<p>For new features, it&rsquo;s important to <strong>define success criteria upfront</strong>. If the feature doesn&rsquo;t meet the measure of success you&rsquo;ve defined, remove it. And if it does, we know the debt is worth taking on. Ideally these metrics should be published so that later down the line when someone asks &ldquo;why do we have this feature&rdquo;, there is an answer to point to.</p>
+
+<p>Adding these processes requires great discipline, but it provides a confidence that every new feature is providing real value to the company.</p>
+
+<p>Update: <a href="https://news.ycombinator.com/item?id=6538833">some discussion on Hacker News</a></p>
+
+    <p><a href="/2013/10/12/on-technical-debt">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/08/20/launching-kubrick-part-1">Launching Kubrick, part 1</a></h2>
       <p class="updated">Posted on 20 August 2013
         by
@@ -228,38 +281,6 @@ Web URL:       http://yourapp-staging.herokuapp.com/
     <p><a href="/2013/07/24/heroku-fork">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/07/12/lazy-loading-facebook-buttons">Lazy loading Facebook buttons</a></h2>
-      <p class="updated">Posted on 12 July 2013
-        by
-        
-        
-        
-        <a href="/authors/steve-rydz/">
-        
-        Steve Rydz
-        </a>
-      </p>
-    </header>
-    <p>We recently did the WordPress work for the <a href="http://arteverywhere.org.uk/">Art Everywhere</a> project, and one of the requirements of the project was to include a Facebook like button for each artwork on the <a href="http://arteverywhere.org.uk/artworks/">Choose Artworks</a> page.</p>
-
-<p>That page has around 100 artworks on it so immediately I heard alarm bells, until I remembered the <a href="http://socialitejs.com/">Socialite plugin</a>. This allows you to lazy-loading the Facebook buttons.</p>
-
-<p>No matter what, we didn&rsquo;t want all of those Facebook buttons to load at the same time, even if the rest of the page had already loaded, so we decided we would load them in on hover.</p>
-
-<p>Initially we struggled to get this working how we wanted, as all the buttons would load when you hovered over any of the buttons. Finally <a href="http://easyart.github.io/authors/nick-boyce/">Nick</a> found the solution:</p>
-
-<pre><code>$(".artwork-info").hover(function () {
-    Socialite.load(this);
-});
-</code></pre>
-
-<p>It turns out, all we had to do was pass <code>this</code> to the <code>Socialite.load</code> function. So, if ever you find yourself having to implement similar functionality, you know what to do.</p>
-
-    <p><a href="/2013/07/12/lazy-loading-facebook-buttons">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -345,6 +366,12 @@ Web URL:       http://yourapp-staging.herokuapp.com/
         
       </li>
       
+      <li class="page">
+        
+        <a href="/page13">13</a>
+        
+      </li>
+      
     </ul>
 
     
@@ -386,6 +413,8 @@ Web URL:       http://yourapp-staging.herokuapp.com/
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/01/17/consuming-wordpress-as-a-service">Consuming Wordpress as a service</a></li>
+    
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
     
     <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
@@ -403,8 +432,6 @@ Web URL:       http://yourapp-staging.herokuapp.com/
     <li><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></li>
     
     <li><a href="/2013/07/24/heroku-fork">Heroku Fork</a></li>
-    
-    <li><a href="/2013/07/12/lazy-loading-facebook-buttons">Lazy loading Facebook buttons</a></li>
     
   </ol>
 </div>

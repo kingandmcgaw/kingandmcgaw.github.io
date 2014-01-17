@@ -32,6 +32,52 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/04/10/testing-rails-json-apis-with-rspec">Testing Rails JSON APIs with RSpec</a></h2>
+      <p class="updated">Posted on 10 April 2012
+        by
+        
+        
+        <a href="/authors/nick-boyce/">
+        
+        
+        Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>I&rsquo;ve spent some time in the last couple of weeks taking the learnings from an early API prototype, and starting a new Rails application from scratch, complete with RSpec tests. Here are some notes on some of our tools and methodologies.</p>
+
+<h3>Model specs</h3>
+
+<p>We&rsquo;re overriding the as_json method in our models and we&rsquo;re using <a href="https://github.com/collectiveidea/json_spec">json_spec</a> to test the documents have the right structure.</p>
+
+<script src="https://gist.github.com/2349770.js"> </script>
+
+
+<h3>Request specs</h3>
+
+<p>We have hundreds of lines of <a href="https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec">request specs</a>, and no controller specs. Here is a simple example:</p>
+
+<script src="https://gist.github.com/2349801.js"> </script>
+
+
+<p>Because we&rsquo;re getting an actual HTTP payload back (in the response variable) we can inspect whatever part of it that&rsquo;s relevant to us. We know the structure of the responses should come back in a known format because we&rsquo;re testing the to_json method in the class specs. So it&rsquo;s just a matter of using JSON.parse on the response.body and testing it as a native Ruby object.</p>
+
+<p>Of course, this means that we are trusting JSON.parse to behave reliably but that&rsquo;s an assumption worth making. If we were really pedantic, we could check that each object in the response array matches the expected structure:</p>
+
+<script src="https://gist.github.com/2349803.js"> </script>
+
+
+<p>Though I&rsquo;m not sure that&rsquo;s actually testing anything meaningful.</p>
+
+<p>Another great advantage is that it makes refactoring simple. As far as the specs are concerned, a request to is the same whether the heavy lifting is done in the model or the controller. This really helped me recently when I moved a bunch of logic from the controller to the model as I could let the specs tell me which parts starting misbehaving.</p>
+
+<p>Update: <a href="http://37signals.com/svn/posts/3159-testing-like-the-tsa">An interesting post by DHH about over-testing.</a></p>
+
+    <p><a href="/2012/04/10/testing-rails-json-apis-with-rspec">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/04/05/on-source-control">On source control</a></h2>
       <p class="updated">Posted on 05 April 2012
         by
@@ -157,47 +203,6 @@
     <p><a href="/2012/03/23/getting-to-know-codekit">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/03/22/goodbye-campfire-hello-flowdock">Goodbye Campfire, Hello Flowdock</a></h2>
-      <p class="updated">Posted on 22 March 2012
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>For a number of years I&rsquo;ve really loved using <a href="http://campfirenow.com/">Campfire</a> for team chat and collaboration, but today I&rsquo;ve cancelled our account. I&rsquo;ve found that as time has gone on, and our team has grown, it&rsquo;s become increasingly frustrating to use. My main issues are:</p>
-
-<ul>
-<li>The timeline ends up with too much noise from Github commits and issues.</li>
-<li>Search is clunky. You can only search using keywords, and you have to leave the room to do so.</li>
-</ul>
-
-
-<p><a href="https://www.flowdock.com/">Flowdock</a> solves these problems by using one pane for chat, and another for &ldquo;Team Inbox&rdquo; and Search.</p>
-
-<p><img src="/assets/img/posts/flowdock.png" alt="Flowdock"></p>
-
-<p>Team Inbox is by far the most useful feature. We use it for:</p>
-
-<ul>
-<li>All Github activity. When new files are committed, you can mouse over for a full list of changes, and click to get to the Github commit page. When issues are opened or closed, they show too.</li>
-<li>Inbox. We feed in the <a href="http://twitter.com/easyartuk">@easyartuk</a> Twitter account (you can see one of the tweets in the bottom-right corner), and all emails to our developer account, and they&rsquo;ll show up in our feed.</li>
-</ul>
-
-
-<p>You can also comment on any of this activity contextually. So, for instance, I could comment on an email. Search is also really cool too, and you can filter by files, links, and attachments. <em>Without</em> leaving the chat.</p>
-
-<p>It&rsquo;s been a really useful tool for us, and I can&rsquo;t see us going back to Campfire.</p>
-
-    <p><a href="/2012/03/22/goodbye-campfire-hello-flowdock">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -283,11 +288,17 @@
         
       </li>
       
+      <li class="page">
+        
+        <a href="/page13">13</a>
+        
+      </li>
+      
     </ul>
 
     
-    <p class="next disabled">
-      <span>Next</span>
+    <p class="next">
+      <a href="/page13">Next</a>
     </p>
     
 
@@ -324,6 +335,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/01/17/consuming-wordpress-as-a-service">Consuming Wordpress as a service</a></li>
+    
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
     
     <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
@@ -341,8 +354,6 @@
     <li><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></li>
     
     <li><a href="/2013/07/24/heroku-fork">Heroku Fork</a></li>
-    
-    <li><a href="/2013/07/12/lazy-loading-facebook-buttons">Lazy loading Facebook buttons</a></li>
     
   </ol>
 </div>
