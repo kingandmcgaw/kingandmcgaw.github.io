@@ -22,7 +22,7 @@ Focussing on user needs helps us build a more human experience so we have develo
 Getting stakeholders involved in the conception of ideas builds a shared understanding, which is invaluable for collaborating across departments and skill-sets. We've had some success with [gut test exercises](http://bradfrostweb.com/blog/post/establishing-design-direction/) when working on new homepage visual design, group sketching [design studio](http://goodkickoffmeetings.com/2010/04/design-studioprototyping-exercise/) exercises to improve navigation and card sorting to agree on priorities.
 
 ### Use the live styleguide to build pages from modules
-Changing from a page-based approach to a component-based approach allows everyone to sketch pages, and our [live style guide](easyart.com/docs/styleguide) is the directory of available modules.
+Changing from a page-based approach to a component-based approach allows everyone to sketch pages, and our [live style guide](http://www.easyart.com/docs/styleguide) is the directory of available modules.
 
 ### Validate as early as possible
 Our opinions are not as important as customer feedback, so we try to validate our hypotheses as early as possible. We use Usertesting.com for user testing, and Optimizely for split testing.
