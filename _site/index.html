@@ -36,9 +36,9 @@
       <p class="updated">Posted on 17 January 2014
         by
         
+        <a href="/authors/steve-fuller/">
         
-        
-        Steve Fuller
+          Steve Fuller
         </a>
       </p>
     </header>
@@ -59,11 +59,9 @@
       <p class="updated">Posted on 03 January 2014
         by
         
-        
-        
         <a href="/authors/steve-rydz/">
         
-        Steve Rydz
+          Steve Rydz
         </a>
       </p>
     </header>
@@ -98,11 +96,9 @@
       <p class="updated">Posted on 31 December 2013
         by
         
-        
-        
         <a href="/authors/steve-rydz/">
         
-        Steve Rydz
+          Steve Rydz
         </a>
       </p>
     </header>
@@ -172,11 +168,9 @@
       <p class="updated">Posted on 24 November 2013
         by
         
-        
         <a href="/authors/nick-boyce/">
         
-        
-        Nick Boyce
+          Nick Boyce
         </a>
       </p>
     </header>
@@ -187,63 +181,77 @@
   
   <article class="hentry">
     <header>
-      <h2 class="entry-title"><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></h2>
-      <p class="updated">Posted on 16 October 2013
+      <h2 class="entry-title"><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></h2>
+      <p class="updated">Posted on 12 November 2013
         by
         
         <a href="/authors/john-pash/">
         
-        
-        
-        John Pash
+          John Pash
         </a>
       </p>
     </header>
-    <h3>Summary</h3>
+    <h2>Summary</h2>
 
-<p>We&rsquo;ve recently moved over to using <a href="www.google.co.uk/tagmanager%E2%80%8E">Google Tag Manager</a> (GTM) on the redesign of <a href="www.worldgallery.co.uk">Worldgallery</a>. The promise of being able to <em>&ldquo;update your website tags&hellip;without bugging the IT folks.&rdquo;</em> was too hard to pass up. The reality of GTM, however, has proven to be something all together different.</p>
+<p>Known by many names; the auto-complete, typeahead, search suggestion or incremental search box is an invaluable feature of any website. An example of it&rsquo;s use would be to find the latest news about <strong>Lance Armstrong</strong>. If you Google only the partial words &ldquo;<strong>lan</strong>&rdquo; and &ldquo;<strong>arm</strong>&rdquo; Google will be smart enough to fill in the blanks.</p>
 
-<p>We also use <a href="https://www.optimizely.com/">Optimizely</a> quite heavily on the new site. And the easy integration with Google Analytics(GA) via <a href="https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables">Custom Variables</a> mean that we can easily segment the Optimizely visitors by buckets. For instance, we can run a report that gives us &ldquo;Ecommerce value of all visitors who saw Version A of the checkout page&rdquo; or &ldquo;Time on page for visitors who saw Version B of a certain landing page&rdquo;. This greatly enhances the default reporting from Optimizely.</p>
+<p><img src="/assets/img/posts/lanarm.png" alt="Lance Armstrong" /></p>
 
-<h3>The Problem</h3>
+<h3>A typical auto-complete setup</h3>
 
-<p>Now that Google Tag Manager is responsible for loading all javascript on the page, we need to be sure that they get executed in the correct order. And that order is 1) Optimizely followed by 2) Google Analytics</p>
+<p>A typical setup might use <a href="http://twitter.github.io/typeahead.js/">Twitter&rsquo;s Typeahead</a> library which does an ajax call to a server which receives the partial search term and returns matching records. The results are displayed in real-time as a list of options and are updated on each keypress.</p>
 
-<p>By default, GTM does what it does as and when it sees fit. So we can&rsquo;t be sure that the tags will fire as needed. However the fix for this particular problem <a href="http://www.verticalnerve.com/blog/detail?id=278">has already been solved</a>.</p>
+<h2>But there&rsquo;s a problem</h2>
 
-<p>In a nutshell:</p>
+<p>Firstly, you need to know the exact spelling of the words you are after. Many auto-complete libraries search from the beginning of words. If you miszpel your target term, you are out of luck. Good luck to sports writers wanting to find <a href="http://en.wikipedia.org/wiki/Jhonny_Peralta">Jhonny Peralta&rsquo;s</a> batting average on your <a href="http://www.dominicanbaseballguy.com/">Dominican Major League baseball blog</a>.</p>
+
+<p>Also, if you have many records that start with the same phrase, and your auto-complete only shows the top 10, how do you find the one that you <em>know</em> is there but is hidden at number 15?</p>
+
+<h2>A better way to search</h2>
+
+<p>If you&rsquo;ve ever used the <a href="http://www.sublimetext.com">Sublime Text</a> editor you&rsquo;ll be familiar with the &ldquo;search anywhere&rdquo; paradigm. To find a file, normally you would go to the search box and type <strong>filename.txt</strong>, then hit <strong>search</strong>, then off it would go to hunt down your file. But with &ldquo;search anywhere&rdquo; you can find what you want in a fraction of the time.</p>
+
+<p>For example, to search the <a href="https://github.com/rails/rails">Rails source code</a> for the file &ldquo;<strong>active_record_callbacks.rb</strong>&rdquo; you could type:</p>
 
 <ul>
-<li>Load the Optimizely code in a GTM <strong><a href="https://support.google.com/tagmanager/answer/2574372#CustomHTML">Custom HTML Tag</a></strong>.</li>
-<li>Then set a dataLayer variable in that tag which says &ldquo;OK - Ready to go&rdquo;</li>
-<li>That then triggers the GA pageview to fire. Simple!</li>
+<li>&ldquo;<strong>arb</strong>&rdquo; which matches &ldquo;<strong>a</strong>ctive_<strong>r</strong>ecord_<strong>c</strong>allbacks.rb&rdquo;</li>
+<li>&ldquo;<strong>reccall</strong>&rdquo; which matches &ldquo;active_<strong>rec</strong>ord_<strong>cal</strong>lbacks.rb&rdquo;</li>
+<li>&ldquo;<strong>arec</strong>&rdquo; which matches &ldquo;<strong>a</strong>ctive_<strong>rec</strong>ord_callbacks.rb&rdquo;</li>
 </ul>
 
 
-<p>But that wasn&rsquo;t enough to make it work&hellip;</p>
+<p><img src="/assets/img/posts/active-record-callback.png" alt="Searching for Active Record Callback" /></p>
 
-<p>Yes, we could fire the GA pageview at the right time - after Optimizely has done it&rsquo;s thing. But for some reason the Custom Variables still weren&rsquo;t being sent along with the request.</p>
+<p>&hellip;you get the idea</p>
 
-<h3>The Solution</h3>
+<p>Here are the rules:</p>
 
-<p>Fast forward about 30 hours of head-scratching and a large handful of experiments. When finally the missing piece of the puzzle was found.</p>
-
-<p>There is a <a href="https://support.google.com/tagmanager/answer/2574372#TrackerName">poorly documented</a> feature of GTM for the <strong>Tracker Name</strong> setting. Reading this would lead one to believe that all this setting does is allow you to <em>&ldquo;name the tracker object yourself&rdquo;</em>.</p>
-
-<p>What isn&rsquo;t mentioned is that by turning on this setting (which can be found under <strong>Advanced Settings</strong> for the <strong>Page View</strong> tag) you effectively make the tracker name public. This is your UA-XXXXXX-X number. Without this information Optimizely is not able to set the Custom Variable correctly.</p>
-
-<h3>Conclusion</h3>
-
-<p>If you use <strong>Google Tag Manager</strong> along with <strong>Optimizely</strong> and want to take advantage of <strong>Google Analytics</strong> <em>Custom Variable</em> segmentation - pause for breath - then you need to:</p>
-
-<ol>
-<li>Tick the box next <strong>Tracker Name</strong> under <strong>Advanced Settings</strong> (but don&rsquo;t fill anything in the text box!)</li>
-<li>Follow <a href="http://www.verticalnerve.com/blog/detail?id=278">these instructions</a> to ensure the correct load order of scripts</li>
-<li>GOTO PUB</li>
-</ol>
+<ul>
+<li>All letters must be in the name of the file (obviously)</li>
+<li>Letters must appear in the correct order</li>
+<li>Type as few or as many letters as you want</li>
+</ul>
 
 
-    <p><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Leave a comment</a></p>
+<h2>So how do we do this in code?</h2>
+
+<p>The typical auto-complete setup will take the input and (after sanitising of course) ask the database with a &ldquo;like&rdquo; query to find matches.</p>
+
+<pre><code>select * from table_name where description like "%QUERY%";
+</code></pre>
+
+<p>This works for the most part, but doesn&rsquo;t do that fancy middle-matching stuff where you can just throw a bunch of letters at it.</p>
+
+<h2>Our solution</h2>
+
+<div id="solution"></div>
+
+
+<p><a href="http://www.regular-expressions.info/lookaround.html">Positive zero-length lookahead assertions</a> of course!</p>
+
+<p>Stay tuned for <strong>Part Two</strong> of this post for all the gory code details&hellip;.</p>
+
+    <p><a href="/2013/11/12/a-somewhat-better-autocomplete">Leave a comment</a></p>
   </article>
   
 
@@ -384,6 +392,8 @@
     
     <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
     
+    <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
+    
     <li><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></li>
     
     <li><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></li>
@@ -393,8 +403,6 @@
     <li><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></li>
     
     <li><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></li>
-    
-    <li><a href="/2013/07/24/heroku-fork">Heroku Fork</a></li>
     
   </ol>
 </div>

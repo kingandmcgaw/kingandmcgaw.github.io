@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A (slightly) better auto-complete
+title: A somewhat better auto-complete
 date: 2013-11-12 17:37:22
 author: John Pash
 
@@ -53,14 +53,4 @@ This works for the most part, but doesn't do that fancy middle-matching stuff wh
 <div id="solution"></div>
 [Positive zero-length lookahead assertions](http://www.regular-expressions.info/lookaround.html) of course!
 
-{% highlight ruby %}
-def test
-  this = that
-end
-{% endhighlight %}
-
-{% highlight javascript %}
-function test() {
-  var this = that;
-}
-{% endhighlight %}
+Stay tuned for **Part Two** of this post for all the gory code details....

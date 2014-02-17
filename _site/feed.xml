@@ -4,7 +4,7 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2014-01-17T16:22:54+00:00</updated>
+ <updated>2014-02-17T09:52:52+00:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
@@ -120,6 +120,72 @@
    <link href="http://easyart.github.com/2013/11/24/welcoming-steve-fuller"/>
    <updated>2013-11-24T22:57:45Z by Nick Boyce</updated>
    <content type="html">&lt;p&gt;We&amp;rsquo;re excited to welcome Steve Fuller to the Easyart tech team, as a result of our acquisition of assets from Picture Cabinet Ltd. Steve was responsible for building Picture Cabinet&amp;rsquo;s platform that powers a large number of print on demand sites, apps and kiosks and will undoubtably be a valuable addition to the team.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>A somewhat better auto-complete</title>
+   <link href="http://easyart.github.com/2013/11/12/a-somewhat-better-autocomplete"/>
+   <updated>2013-11-12T17:37:22Z by John Pash</updated>
+   <content type="html">&lt;h2&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;Known by many names; the auto-complete, typeahead, search suggestion or incremental search box is an invaluable feature of any website. An example of it&amp;rsquo;s use would be to find the latest news about &lt;strong&gt;Lance Armstrong&lt;/strong&gt;. If you Google only the partial words &amp;ldquo;&lt;strong&gt;lan&lt;/strong&gt;&amp;rdquo; and &amp;ldquo;&lt;strong&gt;arm&lt;/strong&gt;&amp;rdquo; Google will be smart enough to fill in the blanks.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/lanarm.png&quot; alt=&quot;Lance Armstrong&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;A typical auto-complete setup&lt;/h3&gt;
+
+&lt;p&gt;A typical setup might use &lt;a href=&quot;http://twitter.github.io/typeahead.js/&quot;&gt;Twitter&amp;rsquo;s Typeahead&lt;/a&gt; library which does an ajax call to a server which receives the partial search term and returns matching records. The results are displayed in real-time as a list of options and are updated on each keypress.&lt;/p&gt;
+
+&lt;h2&gt;But there&amp;rsquo;s a problem&lt;/h2&gt;
+
+&lt;p&gt;Firstly, you need to know the exact spelling of the words you are after. Many auto-complete libraries search from the beginning of words. If you miszpel your target term, you are out of luck. Good luck to sports writers wanting to find &lt;a href=&quot;http://en.wikipedia.org/wiki/Jhonny_Peralta&quot;&gt;Jhonny Peralta&amp;rsquo;s&lt;/a&gt; batting average on your &lt;a href=&quot;http://www.dominicanbaseballguy.com/&quot;&gt;Dominican Major League baseball blog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also, if you have many records that start with the same phrase, and your auto-complete only shows the top 10, how do you find the one that you &lt;em&gt;know&lt;/em&gt; is there but is hidden at number 15?&lt;/p&gt;
+
+&lt;h2&gt;A better way to search&lt;/h2&gt;
+
+&lt;p&gt;If you&amp;rsquo;ve ever used the &lt;a href=&quot;http://www.sublimetext.com&quot;&gt;Sublime Text&lt;/a&gt; editor you&amp;rsquo;ll be familiar with the &amp;ldquo;search anywhere&amp;rdquo; paradigm. To find a file, normally you would go to the search box and type &lt;strong&gt;filename.txt&lt;/strong&gt;, then hit &lt;strong&gt;search&lt;/strong&gt;, then off it would go to hunt down your file. But with &amp;ldquo;search anywhere&amp;rdquo; you can find what you want in a fraction of the time.&lt;/p&gt;
+
+&lt;p&gt;For example, to search the &lt;a href=&quot;https://github.com/rails/rails&quot;&gt;Rails source code&lt;/a&gt; for the file &amp;ldquo;&lt;strong&gt;active_record_callbacks.rb&lt;/strong&gt;&amp;rdquo; you could type:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;&lt;strong&gt;arb&lt;/strong&gt;&amp;rdquo; which matches &amp;ldquo;&lt;strong&gt;a&lt;/strong&gt;ctive_&lt;strong&gt;r&lt;/strong&gt;ecord_&lt;strong&gt;c&lt;/strong&gt;allbacks.rb&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;&lt;strong&gt;reccall&lt;/strong&gt;&amp;rdquo; which matches &amp;ldquo;active_&lt;strong&gt;rec&lt;/strong&gt;ord_&lt;strong&gt;cal&lt;/strong&gt;lbacks.rb&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;&lt;strong&gt;arec&lt;/strong&gt;&amp;rdquo; which matches &amp;ldquo;&lt;strong&gt;a&lt;/strong&gt;ctive_&lt;strong&gt;rec&lt;/strong&gt;ord_callbacks.rb&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/active-record-callback.png&quot; alt=&quot;Searching for Active Record Callback&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip;you get the idea&lt;/p&gt;
+
+&lt;p&gt;Here are the rules:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;All letters must be in the name of the file (obviously)&lt;/li&gt;
+&lt;li&gt;Letters must appear in the correct order&lt;/li&gt;
+&lt;li&gt;Type as few or as many letters as you want&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;So how do we do this in code?&lt;/h2&gt;
+
+&lt;p&gt;The typical auto-complete setup will take the input and (after sanitising of course) ask the database with a &amp;ldquo;like&amp;rdquo; query to find matches.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;select * from table_name where description like &quot;%QUERY%&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This works for the most part, but doesn&amp;rsquo;t do that fancy middle-matching stuff where you can just throw a bunch of letters at it.&lt;/p&gt;
+
+&lt;h2&gt;Our solution&lt;/h2&gt;
+
+&lt;div id=&quot;solution&quot;&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href=&quot;http://www.regular-expressions.info/lookaround.html&quot;&gt;Positive zero-length lookahead assertions&lt;/a&gt; of course!&lt;/p&gt;
+
+&lt;p&gt;Stay tuned for &lt;strong&gt;Part Two&lt;/strong&gt; of this post for all the gory code details&amp;hellip;.&lt;/p&gt;
 </content>
  </entry>
  

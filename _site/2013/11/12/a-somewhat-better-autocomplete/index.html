@@ -7,7 +7,7 @@
 <meta name="author" content="Easyart">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Quick tip: Opening files in Sublime from Terminal | Easyart Developers</title>
+<title>A somewhat better auto-complete | Easyart Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -32,50 +32,72 @@
 
         <article class="hentry">
           <header>
-            <h2>Quick tip: Opening files in Sublime from Terminal</h2>
-            <p class="updated">Posted on 27 April 2012
+            <h2>A somewhat better auto-complete</h2>
+            <p class="updated">Posted on 12 November 2013
               by
-              <a href="/authors/steve-rydz/">Steve Rydz</a>
+              <a href="/authors/john-pash/">John Pash</a>
               
             </p>
           </header>
-          <p>Sublime Text 2 has been my text editor of choice for almost a year now but as I find myself working from the command line more and more these days, I thought I’d share a quick tip I picked up from Nick, opening files from the command line.</p>
+          <h2>Summary</h2>
 
-<h3>Getting set up</h3>
+<p>Known by many names; the auto-complete, typeahead, search suggestion or incremental search box is an invaluable feature of any website. An example of it&rsquo;s use would be to find the latest news about <strong>Lance Armstrong</strong>. If you Google only the partial words &ldquo;<strong>lan</strong>&rdquo; and &ldquo;<strong>arm</strong>&rdquo; Google will be smart enough to fill in the blanks.</p>
 
-<p>To begin with, we need to ensure that the bin directory is specified in our path. Just paste the following into Terminal:</p>
+<p><img src="/assets/img/posts/lanarm.png" alt="Lance Armstrong" /></p>
 
-<pre><code>$ echo "export PATH=~/bin:$PATH" &gt;&gt; ~/.profile
+<h3>A typical auto-complete setup</h3>
+
+<p>A typical setup might use <a href="http://twitter.github.io/typeahead.js/">Twitter&rsquo;s Typeahead</a> library which does an ajax call to a server which receives the partial search term and returns matching records. The results are displayed in real-time as a list of options and are updated on each keypress.</p>
+
+<h2>But there&rsquo;s a problem</h2>
+
+<p>Firstly, you need to know the exact spelling of the words you are after. Many auto-complete libraries search from the beginning of words. If you miszpel your target term, you are out of luck. Good luck to sports writers wanting to find <a href="http://en.wikipedia.org/wiki/Jhonny_Peralta">Jhonny Peralta&rsquo;s</a> batting average on your <a href="http://www.dominicanbaseballguy.com/">Dominican Major League baseball blog</a>.</p>
+
+<p>Also, if you have many records that start with the same phrase, and your auto-complete only shows the top 10, how do you find the one that you <em>know</em> is there but is hidden at number 15?</p>
+
+<h2>A better way to search</h2>
+
+<p>If you&rsquo;ve ever used the <a href="http://www.sublimetext.com">Sublime Text</a> editor you&rsquo;ll be familiar with the &ldquo;search anywhere&rdquo; paradigm. To find a file, normally you would go to the search box and type <strong>filename.txt</strong>, then hit <strong>search</strong>, then off it would go to hunt down your file. But with &ldquo;search anywhere&rdquo; you can find what you want in a fraction of the time.</p>
+
+<p>For example, to search the <a href="https://github.com/rails/rails">Rails source code</a> for the file &ldquo;<strong>active_record_callbacks.rb</strong>&rdquo; you could type:</p>
+
+<ul>
+<li>&ldquo;<strong>arb</strong>&rdquo; which matches &ldquo;<strong>a</strong>ctive_<strong>r</strong>ecord_<strong>c</strong>allbacks.rb&rdquo;</li>
+<li>&ldquo;<strong>reccall</strong>&rdquo; which matches &ldquo;active_<strong>rec</strong>ord_<strong>cal</strong>lbacks.rb&rdquo;</li>
+<li>&ldquo;<strong>arec</strong>&rdquo; which matches &ldquo;<strong>a</strong>ctive_<strong>rec</strong>ord_callbacks.rb&rdquo;</li>
+</ul>
+
+
+<p><img src="/assets/img/posts/active-record-callback.png" alt="Searching for Active Record Callback" /></p>
+
+<p>&hellip;you get the idea</p>
+
+<p>Here are the rules:</p>
+
+<ul>
+<li>All letters must be in the name of the file (obviously)</li>
+<li>Letters must appear in the correct order</li>
+<li>Type as few or as many letters as you want</li>
+</ul>
+
+
+<h2>So how do we do this in code?</h2>
+
+<p>The typical auto-complete setup will take the input and (after sanitising of course) ask the database with a &ldquo;like&rdquo; query to find matches.</p>
+
+<pre><code>select * from table_name where description like "%QUERY%";
 </code></pre>
 
-<p>Next up, we need to create the subl command. To do that just paste the following into Terminal:</p>
+<p>This works for the most part, but doesn&rsquo;t do that fancy middle-matching stuff where you can just throw a bunch of letters at it.</p>
 
-<pre><code>$ ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
-</code></pre>
+<h2>Our solution</h2>
 
-<p>To make sure this is working, just type subl into Terminal and press enter. If you’ve followed the steps above then that should open up Sublime.</p>
+<div id="solution"></div>
 
-<h3>Using the command</h3>
 
-<p>We’ve already seen how the subl command can be used to open Sublime itself, however it can also be used to open files and directorys, among other things.</p>
+<p><a href="http://www.regular-expressions.info/lookaround.html">Positive zero-length lookahead assertions</a> of course!</p>
 
-<p>This command opens a directory called mySite:</p>
-
-<pre><code>$ subl ~/Documents/mySite
-</code></pre>
-
-<p>This command opens a file from the above directory called index.html:</p>
-
-<pre><code>$ subl ~/Documents/mySite/index.html
-</code></pre>
-
-<h3>Taking it further</h3>
-
-<p>This only scratches the surface of what you can do with this type of command. To see other actions available, try typing subl &ndash;help into Terminal and pressing enter. This will give you a list of ways to use this command.</p>
-
-<p><strong>Note:</strong> This post is pretty much lifted from a post I wrote on my own blog last night:</p>
-
-<p><a href="http://steverydz.com/2012/04/27/sublime-text-2-opening-files-and-folders-from-the-command-line/">http://steverydz.com/2012/04/27/sublime-text-2-opening-files-and-folders-from-the-command-line/</a></p>
+<p>Stay tuned for <strong>Part Two</strong> of this post for all the gory code details&hellip;.</p>
 
         </article>
         <div id="disqus_thread"></div>

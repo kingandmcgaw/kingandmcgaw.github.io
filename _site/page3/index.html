@@ -32,15 +32,73 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/07/24/heroku-fork">Heroku Fork</a></h2>
+      <p class="updated">Posted on 24 July 2013
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>I&rsquo;ve been meaning to try the <a href="https://devcenter.heroku.com/articles/fork-app">fork</a> feature on Heroku for a while.</p>
+
+<p>It does exactly what you expect, but that&rsquo;s what&rsquo;s so brilliant about it. It&rsquo;s taken be less than 2 minutes to set up a staging environment for one of our apps in the EU region. Here&rsquo;s what&rsquo;s involved:</p>
+
+<p>Clone an existing app, optionally choosing a region. This will also add your add-ons to the forked app at the same payment tier so keep an eye out for this.</p>
+
+<pre><code>heroku fork -a yourapp yourapp-staging --region eu
+
+Creating fork yourapp-staging... done
+Copying slug... done
+Adding airbrake:developer... done
+Adding memcachier:100... done
+Adding scheduler:standard... done
+Copying config vars... done
+Fork complete, view it at http://yourapp-staging.herokuapp.com/
+</code></pre>
+
+<p>Get the forked app&rsquo;s Git repo information so you can push code to it.</p>
+
+<pre><code>heroku info -a yourapp-staging
+
+=== yourapp-staging
+Addons:        memcachier:dev
+               scheduler:standard
+
+Git URL:       git@heroku.com:yourapp-staging.git
+Owner Email:   nick@nickboyce.com
+Region:        eu
+Stack:         cedar
+Tier:          Legacy
+Web URL:       http://yourapp-staging.herokuapp.com/
+</code></pre>
+
+<p>Add a new git remote so you can push to the new app.</p>
+
+<pre><code>git remote add staging git@heroku.com:yourapp-staging.git
+</code></pre>
+
+<p>Push a branch to your new app.</p>
+
+<pre><code>git push staging custom-framing:master
+</code></pre>
+
+<p>You&rsquo;re done!</p>
+
+    <p><a href="/2013/07/24/heroku-fork">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/07/12/lazy-loading-facebook-buttons">Lazy loading Facebook buttons</a></h2>
       <p class="updated">Posted on 12 July 2013
         by
         
-        
-        
         <a href="/authors/steve-rydz/">
         
-        Steve Rydz
+          Steve Rydz
         </a>
       </p>
     </header>
@@ -68,11 +126,9 @@
       <p class="updated">Posted on 02 June 2013
         by
         
-        
         <a href="/authors/nick-boyce/">
         
-        
-        Nick Boyce
+          Nick Boyce
         </a>
       </p>
     </header>
@@ -109,11 +165,9 @@
       <p class="updated">Posted on 05 May 2013
         by
         
-        
         <a href="/authors/nick-boyce/">
         
-        
-        Nick Boyce
+          Nick Boyce
         </a>
       </p>
     </header>
@@ -186,11 +240,9 @@ If the value of a resource key is a JSON array, the value represents a list of d
       <p class="updated">Posted on 29 April 2013
         by
         
-        
-        
         <a href="/authors/steve-rydz/">
         
-        Steve Rydz
+          Steve Rydz
         </a>
       </p>
     </header>
@@ -259,77 +311,6 @@ If the value of a resource key is a JSON array, the value represents a list of d
 <p>The idea that the web is its own medium resounded with me, and that we should not be trying to replicate print. Jeremy also reminded us all about progressive enhancement and how it does not mean designing for the lowest common denominator. The principles behind progressive enhancement and mobile-first go hand-in-hand.</p>
 
     <p><a href="/2013/04/29/notes-from-industry-conference">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/04/25/making-ideas-happen">Making Ideas Happen</a></h2>
-      <p class="updated">Posted on 25 April 2013
-        by
-        
-        
-        <a href="/authors/nick-boyce/">
-        
-        
-        Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>A couple of years ago I had the pleasure of seeing <a href="http://www.scottbelsky.com/">Scott Belsky</a> (of <a href="http://www.behance.com">Behance</a> and now <a href="http://www.adobe.com">Adobe</a> fame speak about his book <a href="http://99u.com/book/making-ideas-happen">Making Ideas Happen</a> at the <a href="http://wearelikeminds.com/books">Like Minds Business Book Club</a>).</p>
-
-<p>It&rsquo;s a fantastic book which celebrates some of the things I value most - collaboration, creativity and getting things done! Here are my some of the passages I highlighted on my Kindle.</p>
-
-<h3>On collaboration and creative process</h3>
-
-<blockquote><p>&hellip;among the hundreds of successful creatives I’ve interviewed, a <strong>fearless approach to sharing ideas</strong> is one of the most common attributes. Why? Because having the idea is just one tiny step along the road to making that idea happen.</p>
-
-<p>Regardless of where you are in your career—and what stage your ideas are in—you should not only accept feedback, you should seek it out. <strong>Managers, coworkers, and clients have a responsibility to share feedback, and you should encourage them to do so</strong>.</p>
-
-<p>“The genius sketch is a myth. Architecture is made by a team of committed people who work together… . <strong>Success usually has more to do with dumb determination than with genius</strong>.”</p>
-
-<p>&hellip;<strong>people thrive when their judgment and autonomy are respected</strong>.</p>
-
-<p>As you cultivate your team’s immune system, you will want to <strong>differentiate between skeptics and cynics</strong>.</p>
-
-<p>Share Ownership of Your Ideas The more people who lie awake in bed thinking about your idea, the better. <strong>But people only obsess about ideas when they feel a sense of ownership</strong>.</p>
-
-<p>Collaboration brings small sparks together to generate breakthrough innovation.</p>
-
-<p>Harvard Business Review cited a recent MIT study showing that employees with the most extensive personal online networks were 7 percent more productive than their colleagues, and <strong>those with the most cohesive face-to-face networks were 30 percent more productive</strong>. Clearly, our respective communities—both online and offline—play a critical role in helping us refine our ideas, stay focused, and execute to completion.</p>
-
-<p>Have a Tempered Tolerance for Change</p>
-
-<p>&hellip;intersection of creative energy and organizational prowess where great ideas become actions and ultimately revolutionary achievements.</p></blockquote>
-
-<h3>On getting things done</h3>
-
-<blockquote><p>&hellip;successful creative entity must be comfortable alternating between these two creative phases: ideation and execution.</p>
-
-<p>The way you organize projects, prioritize, and manage your energy is arguably more important than the quality of the ideas you wish to pursue.</p>
-
-<p>Accountability, one of the most crucial benefits of engaging with your community, is what binds you to the relentless pursuit of your ideas.</p>
-
-<p>Action Steps are specific things you must do to move an idea forward. <strong>The more clear and concrete an Action Step is, the less friction you will encounter trying to do it</strong>. If an Action Step is vague or complicated, you will probably skip over it to others on your list that are more straightforward. To avoid this, start each Action Step with a verb: Call programmer to discuss … Install new software for … Research the possibility of … Mock up a sample of the … Update XYZ document for … Address issue of …</p>
-
-<p><strong>An unowned Action Step will never be taken</strong>. Every Action Step must be owned by a single person. While some Action Steps may involve the input of different people, accountability must reside in one individual’s hands at the end of the day.</p>
-
-<p>Aside from friendly questioning along the lines of “Did you capture that?” some teams take a few minutes at the end of every meeting to go around the table and allow each person to recite the Action Steps that he or she captured.</p>
-
-<p><strong>Actions are truly “delegated” only when they are accepted</strong>. Regardless of your method for managing Action Steps, it is vital that you (and your project partners) never accept an Action Step unless it is clear and able to be executed.</p>
-
-<p>&hellip;minimize (or quit) all communication applications during certain periods of your day.</p>
-
-<p>Constant motion is the key to execution.</p>
-
-<p>Constraints serve as kindling for execution. When you’re not given constraints, you must seek them.</p>
-
-<p>Especially amidst heavy, burdensome projects with hundreds of Action Steps and milestones, <strong>it is emotionally invigorating to surround yourself with progress</strong>. Why throw away the evidence of your achievements when you can create an inspiring monument to getting stuff done? <strong>When you make incremental progress, celebrate it and feature it</strong>. Surround yourself with it.</p></blockquote>
-
-<p>And this fantastic quote from British author A. A. Milne</p>
-
-<blockquote><p>“Good judgment comes from experience, and experience—well, that comes from poor judgment.”</p></blockquote>
-
-    <p><a href="/2013/04/25/making-ideas-happen">Leave a comment</a></p>
   </article>
   
 
@@ -472,6 +453,8 @@ If the value of a resource key is a JSON array, the value represents a list of d
     
     <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
     
+    <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
+    
     <li><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></li>
     
     <li><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></li>
@@ -481,8 +464,6 @@ If the value of a resource key is a JSON array, the value represents a list of d
     <li><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></li>
     
     <li><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></li>
-    
-    <li><a href="/2013/07/24/heroku-fork">Heroku Fork</a></li>
     
   </ol>
 </div>
