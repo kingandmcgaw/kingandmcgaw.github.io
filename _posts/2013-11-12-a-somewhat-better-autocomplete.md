@@ -6,13 +6,25 @@ author: John Pash
 
 ---
 
+
 ## Summary
 Known by many names; the auto-complete, typeahead, search suggestion or incremental search box is an invaluable feature of any website. An example of it's use would be to find the latest news about **Lance Armstrong**. If you Google only the partial words "**lan**" and "**arm**" Google will be smart enough to fill in the blanks.
 
 ![Lance Armstrong](/assets/img/posts/lanarm.png)
 
 
-### A typical auto-complete setup
+## The project
+The project I'm about to explain was done for an internal administration menu here at [Easyart](http://www.easyart.com).
+
+![Admin menu](/assets/img/posts/admin-menu.png)
+
+Over the years our admin has grown so large that a simple list of pages was simply too long to navigate. Even after grouping
+and hiding them under dropdown menus we thought there must be a quicker way of getting to a specific page.
+
+An auto-complete input field would fit the bill.
+
+
+## A typical auto-complete setup
 A typical setup might use [Twitter's Typeahead](http://twitter.github.io/typeahead.js/) library which does an ajax call to a server which receives the partial search term and returns matching records. The results are displayed in real-time as a list of options and are updated on each keypress.
 
 
@@ -33,24 +45,23 @@ For example, to search the [Rails source code](https://github.com/rails/rails) f
 
 ![Searching for Active Record Callback](/assets/img/posts/active-record-callback.png)
 
-...you get the idea
+There are only two rules:
 
-Here are the rules:
-
-* All letters must be in the name of the file (obviously)
+* All letters must be in the name of the item (obviously)
 * Letters must appear in the correct order
-* Type as few or as many letters as you want
+
 
 ## So how do we do this in code?
 The typical auto-complete setup will take the input and (after sanitising of course) ask the database with a "like" query to find matches.
 
-    select * from table_name where description like "%QUERY%";
+{% highlight sql %}
+select * from table_name where description like "%QUERY%";
+{% endhighlight %}
 
-This works for the most part, but doesn't do that fancy middle-matching stuff where you can just throw a bunch of letters at it.
+This does an ok job, but it's not perfect. It's just not as flexible or fast as it could be.
 
 
 ## Our solution
-<div id="solution"></div>
 [Positive zero-length lookahead assertions](http://www.regular-expressions.info/lookaround.html) of course!
 
-Stay tuned for **Part Two** of this post for all the gory code details....
+Come back for [**Part Two**](/2014/02/17/a-somewhat-better-auto-complete-\(part-2\)/) of this post for the code.
