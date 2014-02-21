@@ -89,6 +89,7 @@ pre {
   border-radius: 5px; }
 
 code {
+  font-size: .8em;
   font-family: Monaco, "Courier New", Courier, monospace; }
 
 hr {
@@ -361,6 +362,8 @@ button {
   .hentry header {
     margin-bottom: 1.5em;
     border-bottom: 1px dashed #cccccc; }
+  .hentry header h2 {
+    margin-bottom: .1em; }
 
 .updated {
   font-style: italic;
