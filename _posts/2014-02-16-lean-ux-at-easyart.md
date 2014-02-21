@@ -4,7 +4,7 @@ title: Introducing Lean UX at Easyart
 date: 2014-02-16 22:19:31
 author: Nick Boyce
 ---
-There is something of a revolution underway in the way that we approach user experience at Easyart. With [Agile processes](http://easyart.github.io/2013/04/16/easyart-flavoured-agile/) so important to the way we build software, we felt we were ready to implement Lean UX approaches to help solve some of our user experience problems. It's eary days but I thought I would share some of the things that have worked for us so far.
+There is something of a revolution underway in the way that we approach user experience at Easyart. With [Agile processes](http://easyart.github.io/2013/04/16/easyart-flavoured-agile/) so important to the way we build software, we felt we were ready to implement Lean UX approaches to help solve some of our user experience problems. It's early days but I thought I would share some of the things that have worked for us so far.
 
 *Note: I've added some notes on this to the [tech handbook](http://www.github.com/easyart/handbook) which is emerging at the moment, but I thought I would elaborate on some of the processes in this post.*
 
