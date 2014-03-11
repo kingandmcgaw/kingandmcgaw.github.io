@@ -4,9 +4,9 @@ title: Improving our development cycle
 date: 2014-03-11 14:28:29
 author: Nick Boyce
 ---
-I've been struggling to solve a problem for some time now. The agile (with a lower-case "a") approach we use for software development and the long-term roadmaps we have as a business have always been too disconnected, but I never quite knew how to connect them.
+I've been struggling to solve a problem for some time now. The agile (with a lower-case "a") [approach](/2013/04/16/easyart-flavoured-agile/) we use for software development and the long-term roadmaps we have as a business have always been too disconnected, but I never quite knew how to connect them.
 
-Recently, inspired by a deeper understanding of Lean methodologies, I think I've finally connected them together in these five steps. It's still an emerging process, but I'm hopeful it will solve a number of problems.
+Recently, inspired by a deeper understanding of the [lean approaches](/2014/02/16/lean-ux-at-easyart/), I think I've finally connected them together in these five steps. It's still an emerging process, but I'm hopeful it will solve a number of problems.
 
 ### Keep an inventory of hypotheses
 We all have ideas for ways to improve the site. Some of them are bound to make a positive difference, others will make the site worse, and most will have no measurable effect at all.
