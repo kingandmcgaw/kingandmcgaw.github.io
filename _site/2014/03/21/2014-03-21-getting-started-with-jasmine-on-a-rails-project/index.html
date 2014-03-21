@@ -39,7 +39,73 @@
               
             </p>
           </header>
-          
+          <p>We&rsquo;re big fans of <a href="http://www.agiledata.org/essays/tdd.html">TDD</a> here at Easyart. So far this has only applied to our Ruby code, but with JavaScript increasingly becoming a bigger part of our technology stack, we needed to start testing that too.</p>
+
+<h3>Choosing the right tool</h3>
+
+<p>We chose <a href="http://jasmine.github.io/2.0/introduction.html">Jasmine</a> as our testing framework, partly because of its similarity to RSPEC, and also because its really easy to get started with.</p>
+
+<p>You can get started with Jasmine fairly quickly. Their <a href="https://github.com/pivotal/jasmine/tree/master/dist">standalone distribution</a> has everything you need to get up and running. Opening the included <code>SpecRunner.html</code> will run the example tests and show you the results. From here you can swap out the example files with your own.</p>
+
+<p><img src="/assets/img/posts/jasmine-specrunner.png" alt="the Jasmine specrunner" /></p>
+
+<h3>Getting up and running on rails</h3>
+
+<p>Once we settled on Jasmine, we needed a way to integrate it into our current workflow, as we don&rsquo;t want to be running tests manually all the time.</p>
+
+<p>Luckily, there is an official <a href="https://github.com/pivotal/jasmine-gem">Jasmine gem</a>. To add this to your project add the following to your gemfile:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="ss">group</span><span class="p">:</span> <span class="n">development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+    <span class="n">gem</span> <span class="s2">&quot;jasmine&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+
+
+<p>To setup the file structure that the gem expects for your tests, run the following command from your CLI, which will set up all the necessary files and directory structure to begin testing your code:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="n">rails</span> <span class="n">g</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">install</span>
+</code></pre></div>
+
+
+<h3>Running the tests</h3>
+
+<p>There are two ways you can run your Jasmine tests. The first is to run the following rake task:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="n">jasmine</span>
+</code></pre></div>
+
+
+<p>This will fire up a web server, accessible at <code>localhost:8888</code> where you will see an HTML document displaying the results of your tests.</p>
+
+<p>You can also run the tests in continuous integration mode from the command line, which will show you the results in the terminal:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">ci</span>
+</code></pre></div>
+
+
+<p><img src="/assets/img/posts/jasmine-CLI-specrunner.png" alt="the Jasmine CLI specrunner" /></p>
+
+<h3>Integrating into your build process</h3>
+
+<p>Depending on your environment, you may have to add the <code>ci</code> rake task to your deployment process, but we currently use <a href="http://circleci.com">CircleCI</a> which picked it up automatically, which means our test run every time we deploy, and if they don&rsquo;t pass, the build will fail.</p>
+
+<h3>Writing the tests</h3>
+
+<p>As I mentioned before, Jasmine is easy to get started with, as long as you are reasonably comfortable with JavaScript, but if like me, you&rsquo;re new to writing tests it can be hard to figure out where to start.</p>
+
+<p>The key is to write code that is actually testable. The simplest way to do that is to ensure your code returns something. I attended a testing workshop a little over a year ago with <a href="http://rmurphey.com">Rebecca Murphey</a>, and she described this as:</p>
+
+<blockquote><p>&ldquo;Things don&rsquo;t do things - things announce things&rdquo;</p></blockquote>
+
+<p>She also advised to have the following question in mind when writing tests:</p>
+
+<blockquote><p>&ldquo;Given this input, do I get this output?&rdquo;</p></blockquote>
+
+<p>For more on testable JavaScript, I recommend starting with <a href="http://alistapart.com/article/writing-testable-javascript">Rebecca&rsquo;s A List Apart article</a>.</p>
+
+<h3>Going forwards</h3>
+
+<p>So far we don&rsquo;t have as much JavaScript code coverage as we would like, but  with a little discipline we&rsquo;ll eventually get to a place where we can be confident that our code is always working.</p>
 
         </article>
         <div id="disqus_thread"></div>

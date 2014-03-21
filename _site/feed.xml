@@ -4,7 +4,7 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2014-03-21T15:16:32+00:00</updated>
+ <updated>2014-03-21T16:02:15+00:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
@@ -14,7 +14,73 @@
    <title>Getting started with Jasmine on a rails project</title>
    <link href="http://easyart.github.com/2014/03/21/2014-03-21-getting-started-with-jasmine-on-a-rails-project"/>
    <updated>2014-03-21T15:08:52Z by Steve Rydz</updated>
-   <content type="html">
+   <content type="html">&lt;p&gt;We&amp;rsquo;re big fans of &lt;a href=&quot;http://www.agiledata.org/essays/tdd.html&quot;&gt;TDD&lt;/a&gt; here at Easyart. So far this has only applied to our Ruby code, but with JavaScript increasingly becoming a bigger part of our technology stack, we needed to start testing that too.&lt;/p&gt;
+
+&lt;h3&gt;Choosing the right tool&lt;/h3&gt;
+
+&lt;p&gt;We chose &lt;a href=&quot;http://jasmine.github.io/2.0/introduction.html&quot;&gt;Jasmine&lt;/a&gt; as our testing framework, partly because of its similarity to RSPEC, and also because its really easy to get started with.&lt;/p&gt;
+
+&lt;p&gt;You can get started with Jasmine fairly quickly. Their &lt;a href=&quot;https://github.com/pivotal/jasmine/tree/master/dist&quot;&gt;standalone distribution&lt;/a&gt; has everything you need to get up and running. Opening the included &lt;code&gt;SpecRunner.html&lt;/code&gt; will run the example tests and show you the results. From here you can swap out the example files with your own.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/jasmine-specrunner.png&quot; alt=&quot;the Jasmine specrunner&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Getting up and running on rails&lt;/h3&gt;
+
+&lt;p&gt;Once we settled on Jasmine, we needed a way to integrate it into our current workflow, as we don&amp;rsquo;t want to be running tests manually all the time.&lt;/p&gt;
+
+&lt;p&gt;Luckily, there is an official &lt;a href=&quot;https://github.com/pivotal/jasmine-gem&quot;&gt;Jasmine gem&lt;/a&gt;. To add this to your project add the following to your gemfile:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;ss&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:test&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;jasmine&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To setup the file structure that the gem expects for your tests, run the following command from your CLI, which will set up all the necessary files and directory structure to begin testing your code:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;jasmine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Running the tests&lt;/h3&gt;
+
+&lt;p&gt;There are two ways you can run your Jasmine tests. The first is to run the following rake task:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;rake&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jasmine&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will fire up a web server, accessible at &lt;code&gt;localhost:8888&lt;/code&gt; where you will see an HTML document displaying the results of your tests.&lt;/p&gt;
+
+&lt;p&gt;You can also run the tests in continuous integration mode from the command line, which will show you the results in the terminal:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;rake&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;jasmine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ci&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/jasmine-CLI-specrunner.png&quot; alt=&quot;the Jasmine CLI specrunner&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Integrating into your build process&lt;/h3&gt;
+
+&lt;p&gt;Depending on your environment, you may have to add the &lt;code&gt;ci&lt;/code&gt; rake task to your deployment process, but we currently use &lt;a href=&quot;http://circleci.com&quot;&gt;CircleCI&lt;/a&gt; which picked it up automatically, which means our test run every time we deploy, and if they don&amp;rsquo;t pass, the build will fail.&lt;/p&gt;
+
+&lt;h3&gt;Writing the tests&lt;/h3&gt;
+
+&lt;p&gt;As I mentioned before, Jasmine is easy to get started with, as long as you are reasonably comfortable with JavaScript, but if like me, you&amp;rsquo;re new to writing tests it can be hard to figure out where to start.&lt;/p&gt;
+
+&lt;p&gt;The key is to write code that is actually testable. The simplest way to do that is to ensure your code returns something. I attended a testing workshop a little over a year ago with &lt;a href=&quot;http://rmurphey.com&quot;&gt;Rebecca Murphey&lt;/a&gt;, and she described this as:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&amp;ldquo;Things don&amp;rsquo;t do things - things announce things&amp;rdquo;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;She also advised to have the following question in mind when writing tests:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&amp;ldquo;Given this input, do I get this output?&amp;rdquo;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;For more on testable JavaScript, I recommend starting with &lt;a href=&quot;http://alistapart.com/article/writing-testable-javascript&quot;&gt;Rebecca&amp;rsquo;s A List Apart article&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Going forwards&lt;/h3&gt;
+
+&lt;p&gt;So far we don&amp;rsquo;t have as much JavaScript code coverage as we would like, but  with a little discipline we&amp;rsquo;ll eventually get to a place where we can be confident that our code is always working.&lt;/p&gt;
 </content>
  </entry>
  
