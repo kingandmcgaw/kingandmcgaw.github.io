@@ -17,7 +17,7 @@ EOS
 end
 
 desc "Given a title as an argument, create a new draft post"
-task :draft, [:title] do |t, args|
+task :newdraft, [:title] do |t, args|
   filename = "#{Time.now.strftime('%Y-%m-%d')}-#{args.title.gsub(/\s/, '-').downcase}.md"
   path = File.join("_drafts", filename)
   if File.exist? path; raise RuntimeError.new("Won't clobber #{path}"); end

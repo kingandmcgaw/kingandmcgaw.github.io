@@ -32,6 +32,182 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/01/19/on-soa">On SOA</a></h2>
+      <p class="updated">Posted on 19 January 2013
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>I finally got around to reading Paul Dix&rsquo;s <a href="http://www.amazon.co.uk/Service-Oriented-Design-Rails-Addison-Wesley-Professional/dp/0321659368/ref=sr_1_1?ie=UTF8&amp;qid=1358592354&amp;sr=8-1">Service-Oriented Design with Ruby and Rails</a> over the new year break. Having worked on a number of services for a platform at my previous job, I was very familiar with the benefits (and drawbacks) of <a href="http://en.wikipedia.org/wiki/Service-oriented_architecture">service-oriented architecture</a> but it really concreted my understanding of what SOA could do for our organisation.</p>
+
+<p>I&rsquo;ve since been devouring articles on the topic, and have listed a few below that I have particularly enjoyed.</p>
+
+<ul>
+<li><a href="http://rubysource.com/soa-for-the-little-guys/">SOA for the Little Guys</a>. This article does an amazing job of introducing SOA concepts right through to code examples.</li>
+<li><a href="http://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods/">Notes on Distributed Systems for Young Bloods</a>. Hugely detailed post, with a focus on pitfalls of the SOA approach. Failure at some point in the system is inevitable.</li>
+<li><a href="http://www.slideshare.net/ChrisWyckoff/refactor-your-monolithic-rails-app-to-a-soa">Refactor Your Monolithic Rails App to a SOA</a> (particularly slides 11-25)</li>
+<li><a href="http://confreaks.com/videos/1273-rubyconf2012-service-oriented-architecture-at-square">Service Oriented Architecture at Square</a>. A really interesting presentation from Square&rsquo;s Chris Hunt on their SOA approach.</li>
+<li><a href="http://confreaks.com/videos/1270-rubyconf2012-abstracting-features-into-custom-reverse-proxies-or-making-better-lemonade-from-chaos">Abstracting Features Into Custom Reverse Proxies</a>. Another video from Rubyconf on custom proxies to front and normalise multiple services.</li>
+<li><a href="http://highscalability.com/amazon-architecture">Amazon Architecture</a>. When you view a page on Amazon there are famously more than 100 services that are accessed to build it. This old post on the High Scalability blog outlines Amazon&rsquo;s SOA approach.</li>
+<li><a href="http://www.infoq.com/articles/ebay-scalability-best-practices">Scalability Best Practices: Lessons from eBay</a>. Detailed article on Ebay&rsquo;s architecture from Randy Shoup.</li>
+<li><a href="http://hurvitz.org/blog/2008/06/linkedin-architecture">LinkedIn Architecture</a>. Outline of the evolution of LinkedIn from a monolithic app to a service-oriented approach. <a href="http://www.slideshare.net/linkedin/linkedins-communication-architecture">Slides</a> are also available.</li>
+</ul>
+
+
+    <p><a href="/2013/01/19/on-soa">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2013/01/10/links-from-the-week">Links from the week</a></h2>
+      <p class="updated">Posted on 10 January 2013
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>Thought it might be nice to start the year with a quote from from the <a href="http://gettingreal.37signals.com/">Getting Real book</a>:</p>
+
+<blockquote><p>There’s plenty of time to be a perfectionist. Just do it later.</p></blockquote>
+
+<p>Here&rsquo;s a few links I&rsquo;ve enjoyed over the new year break.</p>
+
+<ul>
+<li><p><a href="http://www.slideshare.net/billwscott/enabling-lean-with-tech-15455128?from=new_upload_email">Enabling Lean with Tech: lessons learned applying lean at PayPal</a>. An interesting slide deck from Bill Scott about how PayPal used a JavaScript-based stack and open source methodologies to set themselves free from their legacy technology stack and allow faster prototyping.</p></li>
+<li><p><a href="http://remysharp.com/2012/12/21/my-workflow-never-having-to-leave-devtools/">My Workflow: Never having to leave DevTools</a>. Remy Sharp demonstrates some of the newer features of Webkit Inspector which allow much more deveklopment to happen inside the browser.</p></li>
+<li><p><a href="http://jehiah.cz/one-two/">A Personal Annual Report</a>. Jehiah Czebotar collected metrics about his activities throughout the year and presented an interesting report.</p></li>
+<li><p><a href="http://blog.capwatkins.com/building-a-designdriven-culture">Building a Design-Driven Culture</a>. <em>Being design-driven means treating design as a partner (and a leader) in the product creation process. Look at your feature roadmap right now. Are there major initiatives and ideas that were generated directly from your designer or design team? If yes, was design in the room when the other items were created and prioritized? Congratulations, you’re design-driven.</em></p></li>
+<li><p>The <a href="http://www.nytimes.com/skimmer/">New York Times Skimmer</a> looks like it&rsquo;s had a significant upgrade since I last saw it. It&rsquo;s a really impressive JavaScript front-end to the NYT content – complete with multiple themes and keyboard shortcuts – and by the looks of it, it&rsquo;s also available bundled as a Chrome web app.</p></li>
+</ul>
+
+
+    <p><a href="/2013/01/10/links-from-the-week">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2013/01/09/using-git-flow">Using git flow</a></h2>
+      <p class="updated">Posted on 09 January 2013
+        by
+        
+        <a href="/authors/steve-rydz/">
+        
+          Steve Rydz
+        </a>
+      </p>
+    </header>
+    <p>For the past couple of weeks I&rsquo;ve been using a tool called <a href="https://github.com/nvie/gitflow">Git Flow</a>. In it&rsquo;s own words, git flow is <em>A collection of Git extensions to provide high-level repository operations for Vincent Driessen&rsquo;s <a href="http://nvie.com/git-model">branching model</a>.</em></p>
+
+<p>If you&rsquo;re already familiar with Git on the command line then getting up and running with git flow will take you no time at all.</p>
+
+<h3>Installation</h3>
+
+<p>The full installation instructions <a href="https://github.com/nvie/gitflow/wiki/Installation">can be found here</a> but for the purposes of this article I am going to assume you are on a Mac and using homebrew.</p>
+
+<p>You can use homebrew to install git flow:</p>
+
+<pre><code>    $ brew install git-flow
+</code></pre>
+
+<p>That&rsquo;s all it takes.</p>
+
+<h3>Initialising a project</h3>
+
+<p>To use git flow, you will need to already have a git project set up. So, to get started, just navigate to your project (in Terminal) and type the following:</p>
+
+<pre><code>    $ git flow init
+</code></pre>
+
+<p>It will then ask you a few questions regarding what to name your various branches. Unless you have good reason, I would stick to the defaults.</p>
+
+<h3>Going with the flow</h3>
+
+<p>So now you have initialised git flow within your project, you want to get going.</p>
+
+<p>The assumption here is that your master branch is always deployable and your develop branch is where you would make small changes that will be release fairly quickly.</p>
+
+<p>The feature I use most is <em>feature</em> branches. Essentially a branch called feature/<feature-name> is created and when complete, merged into your develop branch. To start a new feature branch just type:</p>
+
+<pre><code>    $ git flow feature start &lt;feature-name&gt;
+</code></pre>
+
+<p>Obviously feature name will be whatever you want to call your new feature. You can then start working on your feature and commit as you normally would. To set up a remote branch so others can collaborate just use the publish command:</p>
+
+<pre><code>    $ git flow feature publish &lt;feature-name&gt;
+</code></pre>
+
+<p>Once you are ready to merge your new feature, just use the finish command:</p>
+
+<pre><code>    $ git flow feature finish &lt;feature-name&gt;
+</code></pre>
+
+<p>This will merge your feature into your develop branch and delete your local branch too. If you want/need to delete the remote branch then just type:</p>
+
+<pre><code>    $ git push origin :feature/&lt;feature-name&gt;
+</code></pre>
+
+<h3>More resources</h3>
+
+<p>Hopefully this article has convinced you that using git flow is worthwhile and got you intrigued enough to find out more.</p>
+
+<p>Some more git flow resources:</p>
+
+<ul>
+<li><a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/">Why aren&rsquo;t you using git flow</a></li>
+<li><a href="http://yakiloo.com/getting-started-git-flow/">Getting started with git flow</a></li>
+<li><a href="http://vimeo.com/37408017">Oh the path with git flow</a></li>
+<li><a href="http://buildamodule.com/video/change-management-and-version-control-deploying-releases-features-and-fixes-with-git-how-to-use-a-scalable-git-branching-model-called-gitflow">How to use a scalable git branching model called gitflow</a></li>
+<li><a href="http://vimeo.com/16018419">A short introduction to git flow</a></li>
+</ul>
+
+
+    <p><a href="/2013/01/09/using-git-flow">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2012/12/20/london-and-github">Is London the most popular city for Github users?</a></h2>
+      <p class="updated">Posted on 20 December 2012
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>Interesting review of 2012 from Github in <a href="https://github.com/blog/1359-the-octoverse-in-2012">The Octoverse in 2012</a>:</p>
+
+<blockquote><p>Since the beginning of the year, we&rsquo;ve seen a doubling in activity, with pushes alone responsible for over 60% of the events in a given day. On a typical weekday, 10k people sign up for a GitHub account, and our users:</p>
+
+<ul>
+<li>push 140GB of new data</li>
+<li>create 25k repositories and 7k pull requests</li>
+<li>push to 125k repositories</li>
+<li>Best of all:</li>
+</ul>
+
+
+<p>10k people create their very first repository</p></blockquote>
+
+<p>Apart from their impressive growth, this little fact caught my eye:</p>
+
+<blockquote><p>The top 10 countries visiting GitHub.com are: United States, Germany, United Kingdom, China, Japan, France, India, Canada, Russia and Brazil. The top 10 cities are: London, San Francisco, New York, Paris, Moscow, Beijing, Berlin, Bangalore, Sydney and Toronto.</p></blockquote>
+
+<p>London is the #1 city for Github users? Go London!</p>
+
+    <p><a href="/2012/12/20/london-and-github">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/12/19/why-have-i-failed">Why have I failed?</a></h2>
       <p class="updated">Posted on 19 December 2012
         by
@@ -55,219 +231,6 @@
 <blockquote><p>My job is not programming. My job is delivering value using programming.</p></blockquote>
 
     <p><a href="/2012/12/19/why-have-i-failed">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/12/13/our-conventions">Conventions</a></h2>
-      <p class="updated">Posted on 13 December 2012
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>Part of the way the team has evolved this year has required putting more emphasis on consistent coding conventions and procedures to make our collaboration smoother. Here are a few notes.</p>
-
-<p><strong>Javascript</strong></p>
-
-<p><a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">Google&rsquo;s Javascript style guide</a>, plus some JSHint config.</p>
-
-<p><strong>CSS/Less</strong></p>
-
-<p>Our own internal styleguide.</p>
-
-<p><strong>HTML</strong></p>
-
-<p>Our own internal styleguide.</p>
-
-<p><strong>Ruby</strong></p>
-
-<p>Nothing yet, but probably the <a href="https://github.com/styleguide/ruby">Github Ruby Styleguide</a> in the future.</p>
-
-<p><strong>Git branching</strong></p>
-
-<p>We use something vaguely between <a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/">git-flow</a> and <a href="http://scottchacon.com/2011/08/31/github-flow.html">&ldquo;Github flow&rdquo;</a>. In essence, <code>master</code> is always deployable, <code>develop</code> is a shared staging branch, and feature branches are created for major or disruptive features. I could see us moving to git-flow next year.</p>
-
-<p><strong>Project naming</strong></p>
-
-<p>We decided to name our projects after film directors. So far Romero (our internal CSS framework), Kubrick (our next-generation platform in development) and Eastwood (an experimental Backbone-based product page) are active, but I am sure more will sprint to life in 2013.</p>
-
-<p>It&rsquo;s pretty lean so far, but we&rsquo;re making refinements all the time.</p>
-
-    <p><a href="/2012/12/13/our-conventions">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/12/07/this-week-on-the-interwebs">This Week On The Interwebs</a></h2>
-      <p class="updated">Posted on 07 December 2012
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>I&rsquo;ve been enjoying the <a href="http://artsy.github.com/">Art.sy engineering team&rsquo;s blog</a>. Their approach and <a href="http://artsy.github.com/blog/2012/10/10/artsy-technology-stack/">technology stack</a> are spookily similar to what we have in store for the next generation of the platform at Easyart. Even their blog runs on <a href="https://github.com/mojombo/jekyll">Jekyll</a> just like this one!</p>
-
-<p>As usual, I&rsquo;ve spent a fair bit of time on <a href="http://www.quora.com/">Quora</a> this week. The question <a href="http://www.quora.com/Spotify/What-is-Spotifys-architecture">What is Spotify&rsquo;s architecture?</a> had an interesting answer from Spotify developer Niklas Gustavsson. They have around 100 backend services, most of which handle only a single task.</p>
-
-<p>Paul Irish&rsquo;s <a href="http://www.youtube.com/watch?v=f7AU2Ozu8eo">Javascript Development Workflow of 2013</a> has a lot of good tips. Things are moving so quickly in this space it&rsquo;s hard to keep up, so I find myself watching more and more presentations at home where I would have otherwise been watching TV.</p>
-
-<p><a href="http://loopj.com/2012/12/07/http-headers-for-fun-and-profit/">HTTP Headers For Fun &amp; Profit</a> lists some interesting HTTP headers returned by popular sites.</p>
-
-<p>There&rsquo;s a great post called <a href="http://blog.cloudflare.com/why-google-went-offline-today-and-a-bit-about">Why Google Went Offline Today and a Bit about How the Internet Works</a> over on the CloudFlare blog from a while back that sheds some light on how some of the underlying mechanics of the internetw work.</p>
-
-<p><a href="http://www.cooper.com/journal/2012/08/the-best-interface-is-no-interface.html/">The best interface is no interface</a> is very much an approach we are trying to head towards with some of the product customisation screens we&rsquo;ll launch in 2013. I&rsquo;m really excited about what next year has in store.</p>
-
-<p>Finally, this post is my first one created and edited in <a href="http://prose.io/">Prose</a>. It&rsquo;s a really neat tool to create and edit code in Github repos in the browser, and is perfectly suited to (infact, created for) Jekyll blogs like this one.</p>
-
-    <p><a href="/2012/12/07/this-week-on-the-interwebs">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/12/03/a-prediction-for-2013">A prediction for 2013</a></h2>
-      <p class="updated">Posted on 03 December 2012
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>A humble prediction:</p>
-
-<blockquote><p>Traffic to Easyart.com from 7" Android devices is going to have a noticeable bump after Christmas.</p></blockquote>
-
-<p>Google and Amazon are both pushing their tablet products hard this gifting season, and both have pretty compelling products at a great price point. Even I – a dedicated Apple nut – have just bought a Nexus, and I&rsquo;m going to retire my first generation iPad to the giant eBay in the sky.</p>
-
-<p>When the postman handed the package over, he said &ldquo;all I am doing is delivering Googles&rdquo;. That being the case, we&rsquo;d better get our skates on and set some new breakpoints in our responsive CSS!</p>
-
-    <p><a href="/2012/12/03/a-prediction-for-2013">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/11/27/working-with-grunt">Working with Grunt</a></h2>
-      <p class="updated">Posted on 27 November 2012
-        by
-        
-        <a href="/authors/steve-rydz/">
-        
-          Steve Rydz
-        </a>
-      </p>
-    </header>
-    <p>A few weeks ago I attended a series of tooling workshops in Brighton. One of the workshops was focused around build process, and particularly <a href="http://gruntjs.com">Grunt</a>.</p>
-
-<p>Currently we use <a href="http://incident57.com/codekit/">CodeKit</a> to compile our Less and JavaScript files so we end up with concatenated, minified versions of each. So far this has worked well but we have found it difficult to keep things synchronised between team members.</p>
-
-<p>Soon after returning from the workshops I started to investigate Grunt in more detail and we put a plan in place on how we could use it to aid our build process.</p>
-
-<p>What we came up with was the following file structure:</p>
-
-<pre><code>    Site_Name/
-        |__ public/
-        |           |__ static/
-        |           |           |__ css/
-        |           |           |__ js/
-        |           |           |__ img/
-        |           |
-        |           |__ index.html
-        |
-        |__ spec/
-        |
-        |__ static-src/
-        |           |__ less/
-        |           |__ js/
-        |
-        |__ grunt.js
-        |__ README.md
-</code></pre>
-
-<h3>public</h3>
-
-<p>The public directory contains anything public facing, including all static assets such as stylesheets, scripts and images. Anything in the <code>static/css/</code> and <code>static/js/</code> directories is compiled from <code>static-src/</code>.</p>
-
-<h3>spec</h3>
-
-<p>The spec directory contains our selenium tests.</p>
-
-<h3>static-src</h3>
-
-<p>This is where we keep all of our pre-compiled files.</p>
-
-<h3>Compiling LESS</h3>
-
-<p>Our Less files are broken down into modules. There is a master file that imports all dependencies. This master file is then compiled into CSS, minified and placed in the <code>static/css/</code> directory.</p>
-
-<h3>Compiling JavaScript</h3>
-
-<p>Just like our Less files, all our JavaScript is broken down into modules. These are then concatenated to a master JavaScript file which is placed in the <code>static/js/</code> directory. We also create a minified version for production which sits alongside the master file in the <code>static/js/</code> directory.</p>
-
-<h3>Enter Grunt</h3>
-
-<p>Grunt makes the process of performing all of the above tasks very simple. Everything is defined inside our <code>grunt.js</code> file:</p>
-
-<pre><code>module.exports = function(grunt) {
-
-  grunt.initConfig({
-    lint: {
-      files: ['static-src/js/*.js']
-    },
-    less: {
-      development: {
-        options: {
-          paths: ['static-src/less/'],
-          yuicompress: true
-        },
-        files: {
-          'public/static/css/master.css': 'static-src/less/master.less'
-        }
-      }
-    },
-    concat: {
-      dist: {
-        src: [
-          'static-src/js/lib/jquery/jquery.js',
-          'static-src/js/lib/jquery/jquery.cookie.js',
-          'static-src/js/app.js'
-        ],
-        dest: 'public/static/js/master.js'
-      }
-    },
-    min: {
-      dist: {
-        src: 'public/static/js/master.js',
-        dest: 'public/static/js/master.min.js'
-      }
-    },
-    watch: {
-      files: ['static-src/js/*.js', 'static-src/less/*.less'],
-      tasks: 'default'
-    }
-  });
-
-  grunt.loadNpmTasks('grunt-contrib-less');
-
-  grunt.registerTask('default', 'lint less concat min');
-
-};
-</code></pre>
-
-<h3>Extending Grunt</h3>
-
-<p>Grunt is very extensible and here we are using it in it&rsquo;s most basic form using (with the exception of Less) only it&rsquo;s built-in tasks. The goal here was to become less reliant on a third-part app such as CodeKit in favour of a platform that we can easily build upon.</p>
-
-<p>Going forward, this is likely to be the way we do things. We will no doubt build on this in time, making use of more advanced features, and maybe even build some tasks of our own, but even as it stands, this is a good position for us to be in.</p>
-
-    <p><a href="/2012/11/27/working-with-grunt">Leave a comment</a></p>
   </article>
   
 
@@ -361,6 +324,12 @@
         
       </li>
       
+      <li class="page">
+        
+        <a href="/page14">14</a>
+        
+      </li>
+      
     </ul>
 
     
@@ -402,6 +371,14 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/03/21/2014-03-21-getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a rails project</a></li>
+    
+    <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
+    
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
+    
+    <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
+    
     <li><a href="/2014/01/17/consuming-wordpress-as-a-service">Consuming Wordpress as a service</a></li>
     
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
@@ -413,14 +390,6 @@
     <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
     
     <li><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></li>
-    
-    <li><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></li>
-    
-    <li><a href="/2013/08/20/launching-kubrick-part-1">Launching Kubrick, part 1</a></li>
-    
-    <li><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></li>
-    
-    <li><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></li>
     
   </ol>
 </div>

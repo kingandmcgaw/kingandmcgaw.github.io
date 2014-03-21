@@ -32,6 +32,187 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></h2>
+      <p class="updated">Posted on 12 October 2013
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>In reading <a href="https://keen.io/blog/63582764323/what-ctos-fear-most">What CTOs Fear Most</a>, it&rsquo;s clear that managing priorities is a common fear amongst technical managers.</p>
+
+<p>The Easyart technical team is in the midst of redeveloping a platform that has been running for well over a decade, we are continually faced with difficult decisions about what features are worth migrating, and how they compete for resources with new features.</p>
+
+<p>In our circumstance, retaining a feature is actually a new development task which is competing with every other task. Most of the existing features are there for good reason, but it&rsquo;s worth challeging the idea that every old feature is going to have more business value than the new features they are competing with.</p>
+
+<p>Just because we can, it doesn&rsquo;t mean we should. Just because a feature exists, removing it doesn&rsquo;t necessarily make the product poorer. This point of view can be unpopular but the opportunity to shed some technical debt and rationalise our offering can make the hard work worthwhile.</p>
+
+<p>Julie Zhuo, Product design director at Facebook makes the point well in her fantastic blog post <a href="https://medium.com/the-year-of-the-looking-glass/f777ec49f24a">The Tax of New</a> (paraphrased here):</p>
+
+<blockquote><p>Run that line of thinking too many times and you get death by a thousand paper cuts. This is how good, simple products become quite the opposite.</p>
+
+<p>The tax that comes with introducing any new feature into your product is high. I cannot stress this enough. Sure, maybe the new feature isn’t hard to build, maybe it only takes a couple days and a handful of people, maybe it can be shipped and delivered by next week.</p>
+
+<p>Perhaps you will continue to develop and evolve it. Even if you don’t (maybe your plan was just to launch it and move on), the fact of its existence will inevitably create more work for you. You will get user requests and bugs about it. You will spend time thinking idly about ways to make it better. It will likely pop up in the context of your next redesign or code rearchitecture.</p></blockquote>
+
+<p>Another great article on the topic by Yammer&rsquo;s CTO, Kris Gale, <a href="http://firstround.com/article/The-one-cost-engineers-and-product-managers-dont-consider">on technical debt and complexity</a>:</p>
+
+<blockquote><p>For years, the two things that most frustrated me to hear from product managers were &ldquo;how hard would it be&hellip;&rdquo; and &ldquo;can&rsquo;t you just&hellip;&rdquo; It took me quite a while to figure out why I had such a strong, visceral reaction to these phrases. The answer seems obvious now: The work of implementing a feature initially is often a tiny fraction of the work to support that feature over the lifetime of a product, and yes, we can &ldquo;just&rdquo; code any logic someone dreams up. What might take two weeks right now adds a marginal cost to every engineering project we&rsquo;ll take on in this product in the future. In fact, I&rsquo;d argue that the initial time spent implementing a feature is one of the least interesting data points to consider when weighing the cost and benefit of a feature.</p></blockquote>
+
+<p>And <a href="http://insideintercom.io/there-are-no-small-changes/">this brilliant rant</a> by Des Traynor argues that there is simply no such thing as a small change:</p>
+
+<blockquote><p>Agreeing to features is deceptively easy. Coding them rarely is. Maintaining them can be a nightmare. When you’re striving for quality, there are no small changes.</p></blockquote>
+
+<p>When you release a feature it&rsquo;s not the end of the job, it&rsquo;s just the beginning!</p>
+
+<p>Thankfully none of this means we should avoid new ideas or innovation, we just need to put some process around our decisions to ensure that new features are providing value, not just technical debt.</p>
+
+<p>For existing features, <strong>study the data</strong>. If this feature is providing real business value, it&rsquo;s worth retaining and developing further. If not, consider removing it.</p>
+
+<p>For new features, it&rsquo;s important to <strong>define success criteria upfront</strong>. If the feature doesn&rsquo;t meet the measure of success you&rsquo;ve defined, remove it. And if it does, we know the debt is worth taking on. Ideally these metrics should be published so that later down the line when someone asks &ldquo;why do we have this feature&rdquo;, there is an answer to point to.</p>
+
+<p>Adding these processes requires great discipline, but it provides a confidence that every new feature is providing real value to the company.</p>
+
+<p>Update: <a href="https://news.ycombinator.com/item?id=6538833">some discussion on Hacker News</a></p>
+
+    <p><a href="/2013/10/12/on-technical-debt">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2013/08/20/launching-kubrick-part-1">Launching Kubrick, part 1</a></h2>
+      <p class="updated">Posted on 20 August 2013
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>After a period of beta testing, user testing and painful analysis, last week we migrated <a href="http://www.worldgallery.co.uk">WorldGallery.co.uk</a> to Kubrick, the new platform we&rsquo;ve been working on in the London office. Kubrick&rsquo;s primary objectives are textbook e-commerce, but the technology and processes are a bit more interesting (which I will write about later)</p>
+
+<h3>Improving conversion rate</h3>
+
+<p>When you have a product catalogue as extensive as WorldGallery, it&rsquo;s a challenge to help users find the product they want to find. I think this is particularly true of art products which are often difficult to categories.</p>
+
+<p>The primary focus has been a new category structure, and adding the capability for users to navigate directly to artwork, artist or category pages via a new search auto-suggest feature. The result is a more curated user experience.</p>
+
+<ul>
+<li>Key tech: Rails, Sinatra, ElasticSearch, JSON</li>
+</ul>
+
+
+<h3>Improving AOV</h3>
+
+<p>We have a massive range of frames and a brilliant team of master framers, and frankly we need to do a better job of getting our customers interested in frames. To do this, we&rsquo;ve integrated framing directly into the main product page and made it near-instantaneous to navigate between various types of unframed, canvas or framed products.</p>
+
+<ul>
+<li>Key tech: Backbone, JSON</li>
+</ul>
+
+
+<h3>Increase traffic</h3>
+
+<p>We&rsquo;ve vastly simplified the structure of the site (focussing on artworks, categories, artists and artworks), resulting in one authoritative URL for each page (rather than rewrites which can result in multiple URLs for a single entity).</p>
+
+<p>For example, the &ldquo;Modern Art&rdquo; category used to be available via a number of URLs like these:</p>
+
+<ul>
+<li>/mt/Modern-Art-Prints-51-2.html‎</li>
+<li>/category/modern-modern-59.html‎</li>
+</ul>
+
+
+<p>All of these should now redirect to the one &ldquo;true&rdquo; modern art category: /art-prints/modern-art. This is better for users and better for Google.</p>
+
+<ul>
+<li>Key tech: Rails, Rack::Rewrite</li>
+</ul>
+
+
+<p>We also had some <strong>secondary goals</strong> in this development:</p>
+
+<ul>
+<li>Make the site mobile-friendly for the 25% (and rising) of users that access our sites on tablets or mobile</li>
+<li>Improve engagement (measured in time on site, number of page views and return visits)</li>
+<li>Improved monitoring</li>
+<li>Automated testing on everything</li>
+<li>Increased speed of development</li>
+</ul>
+
+
+<p>We&rsquo;re already seeing some positive results and look forward to migrating some of our other sites over.</p>
+
+    <p><a href="/2013/08/20/launching-kubrick-part-1">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></h2>
+      <p class="updated">Posted on 11 August 2013
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>Nobel Laureate Daniel Kahneman:</p>
+
+<blockquote><p>Somewhat surprisingly, few organizations keep track of what’s decided and why.</p>
+
+<p>This seems idiotic when you consider that often thousands of dollars are spent making a decision. Of the few that do keep track of decisions, fewer will be honest about what’s actually discussed.</p></blockquote>
+
+<p>This one of the reasons I think it&rsquo;s worth spending work hours blogging. To distill ideas and decisions and share them with the organisation and your peers.</p>
+
+<p>Via the wonderful <a href="http://www.farnamstreetblog.com/2013/07/how-your-organization-can-improve-decision-making/">Farnam Street</a>.</p>
+
+    <p><a href="/2013/08/11/a-decision-journal">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></h2>
+      <p class="updated">Posted on 04 August 2013
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p><a href="http://www.steverydz.com">Steve</a> brought Jeffrey Veen&rsquo;s <a href="https://vimeo.com/63525053">Design For Disaster</a> talk to my attention last week and I&rsquo;m still thinking about it.</p>
+
+<iframe src="http://player.vimeo.com/video/63525053" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+
+<p>Veen is a real veteran of the web and an impressive storyteller. In this talk he recounts a specific disaster in Typekit&rsquo;s history, and how procedures set up before and after, as well as parts of the company culture had an effect on its outcome.</p>
+
+<p>Some more bits and pieces I&rsquo;ve enjoyed recently:</p>
+
+<ul>
+<li><a href="http://mobile.nytimes.com/2013/07/27/nyregion/in-lieu-of-money-toyota-donates-efficiency-to-new-york-charity.html">In Lieu of Money, Toyota Donates Efficiency to New York Charity</a></li>
+<li>Shipping beats perfection. Be open. Share your work. Anybody can fix anything. <a href="https://sites.google.com/a/khanacademy.org/forge/for-developers">Development philosophy at Khan Academy</a>.</li>
+<li><a href="http://www.youtube.com/watch?v=1a7S2yRaEQg&amp;feature=youtu.be">108 Years of Herman Miller (in 108 Seconds)</a></li>
+<li><a href="http://www.altdevblogaday.com/2013/07/24/theres-nothing-like-a-tidy-codebase/">There’s nothing like a tidy codebase</a></li>
+<li><a href="http://i.stack.imgur.com/whhD1.png">HTTP logic tree, illustrated</a></li>
+<li><a href="https://medium.com/editors-picks/f70bb9221b36">“I’m adding a meeting” should really be “I’m subtracting an hour from your life.”</a></li>
+<li><a href="http://firstround.com/article/42-Rules-to-Lead-by-from-the-Man-Who-Defined-Googles-Product-Strategy">&ldquo;42 Rules to Lead by from the Man Who Defined Google’s Product Strategy&rdquo;</a></li>
+<li><a href="http://designthinking.ideo.com/?p=1121">&ldquo;The Secret to Your Success? Make Others Successful&rdquo;</a></li>
+</ul>
+
+
+    <p><a href="/2013/08/04/design-for-disaster">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/07/24/heroku-fork">Heroku Fork</a></h2>
       <p class="updated">Posted on 24 July 2013
         by
@@ -88,229 +269,6 @@ Web URL:       http://yourapp-staging.herokuapp.com/
 <p>You&rsquo;re done!</p>
 
     <p><a href="/2013/07/24/heroku-fork">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/07/12/lazy-loading-facebook-buttons">Lazy loading Facebook buttons</a></h2>
-      <p class="updated">Posted on 12 July 2013
-        by
-        
-        <a href="/authors/steve-rydz/">
-        
-          Steve Rydz
-        </a>
-      </p>
-    </header>
-    <p>We recently did the WordPress work for the <a href="http://arteverywhere.org.uk/">Art Everywhere</a> project, and one of the requirements of the project was to include a Facebook like button for each artwork on the <a href="http://arteverywhere.org.uk/artworks/">Choose Artworks</a> page.</p>
-
-<p>That page has around 100 artworks on it so immediately I heard alarm bells, until I remembered the <a href="http://socialitejs.com/">Socialite plugin</a>. This allows you to lazy-loading the Facebook buttons.</p>
-
-<p>No matter what, we didn&rsquo;t want all of those Facebook buttons to load at the same time, even if the rest of the page had already loaded, so we decided we would load them in on hover.</p>
-
-<p>Initially we struggled to get this working how we wanted, as all the buttons would load when you hovered over any of the buttons. Finally <a href="http://easyart.github.io/authors/nick-boyce/">Nick</a> found the solution:</p>
-
-<pre><code>$(".artwork-info").hover(function () {
-    Socialite.load(this);
-});
-</code></pre>
-
-<p>It turns out, all we had to do was pass <code>this</code> to the <code>Socialite.load</code> function. So, if ever you find yourself having to implement similar functionality, you know what to do.</p>
-
-    <p><a href="/2013/07/12/lazy-loading-facebook-buttons">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/06/02/adam-wiggins-wisdom">Some wisdom from Adam Wiggins</a></h2>
-      <p class="updated">Posted on 02 June 2013
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>This week <a href="http://about.adamwiggins.com/">Adam Wiggins</a> announced that he has <a href="https://gist.github.com/adamwiggins/5687917">stepped down</a> as CTO of <a href="http://heroku.com">Heroku</a> to pursue other opportunities.</p>
-
-<p>At Easyart we&rsquo;re big fans of Heroku (it&rsquo;s used extensively for our new platform), and Adam&rsquo;s general approach to modern web software design, so I thought it might be a good opportunity to review some of his nuggets of wisdom.</p>
-
-<h3><a href="http://www.12factor.net/">The Twelve-Factor App</a></h3>
-
-<p>A manifesto for modern web software design and the principles. It&rsquo;s clearly the concepts from which the Heroku ecosystem is formed, but the principles can be applied to any modern web application platform stack.</p>
-
-<h3><a href="https://gist.github.com/adamwiggins/5687294">My Heroku Values</a></h3>
-
-<p>A few bits and pieces from this post:</p>
-
-<blockquote><p><strong>Make it real</strong>. Ideas are cheap. Make a prototype, sketch a CLI session, draw a wireframe. Discussions around concrete examples, not handy-waving abstractions. Don&rsquo;t say you did something, provide a URL that proves it.</p>
-
-<p><strong>Ship it</strong>. Nothing is real until it&rsquo;s being used by a real user. This doesn&rsquo;t mean you make a prototype in the morning and blog about it in the evening. It means you find one person you believe your product will help and try to get them to use it.</p>
-
-<p><strong>Divide and conqueor</strong>. Big, hard problems become easy if you cut them into small pieces. How do you eat the elephant? One bite at a time. If a problems seems hard, think about how you can cut it into two smaller, easier problems. If one of those problems is still too hard, cut it in half again.</p>
-
-<p><strong>Throw things away</strong>. It&rsquo;s not the code that is valuable, it&rsquo;s the understanding you&rsquo;ve gained from building it.</p>
-
-<p><strong>Decision-making via ownership, not consensus or authority</strong>. Every product, feature, software component, web page, business deal, blog post, and so on should have a single owner. Many people may collaborate on it, but the owner is &ldquo;the buck stops here&rdquo; and makes the final call on what happens with the owned thing.</p></blockquote>
-
-<p>It will be interesting to see what he turns his hand to next.</p>
-
-    <p><a href="/2013/06/02/adam-wiggins-wisdom">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/05/05/json-api">JSONAPI.org</a></h2>
-      <p class="updated">Posted on 05 May 2013
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>I was interested to see <a href="http://jsonapi.org/">jsonapi.org</a> spring up on the web recently. Though it&rsquo;s authored by Ember&rsquo;s team, the references to Ember have been moved from the homepage to the <a href="http://jsonapi.org/history">history</a> section, and it&rsquo;s clear that the ambition is to set a standard for API compatibility between servers and clients.</p>
-
-<p>Overall I applaud the ambition and it&rsquo;s clearly written by clever people. That said, I believe consuming the proposed data structures is more complicated unless you&rsquo;re using a compatible library.</p>
-
-<p>Consider these examples&hellip;</p>
-
-<blockquote><p>If the value of a resource key is a JSON object, the value represents a single document.
-If the value of a resource key is a JSON array, the value represents a list of documents.</p></blockquote>
-
-<p>Isn&rsquo;t it better to have the URL scheme define if you are looking at a document or collection? i.e. <code>GET /resource</code> is a collection and <code>GET /resource/document</code> is a document?</p>
-
-<blockquote><p>To save HTTP requests, it may be convenient to send related documents along with the requested documents.</p></blockquote>
-
-<p>For example:</p>
-
-<pre><code>{
-  "posts": [{
-    "id": "1",
-    "title": "Rails is Omakase",
-    "rels": {
-      "author": 9
-    }
-  }],
-  "people": [{
-    "id": "9",
-    "name": "@d2h"
-  }]
-}
-</code></pre>
-
-<p>So to list the post title and author name would be something like (pseudo code):</p>
-
-<pre><code>{posts.each (post)}
-  {post.title} by {people.where(id: post.rels.author).name}
-{end}  
-</code></pre>
-
-<p>Now, that&rsquo;s pseudo-code, and in reality it would depend on what language or framework you are using as to how easy that &ldquo;where&rdquo; statement is. It&rsquo;s definitely going to be a lot more complicated than my example to do it in vanilla JavaScript. I&rsquo;d suggest that nesting the documents is much easier:</p>
-
-<pre><code>{
-  "posts": [{
-    "id": "1",
-    "title": "Rails is Omakase",
-    "author": {
-      "id": "9",
-      "name": "@d2h"
-    }
-  }]
-}
-</code></pre>
-
-<p>And it can be consumed like this:</p>
-
-<pre><code>{posts.each (post)}
-  {post.title} by {post.author.name}
-{end}  
-</code></pre>
-
-<p>Yes, it&rsquo;s imperfect and can result in more duplication and less flexibility, but I think for a lot of cases that isn&rsquo;t an issue.</p>
-
-    <p><a href="/2013/05/05/json-api">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/04/29/notes-from-industry-conference">Notes from Industry Conference</a></h2>
-      <p class="updated">Posted on 29 April 2013
-        by
-        
-        <a href="/authors/steve-rydz/">
-        
-          Steve Rydz
-        </a>
-      </p>
-    </header>
-    <p><img src="/assets/img/posts/industry-conf.jpg" alt="Industry Conference" /></p>
-
-<p>Last week I attended <a href="http://industryconf.com">Industry</a>, organised by Gavin Elliott. I must say Gavin did a great job and  it was a great conference. Here are my notes from the talks:</p>
-
-<h3>Rachel Andrew - &ldquo;All of a sudden&hellip; no luck!&rdquo; Things we have learned while supporting Perch.</h3>
-
-<p><a href="https://speakerdeck.com/rachelandrew/all-of-a-sudden-dot-dot-dot-no-luck">Slides</a></p>
-
-<p>There were some good points this talk, such as how email doesn&rsquo;t scale well for support and how important it is to add features that benefit the majority of your customers, not the noisy minority. Also, Rachel described how engagement with customers makes it easier to determine what you should be doing. Essentially, customer support is your best source of market research.</p>
-
-<p>This led me to think that as well as user testing, we should be engaging more with our customer services team to determine where we can improve things for our customers.</p>
-
-<hr />
-
-<h3>Harry Roberts - Architecting scalable CSS</h3>
-
-<p><a href="https://speakerdeck.com/csswizardry/architecting-scalable-css">Slides</a></p>
-
-<p>I was looking forward to this talk as I am in the early stages of putting together the CSS for our new platform. Harry addressed a lot of things I have been thinking about recently.</p>
-
-<p>He talked about breaking code into the smallest possible blocks, and how each block should do one thing well. Blocks can then be combined if needed. A great methodology for this is <a href="http://bem.info">BEM</a> which stands for Block-Element-Modifier. I also liked the idea of a <a href="http://csswizardry.com/2013/04/shame-css/">shame.css</a> file for hacks and quick fixes.</p>
-
-<hr />
-
-<h3>Christopher Murphy - We are navigators</h3>
-
-<p>This talk focused on the importance of education in the industry and how important our mentors can be.</p>
-
-<hr />
-
-<h3>Ashley Baxter - Changing a stagnant industry</h3>
-
-<p>I wasn&rsquo;t really sure what to expect from this talk, and it was hard to believe this was Ashley&rsquo;s first time speaking at a conference.</p>
-
-<p>Ashley clearly has a lot of drive and has achieved some amazing things purely because she is passionate about what she does. I guess the main take away from this is not to let anything stand in your way and if you don&rsquo;t like the way something is, don&rsquo;t complain about it, make it better.</p>
-
-<hr />
-
-<h3>Noah Stokes - $50'000 mistakes</h3>
-
-<p>Noah has had quite an impressive career, working at Apple and also turning down job offers from the likes of Google, but it hasn&rsquo;t all been a smooth ride. His story shows that with hard work and dedication, you can achieve anything.</p>
-
-<hr />
-
-<h3>Rasika Krishna - Cross-cultural UX</h3>
-
-<p>I&rsquo;ve had my fair share of working on sites for other cultures. I&rsquo;ve worked on Arabic, Chinese and Russian sites before and at Easyart we have French, German and Swedish sites as well as our UK ones, but it was really interesting to hear about how different other cultures can be.</p>
-
-<p>I couldn&rsquo;t agree more with Rasika&rsquo;s point about it not being enough just running some text through Google Translate or switching the text-direction. I was also surprised to learn that in Malaysia, you need Government sign-off before launching a website.</p>
-
-<hr />
-
-<h3>Josh Brewer - Redesigning Twitter</h3>
-
-<p>Josh talked us through the most recent redesign of Twitter and the challenges they faced. There were a few takeaways from this talk, such as the importance of scaling features to meet a deadline, iterating in code early on in the design process and using version control for your PSD&rsquo;s for collaboration (for this Josh recommended SVN as it handles binary files better than Git).</p>
-
-<hr />
-
-<h3>Jeremy Keith - What we talk about when we talk about the web</h3>
-
-<p>Jeremy raised some great points in this talk, some of which we really shouldn&rsquo;t need to be told anymore, but it was a great overview of how the web works and what we can do to make it better.</p>
-
-<p>The idea that the web is its own medium resounded with me, and that we should not be trying to replicate print. Jeremy also reminded us all about progressive enhancement and how it does not mean designing for the lowest common denominator. The principles behind progressive enhancement and mobile-first go hand-in-hand.</p>
-
-    <p><a href="/2013/04/29/notes-from-industry-conference">Leave a comment</a></p>
   </article>
   
 
@@ -404,6 +362,12 @@ If the value of a resource key is a JSON array, the value represents a list of d
         
       </li>
       
+      <li class="page">
+        
+        <a href="/page14">14</a>
+        
+      </li>
+      
     </ul>
 
     
@@ -445,6 +409,14 @@ If the value of a resource key is a JSON array, the value represents a list of d
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/03/21/2014-03-21-getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a rails project</a></li>
+    
+    <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
+    
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
+    
+    <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
+    
     <li><a href="/2014/01/17/consuming-wordpress-as-a-service">Consuming Wordpress as a service</a></li>
     
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
@@ -456,14 +428,6 @@ If the value of a resource key is a JSON array, the value represents a list of d
     <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
     
     <li><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></li>
-    
-    <li><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></li>
-    
-    <li><a href="/2013/08/20/launching-kubrick-part-1">Launching Kubrick, part 1</a></li>
-    
-    <li><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></li>
-    
-    <li><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></li>
     
   </ol>
 </div>

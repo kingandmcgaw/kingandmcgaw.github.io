@@ -4,11 +4,202 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2014-02-17T09:52:52+00:00</updated>
+ <updated>2014-03-21T15:16:32+00:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
  </author>
+ 
+ <entry>
+   <title>Getting started with Jasmine on a rails project</title>
+   <link href="http://easyart.github.com/2014/03/21/2014-03-21-getting-started-with-jasmine-on-a-rails-project"/>
+   <updated>2014-03-21T15:08:52Z by Steve Rydz</updated>
+   <content type="html">
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Improving our development cycle</title>
+   <link href="http://easyart.github.com/2014/03/11/improving-our-development-cycle"/>
+   <updated>2014-03-11T14:28:29Z by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;I&amp;rsquo;ve been struggling to solve a problem for some time now. The agile (with a lower-case &amp;ldquo;a&amp;rdquo;) &lt;a href=&quot;/2013/04/16/easyart-flavoured-agile/&quot;&gt;approach&lt;/a&gt; we use for software development and the long-term roadmaps we have as a business have always been too disconnected, but I never quite knew how to connect them.&lt;/p&gt;
+
+&lt;p&gt;Recently, inspired by a deeper understanding of the &lt;a href=&quot;/2014/02/16/lean-ux-at-easyart/&quot;&gt;lean approaches&lt;/a&gt;, I think I&amp;rsquo;ve finally connected them together in these five steps. It&amp;rsquo;s still an emerging process, but I&amp;rsquo;m hopeful it will solve a number of problems.&lt;/p&gt;
+
+&lt;h3&gt;Keep an inventory of hypotheses&lt;/h3&gt;
+
+&lt;p&gt;We all have ideas for ways to improve the site. Some of them are bound to make a positive difference, others will make the site worse, and most will have no measurable effect at all.&lt;/p&gt;
+
+&lt;p&gt;We keep a spreadsheet of these ideas, documented as hypotheses (if I do x, y will happen), along with as much additional information as we have. This ideas backlog becomes our ammunition to improve the site. Importantly, these are not added to Basecamp, where the tasks live until they have been prioritised.&lt;/p&gt;
+
+&lt;h3&gt;Establish themes&lt;/h3&gt;
+
+&lt;p&gt;In order to prioritise the ideas backlog, I work with other managers to decide on a theme for each month. To establish the theme we might look at under-performing parts of the conversion funnel, goals in other parts of the business, tech roadmap etc.&lt;/p&gt;
+
+&lt;p&gt;Sometimes the theme might be very specific (increase percentage of framed products sold), or more generic (increase AOV or improve funnel conversion for search, product, cart, order complete).&lt;/p&gt;
+
+&lt;p&gt;Rallying the team around a focussed goal helps us dive deeper into interconnected ideas. We spend 60% of our development time working on tasks related to the theme, while the other 40% is reserved for fixing bugs, cost of doing business tasks, documentation, research etc.&lt;/p&gt;
+
+&lt;h3&gt;Prioritise hypotheses around themes&lt;/h3&gt;
+
+&lt;p&gt;Once the theme is established, we hold a workshop to prioritise the hypotheses from the backlog in the ways most likely to improve the target KPI.&lt;/p&gt;
+
+&lt;p&gt;These competing ideas will vary wildly in difficulty and will probably contradict each another. Using experiment mapping and PIE ranking we can prioritise these based on value.&lt;/p&gt;
+
+&lt;h3&gt;Create tasks from prioritised hypotheses&lt;/h3&gt;
+
+&lt;p&gt;Once priorities are established, tasks are added to the &amp;ldquo;Next up&amp;rdquo; or &amp;ldquo;Backlog&amp;rdquo; lists in Basecamp, along with the corresponding hypothesis. Depending on our level of confidence in the task, we may use a combination of data analysis, user testing and competitor analysis to research the best solution.&lt;/p&gt;
+
+&lt;p&gt;Tasks move through a Kanban-esque process through &amp;ldquo;In Progress&amp;rdquo; and &amp;ldquo;QA&amp;rdquo; through its lifecycle, collecting more and more information as it goes.&lt;/p&gt;
+
+&lt;h3&gt;Validate hypothesis&lt;/h3&gt;
+
+&lt;p&gt;Once in &amp;ldquo;QA&amp;rdquo;, a combination of user testing and split testing will be used to validate or invalidate our hypothesis.&lt;/p&gt;
+
+&lt;p&gt;Minor variations will take a long time to reach statistical confidence, so we only split test meaningful changes. We always agree on the measure of success upfront, but also cross-check side-effects with Analytics segments.&lt;/p&gt;
+
+&lt;p&gt;Once a conclusion is reached, the task is marked as complete, links to the task/discussion/tests added to the spreadsheet before it&amp;rsquo;s moved to a &amp;ldquo;completed tests&amp;rdquo; sheet, and annotations added to Analytics for before-and-after analysis.&lt;/p&gt;
+
+&lt;p&gt;With each test, we increase our shared understanding of what our customers want, which in turn generates high quality ideas for future testing.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>A somewhat better auto-complete (part 2)</title>
+   <link href="http://easyart.github.com/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29"/>
+   <updated>2014-02-17T09:55:52Z by John Pash</updated>
+   <content type="html">&lt;p&gt;This is part 2 of a post which tries to explain a method of enhancing an auto-complete search box to act in a similar way to the Google search box.
+&lt;a href=&quot;/2013/11/12/a-somewhat-better-autocomplete/&quot;&gt;&amp;raquo; Read part one here &amp;laquo;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;A solution&lt;/h2&gt;
+
+&lt;p&gt;Something that would work perfectly for this style of query would be to use a regular expression query with a &lt;a href=&quot;http://www.regular-expressions.info/lookaround.html&quot;&gt;lookahead assertion&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But wait, &lt;em&gt;MySQL doesn&amp;rsquo;t support look(ahead|behind) assertions!&lt;/em&gt;, I hear you say. That&amp;rsquo;s ok, we&amp;rsquo;ll do it the hard way, in code.&lt;/p&gt;
+
+&lt;h2&gt;The query&lt;/h2&gt;
+
+&lt;p&gt;First we need to mangle the input into a query that will get us most of the way using plain old sql. For example, if the user enters the string &lt;strong&gt;pcr&lt;/strong&gt; (perhaps looking for the &lt;strong&gt;p&lt;/strong&gt;rint &lt;strong&gt;c&lt;/strong&gt;ategory &lt;strong&gt;r&lt;/strong&gt;eport), we want to end up with the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin_pages&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;page_description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;%p%&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;and&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;page_description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;%c%&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;and&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;page_description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;%r%&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will return all pages that have &lt;strong&gt;every&lt;/strong&gt; one of those letters in the description in alphabetical order.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/admin/&lt;strong&gt;p&lt;/strong&gt;rint_&lt;strong&gt;c&lt;/strong&gt;atego&lt;strong&gt;r&lt;/strong&gt;ies.php&lt;/li&gt;
+&lt;li&gt;/admin/&lt;strong&gt;p&lt;/strong&gt;rodu&lt;strong&gt;c&lt;/strong&gt;t_sales_&lt;strong&gt;r&lt;/strong&gt;eport.php&lt;/li&gt;
+&lt;li&gt;/admin/su&lt;strong&gt;p&lt;/strong&gt;plier_sto&lt;strong&gt;c&lt;/strong&gt;ked_item_&lt;strong&gt;r&lt;/strong&gt;eport.php&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;But there&amp;rsquo;s a problem. The ordering of letters matters. We only want pages that contain a &lt;strong&gt;p&lt;/strong&gt; followed by 0 or more letters, then a &lt;strong&gt;c&lt;/strong&gt; followed by 0 or more letters, followed by an &lt;strong&gt;r&lt;/strong&gt;. No matter, this will at least give us something to start with. It&amp;rsquo;s better than stuffing the entire database table into memory for searching.&lt;/p&gt;
+
+&lt;p&gt;The code that constructs this query is below (I&amp;rsquo;ve removed any security/sanitisation code to avoid cluttering up the example.):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;page_desc_sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;page_description like &amp;#39;%&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;%&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// a-z only please...&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;preg_replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/[^a-z]/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;strtolower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;q&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]));&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// build query&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;implode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot; and &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;array_map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;page_desc_sql&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;    select&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;        page_id,&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;        page_name,&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;        page_description&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;    from&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;        admin_pages&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;    where&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;        (&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;    order by page_description asc&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So now we have a list of pages ready to process. Let&amp;rsquo;s create that lookahead expression.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;page_regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;(?=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;).*&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$regex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;implode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;page_regex&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/i&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This sets $regex to the string:&lt;br/&gt;
+&lt;strong&gt;/(?=p).*(?=c).*(?=r).*/i&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The final piece of the puzzle is to take the results and pass them through this regex, only returning the ones that match. Then output some json for the auto-complete to use.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next_record&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get_row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;preg_match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;page_description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;page_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;page_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Cast integer for json&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;url&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;realpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SECURE_WEB_SERVER_URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;url&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-type: application/json; charset=iso-8859-1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;json_encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Introducing Lean UX at Easyart</title>
+   <link href="http://easyart.github.com/2014/02/16/lean-ux-at-easyart"/>
+   <updated>2014-02-16T22:19:31Z by Nick Boyce</updated>
+   <content type="html">&lt;p&gt;There is something of a revolution underway in the way that we approach user experience at Easyart. With &lt;a href=&quot;http://easyart.github.io/2013/04/16/easyart-flavoured-agile/&quot;&gt;Agile processes&lt;/a&gt; so important to the way we build software, we felt we were ready to implement Lean UX approaches to help solve some of our user experience problems. It&amp;rsquo;s early days but I thought I would share some of the things that have worked for us so far.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: I&amp;rsquo;ve added some notes on this to the &lt;a href=&quot;http://www.github.com/easyart/handbook&quot;&gt;tech handbook&lt;/a&gt; which is emerging at the moment, but I thought I would elaborate on some of the processes in this post.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://distilleryimage11.ak.instagram.com/6b11ac0a961a11e3b3ed0e5981f7b917_8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Agree on outcomes before deciding on features&lt;/h3&gt;
+
+&lt;p&gt;By starting with a KPI we want to affect, we can develop hypotheses which we believe will help us reach that goal, and have a clear-cut way of measuring success.&lt;/p&gt;
+
+&lt;h3&gt;Use personas to guide decisions&lt;/h3&gt;
+
+&lt;p&gt;Focussing on user needs helps us build a more human experience so we have developed three &lt;a href=&quot;http://en.wikipedia.org/wiki/Persona_(user_experience&quot;&gt;personas&lt;/a&gt; which we can use to step through different on-site journeys.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://distilleryimage10.ak.instagram.com/48bd27167a5311e3b40d12f304019c2e_8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Shared understanding and hypotheses over design heroes&lt;/h3&gt;
+
+&lt;p&gt;Getting stakeholders involved in the conception of ideas builds a shared understanding, which is invaluable for collaborating across departments and skill-sets. We&amp;rsquo;ve had some success with &lt;a href=&quot;http://bradfrostweb.com/blog/post/establishing-design-direction/&quot;&gt;gut test exercises&lt;/a&gt; when working on new homepage visual design, group sketching &lt;a href=&quot;http://goodkickoffmeetings.com/2010/04/design-studioprototyping-exercise/&quot;&gt;design studio&lt;/a&gt; exercises to improve navigation and card sorting to agree on priorities.&lt;/p&gt;
+
+&lt;h3&gt;Use the live styleguide to build pages from modules&lt;/h3&gt;
+
+&lt;p&gt;Changing from a page-based approach to a component-based approach allows everyone to sketch pages, and our &lt;a href=&quot;http://www.easyart.com/docs/styleguide&quot;&gt;live style guide&lt;/a&gt; is the directory of available modules.&lt;/p&gt;
+
+&lt;h3&gt;Validate as early as possible&lt;/h3&gt;
+
+&lt;p&gt;Our opinions are not as important as customer feedback, so we try to validate our hypotheses as early as possible. We use Usertesting.com for user testing, and Optimizely for split testing.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re at the formative stages of this process at the moment, but I&amp;rsquo;m hopeful it&amp;rsquo;s going to make a big difference.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Consuming Wordpress as a service</title>
@@ -133,7 +324,18 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/posts/lanarm.png&quot; alt=&quot;Lance Armstrong&quot; /&gt;&lt;/p&gt;
 
-&lt;h3&gt;A typical auto-complete setup&lt;/h3&gt;
+&lt;h2&gt;The project&lt;/h2&gt;
+
+&lt;p&gt;The project I&amp;rsquo;m about to explain was done for an internal administration menu here at &lt;a href=&quot;http://www.easyart.com&quot;&gt;Easyart&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/admin-menu.png&quot; alt=&quot;Admin menu&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Over the years our admin has grown so large that a simple list of pages was simply too long to navigate. Even after grouping
+and hiding them under dropdown menus we thought there must be a quicker way of getting to a specific page.&lt;/p&gt;
+
+&lt;p&gt;An auto-complete input field would fit the bill.&lt;/p&gt;
+
+&lt;h2&gt;A typical auto-complete setup&lt;/h2&gt;
 
 &lt;p&gt;A typical setup might use &lt;a href=&quot;http://twitter.github.io/typeahead.js/&quot;&gt;Twitter&amp;rsquo;s Typeahead&lt;/a&gt; library which does an ajax call to a server which receives the partial search term and returns matching records. The results are displayed in real-time as a list of options and are updated on each keypress.&lt;/p&gt;
 
@@ -158,14 +360,11 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/posts/active-record-callback.png&quot; alt=&quot;Searching for Active Record Callback&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;hellip;you get the idea&lt;/p&gt;
-
-&lt;p&gt;Here are the rules:&lt;/p&gt;
+&lt;p&gt;There are only two rules:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;All letters must be in the name of the file (obviously)&lt;/li&gt;
+&lt;li&gt;All letters must be in the name of the item (obviously)&lt;/li&gt;
 &lt;li&gt;Letters must appear in the correct order&lt;/li&gt;
-&lt;li&gt;Type as few or as many letters as you want&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -173,19 +372,17 @@
 
 &lt;p&gt;The typical auto-complete setup will take the input and (after sanitising of course) ask the database with a &amp;ldquo;like&amp;rdquo; query to find matches.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;select * from table_name where description like &quot;%QUERY%&quot;;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;table_name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;quot;%QUERY%&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;This works for the most part, but doesn&amp;rsquo;t do that fancy middle-matching stuff where you can just throw a bunch of letters at it.&lt;/p&gt;
+
+&lt;p&gt;This does an ok job, but it&amp;rsquo;s not perfect. It&amp;rsquo;s just not as flexible or fast as it could be.&lt;/p&gt;
 
 &lt;h2&gt;Our solution&lt;/h2&gt;
 
-&lt;div id=&quot;solution&quot;&gt;&lt;/div&gt;
-
-
 &lt;p&gt;&lt;a href=&quot;http://www.regular-expressions.info/lookaround.html&quot;&gt;Positive zero-length lookahead assertions&lt;/a&gt; of course!&lt;/p&gt;
 
-&lt;p&gt;Stay tuned for &lt;strong&gt;Part Two&lt;/strong&gt; of this post for all the gory code details&amp;hellip;.&lt;/p&gt;
+&lt;p&gt;Come back for &lt;a href=&quot;/2014/02/17/a-somewhat-better-auto-complete-(part-2)/&quot;&gt;&lt;strong&gt;Part Two&lt;/strong&gt;&lt;/a&gt; of this post for the code.&lt;/p&gt;
 </content>
  </entry>
  

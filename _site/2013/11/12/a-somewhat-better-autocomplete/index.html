@@ -45,7 +45,18 @@
 
 <p><img src="/assets/img/posts/lanarm.png" alt="Lance Armstrong" /></p>
 
-<h3>A typical auto-complete setup</h3>
+<h2>The project</h2>
+
+<p>The project I&rsquo;m about to explain was done for an internal administration menu here at <a href="http://www.easyart.com">Easyart</a>.</p>
+
+<p><img src="/assets/img/posts/admin-menu.png" alt="Admin menu" /></p>
+
+<p>Over the years our admin has grown so large that a simple list of pages was simply too long to navigate. Even after grouping
+and hiding them under dropdown menus we thought there must be a quicker way of getting to a specific page.</p>
+
+<p>An auto-complete input field would fit the bill.</p>
+
+<h2>A typical auto-complete setup</h2>
 
 <p>A typical setup might use <a href="http://twitter.github.io/typeahead.js/">Twitter&rsquo;s Typeahead</a> library which does an ajax call to a server which receives the partial search term and returns matching records. The results are displayed in real-time as a list of options and are updated on each keypress.</p>
 
@@ -70,14 +81,11 @@
 
 <p><img src="/assets/img/posts/active-record-callback.png" alt="Searching for Active Record Callback" /></p>
 
-<p>&hellip;you get the idea</p>
-
-<p>Here are the rules:</p>
+<p>There are only two rules:</p>
 
 <ul>
-<li>All letters must be in the name of the file (obviously)</li>
+<li>All letters must be in the name of the item (obviously)</li>
 <li>Letters must appear in the correct order</li>
-<li>Type as few or as many letters as you want</li>
 </ul>
 
 
@@ -85,19 +93,17 @@
 
 <p>The typical auto-complete setup will take the input and (after sanitising of course) ask the database with a &ldquo;like&rdquo; query to find matches.</p>
 
-<pre><code>select * from table_name where description like "%QUERY%";
-</code></pre>
+<div class="highlight"><pre><code class="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="k">table_name</span> <span class="k">where</span> <span class="n">description</span> <span class="k">like</span> <span class="ss">&quot;%QUERY%&quot;</span><span class="p">;</span>
+</code></pre></div>
 
-<p>This works for the most part, but doesn&rsquo;t do that fancy middle-matching stuff where you can just throw a bunch of letters at it.</p>
+
+<p>This does an ok job, but it&rsquo;s not perfect. It&rsquo;s just not as flexible or fast as it could be.</p>
 
 <h2>Our solution</h2>
 
-<div id="solution"></div>
-
-
 <p><a href="http://www.regular-expressions.info/lookaround.html">Positive zero-length lookahead assertions</a> of course!</p>
 
-<p>Stay tuned for <strong>Part Two</strong> of this post for all the gory code details&hellip;.</p>
+<p>Come back for <a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)/"><strong>Part Two</strong></a> of this post for the code.</p>
 
         </article>
         <div id="disqus_thread"></div>
@@ -142,6 +148,14 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/03/21/2014-03-21-getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a rails project</a></li>
+    
+    <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
+    
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
+    
+    <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
+    
     <li><a href="/2014/01/17/consuming-wordpress-as-a-service">Consuming Wordpress as a service</a></li>
     
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
@@ -153,14 +167,6 @@
     <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
     
     <li><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></li>
-    
-    <li><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></li>
-    
-    <li><a href="/2013/08/20/launching-kubrick-part-1">Launching Kubrick, part 1</a></li>
-    
-    <li><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></li>
-    
-    <li><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></li>
     
   </ol>
 </div>

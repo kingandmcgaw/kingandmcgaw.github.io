@@ -32,6 +32,233 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2014/03/21/2014-03-21-getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a rails project</a></h2>
+      <p class="updated">Posted on 21 March 2014
+        by
+        
+        <a href="/authors/steve-rydz/">
+        
+          Steve Rydz
+        </a>
+      </p>
+    </header>
+    
+
+    <p><a href="/2014/03/21/2014-03-21-getting-started-with-jasmine-on-a-rails-project">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></h2>
+      <p class="updated">Posted on 11 March 2014
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>I&rsquo;ve been struggling to solve a problem for some time now. The agile (with a lower-case &ldquo;a&rdquo;) <a href="/2013/04/16/easyart-flavoured-agile/">approach</a> we use for software development and the long-term roadmaps we have as a business have always been too disconnected, but I never quite knew how to connect them.</p>
+
+<p>Recently, inspired by a deeper understanding of the <a href="/2014/02/16/lean-ux-at-easyart/">lean approaches</a>, I think I&rsquo;ve finally connected them together in these five steps. It&rsquo;s still an emerging process, but I&rsquo;m hopeful it will solve a number of problems.</p>
+
+<h3>Keep an inventory of hypotheses</h3>
+
+<p>We all have ideas for ways to improve the site. Some of them are bound to make a positive difference, others will make the site worse, and most will have no measurable effect at all.</p>
+
+<p>We keep a spreadsheet of these ideas, documented as hypotheses (if I do x, y will happen), along with as much additional information as we have. This ideas backlog becomes our ammunition to improve the site. Importantly, these are not added to Basecamp, where the tasks live until they have been prioritised.</p>
+
+<h3>Establish themes</h3>
+
+<p>In order to prioritise the ideas backlog, I work with other managers to decide on a theme for each month. To establish the theme we might look at under-performing parts of the conversion funnel, goals in other parts of the business, tech roadmap etc.</p>
+
+<p>Sometimes the theme might be very specific (increase percentage of framed products sold), or more generic (increase AOV or improve funnel conversion for search, product, cart, order complete).</p>
+
+<p>Rallying the team around a focussed goal helps us dive deeper into interconnected ideas. We spend 60% of our development time working on tasks related to the theme, while the other 40% is reserved for fixing bugs, cost of doing business tasks, documentation, research etc.</p>
+
+<h3>Prioritise hypotheses around themes</h3>
+
+<p>Once the theme is established, we hold a workshop to prioritise the hypotheses from the backlog in the ways most likely to improve the target KPI.</p>
+
+<p>These competing ideas will vary wildly in difficulty and will probably contradict each another. Using experiment mapping and PIE ranking we can prioritise these based on value.</p>
+
+<h3>Create tasks from prioritised hypotheses</h3>
+
+<p>Once priorities are established, tasks are added to the &ldquo;Next up&rdquo; or &ldquo;Backlog&rdquo; lists in Basecamp, along with the corresponding hypothesis. Depending on our level of confidence in the task, we may use a combination of data analysis, user testing and competitor analysis to research the best solution.</p>
+
+<p>Tasks move through a Kanban-esque process through &ldquo;In Progress&rdquo; and &ldquo;QA&rdquo; through its lifecycle, collecting more and more information as it goes.</p>
+
+<h3>Validate hypothesis</h3>
+
+<p>Once in &ldquo;QA&rdquo;, a combination of user testing and split testing will be used to validate or invalidate our hypothesis.</p>
+
+<p>Minor variations will take a long time to reach statistical confidence, so we only split test meaningful changes. We always agree on the measure of success upfront, but also cross-check side-effects with Analytics segments.</p>
+
+<p>Once a conclusion is reached, the task is marked as complete, links to the task/discussion/tests added to the spreadsheet before it&rsquo;s moved to a &ldquo;completed tests&rdquo; sheet, and annotations added to Analytics for before-and-after analysis.</p>
+
+<p>With each test, we increase our shared understanding of what our customers want, which in turn generates high quality ideas for future testing.</p>
+
+    <p><a href="/2014/03/11/improving-our-development-cycle">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></h2>
+      <p class="updated">Posted on 17 February 2014
+        by
+        
+        <a href="/authors/john-pash/">
+        
+          John Pash
+        </a>
+      </p>
+    </header>
+    <p>This is part 2 of a post which tries to explain a method of enhancing an auto-complete search box to act in a similar way to the Google search box.
+<a href="/2013/11/12/a-somewhat-better-autocomplete/">&raquo; Read part one here &laquo;</a></p>
+
+<h2>A solution</h2>
+
+<p>Something that would work perfectly for this style of query would be to use a regular expression query with a <a href="http://www.regular-expressions.info/lookaround.html">lookahead assertion</a>.</p>
+
+<p>But wait, <em>MySQL doesn&rsquo;t support look(ahead|behind) assertions!</em>, I hear you say. That&rsquo;s ok, we&rsquo;ll do it the hard way, in code.</p>
+
+<h2>The query</h2>
+
+<p>First we need to mangle the input into a query that will get us most of the way using plain old sql. For example, if the user enters the string <strong>pcr</strong> (perhaps looking for the <strong>p</strong>rint <strong>c</strong>ategory <strong>r</strong>eport), we want to end up with the following:</p>
+
+<div class="highlight"><pre><code class="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">admin_pages</span> <span class="k">where</span> <span class="p">(</span>
+    <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%p%&#39;</span> <span class="k">and</span> 
+    <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%c%&#39;</span> <span class="k">and</span> 
+    <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%r%&#39;</span> <span class="p">)</span>
+</code></pre></div>
+
+
+<p>This will return all pages that have <strong>every</strong> one of those letters in the description in alphabetical order.</p>
+
+<ul>
+<li>/admin/<strong>p</strong>rint_<strong>c</strong>atego<strong>r</strong>ies.php</li>
+<li>/admin/<strong>p</strong>rodu<strong>c</strong>t_sales_<strong>r</strong>eport.php</li>
+<li>/admin/su<strong>p</strong>plier_sto<strong>c</strong>ked_item_<strong>r</strong>eport.php</li>
+</ul>
+
+
+<p>But there&rsquo;s a problem. The ordering of letters matters. We only want pages that contain a <strong>p</strong> followed by 0 or more letters, then a <strong>c</strong> followed by 0 or more letters, followed by an <strong>r</strong>. No matter, this will at least give us something to start with. It&rsquo;s better than stuffing the entire database table into memory for searching.</p>
+
+<p>The code that constructs this query is below (I&rsquo;ve removed any security/sanitisation code to avoid cluttering up the example.):</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">page_desc_sql</span><span class="p">(</span><span class="nv">$s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">&quot;page_description like &#39;%</span><span class="si">{</span><span class="nv">$s</span><span class="si">}</span><span class="s2">%&#39;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// a-z only please...</span>
+<span class="nv">$query</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s2">&quot;/[^a-z]/&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nx">strtolower</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">]));</span>
+
+<span class="c1">// build query</span>
+<span class="nv">$s</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span><span class="s2">&quot; and &quot;</span><span class="p">,</span> <span class="nb">array_map</span><span class="p">(</span><span class="s2">&quot;page_desc_sql&quot;</span><span class="p">,</span> <span class="nb">str_split</span><span class="p">(</span><span class="nv">$query</span><span class="p">)));</span>
+
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;</span>
+<span class="s2">    select</span>
+<span class="s2">        page_id,</span>
+<span class="s2">        page_name,</span>
+<span class="s2">        page_description</span>
+<span class="s2">    from</span>
+<span class="s2">        admin_pages</span>
+<span class="s2">    where</span>
+<span class="s2">        (</span><span class="si">{</span><span class="nv">$s</span><span class="si">}</span><span class="s2">)</span>
+<span class="s2">    order by page_description asc</span>
+<span class="s2">&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p>So now we have a list of pages ready to process. Let&rsquo;s create that lookahead expression.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">page_regex</span><span class="p">(</span><span class="nv">$x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">&quot;(?=</span><span class="si">{</span><span class="nv">$x</span><span class="si">}</span><span class="s2">).*&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nv">$regex</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span> <span class="o">.</span> <span class="nb">implode</span><span class="p">(</span><span class="nb">array_map</span><span class="p">(</span><span class="s2">&quot;page_regex&quot;</span><span class="p">,</span> <span class="nb">str_split</span><span class="p">(</span><span class="nv">$query</span><span class="p">)))</span> <span class="o">.</span> <span class="s2">&quot;/i&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p>This sets $regex to the string:<br/>
+<strong>/(?=p).*(?=c).*(?=r).*/i</strong></p>
+
+<p>The final piece of the puzzle is to take the results and pass them through this regex, only returning the ones that match. Then output some json for the auto-complete to use.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nv">$q</span><span class="o">-&gt;</span><span class="na">next_record</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nv">$x</span> <span class="o">=</span> <span class="nv">$q</span><span class="o">-&gt;</span><span class="na">get_row</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">preg_match</span><span class="p">(</span><span class="nv">$regex</span><span class="p">,</span> <span class="nv">$x</span><span class="p">[</span><span class="s2">&quot;page_description&quot;</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nv">$x</span><span class="p">[</span><span class="s2">&quot;page_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span><span class="nv">$x</span><span class="p">[</span><span class="s2">&quot;page_id&quot;</span><span class="p">];</span> <span class="c1">// Cast integer for json</span>
+            <span class="nv">$x</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">realpath</span><span class="p">(</span><span class="nx">SECURE_WEB_SERVER_URL</span><span class="p">)</span> <span class="o">.</span> <span class="nv">$x</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">];</span>
+            <span class="nv">$data</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$x</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-type: application/json; charset=iso-8859-1&#39;</span><span class="p">);</span>
+    <span class="k">echo</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+
+
+    <p><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></h2>
+      <p class="updated">Posted on 16 February 2014
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>There is something of a revolution underway in the way that we approach user experience at Easyart. With <a href="http://easyart.github.io/2013/04/16/easyart-flavoured-agile/">Agile processes</a> so important to the way we build software, we felt we were ready to implement Lean UX approaches to help solve some of our user experience problems. It&rsquo;s early days but I thought I would share some of the things that have worked for us so far.</p>
+
+<p><em>Note: I&rsquo;ve added some notes on this to the <a href="http://www.github.com/easyart/handbook">tech handbook</a> which is emerging at the moment, but I thought I would elaborate on some of the processes in this post.</em></p>
+
+<p><img src="http://distilleryimage11.ak.instagram.com/6b11ac0a961a11e3b3ed0e5981f7b917_8.jpg" alt="" /></p>
+
+<h3>Agree on outcomes before deciding on features</h3>
+
+<p>By starting with a KPI we want to affect, we can develop hypotheses which we believe will help us reach that goal, and have a clear-cut way of measuring success.</p>
+
+<h3>Use personas to guide decisions</h3>
+
+<p>Focussing on user needs helps us build a more human experience so we have developed three <a href="http://en.wikipedia.org/wiki/Persona_(user_experience">personas</a> which we can use to step through different on-site journeys.</p>
+
+<p><img src="http://distilleryimage10.ak.instagram.com/48bd27167a5311e3b40d12f304019c2e_8.jpg" alt="" /></p>
+
+<h3>Shared understanding and hypotheses over design heroes</h3>
+
+<p>Getting stakeholders involved in the conception of ideas builds a shared understanding, which is invaluable for collaborating across departments and skill-sets. We&rsquo;ve had some success with <a href="http://bradfrostweb.com/blog/post/establishing-design-direction/">gut test exercises</a> when working on new homepage visual design, group sketching <a href="http://goodkickoffmeetings.com/2010/04/design-studioprototyping-exercise/">design studio</a> exercises to improve navigation and card sorting to agree on priorities.</p>
+
+<h3>Use the live styleguide to build pages from modules</h3>
+
+<p>Changing from a page-based approach to a component-based approach allows everyone to sketch pages, and our <a href="http://www.easyart.com/docs/styleguide">live style guide</a> is the directory of available modules.</p>
+
+<h3>Validate as early as possible</h3>
+
+<p>Our opinions are not as important as customer feedback, so we try to validate our hypotheses as early as possible. We use Usertesting.com for user testing, and Optimizely for split testing.</p>
+
+<p>We&rsquo;re at the formative stages of this process at the moment, but I&rsquo;m hopeful it&rsquo;s going to make a big difference.</p>
+
+    <p><a href="/2014/02/16/lean-ux-at-easyart">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2014/01/17/consuming-wordpress-as-a-service">Consuming Wordpress as a service</a></h2>
       <p class="updated">Posted on 17 January 2014
         by
@@ -51,207 +278,6 @@
 <p>There were a few small customizations to Wordpress we added - essentially to disable frontend access so that the content only appears in the context of our <a href="http://www.easyart.com/trends">main website</a>. Splitting the content management off into a separate service like this both fits with the SOA structure of Easyart and means our editors can add and edit content without affecting anything that might be happening on the rest of the platform.</p>
 
     <p><a href="/2014/01/17/consuming-wordpress-as-a-service">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></h2>
-      <p class="updated">Posted on 03 January 2014
-        by
-        
-        <a href="/authors/steve-rydz/">
-        
-          Steve Rydz
-        </a>
-      </p>
-    </header>
-    <p>A couple of days ago I wrote about <a href="http://easyart.github.io/2013/12/31/turn-your-css-into-a-ruby-gem/">turning your CSS into a ruby gem</a>. Since then my colleague <a href="http://easyart.github.io/authors/john-pash/">John</a> suggested that I add <a href="http://bourbon.io">Bourbon</a> and <a href="http://neat.bourbon.io">Neat</a> as dependencies, as the SCSS included in the gem will not work without them.</p>
-
-<p>So, once again I was faced with a new challenge - and once again it turned out to be fairly simple in the end.</p>
-
-<p>I won&rsquo;t go into details about the different kinds of dependencies you can use in a gem, <a href="http://guides.rubygems.org/patterns/#declaring_dependencies">the rubygems guide</a> does a better job of that than I would, but the process is the same either way.</p>
-
-<p>In your <code>&lt;gem name&gt;.gemspec</code> file, you just need to add the following:</p>
-
-<pre><code>    spec.add_dependency "bourbon", "&gt;= 3.1.4"
-    spec.add_dependency "neat", "&gt;= 1.3.0"
-</code></pre>
-
-<p>Obviously the name and version number of the gems you include here will be whatever you are using on your project.</p>
-
-<p>The next, and final step is to go to <code>lib/&lt;gem name&gt;.rb</code> and require your dependencies at the top of the file, underneath your <code>&lt;gem name&gt;/version</code> require statement:</p>
-
-<pre><code>    require "bourbon"
-    require "neat"
-</code></pre>
-
-<p>And that&rsquo;s it. Next time you (or someone else) uses your gem, the dependencies will be installed without having to include them separately.</p>
-
-    <p><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></h2>
-      <p class="updated">Posted on 31 December 2013
-        by
-        
-        <a href="/authors/steve-rydz/">
-        
-          Steve Rydz
-        </a>
-      </p>
-    </header>
-    <p>In our never-ending mission to make our codebase more maintainable, we decided to package up our shared CSS into a gem so we can use it on all of our projects easily, without having to worry about things going out of sync.</p>
-
-<p>This seemed daunting to me, as I&rsquo;d never done anything like this before, but after some reading and googling, I found it wasn&rsquo;t actually that complicated. Here&rsquo;s how I did it:</p>
-
-<h2>What you&rsquo;ll need</h2>
-
-<ul>
-<li>Ensure rubygems is up to date by running <code>gem update --system</code> from your terminal</li>
-<li>Install <strong>bundler</strong> by running <code>gem install bundler</code></li>
-<li>A <a href="http://github.com">github</a> repo for the gem</li>
-<li>An account on <a href="http://rubygems.org">Rubygems</a></li>
-</ul>
-
-
-<h2>Creating the gem</h2>
-
-<p><strong>Note:</strong> I&rsquo;ve called my gem <em>craven</em>, so wherever you see this, you should replace it with the name of your gem.</p>
-
-<p>You can use bundler to create the scaffolding for your gem. All you have to do is run:</p>
-
-<pre><code>    bundle gem craven
-</code></pre>
-
-<p>Believe it or not, this is almost good-to-go, but we need to do a small amount of config first.</p>
-
-<p>Open the file <code>craven/lib/craven.rb</code> and edit it so it looks like this:</p>
-
-<pre><code>    require "craven/version"
-
-    module Craven
-        class Engine &lt; Rails::Engine
-        end
-    end
-</code></pre>
-
-<p>Now open the file <code>craven/craven.gemspec</code> and fill out any sections containing <code>TODO:</code>. I also set the homepage to my github repo:</p>
-
-<pre><code>    spec.homepage = "http://github.com/easyart/craven
-</code></pre>
-
-<h2>Adding your assets</h2>
-
-<p>Now you can add your assets to the gem. Assuming your assets are intended to be used as a library, you should use the <code>vendor</code> directory structure, so all your stylesheets are included in  <code>craven/vendor/assets/stylesheets/craven/</code>.</p>
-
-<h2>Bumping the version number</h2>
-
-<p>Now you are almost ready to publish your gem, but each time you do, you will need to bump up the version of your gem, otherwise it will fail. You can do this in <code>craven/lib/craven/version.rb</code>.</p>
-
-<h2>Publishing the gem</h2>
-
-<p>Now for the exciting part - you&rsquo;re about to publish your first ruby gem. To do this, just run:</p>
-
-<pre><code>    bundle exec rake release
-</code></pre>
-
-<p>This will publish the gem and push your changed to github. The first time you do this you will be prompted to fill out some credentials. From then on, all you will have to do is run the above command to publish changes to your gem.</p>
-
-    <p><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></h2>
-      <p class="updated">Posted on 24 November 2013
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>We&rsquo;re excited to welcome Steve Fuller to the Easyart tech team, as a result of our acquisition of assets from Picture Cabinet Ltd. Steve was responsible for building Picture Cabinet&rsquo;s platform that powers a large number of print on demand sites, apps and kiosks and will undoubtably be a valuable addition to the team.</p>
-
-    <p><a href="/2013/11/24/welcoming-steve-fuller">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></h2>
-      <p class="updated">Posted on 12 November 2013
-        by
-        
-        <a href="/authors/john-pash/">
-        
-          John Pash
-        </a>
-      </p>
-    </header>
-    <h2>Summary</h2>
-
-<p>Known by many names; the auto-complete, typeahead, search suggestion or incremental search box is an invaluable feature of any website. An example of it&rsquo;s use would be to find the latest news about <strong>Lance Armstrong</strong>. If you Google only the partial words &ldquo;<strong>lan</strong>&rdquo; and &ldquo;<strong>arm</strong>&rdquo; Google will be smart enough to fill in the blanks.</p>
-
-<p><img src="/assets/img/posts/lanarm.png" alt="Lance Armstrong" /></p>
-
-<h3>A typical auto-complete setup</h3>
-
-<p>A typical setup might use <a href="http://twitter.github.io/typeahead.js/">Twitter&rsquo;s Typeahead</a> library which does an ajax call to a server which receives the partial search term and returns matching records. The results are displayed in real-time as a list of options and are updated on each keypress.</p>
-
-<h2>But there&rsquo;s a problem</h2>
-
-<p>Firstly, you need to know the exact spelling of the words you are after. Many auto-complete libraries search from the beginning of words. If you miszpel your target term, you are out of luck. Good luck to sports writers wanting to find <a href="http://en.wikipedia.org/wiki/Jhonny_Peralta">Jhonny Peralta&rsquo;s</a> batting average on your <a href="http://www.dominicanbaseballguy.com/">Dominican Major League baseball blog</a>.</p>
-
-<p>Also, if you have many records that start with the same phrase, and your auto-complete only shows the top 10, how do you find the one that you <em>know</em> is there but is hidden at number 15?</p>
-
-<h2>A better way to search</h2>
-
-<p>If you&rsquo;ve ever used the <a href="http://www.sublimetext.com">Sublime Text</a> editor you&rsquo;ll be familiar with the &ldquo;search anywhere&rdquo; paradigm. To find a file, normally you would go to the search box and type <strong>filename.txt</strong>, then hit <strong>search</strong>, then off it would go to hunt down your file. But with &ldquo;search anywhere&rdquo; you can find what you want in a fraction of the time.</p>
-
-<p>For example, to search the <a href="https://github.com/rails/rails">Rails source code</a> for the file &ldquo;<strong>active_record_callbacks.rb</strong>&rdquo; you could type:</p>
-
-<ul>
-<li>&ldquo;<strong>arb</strong>&rdquo; which matches &ldquo;<strong>a</strong>ctive_<strong>r</strong>ecord_<strong>c</strong>allbacks.rb&rdquo;</li>
-<li>&ldquo;<strong>reccall</strong>&rdquo; which matches &ldquo;active_<strong>rec</strong>ord_<strong>cal</strong>lbacks.rb&rdquo;</li>
-<li>&ldquo;<strong>arec</strong>&rdquo; which matches &ldquo;<strong>a</strong>ctive_<strong>rec</strong>ord_callbacks.rb&rdquo;</li>
-</ul>
-
-
-<p><img src="/assets/img/posts/active-record-callback.png" alt="Searching for Active Record Callback" /></p>
-
-<p>&hellip;you get the idea</p>
-
-<p>Here are the rules:</p>
-
-<ul>
-<li>All letters must be in the name of the file (obviously)</li>
-<li>Letters must appear in the correct order</li>
-<li>Type as few or as many letters as you want</li>
-</ul>
-
-
-<h2>So how do we do this in code?</h2>
-
-<p>The typical auto-complete setup will take the input and (after sanitising of course) ask the database with a &ldquo;like&rdquo; query to find matches.</p>
-
-<pre><code>select * from table_name where description like "%QUERY%";
-</code></pre>
-
-<p>This works for the most part, but doesn&rsquo;t do that fancy middle-matching stuff where you can just throw a bunch of letters at it.</p>
-
-<h2>Our solution</h2>
-
-<div id="solution"></div>
-
-
-<p><a href="http://www.regular-expressions.info/lookaround.html">Positive zero-length lookahead assertions</a> of course!</p>
-
-<p>Stay tuned for <strong>Part Two</strong> of this post for all the gory code details&hellip;.</p>
-
-    <p><a href="/2013/11/12/a-somewhat-better-autocomplete">Leave a comment</a></p>
   </article>
   
 
@@ -343,6 +369,12 @@
         
       </li>
       
+      <li class="page">
+        
+        <a href="/page14">14</a>
+        
+      </li>
+      
     </ul>
 
     
@@ -384,6 +416,14 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/03/21/2014-03-21-getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a rails project</a></li>
+    
+    <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
+    
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
+    
+    <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
+    
     <li><a href="/2014/01/17/consuming-wordpress-as-a-service">Consuming Wordpress as a service</a></li>
     
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
@@ -395,14 +435,6 @@
     <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
     
     <li><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></li>
-    
-    <li><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></li>
-    
-    <li><a href="/2013/08/20/launching-kubrick-part-1">Launching Kubrick, part 1</a></li>
-    
-    <li><a href="/2013/08/11/a-decision-journal">A Decision Journal</a></li>
-    
-    <li><a href="/2013/08/04/design-for-disaster">Design For Disaster and other interesting links</a></li>
     
   </ol>
 </div>

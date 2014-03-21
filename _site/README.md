@@ -24,6 +24,16 @@ Or if you are on ZSH:
 
     $ rake 'newpost[post-title]'
 
+## Write a draft post
+
+Navigate to the project root and use the following command to generate a new draft post (replacing "post-title" with the title of your post):
+
+    $ rake newdraft["post-title"]
+
+Or if you are on ZSH:
+
+    $rake 'newdraft[post-title]'
+
 ## Run the site locally
 
 To run the site on your computer, navigate to the root and run the following command:
@@ -31,6 +41,12 @@ To run the site on your computer, navigate to the root and run the following com
     $ jekyll server --watch
 
 You will then be able to view the site at localhost:4000
+
+## Run the site and display drafts
+
+To run the site locally and view drafts run the following command from the root of the project:
+
+    $jekyll server --watch --drafts
 
 ## Deployment
 
