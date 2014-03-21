@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Getting started with Jasmine on a rails project
+title: Getting started with Jasmine on a Rails project
 date: 2014-03-21 15:08:52
 author: Steve Rydz
 ---
@@ -14,7 +14,7 @@ You can get started with Jasmine fairly quickly. Their [standalone distribution]
 
 ![the Jasmine specrunner](/assets/img/posts/jasmine-specrunner.png)
 
-### Getting up and running on rails
+### Getting up and running on Rails
 Once we settled on Jasmine, we needed a way to integrate it into our current workflow, as we don't want to be running tests manually all the time.
 
 Luckily, there is an official [Jasmine gem](https://github.com/pivotal/jasmine-gem). To add this to your project add the following to your gemfile:
