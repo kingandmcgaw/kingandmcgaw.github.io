@@ -4,7 +4,7 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2014-03-25T16:32:32+00:00</updated>
+ <updated>2014-03-25T16:35:34+00:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
@@ -12,7 +12,7 @@
  
  <entry>
    <title>Getting started with Jasmine on a Rails project</title>
-   <link href="http://easyart.github.com/2014/03/21/2014-03-21-getting-started-with-jasmine-on-a-rails-project"/>
+   <link href="http://easyart.github.com/2014/03/21/getting-started-with-jasmine-on-a-rails-project"/>
    <updated>2014-03-21T15:08:52Z by Steve Rydz</updated>
    <content type="html">&lt;p&gt;We&amp;rsquo;re big fans of &lt;a href=&quot;http://www.agiledata.org/essays/tdd.html&quot;&gt;TDD&lt;/a&gt; here at Easyart. So far this has only applied to our Ruby code, but with JavaScript increasingly becoming a bigger part of our technology stack, we needed to start testing that too.&lt;/p&gt;
 
