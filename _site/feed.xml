@@ -4,7 +4,7 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2014-03-25T16:35:34+00:00</updated>
+ <updated>2014-03-25T16:53:27+00:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
@@ -58,7 +58,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/posts/jasmine-CLI-specrunner.png&quot; alt=&quot;the Jasmine CLI specrunner&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/jasmine-cli-specrunner.png&quot; alt=&quot;the Jasmine CLI specrunner&quot; /&gt;&lt;/p&gt;
 
 &lt;h3&gt;Writing the tests&lt;/h3&gt;
 

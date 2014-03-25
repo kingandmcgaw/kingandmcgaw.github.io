@@ -46,7 +46,7 @@ You can also run the tests in continuous integration mode from the command line,
 rake jasmine:ci
 {% endhighlight %}
 
-![the Jasmine CLI specrunner](/assets/img/posts/jasmine-CLI-specrunner.png)
+![the Jasmine CLI specrunner](/assets/img/posts/jasmine-cli-specrunner.png)
 
 ### Writing the tests
 As I mentioned before, Jasmine is easy to get started with, as long as you are reasonably comfortable with JavaScript, but if like me, you're new to writing tests it can be hard to figure out where to start.
