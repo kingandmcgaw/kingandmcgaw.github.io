@@ -48,9 +48,6 @@ rake jasmine:ci
 
 ![the Jasmine CLI specrunner](/assets/img/posts/jasmine-CLI-specrunner.png)
 
-### Integrating into your build process
-Depending on your environment, you may have to add the `ci` rake task to your deployment process, but we currently use [CircleCI](http://circleci.com) which picked it up automatically, which means our test run every time we deploy, and if they don't pass, the build will fail.
-
 ### Writing the tests
 As I mentioned before, Jasmine is easy to get started with, as long as you are reasonably comfortable with JavaScript, but if like me, you're new to writing tests it can be hard to figure out where to start.
 

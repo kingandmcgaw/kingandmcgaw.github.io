@@ -4,7 +4,7 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2014-03-21T17:12:55+00:00</updated>
+ <updated>2014-03-25T16:32:32+00:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
@@ -59,10 +59,6 @@
 
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/posts/jasmine-CLI-specrunner.png&quot; alt=&quot;the Jasmine CLI specrunner&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;Integrating into your build process&lt;/h3&gt;
-
-&lt;p&gt;Depending on your environment, you may have to add the &lt;code&gt;ci&lt;/code&gt; rake task to your deployment process, but we currently use &lt;a href=&quot;http://circleci.com&quot;&gt;CircleCI&lt;/a&gt; which picked it up automatically, which means our test run every time we deploy, and if they don&amp;rsquo;t pass, the build will fail.&lt;/p&gt;
 
 &lt;h3&gt;Writing the tests&lt;/h3&gt;
 
