@@ -7,7 +7,7 @@ author: Nick Boyce
 
 We all make countless decisions every day when we work. What [of the hundreds of reasonable things](http://blog.samaltman.com/super-successful-companies) in my list will provide the highest value? How am I going to find the best solution for our customers? How will we know if we have even solved the problem?
 
-At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:
+Meanwhile, your customers are constantly sending you signals with every one of their interactions with you. At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:
 
 > If we have data, let’s look at data. If all we have are opinions, let’s go with mine.
 
@@ -40,7 +40,7 @@ We track click events on most of the elements we care about, so we can understan
 Funnels are ways of modelling a user's journey through the key parts of your site. We keep a regular eye on these to try to identify under-performing steps that might represent problems or opportunities.
 
 #### Custom reporting
-To find out very specific answers, we'll run custom reports which might involve adat wrangling in SQL or Excel. For example: finding out the average number of line items in our abandoned baskets, or understanding the what is the relative performance of the main navigation vs the various search functions.
+To find out very specific answers, we'll run custom reports which might involve adat wrangling in SQL or Excel. For example: finding out the average number of line items in our abandoned baskets, understanding the relative performance of the main navigation vs the various search functions or customers' tendancy to frame their print relative to the size of the print.
 
 ## Testing
 
@@ -84,6 +84,6 @@ Don't leave it open to interpretation, don't let ego get in the way, and *be wil
 We use Optimizely to run the tests, but do most of our analysis through Google Analytics and KISSmetrics custom segments. This allows us to understand how users of each variation are behaving throughout their whole journey.
 
 ### Go with your gut
-We don't make *every* decision using data. Sometimes it just isn't possible, particularly with creative decisions.
+We don't make *every* decision using data. Sometimes it just isn't possible, particularly with creative decisions, and in other times there isn't a lot that can be learned by analysis.
 
 There is never absolute truth in numbers, and it's best to just [go with your instincts](http://www.gv.com/lib/design-instinct-vs-data) and have the confidence to push forward.
