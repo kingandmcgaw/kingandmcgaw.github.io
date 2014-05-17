@@ -9,7 +9,7 @@ We all make countless decisions every day when we work. What [of the hundreds of
 
 At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:
 
-> *If we have data, let’s look at data. If all we have are opinions, let’s go with mine.*
+> If we have data, let’s look at data. If all we have are opinions, let’s go with mine.
 
 This post is about building better experiences for our customers through data-driven decisions.
 
