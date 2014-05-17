@@ -46,7 +46,7 @@
 
 <p>At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:</p>
 
-<blockquote><p><em>If we have data, let’s look at data. If all we have are opinions, let’s go with mine.</em></p></blockquote>
+<blockquote><p>If we have data, let’s look at data. If all we have are opinions, let’s go with mine.</p></blockquote>
 
 <p>This post is about building better experiences for our customers through data-driven decisions.</p>
 
@@ -64,19 +64,17 @@
 
 <h4>Market research</h4>
 
-<p>Periodically we conduct large-scale market research which provides us with aggregate information on our customer demographic. These are less frequent but very high sample size.</p>
+<p>Periodically we conduct large-scale market research which provides us with aggregate information on our customer demographic. These are less frequent but a much higher sample size than our daily surveys.</p>
 
 <h3>Google Analytics, KISSmetrics, Crazy Egg and custom reporting</h3>
 
-<p>We use Google Analytics (from here on, GA) and KISSmetrics (from here on, KM) extensively.</p>
+<p>We use Google Analytics (from here on, GA) and KISSmetrics (from here on, KM) extensively to find out how our customers are interacting with our site.</p>
 
 <h4>Do and measure</h4>
 
-<p>Some things are not A/B testable, we don&rsquo;t want to clog up the testing queue, or we&rsquo;re confident about our hypothesis.</p>
+<p>Some things are not A/B testable, we don&rsquo;t want to clog up the testing queue, or we&rsquo;re confident enough about our hypothesis that we will accept measuring after it&rsquo;s launched.</p>
 
 <p>For every significant feature we create a GA annotation so we can do before-and-after analysis to check that everything went as expected. GA and KM provide different vantage points (<em>GA tells you what’s happening. KM tells you who’s doing it</em>), and we also use Crazy Egg for heatmap and scroll tracking.</p>
-
-<h4>Custom event tracking</h4>
 
 <p>We track click events on most of the elements we care about, so we can understand how users are using the site.</p>
 
@@ -86,15 +84,13 @@
 
 <h4>Custom reporting</h4>
 
-<p>Example: what is the average number of line items in our abandoned baskets, what is the relative performance of the main navigation vs the various search functions</p>
+<p>To find out very specific answers, we&rsquo;ll run custom reports which might involve adat wrangling in SQL or Excel. For example: finding out the average number of line items in our abandoned baskets, or understanding the what is the relative performance of the main navigation vs the various search functions.</p>
 
 <h2>Testing</h2>
 
 <h3>UserTesting.com</h3>
 
-<p>We use <a href="http://www.usertesting.com">Usertesting.com</a> to conduct remote user interviews. These allow us to observe people using the site as they follow a list of tasks we give them.</p>
-
-<p>It gives us the &ldquo;why&rdquo; that is difficult to measure through metrics alone, and we predominantly use it to validate new UX ideas, as well as occasional competitor comparisons.</p>
+<p>We use <a href="http://www.usertesting.com">Usertesting.com</a> to conduct remote user interviews. These allow us to observe people using the site as they follow a list of tasks. It gives us the &ldquo;why&rdquo; that is difficult to measure through metrics alone, and we predominantly use it to validate new UX ideas, as well as occasional competitor comparisons.</p>
 
 <h4>Watch the videos together as a team and share your findings.</h4>
 
@@ -104,9 +100,11 @@
 
 <p>Google Ventures' Jake Knapp puts the emotional journey of user testing perfectly in <a href="http://www.gv.com/lib/the-product-design-sprint-validateday5">this post</a>:</p>
 
-<blockquote><p>First session: “We’re geniuses!” or “We’re idiots!”
-Sessions 2–4: “Oh, this is complicated…”
-Studies 5-6: “There’s a pattern!”</p></blockquote>
+<blockquote><p>First session: “We’re geniuses!” or “We’re idiots!”</p>
+
+<p>Sessions 2–4: “Oh, this is complicated…”</p>
+
+<p>Studies 5-6: “There’s a pattern!”</p></blockquote>
 
 <p>By running new tests with each of our major iterations we can see quick improvement which usually results in us building enough confidence to launch (though we occasionally reject ideas that don&rsquo;t test well).</p>
 

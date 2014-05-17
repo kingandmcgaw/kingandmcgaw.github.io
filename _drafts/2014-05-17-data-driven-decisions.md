@@ -24,31 +24,28 @@ Our brilliant customer service team phones a small handful of customers and asks
 Though it's a small sample size but it provides useful qualitative information which helps us spot patterns in individual customer stories in a way that we could never get from an Analytics funnel or aggregate market report.
 
 #### Market research
-Periodically we conduct large-scale market research which provides us with aggregate information on our customer demographic. These are less frequent but very high sample size.
+Periodically we conduct large-scale market research which provides us with aggregate information on our customer demographic. These are less frequent but a much higher sample size than our daily surveys.
 
 ### Google Analytics, KISSmetrics, Crazy Egg and custom reporting
-We use Google Analytics (from here on, GA) and KISSmetrics (from here on, KM) extensively.
+We use Google Analytics (from here on, GA) and KISSmetrics (from here on, KM) extensively to find out how our customers are interacting with our site.
 
 #### Do and measure
-Some things are not A/B testable, we don't want to clog up the testing queue, or we're confident about our hypothesis.
+Some things are not A/B testable, we don't want to clog up the testing queue, or we're confident enough about our hypothesis that we will accept measuring after it's launched.
 
 For every significant feature we create a GA annotation so we can do before-and-after analysis to check that everything went as expected. GA and KM provide different vantage points (*GA tells you what’s happening. KM tells you who’s doing it*), and we also use Crazy Egg for heatmap and scroll tracking.
 
-#### Custom event tracking
 We track click events on most of the elements we care about, so we can understand how users are using the site.
 
 #### Funnels
 Funnels are ways of modelling a user's journey through the key parts of your site. We keep a regular eye on these to try to identify under-performing steps that might represent problems or opportunities.
 
 #### Custom reporting
-Example: what is the average number of line items in our abandoned baskets, what is the relative performance of the main navigation vs the various search functions
+To find out very specific answers, we'll run custom reports which might involve adat wrangling in SQL or Excel. For example: finding out the average number of line items in our abandoned baskets, or understanding the what is the relative performance of the main navigation vs the various search functions.
 
 ## Testing
 
 ### UserTesting.com
-We use [Usertesting.com](http://www.usertesting.com) to conduct remote user interviews. These allow us to observe people using the site as they follow a list of tasks we give them.
-
-It gives us the "why" that is difficult to measure through metrics alone, and we predominantly use it to validate new UX ideas, as well as occasional competitor comparisons.
+We use [Usertesting.com](http://www.usertesting.com) to conduct remote user interviews. These allow us to observe people using the site as they follow a list of tasks. It gives us the "why" that is difficult to measure through metrics alone, and we predominantly use it to validate new UX ideas, as well as occasional competitor comparisons.
 
 #### Watch the videos together as a team and share your findings.
 It can be *extremely humbling* to you find out your brilliant idea makes no sense to the user, but it's better that these lessons are learned together.
@@ -57,7 +54,9 @@ It can be *extremely humbling* to you find out your brilliant idea makes no sens
 Google Ventures' Jake Knapp puts the emotional journey of user testing perfectly in [this post](http://www.gv.com/lib/the-product-design-sprint-validateday5):
 
 > First session: “We’re geniuses!” or “We’re idiots!”
+
 > Sessions 2–4: “Oh, this is complicated…”
+
 > Studies 5-6: “There’s a pattern!”
 
 By running new tests with each of our major iterations we can see quick improvement which usually results in us building enough confidence to launch (though we occasionally reject ideas that don't test well).

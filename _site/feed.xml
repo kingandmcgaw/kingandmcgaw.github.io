@@ -4,7 +4,7 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2014-05-17T17:22:17+01:00</updated>
+ <updated>2014-05-17T17:31:55+01:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
@@ -18,7 +18,7 @@
 
 &lt;p&gt;At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:&lt;/p&gt;
 
-&lt;blockquote&gt;&lt;p&gt;&lt;em&gt;If we have data, let’s look at data. If all we have are opinions, let’s go with mine.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;If we have data, let’s look at data. If all we have are opinions, let’s go with mine.&lt;/p&gt;&lt;/blockquote&gt;
 
 &lt;p&gt;This post is about building better experiences for our customers through data-driven decisions.&lt;/p&gt;
 
@@ -36,19 +36,17 @@
 
 &lt;h4&gt;Market research&lt;/h4&gt;
 
-&lt;p&gt;Periodically we conduct large-scale market research which provides us with aggregate information on our customer demographic. These are less frequent but very high sample size.&lt;/p&gt;
+&lt;p&gt;Periodically we conduct large-scale market research which provides us with aggregate information on our customer demographic. These are less frequent but a much higher sample size than our daily surveys.&lt;/p&gt;
 
 &lt;h3&gt;Google Analytics, KISSmetrics, Crazy Egg and custom reporting&lt;/h3&gt;
 
-&lt;p&gt;We use Google Analytics (from here on, GA) and KISSmetrics (from here on, KM) extensively.&lt;/p&gt;
+&lt;p&gt;We use Google Analytics (from here on, GA) and KISSmetrics (from here on, KM) extensively to find out how our customers are interacting with our site.&lt;/p&gt;
 
 &lt;h4&gt;Do and measure&lt;/h4&gt;
 
-&lt;p&gt;Some things are not A/B testable, we don&amp;rsquo;t want to clog up the testing queue, or we&amp;rsquo;re confident about our hypothesis.&lt;/p&gt;
+&lt;p&gt;Some things are not A/B testable, we don&amp;rsquo;t want to clog up the testing queue, or we&amp;rsquo;re confident enough about our hypothesis that we will accept measuring after it&amp;rsquo;s launched.&lt;/p&gt;
 
 &lt;p&gt;For every significant feature we create a GA annotation so we can do before-and-after analysis to check that everything went as expected. GA and KM provide different vantage points (&lt;em&gt;GA tells you what’s happening. KM tells you who’s doing it&lt;/em&gt;), and we also use Crazy Egg for heatmap and scroll tracking.&lt;/p&gt;
-
-&lt;h4&gt;Custom event tracking&lt;/h4&gt;
 
 &lt;p&gt;We track click events on most of the elements we care about, so we can understand how users are using the site.&lt;/p&gt;
 
@@ -58,15 +56,13 @@
 
 &lt;h4&gt;Custom reporting&lt;/h4&gt;
 
-&lt;p&gt;Example: what is the average number of line items in our abandoned baskets, what is the relative performance of the main navigation vs the various search functions&lt;/p&gt;
+&lt;p&gt;To find out very specific answers, we&amp;rsquo;ll run custom reports which might involve adat wrangling in SQL or Excel. For example: finding out the average number of line items in our abandoned baskets, or understanding the what is the relative performance of the main navigation vs the various search functions.&lt;/p&gt;
 
 &lt;h2&gt;Testing&lt;/h2&gt;
 
 &lt;h3&gt;UserTesting.com&lt;/h3&gt;
 
-&lt;p&gt;We use &lt;a href=&quot;http://www.usertesting.com&quot;&gt;Usertesting.com&lt;/a&gt; to conduct remote user interviews. These allow us to observe people using the site as they follow a list of tasks we give them.&lt;/p&gt;
-
-&lt;p&gt;It gives us the &amp;ldquo;why&amp;rdquo; that is difficult to measure through metrics alone, and we predominantly use it to validate new UX ideas, as well as occasional competitor comparisons.&lt;/p&gt;
+&lt;p&gt;We use &lt;a href=&quot;http://www.usertesting.com&quot;&gt;Usertesting.com&lt;/a&gt; to conduct remote user interviews. These allow us to observe people using the site as they follow a list of tasks. It gives us the &amp;ldquo;why&amp;rdquo; that is difficult to measure through metrics alone, and we predominantly use it to validate new UX ideas, as well as occasional competitor comparisons.&lt;/p&gt;
 
 &lt;h4&gt;Watch the videos together as a team and share your findings.&lt;/h4&gt;
 
@@ -76,9 +72,11 @@
 
 &lt;p&gt;Google Ventures' Jake Knapp puts the emotional journey of user testing perfectly in &lt;a href=&quot;http://www.gv.com/lib/the-product-design-sprint-validateday5&quot;&gt;this post&lt;/a&gt;:&lt;/p&gt;
 
-&lt;blockquote&gt;&lt;p&gt;First session: “We’re geniuses!” or “We’re idiots!”
-Sessions 2–4: “Oh, this is complicated…”
-Studies 5-6: “There’s a pattern!”&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;First session: “We’re geniuses!” or “We’re idiots!”&lt;/p&gt;
+
+&lt;p&gt;Sessions 2–4: “Oh, this is complicated…”&lt;/p&gt;
+
+&lt;p&gt;Studies 5-6: “There’s a pattern!”&lt;/p&gt;&lt;/blockquote&gt;
 
 &lt;p&gt;By running new tests with each of our major iterations we can see quick improvement which usually results in us building enough confidence to launch (though we occasionally reject ideas that don&amp;rsquo;t test well).&lt;/p&gt;
 
