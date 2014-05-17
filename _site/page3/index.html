@@ -32,6 +32,65 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></h2>
+      <p class="updated">Posted on 16 October 2013
+        by
+        
+        <a href="/authors/john-pash/">
+        
+          John Pash
+        </a>
+      </p>
+    </header>
+    <h3>Summary</h3>
+
+<p>We&rsquo;ve recently moved over to using <a href="www.google.co.uk/tagmanager%E2%80%8E">Google Tag Manager</a> (GTM) on the redesign of <a href="www.worldgallery.co.uk">Worldgallery</a>. The promise of being able to <em>&ldquo;update your website tags&hellip;without bugging the IT folks.&rdquo;</em> was too hard to pass up. The reality of GTM, however, has proven to be something all together different.</p>
+
+<p>We also use <a href="https://www.optimizely.com/">Optimizely</a> quite heavily on the new site. And the easy integration with Google Analytics(GA) via <a href="https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables">Custom Variables</a> mean that we can easily segment the Optimizely visitors by buckets. For instance, we can run a report that gives us &ldquo;Ecommerce value of all visitors who saw Version A of the checkout page&rdquo; or &ldquo;Time on page for visitors who saw Version B of a certain landing page&rdquo;. This greatly enhances the default reporting from Optimizely.</p>
+
+<h3>The Problem</h3>
+
+<p>Now that Google Tag Manager is responsible for loading all javascript on the page, we need to be sure that they get executed in the correct order. And that order is 1) Optimizely followed by 2) Google Analytics</p>
+
+<p>By default, GTM does what it does as and when it sees fit. So we can&rsquo;t be sure that the tags will fire as needed. However the fix for this particular problem <a href="http://www.verticalnerve.com/blog/detail?id=278">has already been solved</a>.</p>
+
+<p>In a nutshell:</p>
+
+<ul>
+<li>Load the Optimizely code in a GTM <strong><a href="https://support.google.com/tagmanager/answer/2574372#CustomHTML">Custom HTML Tag</a></strong>.</li>
+<li>Then set a dataLayer variable in that tag which says &ldquo;OK - Ready to go&rdquo;</li>
+<li>That then triggers the GA pageview to fire. Simple!</li>
+</ul>
+
+
+<p>But that wasn&rsquo;t enough to make it work&hellip;</p>
+
+<p>Yes, we could fire the GA pageview at the right time - after Optimizely has done it&rsquo;s thing. But for some reason the Custom Variables still weren&rsquo;t being sent along with the request.</p>
+
+<h3>The Solution</h3>
+
+<p>Fast forward about 30 hours of head-scratching and a large handful of experiments. When finally the missing piece of the puzzle was found.</p>
+
+<p>There is a <a href="https://support.google.com/tagmanager/answer/2574372#TrackerName">poorly documented</a> feature of GTM for the <strong>Tracker Name</strong> setting. Reading this would lead one to believe that all this setting does is allow you to <em>&ldquo;name the tracker object yourself&rdquo;</em>.</p>
+
+<p>What isn&rsquo;t mentioned is that by turning on this setting (which can be found under <strong>Advanced Settings</strong> for the <strong>Page View</strong> tag) you effectively make the tracker name public. This is your UA-XXXXXX-X number. Without this information Optimizely is not able to set the Custom Variable correctly.</p>
+
+<h3>Conclusion</h3>
+
+<p>If you use <strong>Google Tag Manager</strong> along with <strong>Optimizely</strong> and want to take advantage of <strong>Google Analytics</strong> <em>Custom Variable</em> segmentation - pause for breath - then you need to:</p>
+
+<ol>
+<li>Tick the box next <strong>Tracker Name</strong> under <strong>Advanced Settings</strong> (but don&rsquo;t fill anything in the text box!)</li>
+<li>Follow <a href="http://www.verticalnerve.com/blog/detail?id=278">these instructions</a> to ensure the correct load order of scripts</li>
+<li>GOTO PUB</li>
+</ol>
+
+
+    <p><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/10/12/on-technical-debt">On technical debt, complexity and opportunity cost</a></h2>
       <p class="updated">Posted on 12 October 2013
         by
@@ -211,66 +270,6 @@
     <p><a href="/2013/08/04/design-for-disaster">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/07/24/heroku-fork">Heroku Fork</a></h2>
-      <p class="updated">Posted on 24 July 2013
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>I&rsquo;ve been meaning to try the <a href="https://devcenter.heroku.com/articles/fork-app">fork</a> feature on Heroku for a while.</p>
-
-<p>It does exactly what you expect, but that&rsquo;s what&rsquo;s so brilliant about it. It&rsquo;s taken be less than 2 minutes to set up a staging environment for one of our apps in the EU region. Here&rsquo;s what&rsquo;s involved:</p>
-
-<p>Clone an existing app, optionally choosing a region. This will also add your add-ons to the forked app at the same payment tier so keep an eye out for this.</p>
-
-<pre><code>heroku fork -a yourapp yourapp-staging --region eu
-
-Creating fork yourapp-staging... done
-Copying slug... done
-Adding airbrake:developer... done
-Adding memcachier:100... done
-Adding scheduler:standard... done
-Copying config vars... done
-Fork complete, view it at http://yourapp-staging.herokuapp.com/
-</code></pre>
-
-<p>Get the forked app&rsquo;s Git repo information so you can push code to it.</p>
-
-<pre><code>heroku info -a yourapp-staging
-
-=== yourapp-staging
-Addons:        memcachier:dev
-               scheduler:standard
-
-Git URL:       git@heroku.com:yourapp-staging.git
-Owner Email:   nick@nickboyce.com
-Region:        eu
-Stack:         cedar
-Tier:          Legacy
-Web URL:       http://yourapp-staging.herokuapp.com/
-</code></pre>
-
-<p>Add a new git remote so you can push to the new app.</p>
-
-<pre><code>git remote add staging git@heroku.com:yourapp-staging.git
-</code></pre>
-
-<p>Push a branch to your new app.</p>
-
-<pre><code>git push staging custom-framing:master
-</code></pre>
-
-<p>You&rsquo;re done!</p>
-
-    <p><a href="/2013/07/24/heroku-fork">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -409,11 +408,13 @@ Web URL:       http://yourapp-staging.herokuapp.com/
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/05/17/2014-05-17-data-driven-decisions">Data-driven UX decisions</a></li>
+    
     <li><a href="/2014/03/21/getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a Rails project</a></li>
     
     <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
     
-    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></li>
     
     <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
     
@@ -426,8 +427,6 @@ Web URL:       http://yourapp-staging.herokuapp.com/
     <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
     
     <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
-    
-    <li><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></li>
     
   </ol>
 </div>

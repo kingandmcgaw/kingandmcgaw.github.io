@@ -32,6 +32,29 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2014/01/17/consuming-wordpress-as-a-service">Consuming Wordpress as a service</a></h2>
+      <p class="updated">Posted on 17 January 2014
+        by
+        
+        <a href="/authors/steve-fuller/">
+        
+          Steve Fuller
+        </a>
+      </p>
+    </header>
+    <p>Our Wordpress blog is a useful tool for publishing marketing information and one we wanted to keep in our new site as it provides useful information for customers as well as helping to keep the content of the site fresh.</p>
+
+<p>We didn&rsquo;t necessarily want all the features of Wordpress so beloved of developers the world over, just the content posts, assets and a means of querying the different categories we&rsquo;d set up.</p>
+
+<p>We used the <a href="http://wordpress.org/plugins/json-api/">JSON_API</a> plugin to do the job. It installs into a wordpress instance and exposes a number of REST methods allowing our rails controller to fetch and parse the blog content efficiently (caching it for performance). The plugin doesn&rsquo;t include any authentication options but if you only enable the get methods it&rsquo;s no more public than a hosted Wordpress site.</p>
+
+<p>There were a few small customizations to Wordpress we added - essentially to disable frontend access so that the content only appears in the context of our <a href="http://www.easyart.com/trends">main website</a>. Splitting the content management off into a separate service like this both fits with the SOA structure of Easyart and means our editors can add and edit content without affecting anything that might be happening on the rest of the platform.</p>
+
+    <p><a href="/2014/01/17/consuming-wordpress-as-a-service">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></h2>
       <p class="updated">Posted on 03 January 2014
         by
@@ -222,8 +245,7 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
 
 <p>The typical auto-complete setup will take the input and (after sanitising of course) ask the database with a &ldquo;like&rdquo; query to find matches.</p>
 
-<div class="highlight"><pre><code class="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="k">table_name</span> <span class="k">where</span> <span class="n">description</span> <span class="k">like</span> <span class="ss">&quot;%QUERY%&quot;</span><span class="p">;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="k">table_name</span> <span class="k">where</span> <span class="n">description</span> <span class="k">like</span> <span class="ss">&quot;%QUERY%&quot;</span><span class="p">;</span></code></pre></div>
 
 
 <p>This does an ok job, but it&rsquo;s not perfect. It&rsquo;s just not as flexible or fast as it could be.</p>
@@ -235,65 +257,6 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
 <p>Come back for <a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)/"><strong>Part Two</strong></a> of this post for the code.</p>
 
     <p><a href="/2013/11/12/a-somewhat-better-autocomplete">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></h2>
-      <p class="updated">Posted on 16 October 2013
-        by
-        
-        <a href="/authors/john-pash/">
-        
-          John Pash
-        </a>
-      </p>
-    </header>
-    <h3>Summary</h3>
-
-<p>We&rsquo;ve recently moved over to using <a href="www.google.co.uk/tagmanager%E2%80%8E">Google Tag Manager</a> (GTM) on the redesign of <a href="www.worldgallery.co.uk">Worldgallery</a>. The promise of being able to <em>&ldquo;update your website tags&hellip;without bugging the IT folks.&rdquo;</em> was too hard to pass up. The reality of GTM, however, has proven to be something all together different.</p>
-
-<p>We also use <a href="https://www.optimizely.com/">Optimizely</a> quite heavily on the new site. And the easy integration with Google Analytics(GA) via <a href="https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables">Custom Variables</a> mean that we can easily segment the Optimizely visitors by buckets. For instance, we can run a report that gives us &ldquo;Ecommerce value of all visitors who saw Version A of the checkout page&rdquo; or &ldquo;Time on page for visitors who saw Version B of a certain landing page&rdquo;. This greatly enhances the default reporting from Optimizely.</p>
-
-<h3>The Problem</h3>
-
-<p>Now that Google Tag Manager is responsible for loading all javascript on the page, we need to be sure that they get executed in the correct order. And that order is 1) Optimizely followed by 2) Google Analytics</p>
-
-<p>By default, GTM does what it does as and when it sees fit. So we can&rsquo;t be sure that the tags will fire as needed. However the fix for this particular problem <a href="http://www.verticalnerve.com/blog/detail?id=278">has already been solved</a>.</p>
-
-<p>In a nutshell:</p>
-
-<ul>
-<li>Load the Optimizely code in a GTM <strong><a href="https://support.google.com/tagmanager/answer/2574372#CustomHTML">Custom HTML Tag</a></strong>.</li>
-<li>Then set a dataLayer variable in that tag which says &ldquo;OK - Ready to go&rdquo;</li>
-<li>That then triggers the GA pageview to fire. Simple!</li>
-</ul>
-
-
-<p>But that wasn&rsquo;t enough to make it work&hellip;</p>
-
-<p>Yes, we could fire the GA pageview at the right time - after Optimizely has done it&rsquo;s thing. But for some reason the Custom Variables still weren&rsquo;t being sent along with the request.</p>
-
-<h3>The Solution</h3>
-
-<p>Fast forward about 30 hours of head-scratching and a large handful of experiments. When finally the missing piece of the puzzle was found.</p>
-
-<p>There is a <a href="https://support.google.com/tagmanager/answer/2574372#TrackerName">poorly documented</a> feature of GTM for the <strong>Tracker Name</strong> setting. Reading this would lead one to believe that all this setting does is allow you to <em>&ldquo;name the tracker object yourself&rdquo;</em>.</p>
-
-<p>What isn&rsquo;t mentioned is that by turning on this setting (which can be found under <strong>Advanced Settings</strong> for the <strong>Page View</strong> tag) you effectively make the tracker name public. This is your UA-XXXXXX-X number. Without this information Optimizely is not able to set the Custom Variable correctly.</p>
-
-<h3>Conclusion</h3>
-
-<p>If you use <strong>Google Tag Manager</strong> along with <strong>Optimizely</strong> and want to take advantage of <strong>Google Analytics</strong> <em>Custom Variable</em> segmentation - pause for breath - then you need to:</p>
-
-<ol>
-<li>Tick the box next <strong>Tracker Name</strong> under <strong>Advanced Settings</strong> (but don&rsquo;t fill anything in the text box!)</li>
-<li>Follow <a href="http://www.verticalnerve.com/blog/detail?id=278">these instructions</a> to ensure the correct load order of scripts</li>
-<li>GOTO PUB</li>
-</ol>
-
-
-    <p><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Leave a comment</a></p>
   </article>
   
 
@@ -434,11 +397,13 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/05/17/2014-05-17-data-driven-decisions">Data-driven UX decisions</a></li>
+    
     <li><a href="/2014/03/21/getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a Rails project</a></li>
     
     <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
     
-    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></li>
     
     <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
     
@@ -451,8 +416,6 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
     <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
     
     <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
-    
-    <li><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></li>
     
   </ol>
 </div>

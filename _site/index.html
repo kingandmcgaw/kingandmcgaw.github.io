@@ -32,6 +32,123 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2014/05/17/2014-05-17-data-driven-decisions">Data-driven UX decisions</a></h2>
+      <p class="updated">Posted on 17 May 2014
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>We all make countless decisions every day when we work. What <a href="http://blog.samaltman.com/super-successful-companies">of the hundreds of reasonable things</a> in my list will provide the highest value? How am I going to find the best solution for our customers? How will we know if we have even solved the problem?</p>
+
+<p>At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:</p>
+
+<blockquote><p><em>If we have data, let’s look at data. If all we have are opinions, let’s go with mine.</em></p></blockquote>
+
+<p>This post is about building better experiences for our customers through data-driven decisions.</p>
+
+<h2>Research</h2>
+
+<h3>Customer research</h3>
+
+<p>We must understand our customers in order to solve problems for them.</p>
+
+<h4>Daily survey</h4>
+
+<p>Our brilliant customer service team phones a small handful of customers and asks them five questions. The answers are recorded in a Google Doc.</p>
+
+<p>Though it&rsquo;s a small sample size but it provides useful qualitative information which helps us spot patterns in individual customer stories in a way that we could never get from an Analytics funnel or aggregate market report.</p>
+
+<h4>Market research</h4>
+
+<p>Periodically we conduct large-scale market research which provides us with aggregate information on our customer demographic. These are less frequent but very high sample size.</p>
+
+<h3>Google Analytics, KISSmetrics, Crazy Egg and custom reporting</h3>
+
+<p>We use Google Analytics (from here on, GA) and KISSmetrics (from here on, KM) extensively.</p>
+
+<h4>Do and measure</h4>
+
+<p>Some things are not A/B testable, we don&rsquo;t want to clog up the testing queue, or we&rsquo;re confident about our hypothesis.</p>
+
+<p>For every significant feature we create a GA annotation so we can do before-and-after analysis to check that everything went as expected. GA and KM provide different vantage points (<em>GA tells you what’s happening. KM tells you who’s doing it</em>), and we also use Crazy Egg for heatmap and scroll tracking.</p>
+
+<h4>Custom event tracking</h4>
+
+<p>We track click events on most of the elements we care about, so we can understand how users are using the site.</p>
+
+<h4>Funnels</h4>
+
+<p>Funnels are ways of modelling a user&rsquo;s journey through the key parts of your site. We keep a regular eye on these to try to identify under-performing steps that might represent problems or opportunities.</p>
+
+<h4>Custom reporting</h4>
+
+<p>Example: what is the average number of line items in our abandoned baskets, what is the relative performance of the main navigation vs the various search functions</p>
+
+<h2>Testing</h2>
+
+<h3>UserTesting.com</h3>
+
+<p>We use <a href="http://www.usertesting.com">Usertesting.com</a> to conduct remote user interviews. These allow us to observe people using the site as they follow a list of tasks we give them.</p>
+
+<p>It gives us the &ldquo;why&rdquo; that is difficult to measure through metrics alone, and we predominantly use it to validate new UX ideas, as well as occasional competitor comparisons.</p>
+
+<h4>Watch the videos together as a team and share your findings.</h4>
+
+<p>It can be <em>extremely humbling</em> to you find out your brilliant idea makes no sense to the user, but it&rsquo;s better that these lessons are learned together.</p>
+
+<h4>Test your iterations to gain confidence</h4>
+
+<p>Google Ventures' Jake Knapp puts the emotional journey of user testing perfectly in <a href="http://www.gv.com/lib/the-product-design-sprint-validateday5">this post</a>:</p>
+
+<blockquote><p>First session: “We’re geniuses!” or “We’re idiots!”
+Sessions 2–4: “Oh, this is complicated…”
+Studies 5-6: “There’s a pattern!”</p></blockquote>
+
+<p>By running new tests with each of our major iterations we can see quick improvement which usually results in us building enough confidence to launch (though we occasionally reject ideas that don&rsquo;t test well).</p>
+
+<h4>These are not real customers</h4>
+
+<p>It should be noted that these are not your customers, nor are they in the same frame of mind that your customers will be, so don&rsquo;t treat this as customer research.</p>
+
+<h3>A/B testing</h3>
+
+<p>A/B testing can give us the <em>what</em> to the user testing&rsquo;s <em>why</em>, by providing a framework to validate a hypothesis.</p>
+
+<p>Much has been written on the topic, and it&rsquo;s easy to believe it can be used to unearth hidden conversion opportunities <em>that will make you millions</em>. The truth is, not everything is suitable for A/B testing, and there is a fine art to planning tests properly.</p>
+
+<h4>Start with a strong hypothesis</h4>
+
+<p>Don&rsquo;t use a scattergun approach, this should be something you are confident about that is backed by data.</p>
+
+<h4>Ensure that the hypothesis is testable.</h4>
+
+<p>A good A/B testing candidate should be noticeable change, with decent traffic and an expectation for a double-digit improvement to a metric close to the area you are affecting (i.e. don&rsquo;t expect a change on your category page will have a measurable effect on overall conversion through your checkout).</p>
+
+<p>We usually calculate the test plan using something like <a href="http://www.experimentcalculator.com/">experimentcalculator.com</a></p>
+
+<h4>Agree the success metric upfront.</h4>
+
+<p>Don&rsquo;t leave it open to interpretation, don&rsquo;t let ego get in the way, and <em>be willing to lose</em>. The truth can be humbling.</p>
+
+<h4>Use more than one source of data.</h4>
+
+<p>We use Optimizely to run the tests, but do most of our analysis through Google Analytics and KISSmetrics custom segments. This allows us to understand how users of each variation are behaving throughout their whole journey.</p>
+
+<h3>Go with your gut</h3>
+
+<p>We don&rsquo;t make <em>every</em> decision using data. Sometimes it just isn&rsquo;t possible, particularly with creative decisions.</p>
+
+<p>There is never absolute truth in numbers, and it&rsquo;s best to just <a href="http://www.gv.com/lib/design-instinct-vs-data">go with your instincts</a> and have the confidence to push forward.</p>
+
+    <p><a href="/2014/05/17/2014-05-17-data-driven-decisions">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2014/03/21/getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a Rails project</a></h2>
       <p class="updated">Posted on 21 March 2014
         by
@@ -60,30 +177,26 @@
 
 <div class="highlight"><pre><code class="ruby"><span class="ss">group</span><span class="p">:</span> <span class="n">development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
     <span class="n">gem</span> <span class="s2">&quot;jasmine&quot;</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 
 <p>To setup the file structure that the gem expects for your tests, run the following command from your CLI, which will set up all the necessary files and directory structure to begin testing your code:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">rails</span> <span class="n">g</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">install</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="ruby"><span class="n">rails</span> <span class="n">g</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">install</span></code></pre></div>
 
 
 <h3>Running the tests</h3>
 
 <p>There are two ways you can run your Jasmine tests. The first is to run the following rake task:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="n">jasmine</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="n">jasmine</span></code></pre></div>
 
 
 <p>This will fire up a web server, accessible at <code>localhost:8888</code> where you will see an HTML document displaying the results of your tests.</p>
 
 <p>You can also run the tests in continuous integration mode from the command line, which will show you the results in the terminal:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">ci</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">ci</span></code></pre></div>
 
 
 <p><img src="/assets/img/posts/jasmine-cli-specrunner.png" alt="the Jasmine CLI specrunner" /></p>
@@ -166,7 +279,7 @@
   
   <article class="hentry">
     <header>
-      <h2 class="entry-title"><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></h2>
+      <h2 class="entry-title"><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></h2>
       <p class="updated">Posted on 17 February 2014
         by
         
@@ -192,8 +305,7 @@
 <div class="highlight"><pre><code class="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">admin_pages</span> <span class="k">where</span> <span class="p">(</span>
     <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%p%&#39;</span> <span class="k">and</span> 
     <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%c%&#39;</span> <span class="k">and</span> 
-    <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%r%&#39;</span> <span class="p">)</span>
-</code></pre></div>
+    <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%r%&#39;</span> <span class="p">)</span></code></pre></div>
 
 
 <p>This will return all pages that have <strong>every</strong> one of those letters in the description in alphabetical order.</p>
@@ -231,8 +343,7 @@
 <span class="s2">        (</span><span class="si">{</span><span class="nv">$s</span><span class="si">}</span><span class="s2">)</span>
 <span class="s2">    order by page_description asc</span>
 <span class="s2">&quot;</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 <p>So now we have a list of pages ready to process. Let&rsquo;s create that lookahead expression.</p>
@@ -242,8 +353,7 @@
     <span class="k">return</span> <span class="s2">&quot;(?=</span><span class="si">{</span><span class="nv">$x</span><span class="si">}</span><span class="s2">).*&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nv">$regex</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span> <span class="o">.</span> <span class="nb">implode</span><span class="p">(</span><span class="nb">array_map</span><span class="p">(</span><span class="s2">&quot;page_regex&quot;</span><span class="p">,</span> <span class="nb">str_split</span><span class="p">(</span><span class="nv">$query</span><span class="p">)))</span> <span class="o">.</span> <span class="s2">&quot;/i&quot;</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 <p>This sets $regex to the string:<br/>
@@ -265,13 +375,12 @@
     <span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-type: application/json; charset=iso-8859-1&#39;</span><span class="p">);</span>
     <span class="k">echo</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 
 
-    <p><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">Leave a comment</a></p>
+    <p><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">Leave a comment</a></p>
   </article>
   
   <article class="hentry">
@@ -317,29 +426,6 @@
 <p>We&rsquo;re at the formative stages of this process at the moment, but I&rsquo;m hopeful it&rsquo;s going to make a big difference.</p>
 
     <p><a href="/2014/02/16/lean-ux-at-easyart">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2014/01/17/consuming-wordpress-as-a-service">Consuming Wordpress as a service</a></h2>
-      <p class="updated">Posted on 17 January 2014
-        by
-        
-        <a href="/authors/steve-fuller/">
-        
-          Steve Fuller
-        </a>
-      </p>
-    </header>
-    <p>Our Wordpress blog is a useful tool for publishing marketing information and one we wanted to keep in our new site as it provides useful information for customers as well as helping to keep the content of the site fresh.</p>
-
-<p>We didn&rsquo;t necessarily want all the features of Wordpress so beloved of developers the world over, just the content posts, assets and a means of querying the different categories we&rsquo;d set up.</p>
-
-<p>We used the <a href="http://wordpress.org/plugins/json-api/">JSON_API</a> plugin to do the job. It installs into a wordpress instance and exposes a number of REST methods allowing our rails controller to fetch and parse the blog content efficiently (caching it for performance). The plugin doesn&rsquo;t include any authentication options but if you only enable the get methods it&rsquo;s no more public than a hosted Wordpress site.</p>
-
-<p>There were a few small customizations to Wordpress we added - essentially to disable frontend access so that the content only appears in the context of our <a href="http://www.easyart.com/trends">main website</a>. Splitting the content management off into a separate service like this both fits with the SOA structure of Easyart and means our editors can add and edit content without affecting anything that might be happening on the rest of the platform.</p>
-
-    <p><a href="/2014/01/17/consuming-wordpress-as-a-service">Leave a comment</a></p>
   </article>
   
 
@@ -478,11 +564,13 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/05/17/2014-05-17-data-driven-decisions">Data-driven UX decisions</a></li>
+    
     <li><a href="/2014/03/21/getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a Rails project</a></li>
     
     <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
     
-    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></li>
     
     <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
     
@@ -495,8 +583,6 @@
     <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
     
     <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
-    
-    <li><a href="/2013/10/16/setting-up-google-tag-manager-with-optimizely">Setting Up Google Tag Manager with Optimizely</a></li>
     
   </ol>
 </div>
