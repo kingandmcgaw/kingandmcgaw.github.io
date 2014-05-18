@@ -7,7 +7,7 @@ author: Nick Boyce
 
 We all make countless decisions every day when we work. What [of the hundreds of reasonable things](http://blog.samaltman.com/super-successful-companies) in my list will provide the highest value? How am I going to find the best solution for our customers? How will we know if we have even solved the problem?
 
-Meanwhile, your customers are constantly sending you signals with every one of their interactions with you. At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:
+Meanwhile, with every one of their interactions with you your customers are constantly sending you signals that you can use to make better decisions. At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:
 
 > If we have data, let’s look at data. If all we have are opinions, let’s go with mine.
 
