@@ -40,7 +40,7 @@ We track click events on most of the elements we care about, so we can understan
 Funnels are ways of modelling a user's journey through the key parts of your site. We keep a regular eye on these to try to identify under-performing steps that might represent problems or opportunities.
 
 #### Custom reporting
-To find out very specific answers, we'll run custom reports which might involve adat wrangling in SQL or Excel. For example: finding out the average number of line items in our abandoned baskets, understanding the relative performance of the main navigation vs the various search functions or customers' tendancy to frame their print relative to the size of the print.
+To find out very specific answers, we’ll run custom reports which might involve data wrangling in SQL or Excel. For example: finding out the average number of line items in our abandoned baskets, understanding the relative performance of the main navigation vs the various search functions or customers’ tendency to frame their print relative to the size of the print.
 
 ## Testing
 
