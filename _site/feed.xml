@@ -4,7 +4,7 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2014-05-17T17:31:55+01:00</updated>
+ <updated>2014-05-19T14:08:57+01:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
@@ -12,11 +12,11 @@
  
  <entry>
    <title>Data-driven UX decisions</title>
-   <link href="http://easyart.github.com/2014/05/17/2014-05-17-data-driven-decisions"/>
+   <link href="http://easyart.github.com/2014/05/17/data-driven-decisions"/>
    <updated>2014-05-17T16:08:52+01:00 by Nick Boyce</updated>
-   <content type="html">&lt;p&gt;We all make countless decisions every day when we work. What &lt;a href=&quot;http://blog.samaltman.com/super-successful-companies&quot;&gt;of the hundreds of reasonable things&lt;/a&gt; in my list will provide the highest value? How am I going to find the best solution for our customers? How will we know if we have even solved the problem?&lt;/p&gt;
+   <content type="html">&lt;p&gt;We all make countless decisions every day when we work. Which &lt;a href=&quot;http://blog.samaltman.com/super-successful-companies&quot;&gt;of the hundreds of reasonable things&lt;/a&gt; in my list will provide the highest value? How am I going to find the best solution for our customers? How will we know if we have even solved the problem?&lt;/p&gt;
 
-&lt;p&gt;At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:&lt;/p&gt;
+&lt;p&gt;Meanwhile, with every one of their interactions with you, your customers are constantly sending you signals that can be used to make better decisions. At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:&lt;/p&gt;
 
 &lt;blockquote&gt;&lt;p&gt;If we have data, let’s look at data. If all we have are opinions, let’s go with mine.&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -32,7 +32,7 @@
 
 &lt;p&gt;Our brilliant customer service team phones a small handful of customers and asks them five questions. The answers are recorded in a Google Doc.&lt;/p&gt;
 
-&lt;p&gt;Though it&amp;rsquo;s a small sample size but it provides useful qualitative information which helps us spot patterns in individual customer stories in a way that we could never get from an Analytics funnel or aggregate market report.&lt;/p&gt;
+&lt;p&gt;Though it&amp;rsquo;s a small sample size, it provides useful qualitative information which helps us spot patterns in individual customer stories in a way that we could never get from an Analytics funnel or aggregate market report.&lt;/p&gt;
 
 &lt;h4&gt;Market research&lt;/h4&gt;
 
@@ -56,7 +56,7 @@
 
 &lt;h4&gt;Custom reporting&lt;/h4&gt;
 
-&lt;p&gt;To find out very specific answers, we&amp;rsquo;ll run custom reports which might involve adat wrangling in SQL or Excel. For example: finding out the average number of line items in our abandoned baskets, or understanding the what is the relative performance of the main navigation vs the various search functions.&lt;/p&gt;
+&lt;p&gt;To find out very specific answers, we’ll run custom reports which might involve data wrangling in SQL or Excel. For example: finding out the average number of line items in our abandoned baskets, understanding the relative performance of the main navigation vs the various search functions or customers’ tendency to frame their print relative to the size of the print.&lt;/p&gt;
 
 &lt;h2&gt;Testing&lt;/h2&gt;
 
@@ -110,7 +110,7 @@
 
 &lt;h3&gt;Go with your gut&lt;/h3&gt;
 
-&lt;p&gt;We don&amp;rsquo;t make &lt;em&gt;every&lt;/em&gt; decision using data. Sometimes it just isn&amp;rsquo;t possible, particularly with creative decisions.&lt;/p&gt;
+&lt;p&gt;We don&amp;rsquo;t make &lt;em&gt;every&lt;/em&gt; decision using data. Sometimes it just isn&amp;rsquo;t possible, particularly with creative decisions, and in other times there isn&amp;rsquo;t a lot that can be learned by analysis.&lt;/p&gt;
 
 &lt;p&gt;There is never absolute truth in numbers, and it&amp;rsquo;s best to just &lt;a href=&quot;http://www.gv.com/lib/design-instinct-vs-data&quot;&gt;go with your instincts&lt;/a&gt; and have the confidence to push forward.&lt;/p&gt;
 </content>
