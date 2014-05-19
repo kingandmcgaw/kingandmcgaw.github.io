@@ -11,7 +11,7 @@ Meanwhile, with every one of their interactions with you, your customers are con
 
 > If we have data, let’s look at data. If all we have are opinions, let’s go with mine.
 
-This post is about building better experiences for our customers through data-driven decisions.
+This post is about building better experiences for our customers through research and testing.
 
 ## Research
 
