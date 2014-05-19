@@ -5,9 +5,9 @@ date: 2014-05-17 15:08:52
 author: Nick Boyce
 ---
 
-We all make countless decisions every day when we work. What [of the hundreds of reasonable things](http://blog.samaltman.com/super-successful-companies) in my list will provide the highest value? How am I going to find the best solution for our customers? How will we know if we have even solved the problem?
+We all make countless decisions every day when we work. Which [of the hundreds of reasonable things](http://blog.samaltman.com/super-successful-companies) in my list will provide the highest value? How am I going to find the best solution for our customers? How will we know if we have even solved the problem?
 
-Meanwhile, with every one of their interactions with you your customers are constantly sending you signals that you can use to make better decisions. At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:
+Meanwhile, with every one of their interactions with you, your customers are constantly sending you signals that can be used to make better decisions. At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:
 
 > If we have data, let’s look at data. If all we have are opinions, let’s go with mine.
 
@@ -21,7 +21,7 @@ We must understand our customers in order to solve problems for them.
 #### Daily survey
 Our brilliant customer service team phones a small handful of customers and asks them five questions. The answers are recorded in a Google Doc.
 
-Though it's a small sample size but it provides useful qualitative information which helps us spot patterns in individual customer stories in a way that we could never get from an Analytics funnel or aggregate market report.
+Though it's a small sample size, it provides useful qualitative information which helps us spot patterns in individual customer stories in a way that we could never get from an Analytics funnel or aggregate market report.
 
 #### Market research
 Periodically we conduct large-scale market research which provides us with aggregate information on our customer demographic. These are less frequent but a much higher sample size than our daily surveys.
