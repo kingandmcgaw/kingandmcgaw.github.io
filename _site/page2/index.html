@@ -32,6 +32,51 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></h2>
+      <p class="updated">Posted on 16 February 2014
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>There is something of a revolution underway in the way that we approach user experience at Easyart. With <a href="http://easyart.github.io/2013/04/16/easyart-flavoured-agile/">Agile processes</a> so important to the way we build software, we felt we were ready to implement Lean UX approaches to help solve some of our user experience problems. It&rsquo;s early days but I thought I would share some of the things that have worked for us so far.</p>
+
+<p><em>Note: I&rsquo;ve added some notes on this to the <a href="http://www.github.com/easyart/handbook">tech handbook</a> which is emerging at the moment, but I thought I would elaborate on some of the processes in this post.</em></p>
+
+<p><img src="http://distilleryimage11.ak.instagram.com/6b11ac0a961a11e3b3ed0e5981f7b917_8.jpg" alt="" /></p>
+
+<h3>Agree on outcomes before deciding on features</h3>
+
+<p>By starting with a KPI we want to affect, we can develop hypotheses which we believe will help us reach that goal, and have a clear-cut way of measuring success.</p>
+
+<h3>Use personas to guide decisions</h3>
+
+<p>Focussing on user needs helps us build a more human experience so we have developed three <a href="http://en.wikipedia.org/wiki/Persona_(user_experience">personas</a> which we can use to step through different on-site journeys.</p>
+
+<p><img src="http://distilleryimage10.ak.instagram.com/48bd27167a5311e3b40d12f304019c2e_8.jpg" alt="" /></p>
+
+<h3>Shared understanding and hypotheses over design heroes</h3>
+
+<p>Getting stakeholders involved in the conception of ideas builds a shared understanding, which is invaluable for collaborating across departments and skill-sets. We&rsquo;ve had some success with <a href="http://bradfrostweb.com/blog/post/establishing-design-direction/">gut test exercises</a> when working on new homepage visual design, group sketching <a href="http://goodkickoffmeetings.com/2010/04/design-studioprototyping-exercise/">design studio</a> exercises to improve navigation and card sorting to agree on priorities.</p>
+
+<h3>Use the live styleguide to build pages from modules</h3>
+
+<p>Changing from a page-based approach to a component-based approach allows everyone to sketch pages, and our <a href="http://www.easyart.com/docs/styleguide">live style guide</a> is the directory of available modules.</p>
+
+<h3>Validate as early as possible</h3>
+
+<p>Our opinions are not as important as customer feedback, so we try to validate our hypotheses as early as possible. We use Usertesting.com for user testing, and Optimizely for split testing.</p>
+
+<p>We&rsquo;re at the formative stages of this process at the moment, but I&rsquo;m hopeful it&rsquo;s going to make a big difference.</p>
+
+    <p><a href="/2014/02/16/lean-ux-at-easyart">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2014/01/17/consuming-wordpress-as-a-service">Consuming Wordpress as a service</a></h2>
       <p class="updated">Posted on 17 January 2014
         by
@@ -179,86 +224,6 @@
     <p><a href="/2013/11/24/welcoming-steve-fuller">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></h2>
-      <p class="updated">Posted on 12 November 2013
-        by
-        
-        <a href="/authors/john-pash/">
-        
-          John Pash
-        </a>
-      </p>
-    </header>
-    <h2>Summary</h2>
-
-<p>Known by many names; the auto-complete, typeahead, search suggestion or incremental search box is an invaluable feature of any website. An example of it&rsquo;s use would be to find the latest news about <strong>Lance Armstrong</strong>. If you Google only the partial words &ldquo;<strong>lan</strong>&rdquo; and &ldquo;<strong>arm</strong>&rdquo; Google will be smart enough to fill in the blanks.</p>
-
-<p><img src="/assets/img/posts/lanarm.png" alt="Lance Armstrong" /></p>
-
-<h2>The project</h2>
-
-<p>The project I&rsquo;m about to explain was done for an internal administration menu here at <a href="http://www.easyart.com">Easyart</a>.</p>
-
-<p><img src="/assets/img/posts/admin-menu.png" alt="Admin menu" /></p>
-
-<p>Over the years our admin has grown so large that a simple list of pages was simply too long to navigate. Even after grouping
-and hiding them under dropdown menus we thought there must be a quicker way of getting to a specific page.</p>
-
-<p>An auto-complete input field would fit the bill.</p>
-
-<h2>A typical auto-complete setup</h2>
-
-<p>A typical setup might use <a href="http://twitter.github.io/typeahead.js/">Twitter&rsquo;s Typeahead</a> library which does an ajax call to a server which receives the partial search term and returns matching records. The results are displayed in real-time as a list of options and are updated on each keypress.</p>
-
-<h2>But there&rsquo;s a problem</h2>
-
-<p>Firstly, you need to know the exact spelling of the words you are after. Many auto-complete libraries search from the beginning of words. If you miszpel your target term, you are out of luck. Good luck to sports writers wanting to find <a href="http://en.wikipedia.org/wiki/Jhonny_Peralta">Jhonny Peralta&rsquo;s</a> batting average on your <a href="http://www.dominicanbaseballguy.com/">Dominican Major League baseball blog</a>.</p>
-
-<p>Also, if you have many records that start with the same phrase, and your auto-complete only shows the top 10, how do you find the one that you <em>know</em> is there but is hidden at number 15?</p>
-
-<h2>A better way to search</h2>
-
-<p>If you&rsquo;ve ever used the <a href="http://www.sublimetext.com">Sublime Text</a> editor you&rsquo;ll be familiar with the &ldquo;search anywhere&rdquo; paradigm. To find a file, normally you would go to the search box and type <strong>filename.txt</strong>, then hit <strong>search</strong>, then off it would go to hunt down your file. But with &ldquo;search anywhere&rdquo; you can find what you want in a fraction of the time.</p>
-
-<p>For example, to search the <a href="https://github.com/rails/rails">Rails source code</a> for the file &ldquo;<strong>active_record_callbacks.rb</strong>&rdquo; you could type:</p>
-
-<ul>
-<li>&ldquo;<strong>arb</strong>&rdquo; which matches &ldquo;<strong>a</strong>ctive_<strong>r</strong>ecord_<strong>c</strong>allbacks.rb&rdquo;</li>
-<li>&ldquo;<strong>reccall</strong>&rdquo; which matches &ldquo;active_<strong>rec</strong>ord_<strong>cal</strong>lbacks.rb&rdquo;</li>
-<li>&ldquo;<strong>arec</strong>&rdquo; which matches &ldquo;<strong>a</strong>ctive_<strong>rec</strong>ord_callbacks.rb&rdquo;</li>
-</ul>
-
-
-<p><img src="/assets/img/posts/active-record-callback.png" alt="Searching for Active Record Callback" /></p>
-
-<p>There are only two rules:</p>
-
-<ul>
-<li>All letters must be in the name of the item (obviously)</li>
-<li>Letters must appear in the correct order</li>
-</ul>
-
-
-<h2>So how do we do this in code?</h2>
-
-<p>The typical auto-complete setup will take the input and (after sanitising of course) ask the database with a &ldquo;like&rdquo; query to find matches.</p>
-
-<div class="highlight"><pre><code class="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="k">table_name</span> <span class="k">where</span> <span class="n">description</span> <span class="k">like</span> <span class="ss">&quot;%QUERY%&quot;</span><span class="p">;</span></code></pre></div>
-
-
-<p>This does an ok job, but it&rsquo;s not perfect. It&rsquo;s just not as flexible or fast as it could be.</p>
-
-<h2>Our solution</h2>
-
-<p><a href="http://www.regular-expressions.info/lookaround.html">Positive zero-length lookahead assertions</a> of course!</p>
-
-<p>Come back for <a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)/"><strong>Part Two</strong></a> of this post for the code.</p>
-
-    <p><a href="/2013/11/12/a-somewhat-better-autocomplete">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -397,13 +362,15 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/06/06/ios-event-bubbling">iOS event bubbling</a></li>
+    
     <li><a href="/2014/05/17/data-driven-decisions">Data-driven UX decisions</a></li>
     
     <li><a href="/2014/03/21/getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a Rails project</a></li>
     
     <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
     
-    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></li>
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
     
     <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
     
@@ -414,8 +381,6 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
     <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
     
     <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
-    
-    <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
     
   </ol>
 </div>

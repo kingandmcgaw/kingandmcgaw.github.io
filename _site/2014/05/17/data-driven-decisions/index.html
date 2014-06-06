@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="description" content="The Easyart Developers Blog">
+<meta name="author" content="Easyart">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Data-driven UX decisions | Easyart Developers</title>
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lt IE 9]>
+<script src="/assets/js/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+  <div class="global-header" role="banner">
+    <h1><a href="/"><strong>Easyart</strong> Developers</a></h1>
+  </div>
+
+
+  <div class="content row">
+
+    <section class="col-7">
+      <div class="content-pri" role="main">
+
+        <article class="hentry">
+          <header>
+            <h2>Data-driven UX decisions</h2>
+            <p class="updated">Posted on 17 May 2014
+              by
+              <a href="/authors/nick-boyce/">Nick Boyce</a>. Find me on <a href="https://plus.google.com/u/1/108806228703128779712?rel=author">Google+</a>
+              
+            </p>
+          </header>
+          <p>We all make countless decisions every day when we work. Which <a href="http://blog.samaltman.com/super-successful-companies">of the hundreds of reasonable things</a> in my list will provide the highest value? How am I going to find the best solution for our customers? How will we know if we have even solved the problem?</p>
+
+<p>Meanwhile, with every one of their interactions with you, your customers are constantly sending you signals that can be used to make better decisions. At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:</p>
+
+<blockquote><p>If we have data, let’s look at data. If all we have are opinions, let’s go with mine.</p></blockquote>
+
+<p>This post is about building better experiences for our customers through research and testing.</p>
+
+<h2>Research</h2>
+
+<h3>Customer research</h3>
+
+<p>We must understand our customers in order to solve problems for them.</p>
+
+<h4>Daily survey</h4>
+
+<p>Our brilliant customer service team phones a small handful of customers and asks them five questions. The answers are recorded in a Google Doc.</p>
+
+<p>Though it&rsquo;s a small sample size, it provides useful qualitative information which helps us spot patterns in individual customer stories in a way that we could never get from an Analytics funnel or aggregate market report.</p>
+
+<h4>Market research</h4>
+
+<p>Periodically we conduct large-scale market research which provides us with aggregate information on our customer demographic. These are less frequent but a much higher sample size than our daily surveys.</p>
+
+<h3>Google Analytics, KISSmetrics, Crazy Egg and custom reporting</h3>
+
+<p>We use Google Analytics (from here on, GA) and KISSmetrics (from here on, KM) extensively to find out how our customers are interacting with our site.</p>
+
+<h4>Do and measure</h4>
+
+<p>Some things are not A/B testable, we don&rsquo;t want to clog up the testing queue, or we&rsquo;re confident enough about our hypothesis that we will accept measuring after it&rsquo;s launched.</p>
+
+<p>For every significant feature we create a GA annotation so we can do before-and-after analysis to check that everything went as expected. GA and KM provide different vantage points (<em>GA tells you what’s happening. KM tells you who’s doing it</em>), and we also use Crazy Egg for heatmap and scroll tracking.</p>
+
+<p>We track click events on most of the elements we care about, so we can understand how users are using the site.</p>
+
+<h4>Funnels</h4>
+
+<p>Funnels are ways of modelling a user&rsquo;s journey through the key parts of your site. We keep a regular eye on these to try to identify under-performing steps that might represent problems or opportunities.</p>
+
+<h4>Custom reporting</h4>
+
+<p>To find out very specific answers, we’ll run custom reports which might involve data wrangling in SQL or Excel. For example: finding out the average number of line items in our abandoned baskets, understanding the relative performance of the main navigation vs the various search functions or customers’ tendency to frame their print relative to the size of the print.</p>
+
+<h2>Testing</h2>
+
+<h3>UserTesting.com</h3>
+
+<p>We use <a href="http://www.usertesting.com">Usertesting.com</a> to conduct remote user interviews. These allow us to observe people using the site as they follow a list of tasks. It gives us the &ldquo;why&rdquo; that is difficult to measure through metrics alone, and we predominantly use it to validate new UX ideas, as well as occasional competitor comparisons.</p>
+
+<h4>Watch the videos together as a team and share your findings.</h4>
+
+<p>It can be <em>extremely humbling</em> to you find out your brilliant idea makes no sense to the user, but it&rsquo;s better that these lessons are learned together.</p>
+
+<h4>Test your iterations to gain confidence</h4>
+
+<p>Google Ventures' Jake Knapp puts the emotional journey of user testing perfectly in <a href="http://www.gv.com/lib/the-product-design-sprint-validateday5">this post</a>:</p>
+
+<blockquote><p>First session: “We’re geniuses!” or “We’re idiots!”</p>
+
+<p>Sessions 2–4: “Oh, this is complicated…”</p>
+
+<p>Studies 5-6: “There’s a pattern!”</p></blockquote>
+
+<p>By running new tests with each of our major iterations we can see quick improvement which usually results in us building enough confidence to launch (though we occasionally reject ideas that don&rsquo;t test well).</p>
+
+<h4>These are not real customers</h4>
+
+<p>It should be noted that these are not your customers, nor are they in the same frame of mind that your customers will be, so don&rsquo;t treat this as customer research.</p>
+
+<h3>A/B testing</h3>
+
+<p>A/B testing can give us the <em>what</em> to the user testing&rsquo;s <em>why</em>, by providing a framework to validate a hypothesis.</p>
+
+<p>Much has been written on the topic, and it&rsquo;s easy to believe it can be used to unearth hidden conversion opportunities <em>that will make you millions</em>. The truth is, not everything is suitable for A/B testing, and there is a fine art to planning tests properly.</p>
+
+<h4>Start with a strong hypothesis</h4>
+
+<p>Don&rsquo;t use a scattergun approach, this should be something you are confident about that is backed by data.</p>
+
+<h4>Ensure that the hypothesis is testable.</h4>
+
+<p>A good A/B testing candidate should be noticeable change, with decent traffic and an expectation for a double-digit improvement to a metric close to the area you are affecting (i.e. don&rsquo;t expect a change on your category page will have a measurable effect on overall conversion through your checkout).</p>
+
+<p>We usually calculate the test plan using something like <a href="http://www.experimentcalculator.com/">experimentcalculator.com</a></p>
+
+<h4>Agree the success metric upfront.</h4>
+
+<p>Don&rsquo;t leave it open to interpretation, don&rsquo;t let ego get in the way, and <em>be willing to lose</em>. The truth can be humbling.</p>
+
+<h4>Use more than one source of data.</h4>
+
+<p>We use Optimizely to run the tests, but do most of our analysis through Google Analytics and KISSmetrics custom segments. This allows us to understand how users of each variation are behaving throughout their whole journey.</p>
+
+<h3>Go with your gut</h3>
+
+<p>We don&rsquo;t make <em>every</em> decision using data. Sometimes it just isn&rsquo;t possible, particularly with creative decisions, and in other times there isn&rsquo;t a lot that can be learned by analysis.</p>
+
+<p>There is never absolute truth in numbers, and it&rsquo;s best to just <a href="http://www.gv.com/lib/design-instinct-vs-data">go with your instincts</a> and have the confidence to push forward.</p>
+
+        </article>
+        <div id="disqus_thread"></div>
+        <script>
+          var disqus_shortname = 'easyartdevelopers';
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </section>
+
+    <aside class="col-4 offset-1">
+      <div class="content-sec" role="complementary">
+        <div class="widget">
+	<h3>Subscribe</h3>
+  <form action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=EasyartDevelopers', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+    <fieldset>
+      <label for="email">Sign up for email updates:</label>
+      <div>
+        <input type="email" name="email">
+        <input type="hidden" value="EasyartDevelopers" name="uri">
+        <input type="hidden" name="loc" value="en_US">
+        <button type="submit">Subscribe</button>
+      </div>
+    </fieldset>
+  </form>
+  <p><a href="http://feeds.feedburner.com/EasyartDevelopers">or subscribe to the RSS feed</a></p>
+</div>
+
+<div class="widget">
+  <h3>About this blog</h3>
+  <p>This is the blog of the developers at <a href="http://www.easyart.com" target="_blank">Easyart</a>. We have a strong focus on user-centered design, test-driven development and emerging technologies.</p>
+  <p><a href="/archives.html">See all posts &raquo;</a></p>
+</div>
+
+<div class="widget">
+  <h3>Recent posts</h3>
+  <ol>
+    
+    <li><a href="/2014/06/06/ios-event-bubbling">iOS event bubbling</a></li>
+    
+    <li><a href="/2014/05/17/data-driven-decisions">Data-driven UX decisions</a></li>
+    
+    <li><a href="/2014/03/21/getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a Rails project</a></li>
+    
+    <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
+    
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
+    
+    <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
+    
+    <li><a href="/2014/01/17/consuming-wordpress-as-a-service">Consuming Wordpress as a service</a></li>
+    
+    <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
+    
+    <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
+    
+    <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
+    
+  </ol>
+</div>
+
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="global-footer" role="contentinfo">
+    <p>&copy; Copyright 2012 Easyart. All rights reserved.</p>
+  </footer>
+
+<script>
+
+// Disqus comments
+var disqus_shortname = 'easyartdevelopers';
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+
+// Google analytics
+var _gaq=[['_setAccount','UA-204511-23'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>

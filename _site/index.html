@@ -32,6 +32,49 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2014/06/06/ios-event-bubbling">iOS event bubbling</a></h2>
+      <p class="updated">Posted on 06 June 2014
+        by
+        
+        <a href="/authors/steve-rydz/">
+        
+          Steve Rydz
+        </a>
+      </p>
+    </header>
+    <p>The great thing about being a web developer is that you get to learn new things all the time. This week, I learned something really simple, but it had a big impact:</p>
+
+<p><em>iOS doesn&rsquo;t respect event bubbling without a cursor style!</em></p>
+
+<p>This amazed me. We have what we like to call popovers in various places on our main site, similar to <a href="http://getbootstrap.com/javascript/#popovers">these</a>. Ours differ, in that we have a fullscreen, transparent div positioned behind them so the user can close them by clicking anywhere on the page. I discovered this wasn&rsquo;t working in iOS.</p>
+
+<p>The code looks something like this:</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="s2">&quot;.popover-overlay&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.popover-overlay&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>There didn&rsquo;t seem to be anything wrong with the code and it worked everywhere else. We use similar looking code on other areas of the site and they were working in iOS. I was very confused at this point.</p>
+
+<p>The difference between this specific example and the other places event bubbling is used was that the element we are targeting is not a link. It turns out that unless the element you are targeting has a cursor style applied, iOS won&rsquo;t respect event bubbling.</p>
+
+<p>After all that head scratching, the fix turned out to be:</p>
+
+<div class="highlight"><pre><code class="css"><span class="nc">.popover-overlay</span> <span class="p">{</span>
+    <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>I couldn&rsquo;t believe this. Especially as there is no visible cursor on iOS anyway!</p>
+
+    <p><a href="/2014/06/06/ios-event-bubbling">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2014/05/17/data-driven-decisions">Data-driven UX decisions</a></h2>
       <p class="updated">Posted on 17 May 2014
         by
@@ -48,7 +91,7 @@
 
 <blockquote><p>If we have data, let’s look at data. If all we have are opinions, let’s go with mine.</p></blockquote>
 
-<p>This post is about building better experiences for our customers through data-driven decisions.</p>
+<p>This post is about building better experiences for our customers through research and testing.</p>
 
 <h2>Research</h2>
 
@@ -175,26 +218,30 @@
 
 <div class="highlight"><pre><code class="ruby"><span class="ss">group</span><span class="p">:</span> <span class="n">development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
     <span class="n">gem</span> <span class="s2">&quot;jasmine&quot;</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span>
+</code></pre></div>
 
 
 <p>To setup the file structure that the gem expects for your tests, run the following command from your CLI, which will set up all the necessary files and directory structure to begin testing your code:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">rails</span> <span class="n">g</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">install</span></code></pre></div>
+<div class="highlight"><pre><code class="ruby"><span class="n">rails</span> <span class="n">g</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">install</span>
+</code></pre></div>
 
 
 <h3>Running the tests</h3>
 
 <p>There are two ways you can run your Jasmine tests. The first is to run the following rake task:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="n">jasmine</span></code></pre></div>
+<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="n">jasmine</span>
+</code></pre></div>
 
 
 <p>This will fire up a web server, accessible at <code>localhost:8888</code> where you will see an HTML document displaying the results of your tests.</p>
 
 <p>You can also run the tests in continuous integration mode from the command line, which will show you the results in the terminal:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">ci</span></code></pre></div>
+<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">ci</span>
+</code></pre></div>
 
 
 <p><img src="/assets/img/posts/jasmine-cli-specrunner.png" alt="the Jasmine CLI specrunner" /></p>
@@ -277,7 +324,7 @@
   
   <article class="hentry">
     <header>
-      <h2 class="entry-title"><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></h2>
+      <h2 class="entry-title"><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></h2>
       <p class="updated">Posted on 17 February 2014
         by
         
@@ -303,7 +350,8 @@
 <div class="highlight"><pre><code class="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">admin_pages</span> <span class="k">where</span> <span class="p">(</span>
     <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%p%&#39;</span> <span class="k">and</span> 
     <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%c%&#39;</span> <span class="k">and</span> 
-    <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%r%&#39;</span> <span class="p">)</span></code></pre></div>
+    <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%r%&#39;</span> <span class="p">)</span>
+</code></pre></div>
 
 
 <p>This will return all pages that have <strong>every</strong> one of those letters in the description in alphabetical order.</p>
@@ -341,7 +389,8 @@
 <span class="s2">        (</span><span class="si">{</span><span class="nv">$s</span><span class="si">}</span><span class="s2">)</span>
 <span class="s2">    order by page_description asc</span>
 <span class="s2">&quot;</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
 
 
 <p>So now we have a list of pages ready to process. Let&rsquo;s create that lookahead expression.</p>
@@ -351,7 +400,8 @@
     <span class="k">return</span> <span class="s2">&quot;(?=</span><span class="si">{</span><span class="nv">$x</span><span class="si">}</span><span class="s2">).*&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nv">$regex</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span> <span class="o">.</span> <span class="nb">implode</span><span class="p">(</span><span class="nb">array_map</span><span class="p">(</span><span class="s2">&quot;page_regex&quot;</span><span class="p">,</span> <span class="nb">str_split</span><span class="p">(</span><span class="nv">$query</span><span class="p">)))</span> <span class="o">.</span> <span class="s2">&quot;/i&quot;</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
 
 
 <p>This sets $regex to the string:<br/>
@@ -373,57 +423,13 @@
     <span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-type: application/json; charset=iso-8859-1&#39;</span><span class="p">);</span>
     <span class="k">echo</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
 
 
 
 
-    <p><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></h2>
-      <p class="updated">Posted on 16 February 2014
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>There is something of a revolution underway in the way that we approach user experience at Easyart. With <a href="http://easyart.github.io/2013/04/16/easyart-flavoured-agile/">Agile processes</a> so important to the way we build software, we felt we were ready to implement Lean UX approaches to help solve some of our user experience problems. It&rsquo;s early days but I thought I would share some of the things that have worked for us so far.</p>
-
-<p><em>Note: I&rsquo;ve added some notes on this to the <a href="http://www.github.com/easyart/handbook">tech handbook</a> which is emerging at the moment, but I thought I would elaborate on some of the processes in this post.</em></p>
-
-<p><img src="http://distilleryimage11.ak.instagram.com/6b11ac0a961a11e3b3ed0e5981f7b917_8.jpg" alt="" /></p>
-
-<h3>Agree on outcomes before deciding on features</h3>
-
-<p>By starting with a KPI we want to affect, we can develop hypotheses which we believe will help us reach that goal, and have a clear-cut way of measuring success.</p>
-
-<h3>Use personas to guide decisions</h3>
-
-<p>Focussing on user needs helps us build a more human experience so we have developed three <a href="http://en.wikipedia.org/wiki/Persona_(user_experience">personas</a> which we can use to step through different on-site journeys.</p>
-
-<p><img src="http://distilleryimage10.ak.instagram.com/48bd27167a5311e3b40d12f304019c2e_8.jpg" alt="" /></p>
-
-<h3>Shared understanding and hypotheses over design heroes</h3>
-
-<p>Getting stakeholders involved in the conception of ideas builds a shared understanding, which is invaluable for collaborating across departments and skill-sets. We&rsquo;ve had some success with <a href="http://bradfrostweb.com/blog/post/establishing-design-direction/">gut test exercises</a> when working on new homepage visual design, group sketching <a href="http://goodkickoffmeetings.com/2010/04/design-studioprototyping-exercise/">design studio</a> exercises to improve navigation and card sorting to agree on priorities.</p>
-
-<h3>Use the live styleguide to build pages from modules</h3>
-
-<p>Changing from a page-based approach to a component-based approach allows everyone to sketch pages, and our <a href="http://www.easyart.com/docs/styleguide">live style guide</a> is the directory of available modules.</p>
-
-<h3>Validate as early as possible</h3>
-
-<p>Our opinions are not as important as customer feedback, so we try to validate our hypotheses as early as possible. We use Usertesting.com for user testing, and Optimizely for split testing.</p>
-
-<p>We&rsquo;re at the formative stages of this process at the moment, but I&rsquo;m hopeful it&rsquo;s going to make a big difference.</p>
-
-    <p><a href="/2014/02/16/lean-ux-at-easyart">Leave a comment</a></p>
+    <p><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">Leave a comment</a></p>
   </article>
   
 
@@ -562,13 +568,15 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/06/06/ios-event-bubbling">iOS event bubbling</a></li>
+    
     <li><a href="/2014/05/17/data-driven-decisions">Data-driven UX decisions</a></li>
     
     <li><a href="/2014/03/21/getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a Rails project</a></li>
     
     <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
     
-    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></li>
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
     
     <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
     
@@ -579,8 +587,6 @@
     <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
     
     <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
-    
-    <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
     
   </ol>
 </div>

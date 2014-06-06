@@ -32,6 +32,64 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/03/01/git-tricks">Git tricks</a></h2>
+      <p class="updated">Posted on 01 March 2013
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>About a year or so ago, I started keeping notes of my most-used Git tricks. I still refer back to them as I am so terrible at remembering commands (particularly unintuitive ones like deleting remote branches), so I thought they might be useful for others too.</p>
+
+<hr />
+
+<p>Keep git from tracking permission changes to files
+    git config core.filemode false</p>
+
+<p>Restore a branch to the remote version (i.e. if you have pulled an incorrect remote branch)
+    git fetch git reset &ndash;hard origin/master</p>
+
+<p>Restore a single file to a version on another branch
+    git checkout branch_name path/to-file</p>
+
+<p>Search for a string in the commit history:
+    git show :/search_string</p>
+
+<p>Amend the last commit message:
+    git commit &ndash;amend -m &ldquo;New commit message&rdquo;</p>
+
+<p>Toggle between branches
+    git checkout -</p>
+
+<p>colourise all git commands
+    git config &ndash;global color.ui true</p>
+
+<p>Use mergetool
+    git mergetool -t opendiff</p>
+
+<p>Delete a branch remotely
+    git push origin :newfeature</p>
+
+<p>Delete a branch locally
+    git branch -d newfeature</p>
+
+<p>Delete branches that don&rsquo;t exist on remote
+    git remote prune origin</p>
+
+<p>This one is Github-specific: You can compare commit ranges by appending compare like so&hellip;
+    compare/master…someotherbranch
+    compare/master@{yesterday}…master
+    compare/master@{2.days.ago}…master
+    compare/master@{2012-05-01}…master</p>
+
+    <p><a href="/2013/03/01/git-tricks">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/02/17/links-for-the-week">Links for the week</a></h2>
       <p class="updated">Posted on 17 February 2013
         by
@@ -147,29 +205,6 @@
 
 
     <p><a href="/2013/01/26/links-this-week">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/01/25/personality-in-code">Personality in Code</a></h2>
-      <p class="updated">Posted on 25 January 2013
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>I liked this nice little post-install message from <a href="https://github.com/jnunemaker/httparty">HTTParty</a>:</p>
-
-<pre><code>Post-install message from httparty:
-When you HTTParty, you must party hard!
-</code></pre>
-
-<p>Code can have personality too!</p>
-
-    <p><a href="/2013/01/25/personality-in-code">Leave a comment</a></p>
   </article>
   
 
@@ -310,13 +345,15 @@ When you HTTParty, you must party hard!
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/06/06/ios-event-bubbling">iOS event bubbling</a></li>
+    
     <li><a href="/2014/05/17/data-driven-decisions">Data-driven UX decisions</a></li>
     
     <li><a href="/2014/03/21/getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a Rails project</a></li>
     
     <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
     
-    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></li>
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
     
     <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
     
@@ -327,8 +364,6 @@ When you HTTParty, you must party hard!
     <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
     
     <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
-    
-    <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
     
   </ol>
 </div>

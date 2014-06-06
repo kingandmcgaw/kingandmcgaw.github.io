@@ -55,7 +55,8 @@
 <div class="highlight"><pre><code class="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">admin_pages</span> <span class="k">where</span> <span class="p">(</span>
     <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%p%&#39;</span> <span class="k">and</span> 
     <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%c%&#39;</span> <span class="k">and</span> 
-    <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%r%&#39;</span> <span class="p">)</span></code></pre></div>
+    <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%r%&#39;</span> <span class="p">)</span>
+</code></pre></div>
 
 
 <p>This will return all pages that have <strong>every</strong> one of those letters in the description in alphabetical order.</p>
@@ -93,7 +94,8 @@
 <span class="s2">        (</span><span class="si">{</span><span class="nv">$s</span><span class="si">}</span><span class="s2">)</span>
 <span class="s2">    order by page_description asc</span>
 <span class="s2">&quot;</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
 
 
 <p>So now we have a list of pages ready to process. Let&rsquo;s create that lookahead expression.</p>
@@ -103,7 +105,8 @@
     <span class="k">return</span> <span class="s2">&quot;(?=</span><span class="si">{</span><span class="nv">$x</span><span class="si">}</span><span class="s2">).*&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nv">$regex</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span> <span class="o">.</span> <span class="nb">implode</span><span class="p">(</span><span class="nb">array_map</span><span class="p">(</span><span class="s2">&quot;page_regex&quot;</span><span class="p">,</span> <span class="nb">str_split</span><span class="p">(</span><span class="nv">$query</span><span class="p">)))</span> <span class="o">.</span> <span class="s2">&quot;/i&quot;</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
 
 
 <p>This sets $regex to the string:<br/>
@@ -125,7 +128,8 @@
     <span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-type: application/json; charset=iso-8859-1&#39;</span><span class="p">);</span>
     <span class="k">echo</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
 
 
 
@@ -173,13 +177,15 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/06/06/ios-event-bubbling">iOS event bubbling</a></li>
+    
     <li><a href="/2014/05/17/data-driven-decisions">Data-driven UX decisions</a></li>
     
     <li><a href="/2014/03/21/getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a Rails project</a></li>
     
     <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
     
-    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></li>
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
     
     <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
     
@@ -190,8 +196,6 @@
     <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
     
     <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
-    
-    <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
     
   </ol>
 </div>

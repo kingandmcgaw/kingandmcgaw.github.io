@@ -57,26 +57,30 @@
 
 <div class="highlight"><pre><code class="ruby"><span class="ss">group</span><span class="p">:</span> <span class="n">development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
     <span class="n">gem</span> <span class="s2">&quot;jasmine&quot;</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span>
+</code></pre></div>
 
 
 <p>To setup the file structure that the gem expects for your tests, run the following command from your CLI, which will set up all the necessary files and directory structure to begin testing your code:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">rails</span> <span class="n">g</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">install</span></code></pre></div>
+<div class="highlight"><pre><code class="ruby"><span class="n">rails</span> <span class="n">g</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">install</span>
+</code></pre></div>
 
 
 <h3>Running the tests</h3>
 
 <p>There are two ways you can run your Jasmine tests. The first is to run the following rake task:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="n">jasmine</span></code></pre></div>
+<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="n">jasmine</span>
+</code></pre></div>
 
 
 <p>This will fire up a web server, accessible at <code>localhost:8888</code> where you will see an HTML document displaying the results of your tests.</p>
 
 <p>You can also run the tests in continuous integration mode from the command line, which will show you the results in the terminal:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">ci</span></code></pre></div>
+<div class="highlight"><pre><code class="ruby"><span class="n">rake</span> <span class="ss">jasmine</span><span class="p">:</span><span class="n">ci</span>
+</code></pre></div>
 
 
 <p><img src="/assets/img/posts/jasmine-cli-specrunner.png" alt="the Jasmine CLI specrunner" /></p>
@@ -142,13 +146,15 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/06/06/ios-event-bubbling">iOS event bubbling</a></li>
+    
     <li><a href="/2014/05/17/data-driven-decisions">Data-driven UX decisions</a></li>
     
     <li><a href="/2014/03/21/getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a Rails project</a></li>
     
     <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
     
-    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></li>
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
     
     <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
     
@@ -159,8 +165,6 @@
     <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
     
     <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
-    
-    <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
     
   </ol>
 </div>

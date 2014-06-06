@@ -32,6 +32,41 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/12/20/london-and-github">Is London the most popular city for Github users?</a></h2>
+      <p class="updated">Posted on 20 December 2012
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>Interesting review of 2012 from Github in <a href="https://github.com/blog/1359-the-octoverse-in-2012">The Octoverse in 2012</a>:</p>
+
+<blockquote><p>Since the beginning of the year, we&rsquo;ve seen a doubling in activity, with pushes alone responsible for over 60% of the events in a given day. On a typical weekday, 10k people sign up for a GitHub account, and our users:</p>
+
+<ul>
+<li>push 140GB of new data</li>
+<li>create 25k repositories and 7k pull requests</li>
+<li>push to 125k repositories</li>
+<li>Best of all:</li>
+</ul>
+
+
+<p>10k people create their very first repository</p></blockquote>
+
+<p>Apart from their impressive growth, this little fact caught my eye:</p>
+
+<blockquote><p>The top 10 countries visiting GitHub.com are: United States, Germany, United Kingdom, China, Japan, France, India, Canada, Russia and Brazil. The top 10 cities are: London, San Francisco, New York, Paris, Moscow, Beijing, Berlin, Bangalore, Sydney and Toronto.</p></blockquote>
+
+<p>London is the #1 city for Github users? Go London!</p>
+
+    <p><a href="/2012/12/20/london-and-github">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/12/19/why-have-i-failed">Why have I failed?</a></h2>
       <p class="updated">Posted on 19 December 2012
         by
@@ -150,124 +185,6 @@
 <p>When the postman handed the package over, he said &ldquo;all I am doing is delivering Googles&rdquo;. That being the case, we&rsquo;d better get our skates on and set some new breakpoints in our responsive CSS!</p>
 
     <p><a href="/2012/12/03/a-prediction-for-2013">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/11/27/working-with-grunt">Working with Grunt</a></h2>
-      <p class="updated">Posted on 27 November 2012
-        by
-        
-        <a href="/authors/steve-rydz/">
-        
-          Steve Rydz
-        </a>
-      </p>
-    </header>
-    <p>A few weeks ago I attended a series of tooling workshops in Brighton. One of the workshops was focused around build process, and particularly <a href="http://gruntjs.com">Grunt</a>.</p>
-
-<p>Currently we use <a href="http://incident57.com/codekit/">CodeKit</a> to compile our Less and JavaScript files so we end up with concatenated, minified versions of each. So far this has worked well but we have found it difficult to keep things synchronised between team members.</p>
-
-<p>Soon after returning from the workshops I started to investigate Grunt in more detail and we put a plan in place on how we could use it to aid our build process.</p>
-
-<p>What we came up with was the following file structure:</p>
-
-<pre><code>    Site_Name/
-        |__ public/
-        |           |__ static/
-        |           |           |__ css/
-        |           |           |__ js/
-        |           |           |__ img/
-        |           |
-        |           |__ index.html
-        |
-        |__ spec/
-        |
-        |__ static-src/
-        |           |__ less/
-        |           |__ js/
-        |
-        |__ grunt.js
-        |__ README.md
-</code></pre>
-
-<h3>public</h3>
-
-<p>The public directory contains anything public facing, including all static assets such as stylesheets, scripts and images. Anything in the <code>static/css/</code> and <code>static/js/</code> directories is compiled from <code>static-src/</code>.</p>
-
-<h3>spec</h3>
-
-<p>The spec directory contains our selenium tests.</p>
-
-<h3>static-src</h3>
-
-<p>This is where we keep all of our pre-compiled files.</p>
-
-<h3>Compiling LESS</h3>
-
-<p>Our Less files are broken down into modules. There is a master file that imports all dependencies. This master file is then compiled into CSS, minified and placed in the <code>static/css/</code> directory.</p>
-
-<h3>Compiling JavaScript</h3>
-
-<p>Just like our Less files, all our JavaScript is broken down into modules. These are then concatenated to a master JavaScript file which is placed in the <code>static/js/</code> directory. We also create a minified version for production which sits alongside the master file in the <code>static/js/</code> directory.</p>
-
-<h3>Enter Grunt</h3>
-
-<p>Grunt makes the process of performing all of the above tasks very simple. Everything is defined inside our <code>grunt.js</code> file:</p>
-
-<pre><code>module.exports = function(grunt) {
-
-  grunt.initConfig({
-    lint: {
-      files: ['static-src/js/*.js']
-    },
-    less: {
-      development: {
-        options: {
-          paths: ['static-src/less/'],
-          yuicompress: true
-        },
-        files: {
-          'public/static/css/master.css': 'static-src/less/master.less'
-        }
-      }
-    },
-    concat: {
-      dist: {
-        src: [
-          'static-src/js/lib/jquery/jquery.js',
-          'static-src/js/lib/jquery/jquery.cookie.js',
-          'static-src/js/app.js'
-        ],
-        dest: 'public/static/js/master.js'
-      }
-    },
-    min: {
-      dist: {
-        src: 'public/static/js/master.js',
-        dest: 'public/static/js/master.min.js'
-      }
-    },
-    watch: {
-      files: ['static-src/js/*.js', 'static-src/less/*.less'],
-      tasks: 'default'
-    }
-  });
-
-  grunt.loadNpmTasks('grunt-contrib-less');
-
-  grunt.registerTask('default', 'lint less concat min');
-
-};
-</code></pre>
-
-<h3>Extending Grunt</h3>
-
-<p>Grunt is very extensible and here we are using it in it&rsquo;s most basic form using (with the exception of Less) only it&rsquo;s built-in tasks. The goal here was to become less reliant on a third-part app such as CodeKit in favour of a platform that we can easily build upon.</p>
-
-<p>Going forward, this is likely to be the way we do things. We will no doubt build on this in time, making use of more advanced features, and maybe even build some tasks of our own, but even as it stands, this is a good position for us to be in.</p>
-
-    <p><a href="/2012/11/27/working-with-grunt">Leave a comment</a></p>
   </article>
   
 
@@ -408,13 +325,15 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/06/06/ios-event-bubbling">iOS event bubbling</a></li>
+    
     <li><a href="/2014/05/17/data-driven-decisions">Data-driven UX decisions</a></li>
     
     <li><a href="/2014/03/21/getting-started-with-jasmine-on-a-rails-project">Getting started with Jasmine on a Rails project</a></li>
     
     <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
     
-    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></li>
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
     
     <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
     
@@ -425,8 +344,6 @@
     <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
     
     <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
-    
-    <li><a href="/2013/11/12/a-somewhat-better-autocomplete">A somewhat better auto-complete</a></li>
     
   </ol>
 </div>

@@ -7,7 +7,7 @@
 <meta name="author" content="Easyart">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Working with Grunt | Easyart Developers</title>
+<title>iOS event bubbling | Easyart Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -32,115 +32,40 @@
 
         <article class="hentry">
           <header>
-            <h2>Working with Grunt</h2>
-            <p class="updated">Posted on 27 November 2012
+            <h2>iOS event bubbling</h2>
+            <p class="updated">Posted on 06 June 2014
               by
               <a href="/authors/steve-rydz/">Steve Rydz</a>
               
             </p>
           </header>
-          <p>A few weeks ago I attended a series of tooling workshops in Brighton. One of the workshops was focused around build process, and particularly <a href="http://gruntjs.com">Grunt</a>.</p>
+          <p>The great thing about being a web developer is that you get to learn new things all the time. This week, I learned something really simple, but it had a big impact:</p>
 
-<p>Currently we use <a href="http://incident57.com/codekit/">CodeKit</a> to compile our Less and JavaScript files so we end up with concatenated, minified versions of each. So far this has worked well but we have found it difficult to keep things synchronised between team members.</p>
+<p><em>iOS doesn&rsquo;t respect event bubbling without a cursor style!</em></p>
 
-<p>Soon after returning from the workshops I started to investigate Grunt in more detail and we put a plan in place on how we could use it to aid our build process.</p>
+<p>This amazed me. We have what we like to call popovers in various places on our main site, similar to <a href="http://getbootstrap.com/javascript/#popovers">these</a>. Ours differ, in that we have a fullscreen, transparent div positioned behind them so the user can close them by clicking anywhere on the page. I discovered this wasn&rsquo;t working in iOS.</p>
 
-<p>What we came up with was the following file structure:</p>
+<p>The code looks something like this:</p>
 
-<pre><code>    Site_Name/
-        |__ public/
-        |           |__ static/
-        |           |           |__ css/
-        |           |           |__ js/
-        |           |           |__ img/
-        |           |
-        |           |__ index.html
-        |
-        |__ spec/
-        |
-        |__ static-src/
-        |           |__ less/
-        |           |__ js/
-        |
-        |__ grunt.js
-        |__ README.md
-</code></pre>
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="s2">&quot;.popover-overlay&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.popover-overlay&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div>
 
-<h3>public</h3>
 
-<p>The public directory contains anything public facing, including all static assets such as stylesheets, scripts and images. Anything in the <code>static/css/</code> and <code>static/js/</code> directories is compiled from <code>static-src/</code>.</p>
+<p>There didn&rsquo;t seem to be anything wrong with the code and it worked everywhere else. We use similar looking code on other areas of the site and they were working in iOS. I was very confused at this point.</p>
 
-<h3>spec</h3>
+<p>The difference between this specific example and the other places event bubbling is used was that the element we are targeting is not a link. It turns out that unless the element you are targeting has a cursor style applied, iOS won&rsquo;t respect event bubbling.</p>
 
-<p>The spec directory contains our selenium tests.</p>
+<p>After all that head scratching, the fix turned out to be:</p>
 
-<h3>static-src</h3>
+<div class="highlight"><pre><code class="css"><span class="nc">.popover-overlay</span> <span class="p">{</span>
+    <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 
-<p>This is where we keep all of our pre-compiled files.</p>
 
-<h3>Compiling LESS</h3>
-
-<p>Our Less files are broken down into modules. There is a master file that imports all dependencies. This master file is then compiled into CSS, minified and placed in the <code>static/css/</code> directory.</p>
-
-<h3>Compiling JavaScript</h3>
-
-<p>Just like our Less files, all our JavaScript is broken down into modules. These are then concatenated to a master JavaScript file which is placed in the <code>static/js/</code> directory. We also create a minified version for production which sits alongside the master file in the <code>static/js/</code> directory.</p>
-
-<h3>Enter Grunt</h3>
-
-<p>Grunt makes the process of performing all of the above tasks very simple. Everything is defined inside our <code>grunt.js</code> file:</p>
-
-<pre><code>module.exports = function(grunt) {
-
-  grunt.initConfig({
-    lint: {
-      files: ['static-src/js/*.js']
-    },
-    less: {
-      development: {
-        options: {
-          paths: ['static-src/less/'],
-          yuicompress: true
-        },
-        files: {
-          'public/static/css/master.css': 'static-src/less/master.less'
-        }
-      }
-    },
-    concat: {
-      dist: {
-        src: [
-          'static-src/js/lib/jquery/jquery.js',
-          'static-src/js/lib/jquery/jquery.cookie.js',
-          'static-src/js/app.js'
-        ],
-        dest: 'public/static/js/master.js'
-      }
-    },
-    min: {
-      dist: {
-        src: 'public/static/js/master.js',
-        dest: 'public/static/js/master.min.js'
-      }
-    },
-    watch: {
-      files: ['static-src/js/*.js', 'static-src/less/*.less'],
-      tasks: 'default'
-    }
-  });
-
-  grunt.loadNpmTasks('grunt-contrib-less');
-
-  grunt.registerTask('default', 'lint less concat min');
-
-};
-</code></pre>
-
-<h3>Extending Grunt</h3>
-
-<p>Grunt is very extensible and here we are using it in it&rsquo;s most basic form using (with the exception of Less) only it&rsquo;s built-in tasks. The goal here was to become less reliant on a third-part app such as CodeKit in favour of a platform that we can easily build upon.</p>
-
-<p>Going forward, this is likely to be the way we do things. We will no doubt build on this in time, making use of more advanced features, and maybe even build some tasks of our own, but even as it stands, this is a good position for us to be in.</p>
+<p>I couldn&rsquo;t believe this. Especially as there is no visible cursor on iOS anyway!</p>
 
         </article>
         <div id="disqus_thread"></div>
