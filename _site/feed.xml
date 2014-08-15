@@ -4,7 +4,7 @@
  <title>Easyart Developers</title>
  <link href="http://easyart.github.com/feed.xml" rel="self"/>
  <link href="http://easyart.github.com"/>
- <updated>2014-06-06T11:10:12+01:00</updated>
+ <updated>2014-08-15T16:31:08+01:00</updated>
  <id>http://easyart.github.com/</id>
  <author>
    <name></name>
@@ -13,7 +13,7 @@
  <entry>
    <title>iOS event bubbling</title>
    <link href="http://easyart.github.com/2014/06/06/ios-event-bubbling"/>
-   <updated>2014-06-06T10:41:44Z by Steve Rydz</updated>
+   <updated>2014-06-06T11:41:44+01:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;The great thing about being a web developer is that you get to learn new things all the time. This week, I learned something really simple, but it had a big impact:&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;iOS doesn&amp;rsquo;t respect event bubbling without a cursor style!&lt;/em&gt;&lt;/p&gt;
@@ -22,10 +22,9 @@
 
 &lt;p&gt;The code looks something like this:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;click&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;.popover-overlay&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;click&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;.popover-overlay&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;.popover-overlay&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;There didn&amp;rsquo;t seem to be anything wrong with the code and it worked everywhere else. We use similar looking code on other areas of the site and they were working in iOS. I was very confused at this point.&lt;/p&gt;
@@ -34,10 +33,9 @@
 
 &lt;p&gt;After all that head scratching, the fix turned out to be:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nc&quot;&gt;.popover-overlay&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nc&quot;&gt;.popover-overlay&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;pointer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;I couldn&amp;rsquo;t believe this. Especially as there is no visible cursor on iOS anyway!&lt;/p&gt;
@@ -47,7 +45,7 @@
  <entry>
    <title>Data-driven UX decisions</title>
    <link href="http://easyart.github.com/2014/05/17/data-driven-decisions"/>
-   <updated>2014-05-17T15:08:52Z by Nick Boyce</updated>
+   <updated>2014-05-17T16:08:52+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;We all make countless decisions every day when we work. Which &lt;a href=&quot;http://blog.samaltman.com/super-successful-companies&quot;&gt;of the hundreds of reasonable things&lt;/a&gt; in my list will provide the highest value? How am I going to find the best solution for our customers? How will we know if we have even solved the problem?&lt;/p&gt;
 
 &lt;p&gt;Meanwhile, with every one of their interactions with you, your customers are constantly sending you signals that can be used to make better decisions. At Easyart we put a lot of effort into basing our decisions on data first, and opinions second. As Jim Barksdale, former CEO of Netscape famously said:&lt;/p&gt;
@@ -153,7 +151,7 @@
  <entry>
    <title>Getting started with Jasmine on a Rails project</title>
    <link href="http://easyart.github.com/2014/03/21/getting-started-with-jasmine-on-a-rails-project"/>
-   <updated>2014-03-21T15:08:52Z by Steve Rydz</updated>
+   <updated>2014-03-21T15:08:52+00:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;We&amp;rsquo;re big fans of &lt;a href=&quot;http://www.agiledata.org/essays/tdd.html&quot;&gt;TDD&lt;/a&gt; here at Easyart. So far this has only applied to our Ruby code, but with JavaScript increasingly becoming a bigger part of our technology stack, we needed to start testing that too.&lt;/p&gt;
 
 &lt;h3&gt;Choosing the right tool&lt;/h3&gt;
@@ -170,32 +168,28 @@
 
 &lt;p&gt;Luckily, there is an official &lt;a href=&quot;https://github.com/pivotal/jasmine-gem&quot;&gt;Jasmine gem&lt;/a&gt;. To add this to your project add the following to your gemfile:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;ss&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:test&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;ss&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:test&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;jasmine&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To setup the file structure that the gem expects for your tests, run the following command from your CLI, which will set up all the necessary files and directory structure to begin testing your code:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;jasmine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;install&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;jasmine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;Running the tests&lt;/h3&gt;
 
 &lt;p&gt;There are two ways you can run your Jasmine tests. The first is to run the following rake task:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;rake&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jasmine&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;rake&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jasmine&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This will fire up a web server, accessible at &lt;code&gt;localhost:8888&lt;/code&gt; where you will see an HTML document displaying the results of your tests.&lt;/p&gt;
 
 &lt;p&gt;You can also run the tests in continuous integration mode from the command line, which will show you the results in the terminal:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;rake&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;jasmine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ci&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;rake&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;jasmine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ci&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/posts/jasmine-cli-specrunner.png&quot; alt=&quot;the Jasmine CLI specrunner&quot; /&gt;&lt;/p&gt;
@@ -223,7 +217,7 @@
  <entry>
    <title>Improving our development cycle</title>
    <link href="http://easyart.github.com/2014/03/11/improving-our-development-cycle"/>
-   <updated>2014-03-11T14:28:29Z by Nick Boyce</updated>
+   <updated>2014-03-11T14:28:29+00:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;I&amp;rsquo;ve been struggling to solve a problem for some time now. The agile (with a lower-case &amp;ldquo;a&amp;rdquo;) &lt;a href=&quot;/2013/04/16/easyart-flavoured-agile/&quot;&gt;approach&lt;/a&gt; we use for software development and the long-term roadmaps we have as a business have always been too disconnected, but I never quite knew how to connect them.&lt;/p&gt;
 
 &lt;p&gt;Recently, inspired by a deeper understanding of the &lt;a href=&quot;/2014/02/16/lean-ux-at-easyart/&quot;&gt;lean approaches&lt;/a&gt;, I think I&amp;rsquo;ve finally connected them together in these five steps. It&amp;rsquo;s still an emerging process, but I&amp;rsquo;m hopeful it will solve a number of problems.&lt;/p&gt;
@@ -268,8 +262,8 @@
  
  <entry>
    <title>A somewhat better auto-complete (part 2)</title>
-   <link href="http://easyart.github.com/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29"/>
-   <updated>2014-02-17T09:55:52Z by John Pash</updated>
+   <link href="http://easyart.github.com/2014/02/17/a-somewhat-better-auto-complete-(part-2)"/>
+   <updated>2014-02-17T09:55:52+00:00 by John Pash</updated>
    <content type="html">&lt;p&gt;This is part 2 of a post which tries to explain a method of enhancing an auto-complete search box to act in a similar way to the Google search box.
 &lt;a href=&quot;/2013/11/12/a-somewhat-better-autocomplete/&quot;&gt;&amp;raquo; Read part one here &amp;laquo;&lt;/a&gt;&lt;/p&gt;
 
@@ -283,11 +277,10 @@
 
 &lt;p&gt;First we need to mangle the input into a query that will get us most of the way using plain old sql. For example, if the user enters the string &lt;strong&gt;pcr&lt;/strong&gt; (perhaps looking for the &lt;strong&gt;p&lt;/strong&gt;rint &lt;strong&gt;c&lt;/strong&gt;ategory &lt;strong&gt;r&lt;/strong&gt;eport), we want to end up with the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin_pages&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin_pages&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;page_description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;%p%&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;and&lt;/span&gt; 
     &lt;span class=&quot;n&quot;&gt;page_description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;%c%&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;and&lt;/span&gt; 
-    &lt;span class=&quot;n&quot;&gt;page_description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;%r%&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;n&quot;&gt;page_description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;%r%&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This will return all pages that have &lt;strong&gt;every&lt;/strong&gt; one of those letters in the description in alphabetical order.&lt;/p&gt;
@@ -303,13 +296,13 @@
 
 &lt;p&gt;The code that constructs this query is below (I&amp;rsquo;ve removed any security/sanitisation code to avoid cluttering up the example.):&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;page_desc_sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;page_description like &amp;#39;%&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;%&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// a-z only please...&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;preg_replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/[^a-z]/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;strtolower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;q&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]));&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;preg_replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/[^a-z]/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strtolower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;q&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]));&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// build query&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;implode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot; and &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;array_map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;page_desc_sql&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
@@ -325,19 +318,17 @@
 &lt;span class=&quot;s2&quot;&gt;        (&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;s2&quot;&gt;    order by page_description asc&lt;/span&gt;
 &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;So now we have a list of pages ready to process. Let&amp;rsquo;s create that lookahead expression.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;page_regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;(?=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;).*&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$regex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;implode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;page_regex&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/i&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This sets $regex to the string:&lt;br/&gt;
@@ -345,7 +336,7 @@
 
 &lt;p&gt;The final piece of the puzzle is to take the results and pass them through this regex, only returning the ones that match. Then output some json for the auto-complete to use.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next_record&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get_row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 
@@ -356,11 +347,10 @@
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-type: application/json; charset=iso-8859-1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-type: application/json; charset=iso-8859-1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;json_encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
@@ -370,7 +360,7 @@
  <entry>
    <title>Introducing Lean UX at Easyart</title>
    <link href="http://easyart.github.com/2014/02/16/lean-ux-at-easyart"/>
-   <updated>2014-02-16T22:19:31Z by Nick Boyce</updated>
+   <updated>2014-02-16T22:19:31+00:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;There is something of a revolution underway in the way that we approach user experience at Easyart. With &lt;a href=&quot;http://easyart.github.io/2013/04/16/easyart-flavoured-agile/&quot;&gt;Agile processes&lt;/a&gt; so important to the way we build software, we felt we were ready to implement Lean UX approaches to help solve some of our user experience problems. It&amp;rsquo;s early days but I thought I would share some of the things that have worked for us so far.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Note: I&amp;rsquo;ve added some notes on this to the &lt;a href=&quot;http://www.github.com/easyart/handbook&quot;&gt;tech handbook&lt;/a&gt; which is emerging at the moment, but I thought I would elaborate on some of the processes in this post.&lt;/em&gt;&lt;/p&gt;
@@ -406,7 +396,7 @@
  <entry>
    <title>Consuming Wordpress as a service</title>
    <link href="http://easyart.github.com/2014/01/17/consuming-wordpress-as-a-service"/>
-   <updated>2014-01-17T16:04:10Z by Steve Fuller</updated>
+   <updated>2014-01-17T16:04:10+00:00 by Steve Fuller</updated>
    <content type="html">&lt;p&gt;Our Wordpress blog is a useful tool for publishing marketing information and one we wanted to keep in our new site as it provides useful information for customers as well as helping to keep the content of the site fresh.&lt;/p&gt;
 
 &lt;p&gt;We didn&amp;rsquo;t necessarily want all the features of Wordpress so beloved of developers the world over, just the content posts, assets and a means of querying the different categories we&amp;rsquo;d set up.&lt;/p&gt;
@@ -420,7 +410,7 @@
  <entry>
    <title>Adding dependencies to your ruby gem</title>
    <link href="http://easyart.github.com/2014/01/03/adding-dependencies-to-your-ruby-gem"/>
-   <updated>2014-01-03T09:43:45Z by Steve Rydz</updated>
+   <updated>2014-01-03T09:43:45+00:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;A couple of days ago I wrote about &lt;a href=&quot;http://easyart.github.io/2013/12/31/turn-your-css-into-a-ruby-gem/&quot;&gt;turning your CSS into a ruby gem&lt;/a&gt;. Since then my colleague &lt;a href=&quot;http://easyart.github.io/authors/john-pash/&quot;&gt;John&lt;/a&gt; suggested that I add &lt;a href=&quot;http://bourbon.io&quot;&gt;Bourbon&lt;/a&gt; and &lt;a href=&quot;http://neat.bourbon.io&quot;&gt;Neat&lt;/a&gt; as dependencies, as the SCSS included in the gem will not work without them.&lt;/p&gt;
 
 &lt;p&gt;So, once again I was faced with a new challenge - and once again it turned out to be fairly simple in the end.&lt;/p&gt;
@@ -448,7 +438,7 @@
  <entry>
    <title>Turn your CSS into a ruby gem</title>
    <link href="http://easyart.github.com/2013/12/31/turn-your-css-into-a-ruby-gem"/>
-   <updated>2013-12-31T11:26:25Z by Steve Rydz</updated>
+   <updated>2013-12-31T11:26:25+00:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;In our never-ending mission to make our codebase more maintainable, we decided to package up our shared CSS into a gem so we can use it on all of our projects easily, without having to worry about things going out of sync.&lt;/p&gt;
 
 &lt;p&gt;This seemed daunting to me, as I&amp;rsquo;d never done anything like this before, but after some reading and googling, I found it wasn&amp;rsquo;t actually that complicated. Here&amp;rsquo;s how I did it:&lt;/p&gt;
@@ -511,7 +501,7 @@
  <entry>
    <title>Welcoming Steve Fuller</title>
    <link href="http://easyart.github.com/2013/11/24/welcoming-steve-fuller"/>
-   <updated>2013-11-24T22:57:45Z by Nick Boyce</updated>
+   <updated>2013-11-24T22:57:45+00:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;We&amp;rsquo;re excited to welcome Steve Fuller to the Easyart tech team, as a result of our acquisition of assets from Picture Cabinet Ltd. Steve was responsible for building Picture Cabinet&amp;rsquo;s platform that powers a large number of print on demand sites, apps and kiosks and will undoubtably be a valuable addition to the team.&lt;/p&gt;
 </content>
  </entry>
@@ -519,7 +509,7 @@
  <entry>
    <title>A somewhat better auto-complete</title>
    <link href="http://easyart.github.com/2013/11/12/a-somewhat-better-autocomplete"/>
-   <updated>2013-11-12T17:37:22Z by John Pash</updated>
+   <updated>2013-11-12T17:37:22+00:00 by John Pash</updated>
    <content type="html">&lt;h2&gt;Summary&lt;/h2&gt;
 
 &lt;p&gt;Known by many names; the auto-complete, typeahead, search suggestion or incremental search box is an invaluable feature of any website. An example of it&amp;rsquo;s use would be to find the latest news about &lt;strong&gt;Lance Armstrong&lt;/strong&gt;. If you Google only the partial words &amp;ldquo;&lt;strong&gt;lan&lt;/strong&gt;&amp;rdquo; and &amp;ldquo;&lt;strong&gt;arm&lt;/strong&gt;&amp;rdquo; Google will be smart enough to fill in the blanks.&lt;/p&gt;
@@ -574,8 +564,7 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
 
 &lt;p&gt;The typical auto-complete setup will take the input and (after sanitising of course) ask the database with a &amp;ldquo;like&amp;rdquo; query to find matches.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;table_name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;quot;%QUERY%&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;table_name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;quot;%QUERY%&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This does an ok job, but it&amp;rsquo;s not perfect. It&amp;rsquo;s just not as flexible or fast as it could be.&lt;/p&gt;
@@ -591,7 +580,7 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
  <entry>
    <title>Setting Up Google Tag Manager with Optimizely</title>
    <link href="http://easyart.github.com/2013/10/16/setting-up-google-tag-manager-with-optimizely"/>
-   <updated>2013-10-16T14:07:47Z by John Pash</updated>
+   <updated>2013-10-16T15:07:47+01:00 by John Pash</updated>
    <content type="html">&lt;h3&gt;Summary&lt;/h3&gt;
 
 &lt;p&gt;We&amp;rsquo;ve recently moved over to using &lt;a href=&quot;www.google.co.uk/tagmanager%E2%80%8E&quot;&gt;Google Tag Manager&lt;/a&gt; (GTM) on the redesign of &lt;a href=&quot;www.worldgallery.co.uk&quot;&gt;Worldgallery&lt;/a&gt;. The promise of being able to &lt;em&gt;&amp;ldquo;update your website tags&amp;hellip;without bugging the IT folks.&amp;rdquo;&lt;/em&gt; was too hard to pass up. The reality of GTM, however, has proven to be something all together different.&lt;/p&gt;
@@ -641,7 +630,7 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
  <entry>
    <title>On technical debt, complexity and opportunity cost</title>
    <link href="http://easyart.github.com/2013/10/12/on-technical-debt"/>
-   <updated>2013-10-12T14:57:13Z by Nick Boyce</updated>
+   <updated>2013-10-12T15:57:13+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;In reading &lt;a href=&quot;https://keen.io/blog/63582764323/what-ctos-fear-most&quot;&gt;What CTOs Fear Most&lt;/a&gt;, it&amp;rsquo;s clear that managing priorities is a common fear amongst technical managers.&lt;/p&gt;
 
 &lt;p&gt;The Easyart technical team is in the midst of redeveloping a platform that has been running for well over a decade, we are continually faced with difficult decisions about what features are worth migrating, and how they compete for resources with new features.&lt;/p&gt;
@@ -683,7 +672,7 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
  <entry>
    <title>Launching Kubrick, part 1</title>
    <link href="http://easyart.github.com/2013/08/20/launching-kubrick-part-1"/>
-   <updated>2013-08-20T12:45:14Z by Nick Boyce</updated>
+   <updated>2013-08-20T13:45:14+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;After a period of beta testing, user testing and painful analysis, last week we migrated &lt;a href=&quot;http://www.worldgallery.co.uk&quot;&gt;WorldGallery.co.uk&lt;/a&gt; to Kubrick, the new platform we&amp;rsquo;ve been working on in the London office. Kubrick&amp;rsquo;s primary objectives are textbook e-commerce, but the technology and processes are a bit more interesting (which I will write about later)&lt;/p&gt;
 
 &lt;h3&gt;Improving conversion rate&lt;/h3&gt;
@@ -743,7 +732,7 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
  <entry>
    <title>A Decision Journal</title>
    <link href="http://easyart.github.com/2013/08/11/a-decision-journal"/>
-   <updated>2013-08-11T13:09:37Z by Nick Boyce</updated>
+   <updated>2013-08-11T14:09:37+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;Nobel Laureate Daniel Kahneman:&lt;/p&gt;
 
 &lt;blockquote&gt;&lt;p&gt;Somewhat surprisingly, few organizations keep track of what’s decided and why.&lt;/p&gt;
@@ -759,7 +748,7 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
  <entry>
    <title>Design For Disaster and other interesting links</title>
    <link href="http://easyart.github.com/2013/08/04/design-for-disaster"/>
-   <updated>2013-08-04T15:16:38Z by Nick Boyce</updated>
+   <updated>2013-08-04T16:16:38+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.steverydz.com&quot;&gt;Steve&lt;/a&gt; brought Jeffrey Veen&amp;rsquo;s &lt;a href=&quot;https://vimeo.com/63525053&quot;&gt;Design For Disaster&lt;/a&gt; talk to my attention last week and I&amp;rsquo;m still thinking about it.&lt;/p&gt;
 
 &lt;iframe src=&quot;http://player.vimeo.com/video/63525053&quot; width=&quot;500&quot; height=&quot;281&quot; frameborder=&quot;0&quot; webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;
@@ -786,7 +775,7 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
  <entry>
    <title>Heroku Fork</title>
    <link href="http://easyart.github.com/2013/07/24/heroku-fork"/>
-   <updated>2013-07-24T22:04:28Z by Nick Boyce</updated>
+   <updated>2013-07-24T23:04:28+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;I&amp;rsquo;ve been meaning to try the &lt;a href=&quot;https://devcenter.heroku.com/articles/fork-app&quot;&gt;fork&lt;/a&gt; feature on Heroku for a while.&lt;/p&gt;
 
 &lt;p&gt;It does exactly what you expect, but that&amp;rsquo;s what&amp;rsquo;s so brilliant about it. It&amp;rsquo;s taken be less than 2 minutes to set up a staging environment for one of our apps in the EU region. Here&amp;rsquo;s what&amp;rsquo;s involved:&lt;/p&gt;
@@ -837,7 +826,7 @@ Web URL:       http://yourapp-staging.herokuapp.com/
  <entry>
    <title>Lazy loading Facebook buttons</title>
    <link href="http://easyart.github.com/2013/07/12/lazy-loading-facebook-buttons"/>
-   <updated>2013-07-12T16:13:45Z by Steve Rydz</updated>
+   <updated>2013-07-12T17:13:45+01:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;We recently did the WordPress work for the &lt;a href=&quot;http://arteverywhere.org.uk/&quot;&gt;Art Everywhere&lt;/a&gt; project, and one of the requirements of the project was to include a Facebook like button for each artwork on the &lt;a href=&quot;http://arteverywhere.org.uk/artworks/&quot;&gt;Choose Artworks&lt;/a&gt; page.&lt;/p&gt;
 
 &lt;p&gt;That page has around 100 artworks on it so immediately I heard alarm bells, until I remembered the &lt;a href=&quot;http://socialitejs.com/&quot;&gt;Socialite plugin&lt;/a&gt;. This allows you to lazy-loading the Facebook buttons.&lt;/p&gt;
@@ -858,7 +847,7 @@ Web URL:       http://yourapp-staging.herokuapp.com/
  <entry>
    <title>Some wisdom from Adam Wiggins</title>
    <link href="http://easyart.github.com/2013/06/02/adam-wiggins-wisdom"/>
-   <updated>2013-06-02T16:04:53Z by Nick Boyce</updated>
+   <updated>2013-06-02T17:04:53+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;This week &lt;a href=&quot;http://about.adamwiggins.com/&quot;&gt;Adam Wiggins&lt;/a&gt; announced that he has &lt;a href=&quot;https://gist.github.com/adamwiggins/5687917&quot;&gt;stepped down&lt;/a&gt; as CTO of &lt;a href=&quot;http://heroku.com&quot;&gt;Heroku&lt;/a&gt; to pursue other opportunities.&lt;/p&gt;
 
 &lt;p&gt;At Easyart we&amp;rsquo;re big fans of Heroku (it&amp;rsquo;s used extensively for our new platform), and Adam&amp;rsquo;s general approach to modern web software design, so I thought it might be a good opportunity to review some of his nuggets of wisdom.&lt;/p&gt;
@@ -888,7 +877,7 @@ Web URL:       http://yourapp-staging.herokuapp.com/
  <entry>
    <title>JSONAPI.org</title>
    <link href="http://easyart.github.com/2013/05/05/json-api"/>
-   <updated>2013-05-05T14:00:34Z by Nick Boyce</updated>
+   <updated>2013-05-05T15:00:34+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;I was interested to see &lt;a href=&quot;http://jsonapi.org/&quot;&gt;jsonapi.org&lt;/a&gt; spring up on the web recently. Though it&amp;rsquo;s authored by Ember&amp;rsquo;s team, the references to Ember have been moved from the homepage to the &lt;a href=&quot;http://jsonapi.org/history&quot;&gt;history&lt;/a&gt; section, and it&amp;rsquo;s clear that the ambition is to set a standard for API compatibility between servers and clients.&lt;/p&gt;
 
 &lt;p&gt;Overall I applaud the ambition and it&amp;rsquo;s clearly written by clever people. That said, I believe consuming the proposed data structures is more complicated unless you&amp;rsquo;re using a compatible library.&lt;/p&gt;
@@ -954,7 +943,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
  <entry>
    <title>Notes from Industry Conference</title>
    <link href="http://easyart.github.com/2013/04/29/notes-from-industry-conference"/>
-   <updated>2013-04-29T10:06:25Z by Steve Rydz</updated>
+   <updated>2013-04-29T11:06:25+01:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/img/posts/industry-conf.jpg&quot; alt=&quot;Industry Conference&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Last week I attended &lt;a href=&quot;http://industryconf.com&quot;&gt;Industry&lt;/a&gt;, organised by Gavin Elliott. I must say Gavin did a great job and  it was a great conference. Here are my notes from the talks:&lt;/p&gt;
@@ -1024,7 +1013,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
  <entry>
    <title>Making Ideas Happen</title>
    <link href="http://easyart.github.com/2013/04/25/making-ideas-happen"/>
-   <updated>2013-04-25T10:14:16Z by Nick Boyce</updated>
+   <updated>2013-04-25T11:14:16+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;A couple of years ago I had the pleasure of seeing &lt;a href=&quot;http://www.scottbelsky.com/&quot;&gt;Scott Belsky&lt;/a&gt; (of &lt;a href=&quot;http://www.behance.com&quot;&gt;Behance&lt;/a&gt; and now &lt;a href=&quot;http://www.adobe.com&quot;&gt;Adobe&lt;/a&gt; fame speak about his book &lt;a href=&quot;http://99u.com/book/making-ideas-happen&quot;&gt;Making Ideas Happen&lt;/a&gt; at the &lt;a href=&quot;http://wearelikeminds.com/books&quot;&gt;Like Minds Business Book Club&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;It&amp;rsquo;s a fantastic book which celebrates some of the things I value most - collaboration, creativity and getting things done! Here are my some of the passages I highlighted on my Kindle.&lt;/p&gt;
@@ -1084,7 +1073,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
  <entry>
    <title>Transitioning to Bourbon</title>
    <link href="http://easyart.github.com/2013/04/22/transitioning-to-bourbon"/>
-   <updated>2013-04-22T11:01:48Z by Steve Rydz</updated>
+   <updated>2013-04-22T12:01:48+01:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;With the project we&amp;rsquo;re currently working on, I was tasked with taking the lead on the front-end side of things. Previously we used Bootstrap, with our styles applied on top, but this was no longer a good fit for a number of reasons:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -1133,7 +1122,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
  <entry>
    <title>Why don't other industries use version control?</title>
    <link href="http://easyart.github.com/2013/04/21/why-dont-other-industries-use-version-control"/>
-   <updated>2013-04-21T12:40:10Z by Nick Boyce</updated>
+   <updated>2013-04-21T13:40:10+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;It&amp;rsquo;s easy to take version control for granted when you work in software development as it&amp;rsquo;s such an integral part of the process. But it&amp;rsquo;s virtually non-existent in other technical industries.&lt;/p&gt;
 
 &lt;p&gt;Recently, when Github launched their new &lt;a href=&quot;https://github.com/blog/1465-stl-file-viewing&quot;&gt;online STL viewer&lt;/a&gt;, I asked some friends who work with product and game design if they used version control for their source files. These are a few (edited) parts of that conversation.&lt;/p&gt;
@@ -1155,7 +1144,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
  <entry>
    <title>Easyart-flavoured agile</title>
    <link href="http://easyart.github.com/2013/04/16/easyart-flavoured-agile"/>
-   <updated>2013-04-16T12:41:43Z by Nick Boyce</updated>
+   <updated>2013-04-16T13:41:43+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;We decided to try out kanban/agile for the development of our new Kubrick platform. None of the team had much experience with agile and we all agreed from the beginning that we didn&amp;rsquo;t want to take a strict approach to it, but would like to try it out and see how it fits with us. This is what we ended up with.&lt;/p&gt;
 
 &lt;h3&gt;The board&lt;/h3&gt;
@@ -1191,7 +1180,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
  <entry>
    <title>Git tricks</title>
    <link href="http://easyart.github.com/2013/03/01/git-tricks"/>
-   <updated>2013-03-01T13:45:40Z by Nick Boyce</updated>
+   <updated>2013-03-01T13:45:40+00:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;About a year or so ago, I started keeping notes of my most-used Git tricks. I still refer back to them as I am so terrible at remembering commands (particularly unintuitive ones like deleting remote branches), so I thought they might be useful for others too.&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -1240,7 +1229,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
  <entry>
    <title>Links for the week</title>
    <link href="http://easyart.github.com/2013/02/17/links-for-the-week"/>
-   <updated>2013-02-17T21:07:40Z by Nick Boyce</updated>
+   <updated>2013-02-17T21:07:40+00:00 by Nick Boyce</updated>
    <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://docs.timdorr.apiary.io/&quot;&gt;Unofficial documentation for the Tesla REST (ish) API&lt;/a&gt;. I never expected to see something like &lt;code&gt;GET /vehicles/{id}/command/honk_horn&lt;/code&gt; in a car!&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.slideshare.net/ProphetsAgency/trends-in-interactive-design-2013&quot;&gt;2013 trends in interactive design&lt;/a&gt;. Hint: mobile-first and bold, flat designs.&lt;/li&gt;
@@ -1261,7 +1250,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
  <entry>
    <title>Links for the week</title>
    <link href="http://easyart.github.com/2013/02/10/links-for-the-week"/>
-   <updated>2013-02-10T12:08:35Z by Nick Boyce</updated>
+   <updated>2013-02-10T12:08:35+00:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;It&amp;rsquo;s been a busy week for the tech team at Easyart this week (more on that later), but I&amp;rsquo;ve got a backlog of some interesting links in my Evernote that I want to share.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1282,7 +1271,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
  <entry>
    <title>Mobile continues to grow</title>
    <link href="http://easyart.github.com/2013/02/03/mobile-continuees-to-grow"/>
-   <updated>2013-02-03T20:35:39Z by Nick Boyce</updated>
+   <updated>2013-02-03T20:35:39+00:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;Looking back some of our metrics for Easyart.com for 2012, this one stood out:&lt;/p&gt;
 
 &lt;blockquote&gt;&lt;p&gt;92% more mobile transactions YOY&lt;/p&gt;&lt;/blockquote&gt;
@@ -1294,7 +1283,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
  <entry>
    <title>Links This Week</title>
    <link href="http://easyart.github.com/2013/01/26/links-this-week"/>
-   <updated>2013-01-26T10:38:06Z by Nick Boyce</updated>
+   <updated>2013-01-26T10:38:06+00:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;Here&amp;rsquo;s some things that popped up on my radar this week:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1323,7 +1312,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
  <entry>
    <title>Personality in Code</title>
    <link href="http://easyart.github.com/2013/01/25/personality-in-code"/>
-   <updated>2013-01-25T15:03:54Z by Nick Boyce</updated>
+   <updated>2013-01-25T15:03:54+00:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;I liked this nice little post-install message from &lt;a href=&quot;https://github.com/jnunemaker/httparty&quot;&gt;HTTParty&lt;/a&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;Post-install message from httparty:
@@ -1337,7 +1326,7 @@ When you HTTParty, you must party hard!
  <entry>
    <title>Front-end performance for web designers and front-end developers</title>
    <link href="http://easyart.github.com/2013/01/21/front-end-performance-for-web-designers-and-front-end-developers"/>
-   <updated>2013-01-21T17:04:02Z by Steve Rydz</updated>
+   <updated>2013-01-21T17:04:02+00:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;I read a very thorough post on front-end performance earlier today by Harry Roberts of CSS Wizardry fame. If you are involved in front-end development then go read it:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1393,7 +1382,7 @@ When you HTTParty, you must party hard!
  <entry>
    <title>Using git flow</title>
    <link href="http://easyart.github.com/2013/01/09/using-git-flow"/>
-   <updated>2013-01-09T15:46:43Z by Steve Rydz</updated>
+   <updated>2013-01-09T15:46:43+00:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;For the past couple of weeks I&amp;rsquo;ve been using a tool called &lt;a href=&quot;https://github.com/nvie/gitflow&quot;&gt;Git Flow&lt;/a&gt;. In it&amp;rsquo;s own words, git flow is &lt;em&gt;A collection of Git extensions to provide high-level repository operations for Vincent Driessen&amp;rsquo;s &lt;a href=&quot;http://nvie.com/git-model&quot;&gt;branching model&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;If you&amp;rsquo;re already familiar with Git on the command line then getting up and running with git flow will take you no time at all.&lt;/p&gt;
@@ -1562,7 +1551,7 @@ When you HTTParty, you must party hard!
  <entry>
    <title>A prediction for 2013</title>
    <link href="http://easyart.github.com/2012/12/03/a-prediction-for-2013"/>
-   <updated>2012-12-03T18:25:14Z by Nick Boyce</updated>
+   <updated>2012-12-03T18:25:14+00:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;A humble prediction:&lt;/p&gt;
 
 &lt;blockquote&gt;&lt;p&gt;Traffic to Easyart.com from 7&quot; Android devices is going to have a noticeable bump after Christmas.&lt;/p&gt;&lt;/blockquote&gt;
@@ -1576,7 +1565,7 @@ When you HTTParty, you must party hard!
  <entry>
    <title>Working with Grunt</title>
    <link href="http://easyart.github.com/2012/11/27/working-with-grunt"/>
-   <updated>2012-11-27T10:54:10Z by Steve Rydz</updated>
+   <updated>2012-11-27T10:54:10+00:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;A few weeks ago I attended a series of tooling workshops in Brighton. One of the workshops was focused around build process, and particularly &lt;a href=&quot;http://gruntjs.com&quot;&gt;Grunt&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Currently we use &lt;a href=&quot;http://incident57.com/codekit/&quot;&gt;CodeKit&lt;/a&gt; to compile our Less and JavaScript files so we end up with concatenated, minified versions of each. So far this has worked well but we have found it difficult to keep things synchronised between team members.&lt;/p&gt;
@@ -1685,7 +1674,7 @@ When you HTTParty, you must party hard!
  <entry>
    <title>Links - week 46</title>
    <link href="http://easyart.github.com/2012/11/22/links-week-46"/>
-   <updated>2012-11-22T22:12:38Z by Nick Boyce</updated>
+   <updated>2012-11-22T22:12:38+00:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;Outside of the madness that is Christmas season at Easyart Towers, here are a few nuggets I&amp;rsquo;ve enjoyed on the interwebs this week.&lt;/p&gt;
 
 &lt;ol&gt;
@@ -1703,7 +1692,7 @@ When you HTTParty, you must party hard!
  <entry>
    <title>The breakpoint podcasts</title>
    <link href="http://easyart.github.com/2012/11/19/the-breakpoint-podcasts"/>
-   <updated>2012-11-19T10:28:10Z by Steve Rydz</updated>
+   <updated>2012-11-19T10:28:10+00:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;Lately I&amp;rsquo;ve been enjoying a new video series from the &lt;a href=&quot;http://www.youtube.com/user/GoogleDevelopers?feature=watch&quot;&gt;Google Developers channel&lt;/a&gt; called &lt;strong&gt;The Breakpoint&lt;/strong&gt; with &lt;a href=&quot;http://paulirish.com&quot;&gt;Paul Irish&lt;/a&gt; and &lt;a href=&quot;http://addyosmani.com/&quot;&gt;Addy Osmani&lt;/a&gt;, which focuses on front-end developer tools.&lt;/p&gt;
 
 &lt;p&gt;So far there have been three episodes and I highly recommend checking them out:&lt;/p&gt;
@@ -1720,7 +1709,7 @@ When you HTTParty, you must party hard!
  <entry>
    <title>London JS - Create the web</title>
    <link href="http://easyart.github.com/2012/11/13/london-js---create-the-web"/>
-   <updated>2012-11-13T10:35:41Z by Steve Rydz</updated>
+   <updated>2012-11-13T10:35:41+00:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;Last night I attended &lt;a href=&quot;http://www.eventhandler.co.uk/events/londonjs-createtheweb&quot;&gt;London JS — Create the web&lt;/a&gt;, which was hosted at &lt;a href=&quot;http://forwardtechnology.co.uk/&quot;&gt;Forward Technology&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The first talk was by &lt;a href=&quot;http://javascriptplayground.com&quot;&gt;Jack Franklin&lt;/a&gt; and was called &lt;em&gt;Optimising JavaScript&lt;/em&gt;.&lt;/p&gt;
@@ -1746,7 +1735,7 @@ When you HTTParty, you must party hard!
  <entry>
    <title>Links - Week 45</title>
    <link href="http://easyart.github.com/2012/11/12/last-weeks-links-12-45"/>
-   <updated>2012-11-12T13:38:29Z by Nick Boyce</updated>
+   <updated>2012-11-12T13:38:29+00:00 by Nick Boyce</updated>
    <content type="html">&lt;h3&gt;Interesting stuff from around the internet last week&lt;/h3&gt;
 
 &lt;ol&gt;
@@ -1767,7 +1756,7 @@ When you HTTParty, you must party hard!
  <entry>
    <title>Full Frontal Tooling</title>
    <link href="http://easyart.github.com/2012/11/07/full-frontal-tooling"/>
-   <updated>2012-11-07T20:25:51Z by Steve Rydz</updated>
+   <updated>2012-11-07T20:25:51+00:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;I&amp;rsquo;ve just got back from the &lt;a href=&quot;http://2012.full-frontal.org/#tooling&quot;&gt;Full Frontal Tooling Workshops&lt;/a&gt; in Brighton, so I thought I&amp;rsquo;d best write about my experience whilst it&amp;rsquo;s still fresh in my mind.&lt;/p&gt;
 
 &lt;h3&gt;The set up&lt;/h3&gt;
@@ -1865,7 +1854,7 @@ When you HTTParty, you must party hard!
  <entry>
    <title>This weekend's reading and viewing</title>
    <link href="http://easyart.github.com/2012/11/04/some-reading-and-viewing"/>
-   <updated>2012-11-04T10:37:55Z by Nick Boyce</updated>
+   <updated>2012-11-04T10:37:55+00:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;After a week focussed on product development, user experience and design, I&amp;rsquo;ve been geeking out with a bunch of articles, podcasts and videos this weekend.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1883,7 +1872,7 @@ When you HTTParty, you must party hard!
  <entry>
    <title>The importance of user testing</title>
    <link href="http://easyart.github.com/2012/10/22/the-importance-of-user-testing"/>
-   <updated>2012-10-22T11:35:21Z by Steve Rydz</updated>
+   <updated>2012-10-22T12:35:21+01:00 by Steve Rydz</updated>
    <content type="html">&lt;p&gt;When developing a customer facing site, such as Easyart.com, is it very important to be aware of your users perspective. The recommended way to do this is something known as user testing.&lt;/p&gt;
 
 &lt;h3&gt;What is user testing&lt;/h3&gt;
@@ -1917,7 +1906,7 @@ When you HTTParty, you must party hard!
  <entry>
    <title>Highlights from Dublin Web Summit 2012</title>
    <link href="http://easyart.github.com/2012/10/21/dublin-web-summit-2012"/>
-   <updated>2012-10-21T11:16:00Z by Nick Boyce</updated>
+   <updated>2012-10-21T12:16:00+01:00 by Nick Boyce</updated>
    <content type="html">&lt;p&gt;This week thousands fellow web makers, CEOs, VCs and geeks descended on Dublin for the Dublin Web Summit. They had done an amazing job of promoting the event - there were flags on the mains streets, front-page coverage in papers and loads of media reporting live from the event (to the point where the wifi was almost useless!). The event itself had four stages, an expo room with startups from all over the world, and startup pitching stages. The overall highlight had to be DWS By Night, where they had taken over a whole street of pubs and clubs with free drinks for attendees. There were bound to be some sore heads on Thursday morning!&lt;/p&gt;
 
 &lt;h3&gt;Startup pitching stages&lt;/h3&gt;

@@ -47,10 +47,9 @@
 
 <p>The code looks something like this:</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="s2">&quot;.popover-overlay&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="s2">&quot;.popover-overlay&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.popover-overlay&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
 
 
 <p>There didn&rsquo;t seem to be anything wrong with the code and it worked everywhere else. We use similar looking code on other areas of the site and they were working in iOS. I was very confused at this point.</p>
@@ -59,10 +58,9 @@
 
 <p>After all that head scratching, the fix turned out to be:</p>
 
-<div class="highlight"><pre><code class="css"><span class="nc">.popover-overlay</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.popover-overlay</span> <span class="p">{</span>
     <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>I couldn&rsquo;t believe this. Especially as there is no visible cursor on iOS anyway!</p>
@@ -85,7 +83,7 @@
     <aside class="col-4 offset-1">
       <div class="content-sec" role="complementary">
         <div class="widget">
-	<h3>Subscribe</h3>
+  <h3>Subscribe</h3>
   <form action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=EasyartDevelopers', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
     <fieldset>
       <label for="email">Sign up for email updates:</label>
@@ -118,7 +116,7 @@
     
     <li><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></li>
     
-    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-%28part-2%29">A somewhat better auto-complete (part 2)</a></li>
+    <li><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></li>
     
     <li><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></li>
     

@@ -33,7 +33,7 @@ body {
   width: $body-width;
   max-width: $body-max-width;
   margin: 0 auto;
-  font: 87.5%/1.5 $sans-serif;
+  font: 100%/1.5 $sans-serif;
   color: $text-color;
   background: $body-background;
 }
@@ -41,9 +41,7 @@ body {
 /* ----------------------------------------------
   TYPOGRAPHY
 ---------------------------------------------- */
-p,
-ul,
-ol {
+p, ul, ol {
   margin-bottom: 1.5em;
 }
 
@@ -56,21 +54,23 @@ ol {
 }
 
 .hentry {
-
-  ul,
-  ol {
+  ul, ol {
     margin-left: 1.5em;
 
     li {
       margin-bottom: 0.75em;
     }
   }
+
+  .header {
+    h2 {
+      margin-bottom: .1em;
+    }
+  }
 }
 
 .widget {
-
-  ul,
-  ol {
+  ul, ol {
     list-style: none;
 
     li {
@@ -90,8 +90,6 @@ strong {
 blockquote {
   padding-left: 1.5em;
   border-left: 3px solid $border-color;
-  font-style: italic;
-  color: $text-color-light;
 }
 
 pre {
@@ -104,6 +102,7 @@ pre {
 }
 
 code {
+  font-size: .8em;
   font-family: $monospace;
   background: #eee;
   border: 1px solid $border-color;
@@ -120,12 +119,7 @@ hr {
 /* ----------------------------------------------
   HEADINGS
 ---------------------------------------------- */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
@@ -137,37 +131,31 @@ h1 {
 
 h2 {
   margin-bottom: 1em;
-  font-size: 1.5em;
+  font-size: 2em;
   line-height: 1;
 }
 
 h3 {
   margin-bottom: 1.2em;
-  font-size: 1.25em;
+  font-size: 1.5em;
   line-height: 1.25;
 }
 
-h4,
-h5,
-h6 {
-  margin-bottom: 1.5em;
-  font-size: 1.5em;
+h4, h5, h6 {
+  margin-bottom: 1.2em;
+  font-size: 1.2em;
 }
 
 /* ----------------------------------------------
   LINKS
 ---------------------------------------------- */
 a {
-
-  &:link,
-  &:visited {
+  &:link, &:visited {
     text-decoration: none;
     color: $link-color;
   }
 
-  &:hover,
-  &:active,
-  &:focus {
+  &:hover, &:active, &:focus {
     text-decoration: underline;
     color: $link-color-hover;
   }
@@ -183,39 +171,6 @@ img {
   background: #fff;
   @include box-sizing(border-box);
   @include box-shadow(1px 1px 6px rgba(0,0,0,0.25));
-}
-
-/* ----------------------------------------------
-  FORMS
----------------------------------------------- */
-form {
-  margin-bottom: 1.5em;
-}
-
-input,
-button {
-  padding: 5px;
-  border: 1px solid $border-color;
-  @include box-sizing(border-box);
-
-  &:focus {
-    border-color: darken($border-color, 25%);
-  }
-}
-
-input {
-  width: 60%;
-}
-
-button {
-  padding: 5px 10px;
-  cursor: pointer;
-  @include linear-gradient(lighten($border-color, 15%), $border-color);
-
-  &:active,
-  &:focus {
-    background: $border-color;
-  }
 }
 
 /* ----------------------------------------------

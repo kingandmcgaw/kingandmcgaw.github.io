@@ -1,0 +1,31 @@
+/* ----------------------------------------------
+  FORMS
+---------------------------------------------- */
+form {
+  margin-bottom: 1.5em;
+}
+
+input, button {
+  padding: 5px;
+  border: 1px solid $border-color;
+  @include box-sizing(border-box);
+
+  &:focus {
+    border-color: darken($border-color, 25%);
+  }
+}
+
+input {
+  width: 60%;
+}
+
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+  @include linear-gradient(lighten($border-color, 15%), $border-color);
+
+  &:active,
+  &:focus {
+    background: $border-color;
+  }
+}
