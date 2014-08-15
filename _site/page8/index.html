@@ -32,6 +32,86 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/01/09/using-git-flow">Using git flow</a></h2>
+      <p class="updated">Posted on 09 January 2013
+        by
+        
+        <a href="/authors/steve-rydz/">
+        
+          Steve Rydz
+        </a>
+      </p>
+    </header>
+    <p>For the past couple of weeks I&rsquo;ve been using a tool called <a href="https://github.com/nvie/gitflow">Git Flow</a>. In it&rsquo;s own words, git flow is <em>A collection of Git extensions to provide high-level repository operations for Vincent Driessen&rsquo;s <a href="http://nvie.com/git-model">branching model</a>.</em></p>
+
+<p>If you&rsquo;re already familiar with Git on the command line then getting up and running with git flow will take you no time at all.</p>
+
+<h3>Installation</h3>
+
+<p>The full installation instructions <a href="https://github.com/nvie/gitflow/wiki/Installation">can be found here</a> but for the purposes of this article I am going to assume you are on a Mac and using homebrew.</p>
+
+<p>You can use homebrew to install git flow:</p>
+
+<pre><code>    $ brew install git-flow
+</code></pre>
+
+<p>That&rsquo;s all it takes.</p>
+
+<h3>Initialising a project</h3>
+
+<p>To use git flow, you will need to already have a git project set up. So, to get started, just navigate to your project (in Terminal) and type the following:</p>
+
+<pre><code>    $ git flow init
+</code></pre>
+
+<p>It will then ask you a few questions regarding what to name your various branches. Unless you have good reason, I would stick to the defaults.</p>
+
+<h3>Going with the flow</h3>
+
+<p>So now you have initialised git flow within your project, you want to get going.</p>
+
+<p>The assumption here is that your master branch is always deployable and your develop branch is where you would make small changes that will be release fairly quickly.</p>
+
+<p>The feature I use most is <em>feature</em> branches. Essentially a branch called feature/<feature-name> is created and when complete, merged into your develop branch. To start a new feature branch just type:</p>
+
+<pre><code>    $ git flow feature start &lt;feature-name&gt;
+</code></pre>
+
+<p>Obviously feature name will be whatever you want to call your new feature. You can then start working on your feature and commit as you normally would. To set up a remote branch so others can collaborate just use the publish command:</p>
+
+<pre><code>    $ git flow feature publish &lt;feature-name&gt;
+</code></pre>
+
+<p>Once you are ready to merge your new feature, just use the finish command:</p>
+
+<pre><code>    $ git flow feature finish &lt;feature-name&gt;
+</code></pre>
+
+<p>This will merge your feature into your develop branch and delete your local branch too. If you want/need to delete the remote branch then just type:</p>
+
+<pre><code>    $ git push origin :feature/&lt;feature-name&gt;
+</code></pre>
+
+<h3>More resources</h3>
+
+<p>Hopefully this article has convinced you that using git flow is worthwhile and got you intrigued enough to find out more.</p>
+
+<p>Some more git flow resources:</p>
+
+<ul>
+<li><a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/">Why aren&rsquo;t you using git flow</a></li>
+<li><a href="http://yakiloo.com/getting-started-git-flow/">Getting started with git flow</a></li>
+<li><a href="http://vimeo.com/37408017">Oh the path with git flow</a></li>
+<li><a href="http://buildamodule.com/video/change-management-and-version-control-deploying-releases-features-and-fixes-with-git-how-to-use-a-scalable-git-branching-model-called-gitflow">How to use a scalable git branching model called gitflow</a></li>
+<li><a href="http://vimeo.com/16018419">A short introduction to git flow</a></li>
+</ul>
+
+
+    <p><a href="/2013/01/09/using-git-flow">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/12/20/london-and-github">Is London the most popular city for Github users?</a></h2>
       <p class="updated">Posted on 20 December 2012
         by
@@ -162,29 +242,6 @@
 <p>Finally, this post is my first one created and edited in <a href="http://prose.io/">Prose</a>. It&rsquo;s a really neat tool to create and edit code in Github repos in the browser, and is perfectly suited to (infact, created for) Jekyll blogs like this one.</p>
 
     <p><a href="/2012/12/07/this-week-on-the-interwebs">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/12/03/a-prediction-for-2013">A prediction for 2013</a></h2>
-      <p class="updated">Posted on 03 December 2012
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>A humble prediction:</p>
-
-<blockquote><p>Traffic to Easyart.com from 7" Android devices is going to have a noticeable bump after Christmas.</p></blockquote>
-
-<p>Google and Amazon are both pushing their tablet products hard this gifting season, and both have pretty compelling products at a great price point. Even I – a dedicated Apple nut – have just bought a Nexus, and I&rsquo;m going to retire my first generation iPad to the giant eBay in the sky.</p>
-
-<p>When the postman handed the package over, he said &ldquo;all I am doing is delivering Googles&rdquo;. That being the case, we&rsquo;d better get our skates on and set some new breakpoints in our responsive CSS!</p>
-
-    <p><a href="/2012/12/03/a-prediction-for-2013">Leave a comment</a></p>
   </article>
   
 
@@ -325,6 +382,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/08/15/front-end-optimisation">Front-end optimisation</a></li>
+    
     <li><a href="/2014/06/06/ios-event-bubbling">iOS event bubbling</a></li>
     
     <li><a href="/2014/05/17/data-driven-decisions">Data-driven UX decisions</a></li>
@@ -342,8 +401,6 @@
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
     
     <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
-    
-    <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
     
   </ol>
 </div>

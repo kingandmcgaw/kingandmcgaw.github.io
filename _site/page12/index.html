@@ -32,6 +32,62 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2012/05/01/using-selenium-and-rspec-for-behaviour-testing">Using Selenium and Rspec for behaviour testing</a></h2>
+      <p class="updated">Posted on 01 May 2012
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>We&rsquo;ve been doing some restructuring here at Easyart, in order to set up a more Git-centric workflow for deployments. We wanted to make sure that we had some tests which would help us spot any problems while we made the transition.</p>
+
+<p>I&rsquo;m relatively comfortable with Rspec, so it was a natural starting point. But given that the sites themselves aren&rsquo;t built in Ruby, I&rsquo;m using Rspec to power Selenium Webdriver.</p>
+
+<p>Here&rsquo;s a sample test:</p>
+
+<script src="https://gist.github.com/2566740.js"> </script>
+
+
+<p>The Selenium::WebDriver object makes writing these tests pretty simple. These are the main methods we use:</p>
+
+<ul>
+<li>find_element and find_elements</li>
+<li>get (or navigate.to, which I think are identical)</li>
+<li>title</li>
+</ul>
+
+
+<p>That&rsquo;s pretty much it! These are the methods in the Selenium::WebDriver::Element object we are making the most use of:</p>
+
+<ul>
+<li>text</li>
+<li>click</li>
+<li>send_keys</li>
+</ul>
+
+
+<p>Here&rsquo;s an example which makes use of these:</p>
+
+<script src="https://gist.github.com/2566849.js"> </script>
+
+
+<p>One thing that took some getting used to was using the Selenium::WebDriver::Wait object. When you do a click, you have to tell Selenium you want to wait for a certain condition to be true before moving on to the next live of code.</p>
+
+<p>In this example, I&rsquo;m waiting until the H1 tag contains the word &ldquo;cart&rdquo;:</p>
+
+<script src="https://gist.github.com/2567891.js"> </script>
+
+
+<p>I&rsquo;m used Rspec for unit and request specs, but it&rsquo;s advantageous to use a visible browser for this type of testing, as sometimes you can spot things with your eye that your tests won&rsquo;t. Then you write the test to catch it.</p>
+
+    <p><a href="/2012/05/01/using-selenium-and-rspec-for-behaviour-testing">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2012/04/27/quick-tip-opening-files-in-sublime-from-terminal">Quick tip: Opening files in Sublime from Terminal</a></h2>
       <p class="updated">Posted on 27 April 2012
         by
@@ -169,25 +225,6 @@
 <p>High Scalability is a blog that exposes the architecture of some very well-known and highly trafficked  websites. The posts are often written by the developers of those systems. So if you&rsquo;ve ever wondered how <a href="http://highscalability.com/blog/2011/12/19/how-twitter-stores-250-million-tweets-a-day-using-mysql.html">Twitter stores 250,000,000 tweets a day</a> using MySql (no NoSql here), then H.S. is the blog for you.</p>
 
     <p><a href="/2012/04/17/cheating-isnt-always-a-bad-thing">Leave a comment</a></p>
-  </article>
-  
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2012/04/13/front-end-development-requirement">Front-end development requirements</a></h2>
-      <p class="updated">Posted on 13 April 2012
-        by
-        
-        <a href="/authors/steve-rydz/">
-        
-          Steve Rydz
-        </a>
-      </p>
-    </header>
-    <p>It wasn’t that long ago when front-end development was considered to be nothing more than knowing HTML, CSS and jQuery. There wasn’t a great deal more to it, but the role has really developed over the past two years or so.</p>
-
-<p>Yesterday I came across an article that does a great job of outlining what should be required of a front-end developer today. <a href="http://rmurphey.com/blog/2012/04/12/a-baseline-for-front-end-developers/">Go read it&hellip;</a></p>
-
-    <p><a href="/2012/04/13/front-end-development-requirement">Leave a comment</a></p>
   </article>
   
 
@@ -328,6 +365,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/08/15/front-end-optimisation">Front-end optimisation</a></li>
+    
     <li><a href="/2014/06/06/ios-event-bubbling">iOS event bubbling</a></li>
     
     <li><a href="/2014/05/17/data-driven-decisions">Data-driven UX decisions</a></li>
@@ -345,8 +384,6 @@
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
     
     <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
-    
-    <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
     
   </ol>
 </div>

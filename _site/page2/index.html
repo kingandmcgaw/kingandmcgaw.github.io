@@ -32,6 +32,112 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></h2>
+      <p class="updated">Posted on 17 February 2014
+        by
+        
+        <a href="/authors/john-pash/">
+        
+          John Pash
+        </a>
+      </p>
+    </header>
+    <p>This is part 2 of a post which tries to explain a method of enhancing an auto-complete search box to act in a similar way to the Google search box.
+<a href="/2013/11/12/a-somewhat-better-autocomplete/">&raquo; Read part one here &laquo;</a></p>
+
+<h2>A solution</h2>
+
+<p>Something that would work perfectly for this style of query would be to use a regular expression query with a <a href="http://www.regular-expressions.info/lookaround.html">lookahead assertion</a>.</p>
+
+<p>But wait, <em>MySQL doesn&rsquo;t support look(ahead|behind) assertions!</em>, I hear you say. That&rsquo;s ok, we&rsquo;ll do it the hard way, in code.</p>
+
+<h2>The query</h2>
+
+<p>First we need to mangle the input into a query that will get us most of the way using plain old sql. For example, if the user enters the string <strong>pcr</strong> (perhaps looking for the <strong>p</strong>rint <strong>c</strong>ategory <strong>r</strong>eport), we want to end up with the following:</p>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">admin_pages</span> <span class="k">where</span> <span class="p">(</span>
+    <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%p%&#39;</span> <span class="k">and</span> 
+    <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%c%&#39;</span> <span class="k">and</span> 
+    <span class="n">page_description</span> <span class="k">like</span> <span class="s1">&#39;%r%&#39;</span> <span class="p">)</span></code></pre></div>
+
+
+<p>This will return all pages that have <strong>every</strong> one of those letters in the description in alphabetical order.</p>
+
+<ul>
+<li>/admin/<strong>p</strong>rint_<strong>c</strong>atego<strong>r</strong>ies.php</li>
+<li>/admin/<strong>p</strong>rodu<strong>c</strong>t_sales_<strong>r</strong>eport.php</li>
+<li>/admin/su<strong>p</strong>plier_sto<strong>c</strong>ked_item_<strong>r</strong>eport.php</li>
+</ul>
+
+
+<p>But there&rsquo;s a problem. The ordering of letters matters. We only want pages that contain a <strong>p</strong> followed by 0 or more letters, then a <strong>c</strong> followed by 0 or more letters, followed by an <strong>r</strong>. No matter, this will at least give us something to start with. It&rsquo;s better than stuffing the entire database table into memory for searching.</p>
+
+<p>The code that constructs this query is below (I&rsquo;ve removed any security/sanitisation code to avoid cluttering up the example.):</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">page_desc_sql</span><span class="p">(</span><span class="nv">$s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">&quot;page_description like &#39;%</span><span class="si">{</span><span class="nv">$s</span><span class="si">}</span><span class="s2">%&#39;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// a-z only please...</span>
+<span class="nv">$query</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s2">&quot;/[^a-z]/&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">]));</span>
+
+<span class="c1">// build query</span>
+<span class="nv">$s</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span><span class="s2">&quot; and &quot;</span><span class="p">,</span> <span class="nb">array_map</span><span class="p">(</span><span class="s2">&quot;page_desc_sql&quot;</span><span class="p">,</span> <span class="nb">str_split</span><span class="p">(</span><span class="nv">$query</span><span class="p">)));</span>
+
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;</span>
+<span class="s2">    select</span>
+<span class="s2">        page_id,</span>
+<span class="s2">        page_name,</span>
+<span class="s2">        page_description</span>
+<span class="s2">    from</span>
+<span class="s2">        admin_pages</span>
+<span class="s2">    where</span>
+<span class="s2">        (</span><span class="si">{</span><span class="nv">$s</span><span class="si">}</span><span class="s2">)</span>
+<span class="s2">    order by page_description asc</span>
+<span class="s2">&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+
+
+<p>So now we have a list of pages ready to process. Let&rsquo;s create that lookahead expression.</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">page_regex</span><span class="p">(</span><span class="nv">$x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">&quot;(?=</span><span class="si">{</span><span class="nv">$x</span><span class="si">}</span><span class="s2">).*&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nv">$regex</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span> <span class="o">.</span> <span class="nb">implode</span><span class="p">(</span><span class="nb">array_map</span><span class="p">(</span><span class="s2">&quot;page_regex&quot;</span><span class="p">,</span> <span class="nb">str_split</span><span class="p">(</span><span class="nv">$query</span><span class="p">)))</span> <span class="o">.</span> <span class="s2">&quot;/i&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+
+
+<p>This sets $regex to the string:<br/>
+<strong>/(?=p).*(?=c).*(?=r).*/i</strong></p>
+
+<p>The final piece of the puzzle is to take the results and pass them through this regex, only returning the ones that match. Then output some json for the auto-complete to use.</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nv">$q</span><span class="o">-&gt;</span><span class="na">next_record</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nv">$x</span> <span class="o">=</span> <span class="nv">$q</span><span class="o">-&gt;</span><span class="na">get_row</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">preg_match</span><span class="p">(</span><span class="nv">$regex</span><span class="p">,</span> <span class="nv">$x</span><span class="p">[</span><span class="s2">&quot;page_description&quot;</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nv">$x</span><span class="p">[</span><span class="s2">&quot;page_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span><span class="nv">$x</span><span class="p">[</span><span class="s2">&quot;page_id&quot;</span><span class="p">];</span> <span class="c1">// Cast integer for json</span>
+            <span class="nv">$x</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">realpath</span><span class="p">(</span><span class="nx">SECURE_WEB_SERVER_URL</span><span class="p">)</span> <span class="o">.</span> <span class="nv">$x</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">];</span>
+            <span class="nv">$data</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$x</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Content-type: application/json; charset=iso-8859-1&#39;</span><span class="p">);</span>
+    <span class="k">echo</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+
+
+
+
+    <p><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2014/02/16/lean-ux-at-easyart">Introducing Lean UX at Easyart</a></h2>
       <p class="updated">Posted on 16 February 2014
         by
@@ -207,23 +313,6 @@
     <p><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></h2>
-      <p class="updated">Posted on 24 November 2013
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>We&rsquo;re excited to welcome Steve Fuller to the Easyart tech team, as a result of our acquisition of assets from Picture Cabinet Ltd. Steve was responsible for building Picture Cabinet&rsquo;s platform that powers a large number of print on demand sites, apps and kiosks and will undoubtably be a valuable addition to the team.</p>
-
-    <p><a href="/2013/11/24/welcoming-steve-fuller">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -362,6 +451,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/08/15/front-end-optimisation">Front-end optimisation</a></li>
+    
     <li><a href="/2014/06/06/ios-event-bubbling">iOS event bubbling</a></li>
     
     <li><a href="/2014/05/17/data-driven-decisions">Data-driven UX decisions</a></li>
@@ -379,8 +470,6 @@
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
     
     <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
-    
-    <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
     
   </ol>
 </div>

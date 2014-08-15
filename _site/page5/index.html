@@ -32,6 +32,81 @@
           
   <article class="hentry">
     <header>
+      <h2 class="entry-title"><a href="/2013/05/05/json-api">JSONAPI.org</a></h2>
+      <p class="updated">Posted on 05 May 2013
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>I was interested to see <a href="http://jsonapi.org/">jsonapi.org</a> spring up on the web recently. Though it&rsquo;s authored by Ember&rsquo;s team, the references to Ember have been moved from the homepage to the <a href="http://jsonapi.org/history">history</a> section, and it&rsquo;s clear that the ambition is to set a standard for API compatibility between servers and clients.</p>
+
+<p>Overall I applaud the ambition and it&rsquo;s clearly written by clever people. That said, I believe consuming the proposed data structures is more complicated unless you&rsquo;re using a compatible library.</p>
+
+<p>Consider these examples&hellip;</p>
+
+<blockquote><p>If the value of a resource key is a JSON object, the value represents a single document.
+If the value of a resource key is a JSON array, the value represents a list of documents.</p></blockquote>
+
+<p>Isn&rsquo;t it better to have the URL scheme define if you are looking at a document or collection? i.e. <code>GET /resource</code> is a collection and <code>GET /resource/document</code> is a document?</p>
+
+<blockquote><p>To save HTTP requests, it may be convenient to send related documents along with the requested documents.</p></blockquote>
+
+<p>For example:</p>
+
+<pre><code>{
+  "posts": [{
+    "id": "1",
+    "title": "Rails is Omakase",
+    "rels": {
+      "author": 9
+    }
+  }],
+  "people": [{
+    "id": "9",
+    "name": "@d2h"
+  }]
+}
+</code></pre>
+
+<p>So to list the post title and author name would be something like (pseudo code):</p>
+
+<pre><code>{posts.each (post)}
+  {post.title} by {people.where(id: post.rels.author).name}
+{end}  
+</code></pre>
+
+<p>Now, that&rsquo;s pseudo-code, and in reality it would depend on what language or framework you are using as to how easy that &ldquo;where&rdquo; statement is. It&rsquo;s definitely going to be a lot more complicated than my example to do it in vanilla JavaScript. I&rsquo;d suggest that nesting the documents is much easier:</p>
+
+<pre><code>{
+  "posts": [{
+    "id": "1",
+    "title": "Rails is Omakase",
+    "author": {
+      "id": "9",
+      "name": "@d2h"
+    }
+  }]
+}
+</code></pre>
+
+<p>And it can be consumed like this:</p>
+
+<pre><code>{posts.each (post)}
+  {post.title} by {post.author.name}
+{end}  
+</code></pre>
+
+<p>Yes, it&rsquo;s imperfect and can result in more duplication and less flexibility, but I think for a lot of cases that isn&rsquo;t an issue.</p>
+
+    <p><a href="/2013/05/05/json-api">Leave a comment</a></p>
+  </article>
+  
+  <article class="hentry">
+    <header>
       <h2 class="entry-title"><a href="/2013/04/29/notes-from-industry-conference">Notes from Industry Conference</a></h2>
       <p class="updated">Posted on 29 April 2013
         by
@@ -267,51 +342,6 @@
     <p><a href="/2013/04/21/why-dont-other-industries-use-version-control">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/04/16/easyart-flavoured-agile">Easyart-flavoured agile</a></h2>
-      <p class="updated">Posted on 16 April 2013
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>We decided to try out kanban/agile for the development of our new Kubrick platform. None of the team had much experience with agile and we all agreed from the beginning that we didn&rsquo;t want to take a strict approach to it, but would like to try it out and see how it fits with us. This is what we ended up with.</p>
-
-<h3>The board</h3>
-
-<p><img src="http://distilleryimage8.s3.amazonaws.com/50d7d9d0a68e11e291b222000a1f98fa_7.jpg" alt="" /></p>
-
-<p>Our board has columns for <strong>Icebox</strong> (someday), <strong>backlog</strong> (someday soon), <strong>todo</strong> (next two weeks), <strong>in progress</strong> (now), <strong>QA</strong> (done but needs review) and <strong>done</strong>.</p>
-
-<p><strong>We use actual, real post-its</strong>. This has numerous positive side-effects: visibility of progress throughout the office, avoiding more software (<a href="/2012/08/01/basecamp-at-easyart/">we&rsquo;re big Basecamp users here at Easyart</a>), and taking pride in the &ldquo;done&rdquo; list. The negative aspects of this: no visibility on progress <em>outside</em> of the office (we have offices in London and Newhaven, and some staff working from home), no ability to comment or add details to the task and of course the questionable legibility of my handwriting.</p>
-
-<p><strong>Action tickets</strong> are either small (pink, &frac14; day) or medium (yellow &frac12; day) tasks. Anything longer than that needs to be broken down or to become a discovery ticket. <strong>Discovery tickets</strong> (green, no time allocated) help us keep an eye on the more mysterious parts of the project, or various technologies, refactors or improvements that could be useful for us. They can usually be broken down either by workshopping the specific issue, or by spending 2 or so hours researching. Mostly they will spawn new action tickets, but sometimes the discovery is a dead-end.</p>
-
-<h3>Processes</h3>
-
-<p><strong>We do daily stand ups at 9:15</strong>. We actually drag the whiteboard into the meeting room every day to have our stand-ups. I tend to waffle on, so these can sometimes run longer than 5 mins, but we do try to keep them short. These only happen Wed-Fri (which I&rsquo;ll make the subject of another post).</p>
-
-<p><strong>No locked-in sprints</strong>. Being flexible about the amount of work in a sprint is very un-Agile and makes it difficult to measure the overall velocity and predict milestones, but so far that hasn&rsquo;t been a massive issue.</p>
-
-<p><strong>Pair programming</strong>. This has been invaluable for us, both to increase our skills and share knowledge.</p>
-
-<p><img src="http://distilleryimage0.s3.amazonaws.com/8f69b01ca3a311e285fc22000a1f96be_7.jpg" alt="" /></p>
-
-<p><strong>Weekly wraps</strong>. Stakeholders are invited to a recurring meeting every Friday at 4, where we demo the week&rsquo;s progress. This is useful both for the team (who might not have been involved in each others' work) and the stakeholders (to get a clear sense of progress). It&rsquo;s also usually paired with a well-earned beer and move the &ldquo;done&rdquo; tickets to the wall.</p>
-
-<p><strong>No user stories</strong>. Without user stories our process can hardly be called &ldquo;agile&rdquo;, but as we&rsquo;re so far building a platform with no external customers we&rsquo;re yet to find a place for user stories. I think in time we will.</p>
-
-<h3>What we still have to work out</h3>
-
-<p><strong>Where does design and creative fit in?</strong>. I&rsquo;ve found it challenging to work with design creative tasks within this process. Tasks like &ldquo;design hero module for homepage&rdquo; or &ldquo;include links to related categories on product page&rdquo; are fine, but we keep finding ourselves with tasks like &ldquo;refactor homepage&rdquo;, which is not very useful. So far I&rsquo;m yet to find a compelling model for including design tasks in the agile workflow.</p>
-
-    <p><a href="/2013/04/16/easyart-flavoured-agile">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -450,6 +480,8 @@
   <h3>Recent posts</h3>
   <ol>
     
+    <li><a href="/2014/08/15/front-end-optimisation">Front-end optimisation</a></li>
+    
     <li><a href="/2014/06/06/ios-event-bubbling">iOS event bubbling</a></li>
     
     <li><a href="/2014/05/17/data-driven-decisions">Data-driven UX decisions</a></li>
@@ -467,8 +499,6 @@
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
     
     <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
-    
-    <li><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></li>
     
   </ol>
 </div>
