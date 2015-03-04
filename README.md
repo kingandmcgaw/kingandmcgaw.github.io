@@ -1,4 +1,4 @@
-# The Easyart Developers Blog
+# The kingandmcgaw Developers Blog
 
 ## Set-up
 
@@ -12,7 +12,7 @@
 
 ### Clone repo
 
-    $ git clone git@github.com:easyart/easyart.github.com
+    $ git clone git@github.com:kingandmcgaw/kingandmcgaw.github.com
 
 ## Write a new post
 
@@ -50,4 +50,4 @@ To run the site locally and view drafts run the following command from the root 
 
 ## Deployment
 
-To deploy the site, just commit the new post and push to the master branch. The changes should be reflected at: [http://easyart.github.com](http://easyart.github.com)
+To deploy the site, just commit the new post and push to the master branch. The changes should be reflected at: [http://kingandmcgaw.github.com](http://kingandmcgaw.github.com)
