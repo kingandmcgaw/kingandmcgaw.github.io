@@ -3,11 +3,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="description" content="The Easyart Developers Blog">
-<meta name="author" content="Easyart">
+<meta name="description" content="The King & McGaw Developers Blog">
+<meta name="author" content="King & McGaw">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Easyart Developers</title>
+<title>King & McGaw Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -21,7 +21,7 @@
 <body>
 
   <div class="global-header" role="banner">
-    <h1><a href="/"><strong>Easyart</strong> Developers</a></h1>
+    <h1><a href="/"><strong>King & McGaw</strong> Developers</a></h1>
   </div>
 
 
@@ -30,6 +30,45 @@
     <section class="col-7">
       <div class="content-pri" role="main">
           
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2013/06/02/adam-wiggins-wisdom">Some wisdom from Adam Wiggins</a></h2>
+      <p class="updated">Posted on 02 June 2013
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>This week <a href="http://about.adamwiggins.com/">Adam Wiggins</a> announced that he has <a href="https://gist.github.com/adamwiggins/5687917">stepped down</a> as CTO of <a href="http://heroku.com">Heroku</a> to pursue other opportunities.</p>
+
+<p>At Easyart we&rsquo;re big fans of Heroku (it&rsquo;s used extensively for our new platform), and Adam&rsquo;s general approach to modern web software design, so I thought it might be a good opportunity to review some of his nuggets of wisdom.</p>
+
+<h3><a href="http://www.12factor.net/">The Twelve-Factor App</a></h3>
+
+<p>A manifesto for modern web software design and the principles. It&rsquo;s clearly the concepts from which the Heroku ecosystem is formed, but the principles can be applied to any modern web application platform stack.</p>
+
+<h3><a href="https://gist.github.com/adamwiggins/5687294">My Heroku Values</a></h3>
+
+<p>A few bits and pieces from this post:</p>
+
+<blockquote><p><strong>Make it real</strong>. Ideas are cheap. Make a prototype, sketch a CLI session, draw a wireframe. Discussions around concrete examples, not handy-waving abstractions. Don&rsquo;t say you did something, provide a URL that proves it.</p>
+
+<p><strong>Ship it</strong>. Nothing is real until it&rsquo;s being used by a real user. This doesn&rsquo;t mean you make a prototype in the morning and blog about it in the evening. It means you find one person you believe your product will help and try to get them to use it.</p>
+
+<p><strong>Divide and conqueor</strong>. Big, hard problems become easy if you cut them into small pieces. How do you eat the elephant? One bite at a time. If a problems seems hard, think about how you can cut it into two smaller, easier problems. If one of those problems is still too hard, cut it in half again.</p>
+
+<p><strong>Throw things away</strong>. It&rsquo;s not the code that is valuable, it&rsquo;s the understanding you&rsquo;ve gained from building it.</p>
+
+<p><strong>Decision-making via ownership, not consensus or authority</strong>. Every product, feature, software component, web page, business deal, blog post, and so on should have a single owner. Many people may collaborate on it, but the owner is &ldquo;the buck stops here&rdquo; and makes the final call on what happens with the owned thing.</p></blockquote>
+
+<p>It will be interesting to see what he turns his hand to next.</p>
+
+    <p><a href="/2013/06/02/adam-wiggins-wisdom">Leave a comment</a></p>
+  </article>
+  
   <article class="hentry">
     <header>
       <h2 class="entry-title"><a href="/2013/05/05/json-api">JSONAPI.org</a></h2>
@@ -311,37 +350,6 @@ If the value of a resource key is a JSON array, the value represents a list of d
     <p><a href="/2013/04/22/transitioning-to-bourbon">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/04/21/why-dont-other-industries-use-version-control">Why don't other industries use version control?</a></h2>
-      <p class="updated">Posted on 21 April 2013
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>It&rsquo;s easy to take version control for granted when you work in software development as it&rsquo;s such an integral part of the process. But it&rsquo;s virtually non-existent in other technical industries.</p>
-
-<p>Recently, when Github launched their new <a href="https://github.com/blog/1465-stl-file-viewing">online STL viewer</a>, I asked some friends who work with product and game design if they used version control for their source files. These are a few (edited) parts of that conversation.</p>
-
-<blockquote><p>Product designer 1: What is a version control for my source files?</p>
-
-<p>Product designer 2: I think he means some way of ensuring that everyone is looking / working on the latest file?</p>
-
-<p>Game designer: Version control can be hella hard for some people to understand&hellip; like their mind breaks when it&rsquo;s explained to them.</p>
-
-<p>Product designer 2: Well, all the major 3D / 2D design packages - especially the parametric ones - do this in some form. Although it&rsquo;s all controlled by the software.  The packages are expensive and generally these part management components add to the price.</p>
-
-<p>Product designer 1: We&rsquo;ve never used these tools at (redacted - major Australian electrical manufacturer) it would be so difficult to get our factories to abide by the procedures. Generally you just run an assembly and swap out old parts for new as it develops. Pretty sure the engineering departments at (redacted - major European electrical manufacturer) had a dedicated admin guy who would administer the 3D files. BEST JOB EVER."</p></blockquote>
-
-<p>There are a number of companies that are trying to solve this problem for designers (like <a href="https://www.pixelapse.com/">Pixelapse</a>, <a href="https://www.layervault.com/">LayerVault</a> and Beanstalk via their <a href="http://designers.beanstalkapp.com/">design preview feature</a>), but that&rsquo;s just really scratching the surface. I can&rsquo;t help but think that the benefits that would be a massive if there was a meaningful (and non-proprietary) way to incorporate version control into more development processes.</p>
-
-    <p><a href="/2013/04/21/why-dont-other-industries-use-version-control">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -472,13 +480,15 @@ If the value of a resource key is a JSON array, the value represents a list of d
 
 <div class="widget">
   <h3>About this blog</h3>
-  <p>This is the blog of the developers at <a href="http://www.easyart.com" target="_blank">Easyart</a>. We have a strong focus on user-centered design, test-driven development and emerging technologies.</p>
+  <p>This is the blog of the developers at <a href="http://www.kingandmcgaw.com" target="_blank">Easyart</a>. We have a strong focus on user-centered design, test-driven development and emerging technologies.</p>
   <p><a href="/archives.html">See all posts &raquo;</a></p>
 </div>
 
 <div class="widget">
   <h3>Recent posts</h3>
   <ol>
+    
+    <li><a href="/2015/03/20/jqueryuk-2015">jQueryUK 2015</a></li>
     
     <li><a href="/2014/08/15/front-end-optimisation">Front-end optimisation</a></li>
     
@@ -498,8 +508,6 @@ If the value of a resource key is a JSON array, the value represents a list of d
     
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
     
-    <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
-    
   </ol>
 </div>
 
@@ -509,7 +517,7 @@ If the value of a resource key is a JSON array, the value represents a list of d
   </div>
 
   <footer class="global-footer" role="contentinfo">
-    <p>&copy; Copyright 2012 Easyart. All rights reserved.</p>
+    <p>&copy; Copyright 2015 King & McGaw. All rights reserved.</p>
   </footer>
 
 <script>

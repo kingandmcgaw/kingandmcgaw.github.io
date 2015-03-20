@@ -1,6 +1,6 @@
-site_name: 'Easyart Developers'
-site_description: 'The Easyart Developers Blog'
-site_author: 'Easyart'
+site_name: 'King & McGaw Developers'
+site_description: 'The King & McGaw Developers Blog'
+site_author: 'King & McGaw'
 site_url: '/'
 markdown: rdiscount
 rdiscount:

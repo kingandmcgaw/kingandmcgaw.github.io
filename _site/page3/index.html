@@ -3,11 +3,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="description" content="The Easyart Developers Blog">
-<meta name="author" content="Easyart">
+<meta name="description" content="The King & McGaw Developers Blog">
+<meta name="author" content="King & McGaw">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Easyart Developers</title>
+<title>King & McGaw Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -21,7 +21,7 @@
 <body>
 
   <div class="global-header" role="banner">
-    <h1><a href="/"><strong>Easyart</strong> Developers</a></h1>
+    <h1><a href="/"><strong>King & McGaw</strong> Developers</a></h1>
   </div>
 
 
@@ -30,6 +30,78 @@
     <section class="col-7">
       <div class="content-pri" role="main">
           
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></h2>
+      <p class="updated">Posted on 31 December 2013
+        by
+        
+        <a href="/authors/steve-rydz/">
+        
+          Steve Rydz
+        </a>
+      </p>
+    </header>
+    <p>In our never-ending mission to make our codebase more maintainable, we decided to package up our shared CSS into a gem so we can use it on all of our projects easily, without having to worry about things going out of sync.</p>
+
+<p>This seemed daunting to me, as I&rsquo;d never done anything like this before, but after some reading and googling, I found it wasn&rsquo;t actually that complicated. Here&rsquo;s how I did it:</p>
+
+<h2>What you&rsquo;ll need</h2>
+
+<ul>
+<li>Ensure rubygems is up to date by running <code>gem update --system</code> from your terminal</li>
+<li>Install <strong>bundler</strong> by running <code>gem install bundler</code></li>
+<li>A <a href="http://github.com">github</a> repo for the gem</li>
+<li>An account on <a href="http://rubygems.org">Rubygems</a></li>
+</ul>
+
+
+<h2>Creating the gem</h2>
+
+<p><strong>Note:</strong> I&rsquo;ve called my gem <em>craven</em>, so wherever you see this, you should replace it with the name of your gem.</p>
+
+<p>You can use bundler to create the scaffolding for your gem. All you have to do is run:</p>
+
+<pre><code>    bundle gem craven
+</code></pre>
+
+<p>Believe it or not, this is almost good-to-go, but we need to do a small amount of config first.</p>
+
+<p>Open the file <code>craven/lib/craven.rb</code> and edit it so it looks like this:</p>
+
+<pre><code>    require "craven/version"
+
+    module Craven
+        class Engine &lt; Rails::Engine
+        end
+    end
+</code></pre>
+
+<p>Now open the file <code>craven/craven.gemspec</code> and fill out any sections containing <code>TODO:</code>. I also set the homepage to my github repo:</p>
+
+<pre><code>    spec.homepage = "http://github.com/easyart/craven
+</code></pre>
+
+<h2>Adding your assets</h2>
+
+<p>Now you can add your assets to the gem. Assuming your assets are intended to be used as a library, you should use the <code>vendor</code> directory structure, so all your stylesheets are included in  <code>craven/vendor/assets/stylesheets/craven/</code>.</p>
+
+<h2>Bumping the version number</h2>
+
+<p>Now you are almost ready to publish your gem, but each time you do, you will need to bump up the version of your gem, otherwise it will fail. You can do this in <code>craven/lib/craven/version.rb</code>.</p>
+
+<h2>Publishing the gem</h2>
+
+<p>Now for the exciting part - you&rsquo;re about to publish your first ruby gem. To do this, just run:</p>
+
+<pre><code>    bundle exec rake release
+</code></pre>
+
+<p>This will publish the gem and push your changed to github. The first time you do this you will be prompted to fill out some credentials. From then on, all you will have to do is run the above command to publish changes to your gem.</p>
+
+    <p><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Leave a comment</a></p>
+  </article>
+  
   <article class="hentry">
     <header>
       <h2 class="entry-title"><a href="/2013/11/24/welcoming-steve-fuller">Welcoming Steve Fuller</a></h2>
@@ -237,75 +309,6 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
     <p><a href="/2013/10/12/on-technical-debt">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/08/20/launching-kubrick-part-1">Launching Kubrick, part 1</a></h2>
-      <p class="updated">Posted on 20 August 2013
-        by
-        
-        <a href="/authors/nick-boyce/">
-        
-          Nick Boyce
-        </a>
-      </p>
-    </header>
-    <p>After a period of beta testing, user testing and painful analysis, last week we migrated <a href="http://www.worldgallery.co.uk">WorldGallery.co.uk</a> to Kubrick, the new platform we&rsquo;ve been working on in the London office. Kubrick&rsquo;s primary objectives are textbook e-commerce, but the technology and processes are a bit more interesting (which I will write about later)</p>
-
-<h3>Improving conversion rate</h3>
-
-<p>When you have a product catalogue as extensive as WorldGallery, it&rsquo;s a challenge to help users find the product they want to find. I think this is particularly true of art products which are often difficult to categories.</p>
-
-<p>The primary focus has been a new category structure, and adding the capability for users to navigate directly to artwork, artist or category pages via a new search auto-suggest feature. The result is a more curated user experience.</p>
-
-<ul>
-<li>Key tech: Rails, Sinatra, ElasticSearch, JSON</li>
-</ul>
-
-
-<h3>Improving AOV</h3>
-
-<p>We have a massive range of frames and a brilliant team of master framers, and frankly we need to do a better job of getting our customers interested in frames. To do this, we&rsquo;ve integrated framing directly into the main product page and made it near-instantaneous to navigate between various types of unframed, canvas or framed products.</p>
-
-<ul>
-<li>Key tech: Backbone, JSON</li>
-</ul>
-
-
-<h3>Increase traffic</h3>
-
-<p>We&rsquo;ve vastly simplified the structure of the site (focussing on artworks, categories, artists and artworks), resulting in one authoritative URL for each page (rather than rewrites which can result in multiple URLs for a single entity).</p>
-
-<p>For example, the &ldquo;Modern Art&rdquo; category used to be available via a number of URLs like these:</p>
-
-<ul>
-<li>/mt/Modern-Art-Prints-51-2.html‎</li>
-<li>/category/modern-modern-59.html‎</li>
-</ul>
-
-
-<p>All of these should now redirect to the one &ldquo;true&rdquo; modern art category: /art-prints/modern-art. This is better for users and better for Google.</p>
-
-<ul>
-<li>Key tech: Rails, Rack::Rewrite</li>
-</ul>
-
-
-<p>We also had some <strong>secondary goals</strong> in this development:</p>
-
-<ul>
-<li>Make the site mobile-friendly for the 25% (and rising) of users that access our sites on tablets or mobile</li>
-<li>Improve engagement (measured in time on site, number of page views and return visits)</li>
-<li>Improved monitoring</li>
-<li>Automated testing on everything</li>
-<li>Increased speed of development</li>
-</ul>
-
-
-<p>We&rsquo;re already seeing some positive results and look forward to migrating some of our other sites over.</p>
-
-    <p><a href="/2013/08/20/launching-kubrick-part-1">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -436,13 +439,15 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
 
 <div class="widget">
   <h3>About this blog</h3>
-  <p>This is the blog of the developers at <a href="http://www.easyart.com" target="_blank">Easyart</a>. We have a strong focus on user-centered design, test-driven development and emerging technologies.</p>
+  <p>This is the blog of the developers at <a href="http://www.kingandmcgaw.com" target="_blank">Easyart</a>. We have a strong focus on user-centered design, test-driven development and emerging technologies.</p>
   <p><a href="/archives.html">See all posts &raquo;</a></p>
 </div>
 
 <div class="widget">
   <h3>Recent posts</h3>
   <ol>
+    
+    <li><a href="/2015/03/20/jqueryuk-2015">jQueryUK 2015</a></li>
     
     <li><a href="/2014/08/15/front-end-optimisation">Front-end optimisation</a></li>
     
@@ -462,8 +467,6 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
     
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
     
-    <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
-    
   </ol>
 </div>
 
@@ -473,7 +476,7 @@ and hiding them under dropdown menus we thought there must be a quicker way of g
   </div>
 
   <footer class="global-footer" role="contentinfo">
-    <p>&copy; Copyright 2012 Easyart. All rights reserved.</p>
+    <p>&copy; Copyright 2015 King & McGaw. All rights reserved.</p>
   </footer>
 
 <script>

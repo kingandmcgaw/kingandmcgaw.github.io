@@ -35,8 +35,8 @@ body {
   max-width: 1080px;
   margin: 0 auto;
   font: 100%/1.5 "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333333;
-  background: #ffffff; }
+  color: #333;
+  background: #fff; }
 
 /* ----------------------------------------------
   TYPOGRAPHY
@@ -70,13 +70,13 @@ strong {
 
 blockquote {
   padding-left: 1.5em;
-  border-left: 3px solid #cccccc; }
+  border-left: 3px solid #ccc; }
 
 pre {
   overflow: auto;
   margin: 1.5em 0;
   padding: 1.5em 20px;
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   background: #eee;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -86,14 +86,14 @@ code {
   font-size: .8em;
   font-family: Monaco, "Courier New", Courier, monospace;
   background: #eee;
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   padding: 0.5em;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px; }
 
 hr {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   border-top: 0;
   margin: 1.5em 0; }
 
@@ -138,7 +138,7 @@ a:hover, a:active, a:focus {
 img {
   max-width: 100%;
   padding: 5px;
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   background: #fff;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -152,12 +152,12 @@ img {
 ---------------------------------------------- */
 .post-item {
   margin-bottom: 1.5em;
-  border-bottom: 1px dashed #cccccc; }
+  border-bottom: 1px dashed #ccc; }
   .post-item .entry-title {
     margin-bottom: 0; }
   .post-item .entry-meta {
     font-style: italic;
-    color: #999999; }
+    color: #999; }
 
 /* ----------------------------------------------
   GRID
@@ -287,14 +287,14 @@ img {
 .global-header {
   overflow: hidden;
   margin: 3em 0;
-  border-bottom: 10px solid #cccccc;
-  color: #999999; }
+  border-bottom: 10px solid #ccc;
+  color: #999; }
   .global-header a {
-    color: #999999; }
+    color: #999; }
     .global-header a:hover, .global-header a:active, .global-header a:focus {
       text-decoration: none; }
   .global-header strong {
-    color: #333333; }
+    color: #333; }
 
 /* ----------------------------------------------
   FOOTER
@@ -303,15 +303,15 @@ img {
   overflow: hidden;
   margin: 1.5em 0 3em;
   padding-top: 1.5em;
-  border-top: 1px solid #cccccc;
-  color: #999999; }
+  border-top: 1px solid #ccc;
+  color: #999; }
 
 /* ----------------------------------------------
   CONTENT
 ---------------------------------------------- */
 .widget {
   margin-bottom: 1.5em;
-  border-bottom: 1px dashed #cccccc; }
+  border-bottom: 1px dashed #ccc; }
 
 /* ----------------------------------------------
   ARTICLES
@@ -319,18 +319,18 @@ img {
 .hentry {
   margin-bottom: 3em;
   padding-bottom: 1.5em;
-  border-bottom: 10px solid #cccccc; }
+  border-bottom: 10px solid #ccc; }
   .hentry header {
     margin-bottom: 1.5em;
-    border-bottom: 1px dashed #cccccc; }
+    border-bottom: 1px dashed #ccc; }
 
 .updated {
   font-style: italic;
-  color: #999999; }
+  color: #999; }
 
 .pagination {
   overflow: hidden;
-  color: #999999; }
+  color: #999; }
   .pagination p {
     float: left;
     margin-right: 20px; }
@@ -475,7 +475,7 @@ table {
 
 /* Literal.Number */
 .highlight .s {
-  color: #dd1144; }
+  color: #d14; }
 
 /* Literal.String */
 .highlight .na {
@@ -483,7 +483,7 @@ table {
 
 /* Name.Attribute */
 .highlight .nb {
-  color: #0086b3; }
+  color: #0086B3; }
 
 /* Name.Builtin */
 .highlight .nc {
@@ -546,35 +546,35 @@ table {
 
 /* Literal.Number.Oct */
 .highlight .sb {
-  color: #dd1144; }
+  color: #d14; }
 
 /* Literal.String.Backtick */
 .highlight .sc {
-  color: #dd1144; }
+  color: #d14; }
 
 /* Literal.String.Char */
 .highlight .sd {
-  color: #dd1144; }
+  color: #d14; }
 
 /* Literal.String.Doc */
 .highlight .s2 {
-  color: #dd1144; }
+  color: #d14; }
 
 /* Literal.String.Double */
 .highlight .se {
-  color: #dd1144; }
+  color: #d14; }
 
 /* Literal.String.Escape */
 .highlight .sh {
-  color: #dd1144; }
+  color: #d14; }
 
 /* Literal.String.Heredoc */
 .highlight .si {
-  color: #dd1144; }
+  color: #d14; }
 
 /* Literal.String.Interpol */
 .highlight .sx {
-  color: #dd1144; }
+  color: #d14; }
 
 /* Literal.String.Other */
 .highlight .sr {
@@ -582,7 +582,7 @@ table {
 
 /* Literal.String.Regex */
 .highlight .s1 {
-  color: #dd1144; }
+  color: #d14; }
 
 /* Literal.String.Single */
 .highlight .ss {
@@ -617,7 +617,7 @@ form {
 
 input, button {
   padding: 5px;
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
@@ -631,9 +631,9 @@ button {
   padding: 5px 10px;
   cursor: pointer;
   background: #f2f2f2;
-  background: -moz-linear-gradient(#f2f2f2 0%, #cccccc 100%);
-  background: -o-linear-gradient(#f2f2f2 0%, #cccccc 100%);
-  background: -webkit-linear-gradient(#f2f2f2 0%, #cccccc 100%);
-  background: linear-gradient(#f2f2f2 0%, #cccccc 100%); }
+  background: -moz-linear-gradient(#f2f2f2 0%, #ccc 100%);
+  background: -o-linear-gradient(#f2f2f2 0%, #ccc 100%);
+  background: -webkit-linear-gradient(#f2f2f2 0%, #ccc 100%);
+  background: linear-gradient(#f2f2f2 0%, #ccc 100%); }
   button:active, button:focus {
-    background: #cccccc; }
+    background: #ccc; }

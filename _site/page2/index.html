@@ -3,11 +3,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="description" content="The Easyart Developers Blog">
-<meta name="author" content="Easyart">
+<meta name="description" content="The King & McGaw Developers Blog">
+<meta name="author" content="King & McGaw">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Easyart Developers</title>
+<title>King & McGaw Developers</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -21,7 +21,7 @@
 <body>
 
   <div class="global-header" role="banner">
-    <h1><a href="/"><strong>Easyart</strong> Developers</a></h1>
+    <h1><a href="/"><strong>King & McGaw</strong> Developers</a></h1>
   </div>
 
 
@@ -30,6 +30,61 @@
     <section class="col-7">
       <div class="content-pri" role="main">
           
+  <article class="hentry">
+    <header>
+      <h2 class="entry-title"><a href="/2014/03/11/improving-our-development-cycle">Improving our development cycle</a></h2>
+      <p class="updated">Posted on 11 March 2014
+        by
+        
+        <a href="/authors/nick-boyce/">
+        
+          Nick Boyce
+        </a>
+      </p>
+    </header>
+    <p>I&rsquo;ve been struggling to solve a problem for some time now. The agile (with a lower-case &ldquo;a&rdquo;) <a href="/2013/04/16/easyart-flavoured-agile/">approach</a> we use for software development and the long-term roadmaps we have as a business have always been too disconnected, but I never quite knew how to connect them.</p>
+
+<p>Recently, inspired by a deeper understanding of the <a href="/2014/02/16/lean-ux-at-easyart/">lean approaches</a>, I think I&rsquo;ve finally connected them together in these five steps. It&rsquo;s still an emerging process, but I&rsquo;m hopeful it will solve a number of problems.</p>
+
+<h3>Keep an inventory of hypotheses</h3>
+
+<p>We all have ideas for ways to improve the site. Some of them are bound to make a positive difference, others will make the site worse, and most will have no measurable effect at all.</p>
+
+<p>We keep a spreadsheet of these ideas, documented as hypotheses (if I do x, y will happen), along with as much additional information as we have. This ideas backlog becomes our ammunition to improve the site. Importantly, these are not added to Basecamp, where the tasks live until they have been prioritised.</p>
+
+<h3>Establish themes</h3>
+
+<p>In order to prioritise the ideas backlog, I work with other managers to decide on a theme for each month. To establish the theme we might look at under-performing parts of the conversion funnel, goals in other parts of the business, tech roadmap etc.</p>
+
+<p>Sometimes the theme might be very specific (increase percentage of framed products sold), or more generic (increase AOV or improve funnel conversion for search, product, cart, order complete).</p>
+
+<p>Rallying the team around a focussed goal helps us dive deeper into interconnected ideas. We spend 60% of our development time working on tasks related to the theme, while the other 40% is reserved for fixing bugs, cost of doing business tasks, documentation, research etc.</p>
+
+<h3>Prioritise hypotheses around themes</h3>
+
+<p>Once the theme is established, we hold a workshop to prioritise the hypotheses from the backlog in the ways most likely to improve the target KPI.</p>
+
+<p>These competing ideas will vary wildly in difficulty and will probably contradict each another. Using experiment mapping and PIE ranking we can prioritise these based on value.</p>
+
+<h3>Create tasks from prioritised hypotheses</h3>
+
+<p>Once priorities are established, tasks are added to the &ldquo;Next up&rdquo; or &ldquo;Backlog&rdquo; lists in Basecamp, along with the corresponding hypothesis. Depending on our level of confidence in the task, we may use a combination of data analysis, user testing and competitor analysis to research the best solution.</p>
+
+<p>Tasks move through a Kanban-esque process through &ldquo;In Progress&rdquo; and &ldquo;QA&rdquo; through its lifecycle, collecting more and more information as it goes.</p>
+
+<h3>Validate hypothesis</h3>
+
+<p>Once in &ldquo;QA&rdquo;, a combination of user testing and split testing will be used to validate or invalidate our hypothesis.</p>
+
+<p>Minor variations will take a long time to reach statistical confidence, so we only split test meaningful changes. We always agree on the measure of success upfront, but also cross-check side-effects with Analytics segments.</p>
+
+<p>Once a conclusion is reached, the task is marked as complete, links to the task/discussion/tests added to the spreadsheet before it&rsquo;s moved to a &ldquo;completed tests&rdquo; sheet, and annotations added to Analytics for before-and-after analysis.</p>
+
+<p>With each test, we increase our shared understanding of what our customers want, which in turn generates high quality ideas for future testing.</p>
+
+    <p><a href="/2014/03/11/improving-our-development-cycle">Leave a comment</a></p>
+  </article>
+  
   <article class="hentry">
     <header>
       <h2 class="entry-title"><a href="/2014/02/17/a-somewhat-better-auto-complete-(part-2)">A somewhat better auto-complete (part 2)</a></h2>
@@ -241,78 +296,6 @@
     <p><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Leave a comment</a></p>
   </article>
   
-  <article class="hentry">
-    <header>
-      <h2 class="entry-title"><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></h2>
-      <p class="updated">Posted on 31 December 2013
-        by
-        
-        <a href="/authors/steve-rydz/">
-        
-          Steve Rydz
-        </a>
-      </p>
-    </header>
-    <p>In our never-ending mission to make our codebase more maintainable, we decided to package up our shared CSS into a gem so we can use it on all of our projects easily, without having to worry about things going out of sync.</p>
-
-<p>This seemed daunting to me, as I&rsquo;d never done anything like this before, but after some reading and googling, I found it wasn&rsquo;t actually that complicated. Here&rsquo;s how I did it:</p>
-
-<h2>What you&rsquo;ll need</h2>
-
-<ul>
-<li>Ensure rubygems is up to date by running <code>gem update --system</code> from your terminal</li>
-<li>Install <strong>bundler</strong> by running <code>gem install bundler</code></li>
-<li>A <a href="http://github.com">github</a> repo for the gem</li>
-<li>An account on <a href="http://rubygems.org">Rubygems</a></li>
-</ul>
-
-
-<h2>Creating the gem</h2>
-
-<p><strong>Note:</strong> I&rsquo;ve called my gem <em>craven</em>, so wherever you see this, you should replace it with the name of your gem.</p>
-
-<p>You can use bundler to create the scaffolding for your gem. All you have to do is run:</p>
-
-<pre><code>    bundle gem craven
-</code></pre>
-
-<p>Believe it or not, this is almost good-to-go, but we need to do a small amount of config first.</p>
-
-<p>Open the file <code>craven/lib/craven.rb</code> and edit it so it looks like this:</p>
-
-<pre><code>    require "craven/version"
-
-    module Craven
-        class Engine &lt; Rails::Engine
-        end
-    end
-</code></pre>
-
-<p>Now open the file <code>craven/craven.gemspec</code> and fill out any sections containing <code>TODO:</code>. I also set the homepage to my github repo:</p>
-
-<pre><code>    spec.homepage = "http://github.com/easyart/craven
-</code></pre>
-
-<h2>Adding your assets</h2>
-
-<p>Now you can add your assets to the gem. Assuming your assets are intended to be used as a library, you should use the <code>vendor</code> directory structure, so all your stylesheets are included in  <code>craven/vendor/assets/stylesheets/craven/</code>.</p>
-
-<h2>Bumping the version number</h2>
-
-<p>Now you are almost ready to publish your gem, but each time you do, you will need to bump up the version of your gem, otherwise it will fail. You can do this in <code>craven/lib/craven/version.rb</code>.</p>
-
-<h2>Publishing the gem</h2>
-
-<p>Now for the exciting part - you&rsquo;re about to publish your first ruby gem. To do this, just run:</p>
-
-<pre><code>    bundle exec rake release
-</code></pre>
-
-<p>This will publish the gem and push your changed to github. The first time you do this you will be prompted to fill out some credentials. From then on, all you will have to do is run the above command to publish changes to your gem.</p>
-
-    <p><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Leave a comment</a></p>
-  </article>
-  
 
   <div class="pagination">
 
@@ -443,13 +426,15 @@
 
 <div class="widget">
   <h3>About this blog</h3>
-  <p>This is the blog of the developers at <a href="http://www.easyart.com" target="_blank">Easyart</a>. We have a strong focus on user-centered design, test-driven development and emerging technologies.</p>
+  <p>This is the blog of the developers at <a href="http://www.kingandmcgaw.com" target="_blank">Easyart</a>. We have a strong focus on user-centered design, test-driven development and emerging technologies.</p>
   <p><a href="/archives.html">See all posts &raquo;</a></p>
 </div>
 
 <div class="widget">
   <h3>Recent posts</h3>
   <ol>
+    
+    <li><a href="/2015/03/20/jqueryuk-2015">jQueryUK 2015</a></li>
     
     <li><a href="/2014/08/15/front-end-optimisation">Front-end optimisation</a></li>
     
@@ -469,8 +454,6 @@
     
     <li><a href="/2014/01/03/adding-dependencies-to-your-ruby-gem">Adding dependencies to your ruby gem</a></li>
     
-    <li><a href="/2013/12/31/turn-your-css-into-a-ruby-gem">Turn your CSS into a ruby gem</a></li>
-    
   </ol>
 </div>
 
@@ -480,7 +463,7 @@
   </div>
 
   <footer class="global-footer" role="contentinfo">
-    <p>&copy; Copyright 2012 Easyart. All rights reserved.</p>
+    <p>&copy; Copyright 2015 King & McGaw. All rights reserved.</p>
   </footer>
 
 <script>
