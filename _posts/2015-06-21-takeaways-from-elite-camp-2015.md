@@ -5,7 +5,7 @@ date: 2015-06-21  9:55:16
 author: Nick Boyce
 ---
 
-![Process](/assets/img/posts/elitecamp-header.jpg)
+![Header](/assets/img/posts/elitecamp-head.jpg)
 
 I’ve spent this weekend at [Digital Elite Camp](http://digitalelitecamp.com/) in beautiful Tallinn, Estonia. Peep, Ants and Priit have built a brilliant conference, and I was privileged to share ideas (and many beers) with smart, interesting people from all over the world. Here are some of the the themes that stood out for me.
 
