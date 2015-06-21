@@ -5,13 +5,13 @@ date: 2015-06-21  9:55:16
 author: Nick Boyce
 ---
 
-![Process](/assets/img/posts/elitecamp-header.png)
+![Process](/assets/img/posts/elitecamp-header.jpg)
 
 I’ve spent this weekend at [Digital Elite Camp](http://digitalelitecamp.com/) in beautiful Tallinn, Estonia. Peep, Ants and Priit have built a brilliant conference, and I was privileged to share ideas (and many beers) with smart, interesting people from all over the world. Here are some of the the themes that stood out for me.
 
 ### Optimisation is people-driven
 
-[Great user experiences happen beyond the screen…]
+![Great experience happen beyond the screen and in the gaps](https://pbs.twimg.com/media/CHYpZQJWUAAZ7k2.jpg)
 
 A common theme amongst the speakers was the importance of engaging with your customers as humans, in order to better understand their needs and motivations. Attempting to *infer* user needs from quantitative data can lead us to believe “what you see is all there is”, and hide important truths.
 
@@ -63,4 +63,4 @@ Recently I’ve been thinking a lot about when *it’s OK not to convert*. I’m
 
 Every night my head was full of ideas and my belly full of beer. I even won a bottle of mysterious Estonian liquor for asking the most questions!
 
-I’ll definitely be back next year.
+I’ll definitely be back.
