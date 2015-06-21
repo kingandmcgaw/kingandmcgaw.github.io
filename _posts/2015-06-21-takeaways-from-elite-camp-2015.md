@@ -15,7 +15,7 @@ I’ve spent this weekend at [Digital Elite Camp](http://digitalelitecamp.com/) 
 
 A common theme amongst the speakers was the importance of engaging with your customers as humans, in order to better understand their needs and motivations. Attempting to *infer* user needs from quantitative data can lead us to believe “what you see is all there is”, and hide important truths.
 
-> “The most important thing in conversion optimisation is the discovery of what matters” Peep Laja
+> “The most important thing in conversion optimisation is the discovery of what matters” – [Peep Laja](https://twitter.com/peeplaja)
 
 Getting away from data and speaking with the *actual humans* who pay your bills generates insights that help us design better hypotheses for improving user experience.
 
@@ -35,15 +35,13 @@ Process and culture should be created to maximise learning and *discovery of wha
 
 ### Test planning and culture are vital
 
-> “If you can’t describe what you are doing as a process, you don’t know what you are doing” – Willian Edwards Deming (via [Peep Laja](https://twitter.com/peeplaja))
+![Process](/assets/img/posts/elitecamp-process.png)
 
 Too many A/B test “successes” are not statistically significant, therefore won’t translate to actual revenue when exposed to the real world. This was certainly the case for us in our early experimentations, but we are now disciplined about calculating sample sizes upfront and typically focus on specific funnel goals, rather than the e-commerce conversion rate.
 
 I learned from [Craig Sullivan](https://twitter.com/optimiseordie) that we need to make sure that we run the tests in full business cycles. Our customers follow a clear pattern which leads to Sundays and Mondays becoming our busiest days, so we should run tests in full weeks only.
 
 Another great tip from [Ton Wesseling](https://twitter.com/tonw) is that you should slow down your control version so that each variation runs at the same speed.
-
-![Process](/assets/img/posts/elitecamp-process.png)
 
 There is also a lot that goes into building a testing culture. Test ideas come from qualitative and quantitative insights, *not* random marketing brainstorms. Outcomes from the tests create further insights and the cycle begins again. The more you know, the more you can know.
 
