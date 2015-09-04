@@ -1,0 +1,48 @@
+# intro
+  * my first ruby conf
+  * don't use Time.now, use Time.current
+  * don't use Date.today, use Time.zone.today
+
+mother of all demos
+https://www.youtube.com/watch?v=yJDv-zdhzMY
+
+# Lotus and the future of Ruby
+Luca Guidi
+http://lotusrb.org/
+
+# Mini Munging: The Joy of Small Data
+Rob Miller
+"People think if their data is too big for excel, it's big data."
+
+command line commands
+  * cat
+  * grep
+  * head
+  * tail
+  * split
+  * wc
+  * sort
+  * shuffle
+  * uniq
+  * comm
+  * cut
+  * paste
+  * join
+  * tr
+  * column
+
+# System alerts
+
+alert only if: urgent, importent, actionable, real
+Site Reliability Engineer at Google
+Rob Ewaschuk
+https://docs.google.com/document/d/199PqyG3UsyXlwieHaqbGiWVa8eMWi8zzAn0YfcApr8Q
+
+# Just a (Ruby) Minute
+https://www.google.co.uk/search?q=just+a+minute
+
+# The Soul of Software
+Avdi Grimm
+
+# in summary
+light on code, but not on content
