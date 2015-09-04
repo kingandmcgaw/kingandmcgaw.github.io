@@ -6,7 +6,7 @@ author: Nick Boyce
 —
 The King & McGaw development team uses a scrum-like process to manage the features we build. It looks a little bit like this:
 
-<img src=“https://cdn-images-1.medium.com/max/1046/1*VVv-xcYwVQ90r6xZ8vcS0Q.png”>
+<img src="https://cdn-images-1.medium.com/max/1046/1*VVv-xcYwVQ90r6xZ8vcS0Q.png">
 
 We’ve found this process to be super helpful for building things, but figuring out what to build is often more difficult.
 
@@ -20,7 +20,7 @@ We’ve found this process to be super helpful for building things, but figuring
 ## How we prioritise features now
 Anyone in the company is allowed to add to the backlog, and at least once a fortnight we prioritise the features using this simple ranking system:
 
-<img src=“https://cdn-images-1.medium.com/max/761/1*GM6floXz5cZdmW1YmaB4zA.png”>
+<img src="https://cdn-images-1.medium.com/max/761/1*GM6floXz5cZdmW1YmaB4zA.png">
 
 * **Impact** — expected creation or protection of revenue or other strategic objective
 * **Ease** — the cost in man-hours to get the job done
